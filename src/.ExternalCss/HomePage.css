@@ -21,14 +21,28 @@ html {
 }
 
 .container-1 {
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* height: 100vh !important; */
+    /* text-align: center; */
+    padding-top: 1%;
+    background-color: #f0f0f0;
+    /* gap: 2rem; */
+    /* position: relative; */
+}
+
+.container-2 {
+    background-color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #f0f0f0;
     text-align: center;
-    padding: 2%;
-    background-color: #F0F0F0;
+    padding: 0% 2%;
     gap: 2rem;
 }
+
 
 .search-bar {
     width: 35% !important;
@@ -52,4 +66,14 @@ html {
     font-family: 'Inria Sans'!important;
     font-size: 1.6rem !important;
     font-weight: 600 !important;
+}
+
+.chat-bot {
+    position: absolute;
+    
+    height: 20%;
+    cursor: pointer;
+    border-radius: 50%;
+    bottom: 10px;
+    right: 10px;
 }
