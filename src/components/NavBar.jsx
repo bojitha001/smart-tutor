@@ -21,7 +21,7 @@ export const Navbar = () => {
                 </ul>
             </nav>
             <div class="nav-buttons">
-                <p class="lang">En</p>
+                <p class="lang">En &#127760;</p>
                 {/* <img class="world" src="img/globe-outline.svg" alt=""> */}
                 <button>
                     <p class="login">Log In</p>
