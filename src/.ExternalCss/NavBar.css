@@ -28,7 +28,11 @@ html {
   font-weight: 700;
 }
 
-
+/* .main-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
 
 .main-nav-list {
     list-style: none;
