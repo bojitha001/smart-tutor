@@ -1,0 +1,46 @@
+.signUp-form .smartTutor-Img{
+    margin:0 0 3% 4%;
+    width: 12%;
+}
+
+.question-form{
+    display: flex;
+    justify-content: center;
+}
+
+#dropdown-gender, #dropdown-degree{
+    background-color: #ffffff;
+    border-color: #D0D0D0;
+    color: #000000;
+    display: flex;
+    padding: 1.5% 0 0 2%;
+    width: 100%;
+}
+
+#dropdown-gender::after, #dropdown-degree::after{
+    color: #000000;
+    position: absolute;
+    top: 45%;
+    right: 10px;
+}
+
+.dropdown-item{
+    font-size: 15px;
+}
+
+.signUp-question-topic{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.signUp-question-descrip{
+    margin-bottom: 1%;
+}
+
+.continue-signup-button{
+    background-color: #5A6DEE !important;
+    color: #ffffff !important;
+    padding: 0 30px 0 30px !important;
+    margin-top: 20px;
+}
+
