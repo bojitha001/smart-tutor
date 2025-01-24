@@ -6,13 +6,15 @@ import { Navbar } from "./components/NavBar";
 import { HomePage } from "./components/HomePage";
 import { SignUpOptions } from "./components/tutorSignUp/SignUpOptions";
 import { SignUpQuestions } from "./components/tutorSignUp/SignUpQuestions";
+import BecomeATutor from "./components/BecomeATutor";
 
 function App() {
   return (
     <>
       <div className="App">
         <Navbar />
-        <HomePage />
+        <BecomeATutor />
+        {/* <HomePage /> */}
 
         {/* <SignUpQuestions/> */}
         {/* <SignUpOptions/> */}
