@@ -2,4 +2,91 @@ html {
     font-size: 62.5%;
 }
 
-.become-a-tutor-container1 {}
+.become-a-tutor-main {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F0F0F0;
+}
+
+.become-a-tutor-container1 {
+    display: flex;
+    height: 50vh;
+    gap: 250px;
+    /* background-color: red; */
+}
+
+
+
+.become-a-tutor-container1-left h1{
+    font-family: 'Lalezar';
+    font-size: 7.8rem;
+    line-height: 7rem;
+    
+}
+
+
+.become-a-tutor-container1-left .heading-primary-main {
+    display: block;
+}
+
+.become-a-tutor-container1-left .heading-primary-sub {
+    display: block;
+}
+
+.heading-primary-sub-tutor {
+    color: #FBBC08 !important;
+}
+
+.heading-secondary  {
+    font-family: 'Inria Sans';
+    font-size: 2.4rem;
+    font-weight: 300;
+}
+
+.become-a-tutor-main-button {
+    background-color: black;
+    color: #fff;
+    padding: 1.2rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    border-radius: 1rem;
+}
+
+.become-a-tutor-timeline {
+    display: flex;
+    justify-content: space-between;
+}
+
+.become-a-tutor-timeline-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-size: 1.8rem;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 0.5rem;
+}
+
+.box-1 {
+    background-color: #FBBC08 ;
+}
+
+.box-2 {
+    background-color: #D9D9D9;
+}
+
+.box-3 {
+    background-color: #D9D9D9;
+}
+
+.become-a-tutor-timeline-txt {
+    display: flex;
+    justify-content: space-between;
+}
+
+.become-a-tutor-container1-right img {
+    height: 100%;
+}
