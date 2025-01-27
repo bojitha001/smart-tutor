@@ -2,18 +2,25 @@ html {
     font-size: 62.5%;
 }
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .become-a-tutor-main {
     height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #F0F0F0;
+    padding: 5rem;
 }
 
 .become-a-tutor-container1 {
     display: flex;
     height: 50vh;
-    gap: 250px;
+    gap: 10rem;
     /* background-color: red; */
 }
 
@@ -43,6 +50,7 @@ html {
     font-family: 'Inria Sans';
     font-size: 2.4rem;
     font-weight: 300;
+    margin-top: -2rem;
 }
 
 .become-a-tutor-main-button {
@@ -52,12 +60,19 @@ html {
     font-size: 1.4rem;
     font-weight: 600;
     border-radius: 1rem;
+    margin-top: 2rem;
 }
 
 .become-a-tutor-timeline {
+    margin-top: 2rem;
     display: flex;
-    justify-content: space-between;
+    gap: 27%;
+    /* justify-content: space-between; */
 }
+
+.become-a-tutor-timeline > .become-a-tutor-timeline-box:nth-of-type(1) {
+    margin-left: 1rem;
+  }
 
 .become-a-tutor-timeline-box {
     display: flex;
@@ -74,6 +89,8 @@ html {
     background-color: #FBBC08 ;
 }
 
+
+
 .box-2 {
     background-color: #D9D9D9;
 }
@@ -82,11 +99,26 @@ html {
     background-color: #D9D9D9;
 }
 
-.become-a-tutor-timeline-txt {
+/* .become-a-tutor-timeline-txt {
     display: flex;
     justify-content: space-between;
-}
+} */
 
 .become-a-tutor-container1-right img {
     height: 100%;
+}
+
+.timeline-txt-1-span {
+    display: block;
+    font-family: 'Inria Sans';
+}
+
+.timeline-txt-1-span-1, .timeline-txt-2-span-1, .timeline-txt-3-span-1 {
+    font-size: 2rem;
+}
+
+.timeline-txt-1-span-2, .timeline-txt-2-span-2, .timeline-txt-3-span-2 {
+    font-size: 1.5rem;
+    font-weight: 100;
+    color: #747474;
 }
