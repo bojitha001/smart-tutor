@@ -91,10 +91,14 @@ body {
 
 .become-a-tutor-container1-left .heading-primary-main {
     display: block;
+    animation-name: moveInLeft;
+    animation-duration: 1.5s;
 }
 
 .become-a-tutor-container1-left .heading-primary-sub {
     display: block;
+    animation-name: moveInLeft;
+    animation-duration: 1.5s;
 }
 
 .heading-primary-sub-tutor {
@@ -195,6 +199,7 @@ body {
     /* background-color: rebeccapurple; */
 }
 
+
 .secondary-titles {
     text-align: center;
     font-family: 'Lalezar';
@@ -247,6 +252,7 @@ body {
     /* background-color: #747474; */
     
 } 
+
 
 .become-a-tutor-third-shadow {
     border-radius: 1rem;
@@ -412,3 +418,16 @@ body {
     color: #0E0E0E;
 }
 
+@keyframes moveInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-10rem);
+    }
+    80% {
+      /* transform: translateX(1.6rem); */
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
