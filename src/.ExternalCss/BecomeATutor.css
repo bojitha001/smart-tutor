@@ -110,6 +110,9 @@ body {
     font-size: 2.4rem;
     font-weight: 300;
     margin-top: -2rem;
+    animation-name: moveInLeftDelay-1;
+    animation-duration: 1.5s;
+    
 }
 
 .become-a-tutor-main-button {
@@ -120,6 +123,8 @@ body {
     font-weight: 600;
     border-radius: 1rem;
     margin-top: 2rem;
+    animation-name: moveInLeftDelay-1;
+    animation-duration: 1.5s;
 }
 
 .become-a-tutor-timeline {
@@ -146,16 +151,21 @@ body {
 
 .box-1 {
     background-color: #FBBC08 ;
+    animation-name: moveInButton;
+    animation-duration: 1s;
 }
-
 
 
 .box-2 {
     background-color: #D9D9D9;
+    animation-name: moveInButtonDelay-1;
+    animation-duration: 1s;
 }
 
 .box-3 {
     background-color: #D9D9D9;
+    animation-name: moveInButtonDelay-2;
+    animation-duration: 1s;
 }
 
 /* .become-a-tutor-timeline-txt {
@@ -174,12 +184,16 @@ body {
 
 .timeline-txt-1-span-1, .timeline-txt-2-span-1, .timeline-txt-3-span-1 {
     font-size: 2rem;
+    animation-name: moveInLeftDelay-1;
+    animation-duration: 1s;
 }
 
 .timeline-txt-1-span-2, .timeline-txt-2-span-2, .timeline-txt-3-span-2 {
     font-size: 1.5rem;
     font-weight: 100;
     color: #747474;
+    animation-name: moveInLeftDelay-2;
+    animation-duration: 1s;
 }
 
 
@@ -425,6 +439,68 @@ body {
     }
     80% {
       /* transform: translateX(1.6rem); */
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes moveInLeftDelay-1 {
+    0% {
+      opacity: 0;
+      transform: translateX(-20rem);
+    }
+    80% {
+      /* transform: translateX(1.6rem); */
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes moveInLeftDelay-2 {
+    0% {
+      opacity: 0;
+      transform: translateX(-20rem);
+    }
+    80% {
+      /* transform: translateX(1.6rem); */
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+
+  @keyframes moveInButton {
+    0% {
+      opacity: 0;
+      transform: translateY(4rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes moveInButtonDelay-1 {
+    0% {
+      opacity: 0;
+      transform: translateY(8rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes moveInButtonDelay-2 {
+    0% {
+      opacity: 0;
+      transform: translateY(12rem);
     }
     100% {
       opacity: 1;
