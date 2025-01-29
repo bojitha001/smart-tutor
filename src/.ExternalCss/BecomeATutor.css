@@ -151,20 +151,20 @@ body {
 
 .box-1 {
     background-color: #FBBC08 ;
-    animation-name: moveInButton;
+    animation-name: moveInLeftDelay-2;
     animation-duration: 1s;
 }
 
 
 .box-2 {
     background-color: #D9D9D9;
-    animation-name: moveInButtonDelay-1;
+    animation-name: moveInLeftDelay-2;
     animation-duration: 1s;
 }
 
 .box-3 {
     background-color: #D9D9D9;
-    animation-name: moveInButtonDelay-2;
+    animation-name: moveInLeftDelay-2;
     animation-duration: 1s;
 }
 
