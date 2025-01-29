@@ -107,29 +107,32 @@ const BecomeATutor = () => {
         </div>
       </div>
 
-      <div className="become-a-tutor-third">
-        <p className="become-a-tutor-third-main-title max-width-container secondary-titles">
-          Smart Tutor solutions in numbers
-        </p>
-        <div className="become-a-tutor-third-shadow max-width-container grid grid-4-cols">
-          <div className="solutions-in-numbers">
-            <p className="solutions-in-numbers-title">1000+</p>
-            <p className="solutions-in-numbers-des">Registrations</p>
-          </div>
+      <div className="become-a-tutor-third ">
+        <div className="become-a-tutor-third-center max-width-container">
+          
+          <p className="become-a-tutor-third-main-title max-width-container secondary-titles">
+            Smart Tutor solutions in numbers
+          </p>
+          <div className="become-a-tutor-third-shadow max-width-container grid grid-4-cols">
+            <div className="solutions-in-numbers">
+              <p className="solutions-in-numbers-title">1000+</p>
+              <p className="solutions-in-numbers-des">Registrations</p>
+            </div>
 
-          <div className="solutions-in-numbers">
-            <p className="solutions-in-numbers-title">1000+</p>
-            <p className="solutions-in-numbers-des">Successfull works</p>
-          </div>
+            <div className="solutions-in-numbers">
+              <p className="solutions-in-numbers-title">1000+</p>
+              <p className="solutions-in-numbers-des">Successfull works</p>
+            </div>
 
-          <div className="solutions-in-numbers">
-            <p className="solutions-in-numbers-title">50+</p>
-            <p className="solutions-in-numbers-des">Centers</p>
-          </div>
+            <div className="solutions-in-numbers">
+              <p className="solutions-in-numbers-title">50+</p>
+              <p className="solutions-in-numbers-des">Centers</p>
+            </div>
 
-          <div className="solutions-in-numbers">
-            <p className="solutions-in-numbers-title">100+</p>
-            <p className="solutions-in-numbers-des">Centers</p>
+            <div className="solutions-in-numbers">
+              <p className="solutions-in-numbers-title">100+</p>
+              <p className="solutions-in-numbers-des">Centers</p>
+            </div>
           </div>
         </div>
       </div>

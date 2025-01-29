@@ -258,20 +258,26 @@ body {
 
 .become-a-tutor-third {
     height: 50vh;
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #F0F0F0;
-    padding: 5rem;
-    /* background-color: #747474; */
+    /* padding: 5rem; */
+    /* background-color: #FBBC08; */
     
 } 
+
+.become-a-tutor-third-center {
+    /* display: flex; */
+    /* background-color: #0E0E0E; */
+}
 
 
 .become-a-tutor-third-shadow {
     border-radius: 1rem;
     /* box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.1); */
     border: 1px solid #989898;
+
 }
 
 
