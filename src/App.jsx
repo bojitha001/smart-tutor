@@ -7,10 +7,11 @@ import { HomePage } from "./components/HomePage";
 import { SignUpOptions } from "./components/tutorSignUp/SignUpOptions";
 import { SignUpQuestions } from "./components/tutorSignUp/SignUpQuestions";
 import BecomeATutor from "./components/BecomeATutor";
-import Test from "./components/Test";
-import Test1 from "./components/tutorDashboard/Test1";
-import Sidebar from "./components/tutorDashboard/Sidebar";
+
+
 import { BrowserRouter as Router } from 'react-router-dom';
+import Sidebar from "./components/tutorDashboard/Sidebar";
+import SelectingSubjects from "./components/Parent/Student/SelectingSubjects";
 
 
 function App() {
@@ -19,16 +20,15 @@ function App() {
       <div className="App">
          {/* <Navbar /> */}
         {/* <BecomeATutor />  */}
-        {/* <Sidebar/> */}
+        {/* <Sidebar /> */}
         {/* <HomePage /> */}
-
+        <SelectingSubjects />
         {/* <SignUpQuestions/> */}
         {/* <SignUpOptions/> */}
-        {/* <Test/> */}
-        {/* <Test1/> */}
-        <Router>
-          <Sidebar/>
-        </Router>
+        
+        
+          {/* <Sidebar/> */}
+        
         
 
       </div>
