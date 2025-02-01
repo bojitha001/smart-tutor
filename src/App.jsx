@@ -22,8 +22,8 @@ function App() {
         {/* <BecomeATutor />  */}
         {/* <Sidebar /> */}
         {/* <HomePage /> */}
-        <SelectingSubjects />
-        {/* <SignUpQuestions/> */}
+        {/* <SelectingSubjects /> */}
+        <SignUpQuestions/>
         {/* <SignUpOptions/> */}
         
         

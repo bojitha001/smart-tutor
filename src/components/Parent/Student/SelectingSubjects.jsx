@@ -10,7 +10,7 @@ const subjects = [
   { subject: "physics", img: rocket },
   { subject: "Biology", img: plant },
   { subject: "Maths", img: maths },
-  { subject: "Chemestry", img: chem },
+  { subject: "Chemistry", img: chem },
 ];
 
 const SelectingSubjects = () => {
