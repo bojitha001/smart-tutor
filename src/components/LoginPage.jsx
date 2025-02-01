@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { auth, googleProvider, db } from "../config/firebase";
 import { signInWithEmailAndPassword, signInWithPopup} from 'firebase/auth';
+import { doc, getDoc } from "firebase/firestore"; //Import Firestore functions
 import '../.ExternalCss/LoginPage.css';
 import smartTutorImage from '../assets/images/smartTutor.svg';
 import signInImage from '../assets/images/mainImg.png';
@@ -13,9 +14,27 @@ export const SignInAuth = () => {
     const signIn = async(e) => {
         e.preventDefault(); // Stop form from reloading the page
         try{
-            await signInWithEmailAndPassword(auth, email, password);
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+
+            const userRef = doc(db, "UserDetails", user.uid);
+            const userDoc = await getDoc(userRef);
+
+            if (userDoc.exists()) {
+                console.log("User details from Firestore:", userDoc.data());
+                alert("Welcome back, " + userDoc.data().firstName);
+            } else {
+                alert("User authenticated but no details found in Firestore.");
+            }
         }
         catch(err){
+            if (err.code === "auth/user-not-found") {
+                alert("No user found with this email. Please sign up first.");
+            } else if (err.code === "auth/wrong-password") {
+                alert("Incorrect password. Please try again.");
+            } else {
+                alert("Error signing in: " + err.message);
+            }
             console.error(err);
         }
     }
@@ -23,9 +42,27 @@ export const SignInAuth = () => {
     //Sign In with Google
     const signInWithGoogle = async() => {
         try{
-            await signInWithPopup(auth, googleProvider);
+            const userCredential = await signInWithPopup(auth, googleProvider);
+            const user = userCredential.user;
+
+            const userRef = doc(db, "UserDetails", user.uid);
+            const userDoc = await getDoc(userRef);
+
+            if (userDoc.exists()) {
+                console.log("User details from Firestore:", userDoc.data());
+                alert("Welcome back, " + userDoc.data().firstName);
+            } else {
+                alert("User authenticated but no details found in Firestore.");
+            }
         }
         catch(err){
+            if (err.code === "auth/user-not-found") {
+                alert("No user found with this email. Please sign up first.");
+            } else if (err.code === "auth/wrong-password") {
+                alert("Incorrect password. Please try again.");
+            } else {
+                alert("Error signing in: " + err.message);
+            }
             console.error(err);
         }
     }

@@ -25,14 +25,26 @@ export const SignUpOptions = (props) => {
     const [confirmPassword, setConfirmPassword] = useState("");
 
     const saveUserToFirestore = async (user) => {
-        const userRef = doc(db, "TutorDetails", user.uid); // Create a reference to the user document
-        const userExist = await getDoc(userRef);
-        if(userExist.exists()){//Checks whether an account with the respective email already exists
+        const tutorRef = doc(db, "TutorDetails", user.uid); // Create a reference to the tutor collection
+        const userRef = doc(db, "UserDetails", user.uid); // Create a reference to the tutor collection
+        const TutorExist = await getDoc(tutorRef);
+        if(TutorExist.exists()){//Checks whether an account with the respective email already exists
             console.log("An account with this email already exists!");
             alert("An account with this email already exists!");
             return;
         }
         else{
+            await setDoc(tutorRef, {
+                uid: user.uid,
+                firstName: firstName,
+                lastName: lastName,
+                dateOfBirth: dateOfBirth,
+                phoneNumber: phoneNumber,
+                gender: gender,
+                degree: degree,
+                email: user.email,
+                createdAt: new Date() 
+            });
             await setDoc(userRef, {
                 uid: user.uid,
                 firstName: firstName,
