@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 // import { SignUpAuth } from "./components/SignUpAuth";
 import { Navbar } from "./components/NavBar";
 import { HomePage } from "./components/HomePage";
+import { SignInAuth } from "./components/LoginPage";
 import { SignUpOptions } from "./components/tutorSignUp/SignUpOptions";
 import { SignUpQuestions } from "./components/tutorSignUp/SignUpQuestions";
 import BecomeATutor from "./components/BecomeATutor";
@@ -22,9 +23,10 @@ function App() {
         {/* <BecomeATutor />  */}
         {/* <Sidebar /> */}
         {/* <HomePage /> */}
-        <SelectingSubjects />
-        {/* <SignUpQuestions/> */}
+        {/* <SelectingSubjects /> */}
+        <SignUpQuestions/>
         {/* <SignUpOptions/> */}
+        <SignInAuth/>
         
         
           {/* <Sidebar/> */}
