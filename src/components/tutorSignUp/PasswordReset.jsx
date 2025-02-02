@@ -1,5 +1,5 @@
-import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import { useState } from "react";
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import { getFirestore, collection, query, where, getDocs } from "firebase/firestore"; //Import Firestore functions
 
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
@@ -60,39 +60,30 @@ export const ResetPassword = () => {
 
     return(
         <>
-            {/* <FloatingLabel controlId="floatingInput" label="Email address" className="mb-3">
-                <Form.Control
-                type="email"
-                placeholder="name@example.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                />
-            </FloatingLabel>
-            <Button variant="primary" onClick={handleResetPassword}>
-                Send Reset Email
-            </Button> */}
-            <Form onSubmit={handleResetPassword}>
-            <FloatingLabel 
-                controlId="floatingInput" 
-                label="Email address" 
-                className="mb-3"
-            >
-                <Form.Control
-                    type="email"
-                    placeholder="name@example.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    disabled={loading}
-                />
-            </FloatingLabel>
-            <Button 
-                variant="primary" 
-                type="submit"
-                disabled={loading}
-            >
-                {loading ? 'Sending...' : 'Send Reset Email'}
-            </Button>
-        </Form>
+            <div>
+                <Form onSubmit={handleResetPassword}>
+                    <FloatingLabel 
+                        controlId="floatingInput" 
+                        label="Email address" 
+                        className="mb-3"
+                    >
+                        <Form.Control
+                            type="email"
+                            placeholder="name@example.com"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            disabled={loading}
+                        />
+                    </FloatingLabel>
+                    <Button 
+                        variant="primary" 
+                        type="submit"
+                        disabled={loading}
+                    >
+                        {loading ? 'Sending...' : 'Send Reset Email'}
+                    </Button>
+                </Form>
+            </div>
         </>
     );
 }
