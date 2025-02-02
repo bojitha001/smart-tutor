@@ -8,11 +8,12 @@ import { SignInAuth } from "./components/LoginPage";
 import { SignUpOptions } from "./components/tutorSignUp/SignUpOptions";
 import { SignUpQuestions } from "./components/tutorSignUp/SignUpQuestions";
 import BecomeATutor from "./components/BecomeATutor";
+import { ResetPassword } from "./components/tutorSignUp/PasswordReset";
 
 
 import { BrowserRouter as Router } from 'react-router-dom';
 import Sidebar from "./components/tutorDashboard/Sidebar";
-import SelectingSubjects from "./components/Parent/Student/SelectingSubjects";
+// import SelectingSubjects from "./components/Parent/Student/SelectingSubjects";
 
 
 function App() {
@@ -24,10 +25,10 @@ function App() {
         {/* <Sidebar /> */}
         {/* <HomePage /> */}
         {/* <SelectingSubjects /> */}
-        <SignUpQuestions/>
+        {/* <SignUpQuestions/> */}
         {/* <SignUpOptions/> */}
-        <SignInAuth/>
-        
+        {/* <SignInAuth/> */}
+        <ResetPassword/>
         
           {/* <Sidebar/> */}
         
