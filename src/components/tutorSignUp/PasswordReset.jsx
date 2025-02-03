@@ -63,7 +63,7 @@ export const ResetPassword = () => {
         
         <div className={styles.container}>
             <div className={styles.logo}>SMART <span>TUTOR</span></div>
-            <div className={styles.glassBox}>
+            <div className={styles.box}>
                 <h2 className={styles.title}>Enter Your Email Address To Reset Your Password</h2>
                 <Form onSubmit={handleResetPassword} className={styles.form}>
                     <FloatingLabel 
