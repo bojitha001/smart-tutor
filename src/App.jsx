@@ -1,6 +1,6 @@
 // import "./App.css";
 // import "./index.css";
-// import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap.css";
 // import { SignUpAuth } from "./components/SignUpAuth";
 import styles from "../src/.ExternalCss/Sidebar.module.css";
 import { Navbar } from "./components/NavBar";
@@ -19,13 +19,13 @@ function App() {
   return (
     <>
     
-      <div className="App">
-          <Navbar />
-         {/* <BecomeATutor />    */}
+      {/* <div className="App"> */}
+          {/* <Navbar />
+         <BecomeATutor />    */}
         {/* <Sidebar/> */}
         {/* <HomePage /> */}
         {/* <SelectingSubjects /> */}
-        <SignUpQuestions/>
+        {/* <SignUpQuestions/> */}
         {/* <SignUpOptions/> */}
         {/* <Test/> */}
         {/* <Test1/> */}
@@ -36,15 +36,15 @@ function App() {
        
         
 
-      </div>
+      {/* </div> */}
 
 
-      {/* <Router>
+      <Router>
       <div className={styles.app}>
         <Sidebar />
         <MainContent />
       </div>
-    </Router> */}
+    </Router>
       
       
     </>
