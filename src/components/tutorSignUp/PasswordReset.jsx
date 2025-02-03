@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import { getFirestore, collection, query, where, getDocs } from "firebase/firestore"; //Import Firestore functions
-import '../../.ExternalCss/PasswordReset.css';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Button from "react-bootstrap/Button";
