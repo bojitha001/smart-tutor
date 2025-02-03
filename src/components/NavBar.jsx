@@ -1,16 +1,16 @@
 import React from "react";
-import "../.ExternalCss/NavBar.css";
+import styles from "../.ExternalCss/NavBar.module.css";
 
 export const Navbar = () => {
   return (
-    <div className="header">
-      <div class="logo">
+    <div className={styles.header}>
+      <div class={styles.logo}>
         <p>
-          SMART<span class="smart">TUTOR</span>
+          SMART<span class={styles.smart}>TUTOR</span>
         </p>
       </div>
-      <nav class="main-nav">
-        <ul class="main-nav-list">
+      <nav class={`${styles["main-nav"]}`}>
+        <ul class={`${styles["main-nav-list"]}`}>
           <li>Find a Tutor</li>
           <li>.</li>
           <li>Resources</li>
@@ -20,14 +20,14 @@ export const Navbar = () => {
           <li>Become a Tutor</li>
         </ul>
       </nav>
-      <div class="nav-buttons">
-        <p class="lang">&#127760; En</p>
+      <div class={`${styles["nav-buttons"]}`}>
+        <p class={`${styles["lang"]}`}>&#127760; En</p>
         {/* <img class="world" src="img/globe-outline.svg" alt=""> */}
         <button>
-          <p class="login">Log In</p>
+          <p class={`${styles["login"]}`}>Log In</p>
         </button>
         <button>
-          <p class="signup">Sign up</p>
+          <p class={`${styles["signup"]}`}>Sign up</p>
         </button>
       </div>
     </div>
