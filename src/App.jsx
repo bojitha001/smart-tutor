@@ -3,7 +3,7 @@
 // import "bootstrap/dist/css/bootstrap.css";
 // import "bootstrap/dist/css/bootstrap.css";
 // import { SignUpAuth } from "./components/SignUpAuth";
-import styles from "../src/.ExternalCss/Sidebar.module.css";
+import styles from "../src/.ExternalCss/TutorMainView.module.css";
 import { Navbar } from "./components/NavBar";
 import { HomePage } from "./components/HomePage";
 import { SignInAuth } from "./components/LoginPage";
@@ -22,8 +22,8 @@ function App() {
     <>
     
       <div className="App"> 
-          {/* <Navbar />
-         <BecomeATutor />    */}
+          {/* <Navbar /> */}
+         {/* <BecomeATutor />    */}
         {/* <Sidebar/> */}
         {/* <HomePage /> */}
         {/* <SelectingSubjects /> */}
@@ -31,7 +31,7 @@ function App() {
         {/* <SignUpQuestions/> */}
         {/* <SignUpOptions/> */}
         {/* <SignInAuth/> */}
-        <ResetPassword/>
+        {/* <ResetPassword/> */}
         
         
           {/* <Sidebar/> */}

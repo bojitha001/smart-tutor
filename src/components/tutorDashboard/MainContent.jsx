@@ -4,7 +4,7 @@ import { IoSearch } from "react-icons/io5";
 import Calendar from 'react-calendar';
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import 'react-calendar/dist/Calendar.css';
-import styles from "../../.ExternalCss/Sidebar.module.css";
+import styles from "../../.ExternalCss/TutorMainView.module.css";
 
 
 function MainContent() {
