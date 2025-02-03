@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import { getFirestore, collection, query, where, getDocs } from "firebase/firestore"; //Import Firestore functions
-
+import '../../.ExternalCss/PasswordReset.css';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Button from "react-bootstrap/Button";
+import Stack from 'react-bootstrap/Stack';
 
 export const ResetPassword = () => {
     const [email, setEmail] = useState("");
@@ -62,26 +63,30 @@ export const ResetPassword = () => {
         <>
             <div>
                 <Form onSubmit={handleResetPassword}>
-                    <FloatingLabel 
-                        controlId="floatingInput" 
-                        label="Email address" 
-                        className="mb-3"
-                    >
-                        <Form.Control
-                            type="email"
-                            placeholder="name@example.com"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                    <Stack gap={2} className="col-md-5 mx-auto">
+                        <FloatingLabel 
+                            controlId="floatingInput" 
+                            label="Email address" 
+                            className="mb-3"
+                        >
+                            <Form.Control
+                                type="email"
+                                placeholder="name@example.com"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                disabled={loading}
+                            />
+                        </FloatingLabel>
+                        <Button 
+                            variant="primary" 
+                            type="submit"
                             disabled={loading}
-                        />
-                    </FloatingLabel>
-                    <Button 
-                        variant="primary" 
-                        type="submit"
-                        disabled={loading}
-                    >
-                        {loading ? 'Sending...' : 'Send Reset Email'}
-                    </Button>
+                            className="reset-password-button"
+                        >
+                            {loading ? 'Sending...' : 'Send Reset Email'}
+                        </Button>
+                        <Button variant="outline-secondary" size="sm" className="reset-password-button">Cancel</Button>
+                    </Stack>    
                 </Form>
             </div>
         </>
