@@ -31,7 +31,7 @@ function App() {
         {/* <SignUpQuestions/> */}
         {/* <SignUpOptions/> */}
         {/* <SignInAuth/> */}
-        <ResetPassword/>
+        {/* <ResetPassword/> */}
         
         
           {/* <Sidebar/> */}
@@ -41,12 +41,12 @@ function App() {
       </div>
 
 
-      {/* <Router>
+      <Router>
       <div className={styles.app}>
         <Sidebar />
         <MainContent/>
       </div>
-    </Router> */}
+    </Router>
       
       
     </>
