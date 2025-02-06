@@ -13,7 +13,7 @@ import BecomeATutor from "./components/BecomeATutor";
 import { ResetPassword } from "./components/tutorSignUp/PasswordReset";
 import { BrowserRouter as Router } from 'react-router-dom';
 import Sidebar from "./components/tutorDashboard/Sidebar";
-import DashBoard from "./components/Dashbaord/DashboardClasses"
+// import DashBoard from "./components/Dashbaord/DashboardClasses"
 import DashboardClasses from "./components/Dashbaord/DashboardClasses";
 // import MainContent from "./components/tutorDashboard/MainContent";
 // import SelectingSubjects from "./components/Parent/Student/SelectingSubjects";
@@ -23,19 +23,9 @@ import DashboardClasses from "./components/Dashbaord/DashboardClasses";
 function App() {
   return (
     <>
- VihanSt
-      <div className="App">
-        <Navbar />
-        {/* <BecomeATutor /> */}
-        <HomePage />
-
-        {/* <SignUpQuestions/> */}
-        {/* <SignUpOptions/> */}
-        
-
-    
+ 
       <div className="App"> 
-          {/* <Navbar /> */}
+          <Navbar />
          {/* <BecomeATutor />    */}
         {/* <Sidebar/> */}
         {/* <HomePage /> */}
@@ -45,8 +35,8 @@ function App() {
         {/* <SignUpOptions/> */}
         {/* <SignInAuth/> */}
         {/* <ResetPassword/> */}
-        
         <DashboardClasses/>
+        
           {/* <Sidebar/> */}
         
         
