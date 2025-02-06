@@ -1,7 +1,11 @@
 // import React from "react";
 // import {
 //     Bell,
+
+//     Calender,
+
 //     Calender, 
+
 //     ChervonLeft,
 //     ChervonRighht,
 //     GraduationCap,
@@ -11,7 +15,11 @@
 //     Settings,
 //     Wallet
 // } from 'lucide-react';
+
+// import './styles.css';
+
 // import '../../.ExternalCss/dashboardClasses.css';
+
 
 
 // // Side Bar and Navigation bar from Garuka
@@ -19,7 +27,11 @@
 
 
 // //Main content
+
+// <main className="main-content">
+
 // <main className="main-content"> 
+
 //     <header className="header">
 //         <div className="search-container">
 //             <input
@@ -197,4 +209,8 @@ function DashboardClasses() {
     );
 }
 
+
 export default DashboardClasses;
+
+export default DashboardClasses;
+
