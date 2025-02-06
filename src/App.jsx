@@ -12,18 +12,18 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/tutorDashboard/Sidebar";
 
 
-import DashboardClasses from "./components/Dashbaord/dashboardClasses";
+import DashboardClasses from "./components/Dashbaord/DashboardClasses";
 // import DashBoard from "../components/Dashbaord/DashboardClasses"
 
 
 // import DashBoard from "./components/Dashbaord/DashboardClasses"
-import DashboardClasses from "./components/Dashbaord/DashboardClasses";
+
 
 // import MainContent from "./components/tutorDashboard/MainContent";
 
-import MainContent from "./components/tutorDashboard/MainContent";
-import StudentView from "./components/tutorDashboard/StudentSection";
-import DashboardClasses from "./components/Dashbaord/DashboardClasses";
+// import MainContent from "../components/tutorDashboard/MainContent";
+// import StudentView from "../components/tutorDashboard/StudentSection";
+
 
 // import SelectingSubjects from "./components/Parent/Student/SelectingSubjects";
 
@@ -31,15 +31,6 @@ import DashboardClasses from "./components/Dashbaord/DashboardClasses";
 
 function App() {
   return (
-
-    
- 
-     
-        
-
-
-    <>
- 
 
       <div className="App"> 
           {/* <Navbar />
@@ -56,14 +47,13 @@ function App() {
         
        <DashboardClasses />
 
-        <DashboardClasses/>
         
 
           {/* <Sidebar/> */}
         
         
 
-      </div>
+      
 
 
 
@@ -90,7 +80,7 @@ function App() {
       </div>
     </Router> */}
 
-      
+</div>
   
   );
 }
