@@ -14,7 +14,7 @@ import { ResetPassword } from "./components/tutorSignUp/PasswordReset";
 import { BrowserRouter as Router } from 'react-router-dom';
 import Sidebar from "./components/tutorDashboard/Sidebar";
 // import DashBoard from "./components/Dashbaord/DashboardClasses"
-import DashboardClasses from "./components/Dashbaord/DashboardClasses";
+import DashboardClasses from "./components/Dashboard/DashboardClasses";
 // import MainContent from "./components/tutorDashboard/MainContent";
 // import SelectingSubjects from "./components/Parent/Student/SelectingSubjects";
 
