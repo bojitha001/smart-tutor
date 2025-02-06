@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/tutorDashboard/Sidebar";
 import MainContent from "./components/tutorDashboard/MainContent";
 import StudentView from "./components/tutorDashboard/StudentSection";
+import DashboardClasses from "./components/Dashbaord/DashboardClasses";
 // import SelectingSubjects from "./components/Parent/Student/SelectingSubjects";
 
 
@@ -49,7 +50,7 @@ function App() {
     </Router> */}
       
 
-      <Router>
+      {/* <Router>
       <div className={styles.app}>
         <Sidebar/>
         <Routes>
@@ -58,7 +59,7 @@ function App() {
             <Route path="/students" element={<StudentView />} />
         </Routes>
       </div>
-    </Router>
+    </Router> */}
       
     </>
   );

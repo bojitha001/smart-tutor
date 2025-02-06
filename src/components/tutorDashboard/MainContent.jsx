@@ -44,8 +44,7 @@ function MainContent() {
                 <div className={`${styles["profile-name"]}`}>Sarah Perera</div>
                 <div className={`${styles["profile-username"]}`}>@sarah123</div>
               </div>
-            </div><div className={`${styles["profile-name"]}`}>Sarah Perera</div>
-                <div className={`${styles["profile-username"]}`}>@sarah123</div>
+            </div>
           </div>
         </header>
   
