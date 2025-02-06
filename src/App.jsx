@@ -15,10 +15,11 @@ import StudentView from "./components/tutorDashboard/StudentSection";
 // import SelectingSubjects from "./components/Parent/Student/SelectingSubjects";
 
 
+
 function App() {
   return (
     <>
-    
+ 
       <div className="App"> 
           {/* <Navbar />
          <BecomeATutor />    */}
@@ -30,7 +31,7 @@ function App() {
         {/* <SignUpOptions/> */}
         {/* <SignInAuth/> */}
         {/* <ResetPassword/> */}
-        
+        <DashboardClasses/>
         
           {/* <Sidebar/> */}
         
