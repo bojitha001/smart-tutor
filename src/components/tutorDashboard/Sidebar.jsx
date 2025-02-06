@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import styles from "../../.ExternalCss/Sidebar.module.css";
+import styles from "../../.ExternalCss/TutorMainView.module.css";
 import userIcon from "../../assets/images/User.png";
 import teacherIcon from "../../assets/images/Teacher.png";
 import studentIcon from "../../assets/images/Student Male.png";
