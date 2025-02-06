@@ -19,9 +19,20 @@ import DashboardClasses from "./components/Dashbaord/DashboardClasses";
 // import SelectingSubjects from "./components/Parent/Student/SelectingSubjects";
 
 
+
 function App() {
   return (
     <>
+ VihanSt
+      <div className="App">
+        <Navbar />
+        {/* <BecomeATutor /> */}
+        <HomePage />
+
+        {/* <SignUpQuestions/> */}
+        {/* <SignUpOptions/> */}
+        
+
     
       <div className="App"> 
           {/* <Navbar /> */}
@@ -47,6 +58,7 @@ function App() {
       <div className={styles.app}>
         <Sidebar />
         <MainContent/>
+ main
       </div>
     </Router> */}
       
