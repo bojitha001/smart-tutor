@@ -11,7 +11,7 @@ import { SignUpOptions } from "./components/tutorSignUp/SignUpOptions";
 import { SignUpQuestions } from "./components/tutorSignUp/SignUpQuestions";
 import BecomeATutor from "./components/BecomeATutor";
 import { ResetPassword } from "./components/tutorSignUp/PasswordReset";
-
+import MainContent from "./components/tutorDashboard/MainContent";
 
 import { BrowserRouter as Router } from 'react-router-dom';
 import Sidebar from "./components/tutorDashboard/Sidebar";
@@ -22,9 +22,9 @@ function App() {
   return (
     <>
     
-      {/* <div className="App"> */}
-          {/* <Navbar />
-         <BecomeATutor />    */}
+      <div className="App">
+           {/* <Navbar /> */}
+         {/* <BecomeATutor />    */} 
         {/* <Sidebar/> */}
         {/* <HomePage /> */}
         {/* <SelectingSubjects /> */}
@@ -32,22 +32,22 @@ function App() {
         {/* <SignUpQuestions/> */}
         {/* <SignUpOptions/> */}
         {/* <SignInAuth/> */}
-        <ResetPassword/>
+        {/* <ResetPassword/> */}
         
         
           {/* <Sidebar/> */}
         
         
 
-      {/* </div> */}
+      </div>
 
 
-      <Router>
+      <Router> 
       <div className={styles.app}>
         <Sidebar />
         <MainContent />
       </div>
-    </Router>
+     </Router>
       
       
     </>

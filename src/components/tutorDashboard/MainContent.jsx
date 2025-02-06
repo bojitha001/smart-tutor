@@ -50,7 +50,7 @@ function MainContent() {
       <div className={`${styles["main-content-left"]}`}>
         <div className={`${styles["welcome-banner"]}`}>
           <div className={`${styles["welcome-text"]}`}>
-            <h1>Welcome Back, Sarah!</h1>
+            <h1 >Welcome Back, Sarah!</h1>
             <p>Let's share your knowledge</p>
           </div>
           <img src="https://via.placeholder.com/200" alt="Welcome" />
