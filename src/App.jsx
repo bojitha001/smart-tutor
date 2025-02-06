@@ -1,6 +1,6 @@
 // import "./App.css";
 // import "./index.css";
-// import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap.css";
 // import "bootstrap/dist/css/bootstrap.css";
 // import { SignUpAuth } from "./components/SignUpAuth";
 import styles from "../src/.ExternalCss/TutorMainView.module.css";
@@ -13,7 +13,7 @@ import BecomeATutor from "./components/BecomeATutor";
 import { ResetPassword } from "./components/tutorSignUp/PasswordReset";
 import { BrowserRouter as Router } from 'react-router-dom';
 import Sidebar from "./components/tutorDashboard/Sidebar";
-import MainContent from "./components/tutorDashboard/MainContent";
+// import MainContent from "./components/tutorDashboard/MainContent";
 // import SelectingSubjects from "./components/Parent/Student/SelectingSubjects";
 
 
@@ -28,7 +28,7 @@ function App() {
         {/* <HomePage /> */}
         {/* <SelectingSubjects /> */}
         {/* <SignUpQuestions/> */}
-        {/* <SignUpQuestions/> */}
+        <SignUpQuestions/>
         {/* <SignUpOptions/> */}
         {/* <SignInAuth/> */}
         {/* <ResetPassword/> */}
