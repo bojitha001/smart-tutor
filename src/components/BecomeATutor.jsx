@@ -42,7 +42,7 @@ const BecomeATutor = () => {
                 <span className={`${styles["timeline-txt-1-span"]} ${styles["timeline-txt-1-span-1"]} col`}>
                   Get Approved
                 </span>
-                <span className={`col ${styles["timeline-txt-1-span"]} ${styles["timeline-txt-2-span-2"]} col`}>
+                <span className={`${styles["timeline-txt-1-span"]} ${styles["timeline-txt-2-span-2"]} col`}>
                   by our team
                 </span>
               </div>

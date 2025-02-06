@@ -5,6 +5,7 @@ import Calendar from 'react-calendar';
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import 'react-calendar/dist/Calendar.css';
 import styles from "../../.ExternalCss/TutorMainView.module.css";
+import testImg from "../../assets/images/Avatar1.jpg"; 
 
 
 function MainContent() {
@@ -38,12 +39,13 @@ function MainContent() {
           <div className={`${styles["profile-section"]}`}>
             <FaBell className={`${styles["notification-icon"]}`} />
             <div className={`${styles["profile-info"]}`}>
-              <img src="https://via.placeholder.com/40" alt="Profile" className={`${styles["profile-pic"]}`} />
+              <img src={testImg} alt="Profile" className={`${styles["profile-pic"]}`} />
               <div>
                 <div className={`${styles["profile-name"]}`}>Sarah Perera</div>
                 <div className={`${styles["profile-username"]}`}>@sarah123</div>
               </div>
-            </div>
+            </div><div className={`${styles["profile-name"]}`}>Sarah Perera</div>
+                <div className={`${styles["profile-username"]}`}>@sarah123</div>
           </div>
         </header>
   
@@ -53,7 +55,7 @@ function MainContent() {
               <h1>Welcome Back, Sarah!</h1>
               <p>Let's share your knowledge</p>
             </div>
-            <img src="https://via.placeholder.com/200" alt="Welcome" />
+            <img src={testImg} alt="Welcome" />
           </div>
   
           <div className={styles.statistics}>
@@ -147,14 +149,14 @@ function MainContent() {
             </div>
             <div className={`${styles["ad-cards"]}`}>
               <div className={`${styles["ad-card"]}`}>
-                <img src="https://via.placeholder.com/300x200" alt="Mathematics Class" />
+                <img src={testImg} alt="Mathematics Class" />
                 <div className={`${styles["ad-content"]}`}>
                   <h4>Mathematics Class</h4>
                   <p>Advanced calculus for Grade 12 students</p>
                 </div>
               </div>
               <div className={`${styles["ad-card"]}`}>
-                <img src="https://via.placeholder.com/300x200" alt="Physics Class" />
+                <img src={testImg} alt="Physics Class" />
                 <div className={`${styles["ad-content"]}`}>
                   <h4>Physics Class</h4>
                   <p>Mechanics and dynamics for Grade 11 students</p>
@@ -186,6 +188,18 @@ function MainContent() {
               <div className={styles.announcement}>
                 <h4>New Class Schedule</h4>
                 <p>Physics class rescheduled to Friday 4 PM</p>
+              </div>
+              <div className={styles.announcement}>
+                <h4>Exam Preparation</h4>
+                <p>Special session for A/L students next week</p>
+              </div>
+              <div className={styles.announcement}>
+                <h4>Exam Preparation</h4>
+                <p>Special session for A/L students next week</p>
+              </div>
+              <div className={styles.announcement}>
+                <h4>Exam Preparation</h4>
+                <p>Special session for A/L students next week</p>
               </div>
               <div className={styles.announcement}>
                 <h4>Exam Preparation</h4>
