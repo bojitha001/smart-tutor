@@ -8,16 +8,18 @@ import { SignUpOptions } from "./components/tutorSignUp/SignUpOptions";
 import { SignUpQuestions } from "./components/tutorSignUp/SignUpQuestions";
 import BecomeATutor from "./components/BecomeATutor";
 
+
 function App() {
   return (
     <>
       <div className="App">
         <Navbar />
-        <BecomeATutor />
-        {/* <HomePage /> */}
+        {/* <BecomeATutor /> */}
+        <HomePage />
 
         {/* <SignUpQuestions/> */}
         {/* <SignUpOptions/> */}
+        
       </div>
     </>
   );
