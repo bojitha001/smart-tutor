@@ -2,31 +2,49 @@ import { useState } from "react";
 import { auth, googleProvider, db } from "../../config/firebase";
 import {createUserWithEmailAndPassword, signInWithPopup} from 'firebase/auth';
 import { doc, setDoc, getDoc } from "firebase/firestore"; 
-import '../../.ExternalCss/SignUpOptions.css';
+import '../../.ExternalCss/SignUpOptions.module.css';
 import smartTutorImage from "../../assets/images/smartTutor.svg";
 import signUpImage from "../../assets/images/signupPage.svg";
 import googleImage from "../../assets/images/google.png";
 
-export const SignUpOptions = () => {
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [dateOfBirth, setDateOfBirth] = useState("");
-    const [phoneNumber, setPhoneNumber] = useState("");
+export const SignUpOptions = (props) => {
+    // const [firstName, setFirstName] = useState("");
+    // const [lastName, setLastName] = useState("");
+    // const [dateOfBirth, setDateOfBirth] = useState("");
+    // const [phoneNumber, setPhoneNumber] = useState("");
+    const firstName = props.firstName;
+    const lastName = props.lastName;
+    const dateOfBirth = props.dateOfBirth;
+    const phoneNumber = props.phoneNumber;
+    const gender = props.gender;
+    const degree = props.degree;
     const [email, setEmail] = useState("");
-    const [gender, setGender] = useState("");
-    const [degree, setDegree] = useState("");
+    // const [gender, setGender] = useState("");
+    // const [degree, setDegree] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
     const saveUserToFirestore = async (user) => {
-        const userRef = doc(db, "UserDetails", user.uid); // Create a reference to the user document
-        const userExist = await getDoc(userRef);
-        if(userExist.exists()){//Checks whether an account with the respective email already exists
+        const tutorRef = doc(db, "TutorDetails", user.uid); // Create a reference to the tutor collection
+        const userRef = doc(db, "UserDetails", user.uid); // Create a reference to the tutor collection
+        const TutorExist = await getDoc(tutorRef);
+        if(TutorExist.exists()){//Checks whether an account with the respective email already exists
             console.log("An account with this email already exists!");
             alert("An account with this email already exists!");
             return;
         }
         else{
+            await setDoc(tutorRef, {
+                uid: user.uid,
+                firstName: firstName,
+                lastName: lastName,
+                dateOfBirth: dateOfBirth,
+                phoneNumber: phoneNumber,
+                gender: gender,
+                degree: degree,
+                email: user.email,
+                createdAt: new Date() 
+            });
             await setDoc(userRef, {
                 uid: user.uid,
                 firstName: firstName,
