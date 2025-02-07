@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.student-signup-main {
+    background-color: aqua;
+    height: 100vh;
+}
+
+.student-signup-main-inside {
+    
+}
