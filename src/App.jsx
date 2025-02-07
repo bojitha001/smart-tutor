@@ -10,7 +10,18 @@ import BecomeATutor from "./components/BecomeATutor";
 import { ResetPassword } from "./components/tutorSignUp/PasswordReset";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/tutorDashboard/Sidebar";
+
+
+import DashboardClasses from "./components/Dashbaord/DashboardClasses";
+// import DashBoard from "../components/Dashbaord/DashboardClasses"
+
+
+// import DashBoard from "./components/Dashbaord/DashboardClasses"
+
+
 import MainContent from "./components/tutorDashboard/MainContent";
+
+// import MainContent from "../components/tutorDashboard/MainContent";
 import StudentView from "./components/tutorDashboard/StudentSection";
 import DashboardClasses from "./components/Dashbaord/DashboardClasses";
 import Settings from "./components/tutorDashboard/SettingSection";
@@ -20,15 +31,13 @@ import Settings from "./components/tutorDashboard/SettingSection";
 
 function App() {
   return (
-    <>
- 
+
       <div className="App"> 
-          {/* <Navbar />
-         <BecomeATutor />    */}
+           {/* <Navbar /> */}
+         {/* <BecomeATutor />     */}
         {/* <Sidebar/> */}
         {/* <HomePage /> */}
         {/* <SelectingSubjects /> */}
-        {/* <SignUpQuestions/> */}
         {/* <SignUpQuestions/> */}
         {/* <SignUpOptions/> */}
         {/* <SignInAuth/> */}
@@ -39,17 +48,11 @@ function App() {
         
         
 
-      </div>
-
-
-      {/* <Router>
-      <div className={styles.app}>
-        <Sidebar />
-        <MainContent/>
-        <StudentView/>
-      </div>
-    </Router> */}
       
+
+
+      
+    
 
       <Router>
       <div className={styles.app}>
@@ -62,8 +65,8 @@ function App() {
         </Routes>
       </div>
     </Router>
-      
-    </>
+    </div>
+    
   );
 }
 
