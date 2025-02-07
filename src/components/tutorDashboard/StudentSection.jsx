@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaBell } from 'react-icons/fa';
+import { IoSearch } from "react-icons/io5";
 import styles from "../../.ExternalCss/TutorStudentsSection.module.css";
 
 const StudentView = () => {
@@ -45,8 +46,9 @@ const StudentView = () => {
     <div className={styles.mainContainer}>
       <div className={styles.studentView}>
         <div className={styles.header}>
-          <div className={styles.searchBar}>
-            <input type="text" placeholder="Search students..." />
+          <div className={`${styles["search-bar"]}`}>
+            <IoSearch />
+            <input type="text" placeholder="Search here..." />
           </div>
           <div className={styles.profile}>
             <div className={styles.notifications}>
