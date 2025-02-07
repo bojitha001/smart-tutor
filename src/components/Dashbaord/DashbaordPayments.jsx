@@ -162,4 +162,4 @@ function Payments() {
 
 }
 
-export default dashboardClasses;
+export default dashboardPayments;

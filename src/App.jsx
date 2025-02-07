@@ -17,13 +17,13 @@ import DashboardClasses from "./components/Dashbaord/dashboardClasses";
 
 
 // import DashBoard from "./components/Dashbaord/DashboardClasses"
-import DashboardClasses from "./components/Dashbaord/DashboardClasses";
+
 
 // import MainContent from "./components/tutorDashboard/MainContent";
 
 import MainContent from "./components/tutorDashboard/MainContent";
 import StudentView from "./components/tutorDashboard/StudentSection";
-import DashboardClasses from "./components/Dashbaord/DashboardClasses";
+
 
 // import SelectingSubjects from "./components/Parent/Student/SelectingSubjects";
 
@@ -34,12 +34,7 @@ function App() {
 
     
  
-     
-        
 
-
-    <>
- 
 
       <div className="App"> 
           {/* <Navbar />
@@ -54,44 +49,42 @@ function App() {
         {/* <ResetPassword/> */}
 
         
-       <DashboardClasses />
+      {/* <DashboardClasses /> */}
+      {/* <DashboardPayments /> */}
 
-        <DashboardClasses/>
         
 
           {/* <Sidebar/> */}
         
         
 
-      </div>
+     
 
 
 
 
 
 
-      {/* <Router>
-      <div className={styles.app}>
-        <Sidebar />
-        <MainContent/>
-        <StudentView/>
-      </div>
-    </Router> */}
+      
       
 
-      {/* <Router>
+      <Router>
       <div className={styles.app}>
         <Sidebar/>
         <Routes>
-        <    Route path="/" element={<MainContent />} />
+            <Route path="/" element={<MainContent />} />
             
             <Route path="/students" element={<StudentView />} />
+
+            <Route path="/classes" element={<DashboardClasses />} />
+
+            <Route path="/payments" element={<DashboardClasses />} />
         </Routes>
       </div>
-    </Router> */}
+    </Router>
 
       
-  
+    </div>
   );
 }
 
