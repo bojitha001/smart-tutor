@@ -19,10 +19,10 @@ import DashboardClasses from "./components/Dashbaord/DashboardClasses";
 // import DashBoard from "./components/Dashbaord/DashboardClasses"
 
 
-// import MainContent from "./components/tutorDashboard/MainContent";
+import MainContent from "./components/tutorDashboard/MainContent";
 
 // import MainContent from "../components/tutorDashboard/MainContent";
-// import StudentView from "../components/tutorDashboard/StudentSection";
+import StudentView from "./components/tutorDashboard/StudentSection";
 
 
 // import SelectingSubjects from "./components/Parent/Student/SelectingSubjects";
@@ -45,7 +45,7 @@ function App() {
         {/* <ResetPassword/> */}
 
         
-       <DashboardClasses />
+       {/*<DashboardClasses />*/}
 
         
 
@@ -69,7 +69,7 @@ function App() {
     </Router> */}
       
 
-      {/* <Router>
+      <Router>
       <div className={styles.app}>
         <Sidebar/>
         <Routes>
@@ -78,7 +78,7 @@ function App() {
             <Route path="/students" element={<StudentView />} />
         </Routes>
       </div>
-    </Router> */}
+    </Router>
 
 </div>
   
