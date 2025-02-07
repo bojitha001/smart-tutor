@@ -164,10 +164,14 @@
   .nav-item:hover {
     background-color: rgba(253, 184, 19, 0.2); /* Light yellow */
     color: black;
+    
   }
   
   .nav-item:hover:not(.active) {
-  background-color: #f8f9fa;
+    
+  background-color: #fdb713;
+  animation-name: sideBarAnimation;
+    animation-duration: 1s;
   }
   
   .logout {
@@ -566,4 +570,13 @@
   .icon {
     width: var(--icon-size);
     height: var(--icon-size);
+  }
+
+  @keyframes sideBarAnimation {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
   }
