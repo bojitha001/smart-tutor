@@ -43,12 +43,12 @@ function App() {
         {/* <SignUpOptions/> */}
         {/* <SignInAuth/> */}
         {/* <ResetPassword/> */}
-        <StudentSignUp />
+        {/* <StudentSignUp /> */}
         
        {/* <DashboardClasses /> */}
 
           
-      {/* <Router>
+      <Router>
       <div className={styles.app}>
         <Sidebar/>
         <Routes>
@@ -57,7 +57,7 @@ function App() {
             <Route path="/students" element={<StudentView />} />
         </Routes>
       </div>
-    </Router> */}
+    </Router>
 
 </div>
   
