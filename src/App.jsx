@@ -12,7 +12,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/tutorDashboard/Sidebar";
 
 
-import DashboardClasses from "./components/Dashbaord/DashboardClasses";
+// import DashboardClasses from "./components/Dashbaord/DashboardClasses";
 // import DashBoard from "../components/Dashbaord/DashboardClasses"
 
 
@@ -36,7 +36,7 @@ function App() {
            {/* <Navbar /> */}
          {/* <BecomeATutor />     */}
         {/* <Sidebar/> */}
-        {/* <HomePage /> */}
+        <HomePage />
         {/* <SelectingSubjects /> */}
         {/* <SignUpQuestions/> */}
         {/* <SignUpOptions/> */}
@@ -54,7 +54,7 @@ function App() {
       
     
 
-      <Router>
+      {/* <Router>
       <div className={styles.app}>
         <Sidebar/>
         <Routes>
@@ -64,7 +64,7 @@ function App() {
             <Route path="/settings" element={<Settings />} />
         </Routes>
       </div>
-    </Router>
+    </Router> */}
     </div>
     
   );
