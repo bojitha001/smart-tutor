@@ -4,7 +4,13 @@ import mainImage from "../assets/images/mainImg2.png";
 import chatBot from "../assets/images/chatBot.png";
 import sitting from "../assets/images/Home-sitting.png"
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import sitting from "../assets/images/Home-sitting.png"
+import icon1 from "../assets/images/RFID Signal.png"
+import icon2 from "../assets/images/People Skin Type 7.png"
+import icon3 from "../assets/images/Calendar 12.png"
+import icon4 from "../assets/images/Test Results.png"
+import icon5 from "../assets/images/Find and Replace.png"
+import icon6 from "../assets/images/Brake Warning.png"
 
 
 const categories = [
@@ -18,6 +24,39 @@ const categories = [
   { id: 8, name: 'Business Studies', color: '#D6FFF6', icon: '💼' },
   { id: 9, name: 'Agriculture', color: '#E3FFD6', icon: '🌱' },
 ];
+
+const features = [
+  {
+    icon: <img src={icon1}  width="30" height="30"/>,
+    title: 'Student Progress Tracking',
+    description: 'Track your academic progress in real time, including attendance and performance, and keep your parents informed of your growth.'
+  },
+  {
+    icon: <img src={icon2}  width="30" height="30"/>,
+    title: 'Kuppi Groups',
+    description: 'Join collaborative study groups where you can work together with classmates, share notes, and help each other learn more effectively.'
+  },
+  {
+    icon: <img src={icon3}  width="30" height="30"/>,
+    title: 'Event Calendar',
+    description: 'Stay organized and never miss important events, classes, or deadlines with the interactive event calendar.'
+  },
+  {
+    icon: <img src={icon4}  width="30" height="30"/>,
+    title: 'Gamified Quizzes and Assessments',
+    description: 'Challenge yourself with fun, gamified quizzes and assessments, and track your scores on the leaderboard for added motivation.'
+  },
+  {
+    icon: <img src={icon5}  width="30" height="30"/>,
+    title: 'Search with Filters for Students',
+    description: 'Find the perfect tutor or study resource with advanced search filters tailored to your needs.'
+  },
+  {
+    icon: <img src={icon6}  width="30" height="30"/>,
+    title: 'Alerts and Notifications',
+    description: 'Receive reminders about upcoming classes, assignments, fee due dates, and special events so you stay up-to-date with your schedule.'
+  }
+]
 export const HomePage = () => {
   return (
     <>
@@ -69,6 +108,29 @@ export const HomePage = () => {
         alt="Student illustration" 
         className="student-illustration"
       />
+    </div>
+
+  
+
+ 
+    <div className={`${styles["container-features"]}`}>
+      <div className={`${styles["header"]}`}>
+        <h2 className={`${styles["tagline"]}`}>Learn Smarter, Achieve More</h2>
+        <h1 className={`${styles["title"]}`}>
+          Enhancing Learning with<br />
+          SMART <span className={`${styles["highlight"]}`}>TUTOR</span>
+        </h1>
+      </div>
+      
+      <div className={`${styles["features-grid"]}`}>
+        {features.map((feature, index) => (
+          <div key={index} className={`${styles["feature-card"]}`}>
+            <div className={`${styles["feature-icon"]}`}>{feature.icon}</div>
+            <h3 className={`${styles["feature-title"]}`}>{feature.title}</h3>
+            <p className={`${styles["feature-description"]}`}>{feature.description}</p>
+          </div>
+        ))}
+      </div>
     </div>
       </> 
   );
