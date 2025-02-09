@@ -4,7 +4,7 @@ import mainImage from "../assets/images/mainImg2.png";
 import chatBot from "../assets/images/chatBot.png";
 import sitting from "../assets/images/Home-sitting.png"
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import sitting from "../assets/images/Home-sitting.png"
+
 
 
 const categories = [
