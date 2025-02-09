@@ -4,6 +4,7 @@ import mainImage from "../assets/images/mainImg2.png";
 import chatBot from "../assets/images/chatBot.png";
 import sitting from "../assets/images/Home-sitting.png"
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import sitting from "../assets/images/Home-sitting.png"
 
 
 const categories = [
@@ -64,7 +65,7 @@ export const HomePage = () => {
         See More <span className={`${styles["arrow"]}`}>→</span>
       </button>
       <img 
-        src={sitting}
+        src = {sitting}
         alt="Student illustration" 
         className="student-illustration"
       />
