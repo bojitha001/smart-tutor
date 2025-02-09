@@ -80,7 +80,7 @@ html {
     padding: 2rem;
     position: relative;
     min-height: 100vh;
-    background-color: #f5f5f5;
+    background-color: #f0f0f0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -89,7 +89,8 @@ html {
   }
   
   h1 {
-    font-size: 2.5rem;
+    font-family: "Lalezar";
+    font-size: 6.4rem;
     font-weight: bold;
     margin-bottom: 2rem;
     color: #000;
@@ -98,7 +99,8 @@ html {
   .categories-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
+    row-gap: 7rem;
+    column-gap: 6rem;
     margin-bottom: 2rem;
     justify-content: center;
     align-items: center;
@@ -107,7 +109,7 @@ html {
   .category-box {
     display: flex;
     align-items: center;
-    padding: 1rem 1.5rem;
+    padding: 4rem 1.5rem;
     border-radius: 10px;
     border: none;
     cursor: pointer;
@@ -139,7 +141,7 @@ html {
   .category-name {
     color: #333;
     font-weight: bold;
-  
+    font-size: 1.6rem;
   }
   
   /* Color Themes */
@@ -204,6 +206,13 @@ html {
     .student-illustration {
       display: none;
     }
+  }
+
+  .categories-container img {
+    height: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
   }
   
   
