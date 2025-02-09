@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../.ExternalCss/HomePage.module.css";
 import mainImage from "../assets/images/mainImg2.png";
 import chatBot from "../assets/images/chatBot.png";
+import sitting from "../assets/images/Home-sitting.png"
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
@@ -63,7 +64,7 @@ export const HomePage = () => {
         See More <span className={`${styles["arrow"]}`}>→</span>
       </button>
       <img 
-
+        src={sitting}
         alt="Student illustration" 
         className="student-illustration"
       />
