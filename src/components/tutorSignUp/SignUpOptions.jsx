@@ -2,7 +2,7 @@ import { useState } from "react";
 import { auth, googleProvider, db } from "../../config/firebase";
 import {createUserWithEmailAndPassword, signInWithPopup} from 'firebase/auth';
 import { doc, setDoc, getDoc } from "firebase/firestore"; 
-import '../../.ExternalCss/SignUpOptions.css';
+import '../../.ExternalCss/SignUpOptions.module.css';
 import smartTutorImage from "../../assets/images/smartTutor.svg";
 import signUpImage from "../../assets/images/signupPage.svg";
 import googleImage from "../../assets/images/google.png";

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import '../../.ExternalCss/SignUpQuestions.css';
+import '../../.ExternalCss/SignUpQuestions.module.css';
 import smartTutorImage from "../../assets/images/smartTutor.svg"
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
