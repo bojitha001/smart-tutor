@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from 'react';
 import styles from "../.ExternalCss/HomePage.module.css";
 import mainImage from "../assets/images/mainImg2.png";
 import chatBot from "../assets/images/chatBot.png";
@@ -24,6 +25,45 @@ const categories = [
   { id: 8, name: 'Business Studies', color: '#D6FFF6', icon: '💼' },
   { id: 9, name: 'Agriculture', color: '#E3FFD6', icon: '🌱' },
 ];
+
+const testimonials = [
+  {
+    id: 1,
+    name: "T. Perera",
+    role: "Student",
+    image: "src/assets/DP.png",
+    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+  },
+  {
+    id: 2,
+    name: "S. Silva",
+    role: "Student",
+    image: "src/assets/DP.png",
+    text: "It has been the industry's standard dummy text ever since the 1500s."
+  },
+  {
+    id: 3,
+    name: "A. Fernando",
+    role: "Student",
+    image: "src/assets/DP.png",
+    text: "An unknown printer took a galley of type and scrambled it to make a type specimen book."
+  },
+  {
+    id: 4,
+    name: "J. Doe",
+    role:"Student",
+    image: "src/assets/DP.png",
+    text: "Lorem Ipsum is not just random text; it has roots in classical Latin."
+  },
+  {
+    id: 5,
+    name: "M. Smith",
+    role: "Artist",
+    image: "src/assets/DP.png",
+    text: "The passage has been used in typesetting for centuries."
+  }
+];
+
 
 const features = [
   {
@@ -58,6 +98,31 @@ const features = [
   }
 ]
 export const HomePage = () => {
+
+  const [currentIndex, setCurrentIndex] = useState(1);
+
+  const goToPrevious = () => {
+    setCurrentIndex((current) => (current === 0 ? testimonials.length - 1 : current - 1));
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((current) => (current === testimonials.length - 1 ? 0 : current + 1));
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'ArrowLeft') {
+        goToPrevious();
+      } else if (event.key === 'ArrowRight') {
+        goToNext();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+  
   return (
     <>
       <div className={`${styles["container-1"]}`}>
@@ -130,6 +195,34 @@ export const HomePage = () => {
             <p className={`${styles["feature-description"]}`}>{feature.description}</p>
           </div>
         ))}
+      </div>
+ </div>
+
+    <div className={`${styles["testimonials-container"]}`}>
+      <h1>Testimonials</h1>
+      <div className={`${styles["testimonials-slider"]}`}>
+        <button className={`${styles["nav-button prev"]}`} onClick={goToPrevious}>←</button>
+        
+        <div className={`${styles["testimonials-wrapper"]}`}>
+          {[...Array(3)].map((_, i) => {
+            const index = (currentIndex + i - 1 + testimonials.length) % testimonials.length;
+            let position = "small";
+            if (i === 1) position = "active";
+            
+            return (
+              <div key={testimonials[index].id} className={`${styles[`testimonial-card ${position}`]}`}>
+                <div className={`${styles["avatar"]}`}>
+                  <img src={testimonials[index].image} alt={testimonials[index].name} />
+                </div>
+                <h2>{testimonials[index].name}</h2>
+                <p className={`${styles["role"]}`}>{testimonials[index].role}</p>
+                <p className={`${styles["testimonial-text"]}`}>{testimonials[index].text}</p>
+              </div>
+            );
+          })}
+        </div>
+        
+        <button className={`${styles["nav-button next"]}`} onClick={goToNext}>→</button>
       </div>
     </div>
       </> 
