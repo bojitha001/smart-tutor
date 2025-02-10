@@ -25,6 +25,7 @@ import MainContent from "./components/tutorDashboard/MainContent";
 import StudentView from "./components/tutorDashboard/StudentSection";
 import DashboardClasses from "./components/Dashbaord/DashboardClasses";
 import Settings from "./components/tutorDashboard/SettingSection";
+import KuppiGroups from "./components/KuppiGroups";
 // import SelectingSubjects from "./components/Parent/Student/SelectingSubjects";
 
 
@@ -36,13 +37,14 @@ function App() {
            <Navbar />
          {/* <BecomeATutor />     */}
         {/* <Sidebar/> */}
-        <HomePage />
+        {/* <HomePage /> */}
         {/* <SelectingSubjects /> */}
         {/* <SignUpQuestions/> */}
         {/* <SignUpOptions/> */}
         {/* <SignInAuth/> */}
         {/* <ResetPassword/> */}
         {/* <DashboardClasses/> */}
+        <KuppiGroups/>
         
           {/* <Sidebar/> */}
         

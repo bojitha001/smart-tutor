@@ -5,7 +5,7 @@ import mainImage from "../assets/images/mainImg2.png";
 import chatBot from "../assets/images/chatBot.png";
 import sitting from "../assets/images/Home-sitting.png"
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import sitting from "../assets/images/Home-sitting.png"
+// import sitting from "../assets/images/Home-sitting.png"
 import icon1 from "../assets/images/RFID Signal.png"
 import icon2 from "../assets/images/People Skin Type 7.png"
 import icon3 from "../assets/images/Calendar 12.png"
