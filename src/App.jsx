@@ -12,7 +12,7 @@ import BecomeATutor from "./components/BecomeATutor";
 
 import { BrowserRouter as Router } from 'react-router-dom';
 import Sidebar from "./components/tutorDashboard/Sidebar";
-import SelectingSubjects from "./components/Parent/Student/SelectingSubjects";
+
 
 
 function App() {
@@ -23,8 +23,7 @@ function App() {
         {/* <BecomeATutor />  */}
         {/* <Sidebar /> */}
         {/* <HomePage /> */}
-        {/* <SelectingSubjects /> */}
-        <SignUpQuestions/>
+        {/* <SignUpQuestions/> */}
         {/* <SignUpOptions/> */}
         <SignInAuth/>
         
