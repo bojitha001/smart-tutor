@@ -27,12 +27,22 @@ function DashboardClasses() {
         <main className={`${styles["main-content"]}`}>
             {/* Sidebar from Garuka */}
 
-            <header className={`${styles["header"]}`}>
-
-                <div className={`${styles["search-bar"]}`}>
-                           <IoSearch />
-                           <input type="text" placeholder="Search here..." />
+            <header>
+                     <div className={`${styles["search-bar"]}`}>
+                       <IoSearch />
+                       <input type="text" placeholder="Search here..." />
+                     </div>
+                     <div className={`${styles["profile-section"]}`}>
+                       <Bell className={`${styles["notification-icon"]}`} />
+                       <div className={`${styles["profile-info"]}`}>
+                         {/* <img src={testImg} alt="Profile" className={`${styles["profile-pic"]}`} /> */}
+                         <div>
+                           <div className={`${styles["profile-name"]}`}>Sarah Perera</div>
+                           <div className={`${styles["profile-username"]}`}>@sarah123</div>
                          </div>
+                       </div>
+                     </div>
+                   </header>
 
                 {/* <div className="search-container">
                     <input
@@ -44,7 +54,7 @@ function DashboardClasses() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
                 </div> */}
-
+{/* 
                 <div className={`${styles["header-right"]}`}>
                     <button className={`${styles["header-right"]}`}>
                         <Bell />
@@ -60,50 +70,80 @@ function DashboardClasses() {
                         </div>
                     </div>
                 </div>
-            </header>
+            </header> */}
+            {/* Upcoming Classes */}
+            <section className={styles.upcomingSection}>
+                <div className={styles.sectionHeader}>
+                    <h2 className={styles.sectionTitle}>
+                        <span style={{ color: '#ef4444' }}>UPCOMING</span> Classes
+                    </h2>
+                    <a href="#" className={styles.viewAll}>
+                        view all
+                    </a>
+                </div>
 
-            <div className={`${styles["content-wrapper"]}`}>
-            <div className={styles.content}>
-                    <div className={`${styles["upcoming-classes"]}`}>
-                        <div className={`${styles["section-header"]}`}>
-                            <h2>
-                                <span>UPCOMING</span> Classes
-                            </h2>
-                            <a href="#">View All</a>
+                <div className={styles.classGrid}>
+                    {[
+                        {
+                            time: '6:00 PM',
+                            date: 'Tomorrow',
+                            name: 'Monali Rathnayake',
+                            type: 'Gr.10 - Individual'
+                        },
+                        {
+                            time: '4:00 PM',
+                            date: '23/01/2025',
+                            name: 'Monali Rathnayake',
+                            type: 'Gr.11 - Group'
+                        },
+                        {
+                            time: '5:00 PM',
+                            date: '25/01/2025',
+                            name: 'Monali Rathnayake',
+                            type: 'Gr.10 - Individual'
+                        },
+                        {
+                            time: '8:00 PM',
+                            date: '25/01/2025',
+                            name: 'Monali Rathnayake',
+                            type: 'Gr.11 - Individual'
+                        }
+                    ].map((classItem, index) => (
+                        <div key={index} className={styles.classCard}>
+                            <div className={styles.classTime}>{classItem.time}</div>
+                            <div className={styles.classDate}>{classItem.date}</div>
+                            <div className={styles.classTitle}>{classItem.name}</div>
+                            <div className={styles.classType}>{classItem.type}</div>
                         </div>
+                    ))}
+                </div>
+            </section>
 
-                        <div className={`${styles["class-grid"]}`}>
-                            {upcomingClasses.map((classItem, index) => (
-                                <div key={index} className={`${styles["class-card"]}`}>
-                                    <p className={`${styles["class-time"]}`}>{classItem.time}</p>
-                                    <p className={`${styles["class-time"]}`}>{classItem.date}</p>
-                                    <h3 className={`${styles["class-time"]}`}>{classItem.student}</h3>
-                                    <p className={`${styles["class-time"]}`}>{classItem.grade} - {classItem.type}</p>
-                                </div>
-                            ))}
-                        </div>
+            {/* Stats Section */}
+            <section className={styles.statsSection}>
+                <div className={styles.statCard}>
+                    <div className={styles.statHeader}>
+                        <h3 className={styles.sectionTitle}>Classes Per Week</h3>
+                        <select className={styles.select}>
+                            <option>Week</option>
+                            <option>Month</option>
+                            <option>Year</option>
+                        </select>
                     </div>
-
-                    <div className={`${styles["stats-grid"]}`}>
-                        {/* Classes Per Week */}
-                        <div className={`${styles["stats-card"]}`}>
-                            <div className={`${styles["section-header"]}`}>
-                                <h2 className={`${styles["section-title"]}`}>Classes Per Week</h2>
-                                <select>
-                                    <option>Week</option>
-                                </select>
-                            </div>
-                            {/* Progress circle and stats content */}
-                        </div>
-
-                        {/* Homework */}
-                        <div className={`${styles["stats-card"]}`}>
-                            <h2 className={`${styles["section-title"]}`}>Homework</h2>
-                            {/* Add homework content here */}
+                    <div className={styles.chartContainer}>
+                        <div className={styles.progressCircle}>
+                            <span className={styles.progressText}>81%</span>
                         </div>
                     </div>
                 </div>
-            </div>
+
+                <div className={styles.statCard}>
+                    <h3 className={styles.sectionTitle}>Homework</h3>
+                    {/* Add homework content here */}
+                </div>
+            </section>
+            
+           
         </main>
     );
 }
