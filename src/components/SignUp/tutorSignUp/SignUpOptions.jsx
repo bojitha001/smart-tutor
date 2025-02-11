@@ -1,17 +1,13 @@
 import { useState } from "react";
-import { auth, googleProvider, db } from "../../config/firebase";
+import { auth, googleProvider, db } from "../../../config/firebase";
 import {createUserWithEmailAndPassword, signInWithPopup} from 'firebase/auth';
 import { doc, setDoc, getDoc } from "firebase/firestore"; 
-import '../../.ExternalCss/SignUpOptions.module.css';
-import smartTutorImage from "../../assets/images/smartTutor.svg";
-import signUpImage from "../../assets/images/signupPage.svg";
-import googleImage from "../../assets/images/google.png";
+import '../../../.ExternalCss/SignUpOptions.module.css';
+import smartTutorImage from "../../../assets/images/smartTutor.svg";
+import signUpImage from "../../../assets/images/signupPage.svg";
+import googleImage from "../../../assets/images/google.png";
 
 export const SignUpOptions = (props) => {
-    // const [firstName, setFirstName] = useState("");
-    // const [lastName, setLastName] = useState("");
-    // const [dateOfBirth, setDateOfBirth] = useState("");
-    // const [phoneNumber, setPhoneNumber] = useState("");
     const firstName = props.firstName;
     const lastName = props.lastName;
     const dateOfBirth = props.dateOfBirth;
@@ -19,8 +15,6 @@ export const SignUpOptions = (props) => {
     const gender = props.gender;
     const degree = props.degree;
     const [email, setEmail] = useState("");
-    // const [gender, setGender] = useState("");
-    // const [degree, setDegree] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
