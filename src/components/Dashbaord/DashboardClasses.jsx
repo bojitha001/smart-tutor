@@ -1,81 +1,19 @@
-import React, { useState } from "react";
- 
-import {
-    Bell,
-    Calendar,
-    ChevronLeft,
-    ChevronRight,
-    GraduationCap,
-    LayoutDashboard,
-    LogOut,
-    Menu,
-    Settings,
-    Wallet
-} from "lucide-react";
-import styles from "../../.ExternalCss/dashboardclasses.module.css";
-import { IoSearch } from "react-icons/io5";
-
-
+import React from 'react';
+import styles from "../../.ExternalCss/dashboardClasses.module.css";
 
 function DashboardClasses() {
-    const [upcomingClasses, setUpcomingClasses] = useState([
-        { time: "10:00 AM", date: "Feb 10", student: "John Doe", grade: "5", type: "Math" },
-        { time: "2:00 PM", date: "Feb 11", student: "Jane Doe", grade: "6", type: "Science" },
-    ]);
+    const radius = 70;
+    const circumference = 2 * Math.PI * radius;
+    const progress = 81;
+    const strokeDashoffset = circumference - (progress / 100) * circumference;
 
     return (
-        <main className={`${styles["main-content"]}`}>
-            {/* Sidebar from Garuka */}
-
-            <header>
-                     <div className={`${styles["search-bar"]}`}>
-                       <IoSearch />
-                       <input type="text" placeholder="Search here..." />
-                     </div>
-                     <div className={`${styles["profile-section"]}`}>
-                       <Bell className={`${styles["notification-icon"]}`} />
-                       <div className={`${styles["profile-info"]}`}>
-                         {/* <img src={testImg} alt="Profile" className={`${styles["profile-pic"]}`} /> */}
-                         <div>
-                           <div className={`${styles["profile-name"]}`}>Sarah Perera</div>
-                           <div className={`${styles["profile-username"]}`}>@sarah123</div>
-                         </div>
-                       </div>
-                     </div>
-                   </header>
-
-                {/* <div className="search-container">
-                    <input
-                        type="text"
-                        placeholder="Search here for classes..."
-                        className="search-input"
-                    />
-                    <svg className="search-icon" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                </div> */}
-{/* 
-                <div className={`${styles["header-right"]}`}>
-                    <button className={`${styles["header-right"]}`}>
-                        <Bell />
-                    </button>
-                    <div className={styles.profile}>
-                        <img
-                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                            alt="Profile"
-                            className={`${styles["profile-img"]}`}/>
-                        <div className={`${styles["profile-info"]}`}>
-                            <h3>Vihan Mendis</h3>
-                            <p>@vihan123</p>
-                        </div>
-                    </div>
-                </div>
-            </header> */}
+        <div className={styles.container}>
             {/* Upcoming Classes */}
             <section className={styles.upcomingSection}>
                 <div className={styles.sectionHeader}>
                     <h2 className={styles.sectionTitle}>
-                        <span style={{ color: '#ef4444' }}>UPCOMING</span> Classes
+                        <span className={styles.upcomingText}>UPCOMING</span> Classes
                     </h2>
                     <a href="#" className={styles.viewAll}>
                         view all
@@ -132,7 +70,23 @@ function DashboardClasses() {
                     </div>
                     <div className={styles.chartContainer}>
                         <div className={styles.progressCircle}>
-                            <span className={styles.progressText}>81%</span>
+                            <svg viewBox="0 0 160 160">
+                                <circle
+                                    className={styles.progressBackground}
+                                    cx="80"
+                                    cy="80"
+                                    r={radius}
+                                />
+                                <circle
+                                    className={styles.progressBar}
+                                    cx="80"
+                                    cy="80"
+                                    r={radius}
+                                    strokeDasharray={circumference}
+                                    strokeDashoffset={strokeDashoffset}
+                                />
+                            </svg>
+                            <div className={styles.progressText}>{progress}%</div>
                         </div>
                     </div>
                 </div>
@@ -142,13 +96,8 @@ function DashboardClasses() {
                     {/* Add homework content here */}
                 </div>
             </section>
-            
-           
-        </main>
+        </div>
     );
 }
 
-
 export default DashboardClasses;
-
-

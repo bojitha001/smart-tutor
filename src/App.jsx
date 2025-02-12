@@ -12,17 +12,19 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/tutorDashboard/Sidebar";
 
 
-import DashboardClasses from "./components/Dashbaord/dashboardClasses";
-// import DashBoard from "../components/Dashbaord/DashboardClasses"
 
-
-// import DashBoard from "./components/Dashbaord/DashboardClasses"
 
 
 // import MainContent from "./components/tutorDashboard/MainContent";
 
 import MainContent from "./components/tutorDashboard/MainContent";
 import StudentView from "./components/tutorDashboard/StudentSection";
+
+import DashboardPayments from "./components/Dashbaord/DashbaordPayments";
+import DashboardClasses from "./components/Dashbaord/dashboardClasses";
+
+
+
 
 
 // import SelectingSubjects from "./components/Parent/Student/SelectingSubjects";
@@ -78,7 +80,7 @@ function App() {
 
             <Route path="/classes" element={<DashboardClasses />} />
 
-            <Route path="/payments" element={<DashboardClasses />} />
+            <Route path="/payments" element={<DashboardPayments />} />
         </Routes>
       </div>
     </Router>

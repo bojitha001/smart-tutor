@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Bell, settings, LogOut } from 'lucide-react';
-import dashboardClasses from "../DashboardClasses";
+// import { Bell, settings, LogOut } from 'lucide-react';
+import styles from "../../.ExternalCss/dashboardPayments.module.css";
 
-function Payments() {
+
+function DashbaordPayments() {
     const [progress, setProgress] = useState(0);
     const totalAmount = 100000;
     const currentAmount = 100000;
@@ -18,44 +19,44 @@ function Payments() {
         // sidebar from garuka
         
     
-        <main className="main-content">
+        <main className={`${styles["main-content"]}`}>
 
-            <header className="header">
-                <div className="search-bar">
+            <header className={styles.header}>
+                <div className={`${styles["search-bar"]}`}>
                     <input type="text" placeholder="search here for payments..." />
                 </div>
             
             
-            // account details
+        {/* account details */}
             
             
             </header>
 
             {/* wallet section */}
-            <section className="wallet-section">
-                <h2 className="walltet-header">Smart Tutor Wallet</h2>
+            <section className={`${styles["wallet-section"]}`}>
+                <h2 className={`${styles["walltet-header"]}`}>Smart Tutor Wallet</h2>
 
-                <div className="stats-grid">
-                    <div className="stat-card">
-                        <div className="state-label">Daily</div>
-                        <div className="stat-value">Rs. 5,000</div>
+                <div className={`${styles["stats-grid"]}`}>
+                    <div className={`${styles["stat-card"]}`}>
+                        <div className={`${styles["state-label"]}`}>Daily</div>
+                        <div className={`${styles["stat-value"]}`}>Rs. 5,000</div>
                     </div>
-                    <div className="stat-card">
-                        <div className="state-label">Weekly</div>
-                        <div className="stat-value">Rs. 34,000</div>
+                    <div className={`${styles["stat-card"]}`}>
+                        <div className={`${styles["state-label"]}`}>Weekly</div>
+                        <div className={`${styles["stat-value"]}`}>Rs. 34,000</div>
                     </div>
-                    <div className="stat-card">
-                        <div className="state-label">Monthly</div>
-                        <div className="stat-value">Rs. 100,000</div>
+                    <div className={`${styles["stat-card"]}`}>
+                        <div className={`${styles["state-label"]}`}>Monthly</div>
+                        <div className={`${styles["stat-value"]}`}>Rs. 100,000</div>
                     </div>
                 </div>
 
-                <div className="payment-method">
-                    <div className="payment-card">
+                <div className={`${styles["payment-method"]}`}>
+                    <div className={`${styles["payment-card"]}`}>
                         <h3>Payment via Bank Transfer</h3>
                         <p>Rs. 75,000</p>
                     </div>
-                    <div className="payment-card">
+                    <div className={`${styles["payment-card"]}`}>
                         <h3>Payment via Cash</h3>
                         <p>Rs. 25,000</p>
                     </div>
@@ -63,13 +64,13 @@ function Payments() {
             </section>
 
             {/* Transactions Section */}
-            <section className="transactions-section">
-                <div className="completion-card">
+            <section className={`${styles["transactions-section"]}`}>
+                <div className={`${styles["completion-card"]}`}>
                     <h3>Payments for January 2023</h3>
-                    <div className="completion-circle-container">
-                        <svg className="progress-ring" width="120" height="120">
+                    <div className={`${styles["completion-circle-container"]}`}>
+                        <svg className={`${styles["completion-circle-container"]}`} width="120" height="120">
                             <circle
-                                className="progress-ring__circle-bg"
+                                className={`${styles["progress-ring__circle-bg"]}`}
                                 stroke="#e6e6e6"
                                 strokeWidth="10"
                                 fill="transparent"
@@ -78,7 +79,7 @@ function Payments() {
                                 cy="60"
                             />
                             <circle
-                                className="progress-ring__circle"
+                                className={`${styles["progress-ring__circle"]}`}
                                 stroke="#ffa500"
                                 strokeWidth="10"
                                 fill="transparent"
@@ -94,7 +95,7 @@ function Payments() {
                                 x="50%"
                                 y="45%"
                                 textAnchor="middle"
-                                className="progress-text percentage"
+                                className={`${styles["progress-text percentage"]}`}
                             >
                                 {progress}%
                             </text>
@@ -102,7 +103,7 @@ function Payments() {
                                 x="50%"
                                 y="65%"
                                 textAnchor="middle"
-                                className="progress-text amount"
+                                className={`${styles["progress-text amount"]}`}
                             >
                                 Rs. {currentAmount.toLocaleString()}
                             </text>
@@ -111,40 +112,40 @@ function Payments() {
                     <p>Completed</p>
                 </div>
 
-                <div className="transactions-list">
-                    <div className="transactions-header">
+                <div className={`${styles["progress-text amount"]}`}>
+                    <div className={`${styles["transactions-header"]}`}>
                         <h3>Latest transactions</h3>
                         <select>
                             <option>Last Month</option>
                         </select>
                     </div>
 
-                    <div className="transaction-rows">
-                        <div className="transaction-row">
+                    <div className={`${styles["transaction-rows"]}`}>
+                        <div className={`${styles["transaction-row"]}`}>
                             <span>Today</span>
                             <span>Farhan</span>
                             <span>Bank transfer</span>
                             <span>Rs. 2,500.00</span>
                         </div>
-                        <div className="transaction-row">
+                        <div className={`${styles["transaction-row"]}`}>
                             <span>20/01</span>
                             <span>Yeheni</span>
                             <span>Cash</span>
                             <span>Rs. 2,500.00</span>
                         </div>
-                        <div className="transaction-row">
+                        <div className={`${styles["transaction-row"]}`}>
                             <span>20/01</span>
                             <span>Sam</span>
                             <span>Bank transfer</span>
                             <span>Rs. 2,500.00</span>
                         </div>
-                        <div className="transaction-row">
+                        <div className={`${styles["transaction-row"]}`}>
                             <span>19/01</span>
                             <span>Manlika</span>
                             <span>Bank transfer</span>
                             <span>Rs. 2,500.00</span>
                         </div>
-                        <div className="transaction-row">
+                        <div className={`${styles["transaction-row"]}`}>
                             <span>19/01</span>
                             <span>Garuka</span>
                             <span>Cash</span>
@@ -152,7 +153,7 @@ function Payments() {
                         </div>
                     </div>
 
-                    <button className="see-more-btn">See more</button>
+                    <button className={`${styles["see-more-btn"]}`}>See more</button>
                 </div>
             </section>
 
@@ -162,4 +163,6 @@ function Payments() {
 
 }
 
-export default dashboardPayments;
+
+export default DashbaordPayments;
+
