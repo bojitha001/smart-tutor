@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 // import { Bell, settings, LogOut } from 'lucide-react';
 import styles from "../../.ExternalCss/dashboardPayments.module.css";
+import DashboardClasses from "./DashboardClasses";
 
 
 function DashbaordPayments() {
@@ -164,5 +165,5 @@ function DashbaordPayments() {
 }
 
 
-export default DashbaordPayments;
+export default DashboardClasses;
 
