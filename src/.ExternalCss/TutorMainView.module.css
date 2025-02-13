@@ -162,16 +162,16 @@
   }
 
   .nav-item:hover {
-    background-color: rgba(253, 184, 19, 0.2); /* Light yellow */
+    background-color: rgba(253, 184, 19, 0.2); 
     color: black;
     
   }
   
   .nav-item:hover:not(.active) {
     
-  background-color: #fdb713;
+  background-color: #ffea81;
   animation-name: sideBarAnimation;
-    animation-duration: 1s;
+  animation-duration: 1s;
   }
   
   .logout {
