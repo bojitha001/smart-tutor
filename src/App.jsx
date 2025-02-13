@@ -25,7 +25,8 @@ import MainContent from "./components/tutorDashboard/MainContent";
 import StudentView from "./components/tutorDashboard/StudentSection";
 import DashboardClasses from "./components/Dashbaord/DashboardClasses";
 import Settings from "./components/tutorDashboard/SettingSection";
-import KuppiGroups from "./components/KuppiGroups";
+import KuppiGroups from "./components/KuppiGroups/KuppiGroups.jsx";
+import QuestionForm from "./components/KuppiGroups/QuestionForm.jsx";
 // import SelectingSubjects from "./components/Parent/Student/SelectingSubjects";
 
 
@@ -45,7 +46,7 @@ function App() {
         {/* <ResetPassword/> */}
         {/* <DashboardClasses/> */}
         <KuppiGroups/>
-        
+        <QuestionForm />
           {/* <Sidebar/> */}
         
         
