@@ -165,5 +165,5 @@ function DashbaordPayments() {
 }
 
 
-export default DashboardClasses;
+export default DashbaordPaymentss;
 
