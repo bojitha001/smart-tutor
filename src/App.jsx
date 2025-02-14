@@ -10,7 +10,13 @@ import BecomeATutor from "./components/BecomeATutor";
 import { ResetPassword } from "./components/tutorSignUp/PasswordReset";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/tutorDashboard/Sidebar";
+
 import DashboardClasses from "./components/Dashbaord/DashboardClasses";
+
+
+
+// import DashboardClasses from "./components/Dashbaord/DashboardClasses";
+
 // import DashBoard from "../components/Dashbaord/DashboardClasses"
 
 
@@ -23,7 +29,11 @@ import MainContent from "./components/tutorDashboard/MainContent";
 import StudentView from "./components/tutorDashboard/StudentSection";
 // import DashboardClasses from "./components/Dashbaord/DashboardClasses";
 import Settings from "./components/tutorDashboard/SettingSection";
+
 import FindTutor from "./components/FindATutor";
+
+import KuppiGroups from "./components/KuppiGroups";
+
 // import SelectingSubjects from "./components/Parent/Student/SelectingSubjects";
 
 
@@ -42,6 +52,7 @@ function App() {
         {/* <SignInAuth/> */}
         {/* <ResetPassword/> */}
         {/* <DashboardClasses/> */}
+        <KuppiGroups/>
         
           {/* <Sidebar/> */}
           <FindTutor/>
