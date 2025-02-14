@@ -32,7 +32,7 @@ function App() {
   return (
 
       <div className="App"> 
-           {/* <Navbar /> */}
+           <Navbar />
          {/* <BecomeATutor />     */}
         {/* <Sidebar/> */}
         {/* <HomePage /> */}
@@ -44,7 +44,7 @@ function App() {
         {/* <DashboardClasses/> */}
         
           {/* <Sidebar/> */}
-          {/* <FindTutor/> */}
+          <FindTutor/>
         
         
 
@@ -54,7 +54,7 @@ function App() {
       
     
 
-      <Router>
+      {/* <Router>
       <div className={styles.app}>
         <Sidebar/>
         <Routes>
@@ -64,7 +64,7 @@ function App() {
             <Route path="/settings" element={<Settings />} />
         </Routes>
       </div>
-    </Router>
+    </Router> */}
     </div>
     
   );
