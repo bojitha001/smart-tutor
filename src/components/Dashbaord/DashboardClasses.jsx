@@ -1,216 +1,184 @@
-// import React from "react";
-// import {
-//     Bell,
-
-//     Calender,
-
-//     Calender, 
-
-//     ChervonLeft,
-//     ChervonRighht,
-//     GraduationCap,
-//     LayoutDashbaord,
-//     LogOut,
-//     Menu,
-//     Settings,
-//     Wallet
-// } from 'lucide-react';
-
-// import './styles.css';
-
-// import '../../.ExternalCss/dashboardClasses.css';
+import React from 'react';
+import { Search, Bell } from 'lucide-react';
+import { FaBell, FaUserGraduate, FaChalkboardTeacher, FaMoneyBillWave, FaChartLine } from 'react-icons/fa';
+import { IoSearch } from "react-icons/io5";
+import styles from "../../.ExternalCss/dashboardClasses.module.css";
+import testImg from "../../assets/images/Avatar1.jpg"; 
 
 
-
-// // Side Bar and Navigation bar from Garuka
-
-
-
-// //Main content
-
-// <main className="main-content">
-
-// <main className="main-content"> 
-
-//     <header className="header">
-//         <div className="search-container">
-//             <input
-//                 type="text"
-//                 placeholder="Se<arch here for classes..."
-//                 className="search-input"
-//             />
-//             <svg className="search-icon" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-//                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-//             </svg>
-//         </div>
-
-//         <div className="header-right">
-//             <button className="notification-btn">
-//                 <Bell />
-//             </button>
-//             <div className="profile">
-//                 <img
-//                     src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-//                     alt="Profile"
-//                     className="profile-img"
-//                 />
-//                 <div className="profile-info">
-//                     <h3>Vihan Mendis</h3>
-//                     <p>@vihan123</p>
-//                 </div>
-//             </div>
-//         </div>
-//     </header>
-
-
-//     <div className="content-wrapper">
-//         <div className="content">
-//             <div className="upcoming-classes">
-//                 <div className="section-header">
-//                     <h2 className="section-header">
-//                         <span>UPCOMING</span> Classes
-//                     </h2>
-//                     <a href="#">view ll</a>
-//                 </div>
-
-//                 <div className="class-grid">
-//                     {upcomingClasses.map((classItem, index) => (
-//                         <div key={index} className="class-card">
-//                             <p className="class-time">{classItem.time}</p>
-//                             <p className="class-time">{classItem.date}</p>
-//                             <h3 className="class-student">{classItem.student}</h3>
-//                             <p className="class-time">{classItem.grade} - {classItem.type}</p>
-//                         </div>
-//                     ))}
-//                 </div>
-//             </div>
-//             <div className="stats-grid">
-//                 {/* Classes Per Week */}
-//                 <div className="stats-card">
-//                     <div className="section-header">
-//                         <h2 className="section-title">Classes Per Week</h2>
-//                         <select>
-//                             <option>Week</option>
-//                         </select>
-//                     </div>
-//                     {/* Progress circle and stats content */}
-//                 </div>
-
-//                 {/* Homework */}
-//                 <div className="stats-card">
-//                     <h2 className="section-title">Homework</h2>
-//                     {/* Add homework content here */}
-//                 </div>
-//             </div>
-//         </div>
-//     </div>
-// </main>
-
-// export default dashboardClasses;
-
-import React, { useState } from "react";
-import {
-    Bell,
-    Calendar,
-    ChevronLeft,
-    ChevronRight,
-    GraduationCap,
-    LayoutDashboard,
-    LogOut,
-    Menu,
-    Settings,
-    Wallet
-} from "lucide-react";
-import "../../.ExternalCss/dashboardClasses.css";
 
 function DashboardClasses() {
-    const [upcomingClasses, setUpcomingClasses] = useState([
-        { time: "10:00 AM", date: "Feb 10", student: "John Doe", grade: "5", type: "Math" },
-        { time: "2:00 PM", date: "Feb 11", student: "Jane Doe", grade: "6", type: "Science" },
-    ]);
+  const upcomingClasses = [
+    {
+      time: '6:00 PM',
+      date: 'Tomorrow',
+      teacher: 'Monali Rathnayake',
+      grade: 'Gr.10 - Individual'
+    
+    },
+    {
+      time: '4:00 PM',
+      date: '23/01/2025',
+      teacher: 'Thevinu Perera',
+      grade: 'Gr.11 - Group'
+    },
+    {
+      time: '5:00 PM',
+      date: '25/01/2025',
+      teacher: 'Manilka Sadakan',
+      grade: 'Gr.10 - Individual'
+    },
+    {
+      time: '8:00 PM',
+      date: '25/01/2025',
+      teacher: 'Bojitha Soma',
+      grade: 'Gr.11 - Individual'
+    },
+    {
+      time: '8:00 PM',
+      date: '25/01/2025',
+      teacher: 'Bojitha Soma',
+      grade: 'Gr.11 - Individual'
+    },
+    {
+      time: '8:00 PM',
+      date: '25/01/2025',
+      teacher: 'Bojitha Soma',
+      grade: 'Gr.11 - Individual'
+    },
+    {
+      time: '8:00 PM',
+      date: '25/01/2025',
+      teacher: 'Bojitha Soma',
+      grade: 'Gr.11 - Individual'
+    },
+    {
+      time: '8:00 PM',
+      date: '25/01/2025',
+      teacher: 'Bojitha Soma',
+      grade: 'Gr.11 - Individual'
+    }
+  ];
 
-    return (
-        <main className="main-content">
-            {/* Sidebar from Garuka */}
-
-            <header className="header">
-                <div className="search-container">
-                    <input
-                        type="text"
-                        placeholder="Search here for classes..."
-                        className="search-input"
-                    />
-                    <svg className="search-icon" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                </div>
-
-                <div className="header-right">
-                    <button className="notification-btn">
-                        <Bell />
-                    </button>
-                    <div className="profile">
-                        <img
-                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                            alt="Profile"
-                            className="profile-img"
-                        />
-                        <div className="profile-info">
-                            <h3>Vihan Mendis</h3>
-                            <p>@vihan123</p>
-                        </div>
-                    </div>
-                </div>
-            </header>
-
-            <div className="content-wrapper">
-                <div className="content">
-                    <div className="upcoming-classes">
-                        <div className="section-header">
-                            <h2>
-                                <span>UPCOMING</span> Classes
-                            </h2>
-                            <a href="#">View All</a>
-                        </div>
-
-                        <div className="class-grid">
-                            {upcomingClasses.map((classItem, index) => (
-                                <div key={index} className="class-card">
-                                    <p className="class-time">{classItem.time}</p>
-                                    <p className="class-time">{classItem.date}</p>
-                                    <h3 className="class-student">{classItem.student}</h3>
-                                    <p className="class-time">{classItem.grade} - {classItem.type}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    <div className="stats-grid">
-                        {/* Classes Per Week */}
-                        <div className="stats-card">
-                            <div className="section-header">
-                                <h2 className="section-title">Classes Per Week</h2>
-                                <select>
-                                    <option>Week</option>
-                                </select>
-                            </div>
-                            {/* Progress circle and stats content */}
-                        </div>
-
-                        {/* Homework */}
-                        <div className="stats-card">
-                            <h2 className="section-title">Homework</h2>
-                            {/* Add homework content here */}
-                        </div>
-                    </div>
-                </div>
+  return (
+    <div className={styles.dashboard}>
+        <header>
+          <div className={`${styles["search-bar"]}`}>
+            <IoSearch />
+            <input type="text" placeholder="Search here..." />
+          </div>
+          <div className={`${styles["profile-section"]}`}>
+            <FaBell className={`${styles["notification-icon"]}`} />
+            <div className={`${styles["profile-info"]}`}>
+              <img src={testImg} alt="Profile" className={`${styles["profile-pic"]}`} />
+              <div>
+                <div className={`${styles["profile-name"]}`}>Sarah Perera</div>
+                <div className={`${styles["profile-username"]}`}>@sarah123</div>
+              </div>
             </div>
-        </main>
-    );
+          </div>
+        </header>
+
+      <main className={styles.content}>
+        <section className={styles.upcoming}>
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.text}>UPCOMING Classes </h2>
+            <a href="#" className={styles.viewAll}>view all</a>
+          </div>
+          <div className={styles.classGrid}>
+            {upcomingClasses.map((cls, index) => (
+              <div key={index} className={styles.classCard}>
+                <div className={styles.classTime}>{cls.time}</div>
+                <div className={styles.classDate}>{cls.date}</div>
+                
+                <h3>{cls.teacher}</h3>
+                <p>{cls.grade}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <div className={styles.statsRow}>
+          <section className={styles.progress}>
+            <h2>Classes Per Week</h2>
+            <div className={styles.progressWrapper}>
+              <div className={styles.circularProgress}>
+                <svg width="100" height="100" viewBox="0 0 100 100">
+                  <circle
+                    className={styles.backgroundCircle}
+                    cx="50"
+                    cy="50"
+                    r="40"
+                    strokeWidth="8"
+                    fill="none"
+                  />
+                  <circle
+                    className={styles.progressCircle}
+                    cx="50"
+                    cy="50"
+                    r="40"
+                    strokeWidth="8"
+                    fill="none"
+                    strokeDasharray="251.327"
+                    strokeDashoffset="47.752"
+                    transform="rotate(-90 50 50)"
+                  />
+                  <text
+                    x="50"
+                    y="50"
+                    className={styles.percentage}
+                    dominantBaseline="middle"
+                    textAnchor="middle"
+                  >
+                    81%
+                  </text>
+                </svg>
+              </div>
+              <div className={styles.legend}>
+                <div className={styles.legendItem}>
+                  <span className={styles.dot}></span>
+                  <span>Pending</span>
+                </div>
+                <div className={styles.legendItem}>
+                  <span className={`${styles.dot} ${styles.done}`}></span>
+                  <span>Done</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className={styles.homework}>
+            <h2>Homework</h2>
+            <div className={styles.homeworkContent}>
+              <p>No homework assigned yet.</p>
+            </div>
+          </section>
+
+          <div className={styles.advertisements}>
+            <div className={`${styles["section-header"]}`}>
+              <h3 className={`${styles["section-title"]}`}>Advertisements</h3>
+            </div>
+            <div className={`${styles["ad-cards"]}`}>
+              <div className={`${styles["ad-card"]}`}>
+                <img src={testImg} alt="Mathematics Class" />
+                <div className={`${styles["ad-content"]}`}>
+                  <h4>Mathematics Class</h4>
+                  <p>Advanced calculus for Grade 12 students</p>
+                </div>
+              </div>
+              <div className={`${styles["ad-card"]}`}>
+                <img src={testImg} alt="Physics Class" />
+                <div className={`${styles["ad-content"]}`}>
+                  <h4>Physics Class</h4>
+                  <p>Mechanics and dynamics for Grade 11 students</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
 }
 
-
 export default DashboardClasses;
-
-
-
