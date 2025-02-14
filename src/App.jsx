@@ -46,7 +46,7 @@ function App() {
         {/* <ResetPassword/> */}
         {/* <DashboardClasses/> */}
         <KuppiGroups/>
-        <QuestionForm />
+        {/* <QuestionForm /> */}
           {/* <Sidebar/> */}
         
         
