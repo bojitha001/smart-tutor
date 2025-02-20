@@ -1,0 +1,200 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.5rem;
+}
+  
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+    
+}
+  
+.logo {
+    margin-bottom: 2.5rem;
+}
+    
+.logo h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+    
+.logo h2 span {
+    color: #fdb813;
+}
+  
+.header p {
+    color: #333;
+    font-family: "Inter", sans-serif;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+}
+  
+.bookTutorBtn {
+    background-color: #ffc107;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+  
+.bookTutorBtn:hover {
+    background-color: #ffb300;
+}
+  
+.filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    align-items: flex-end;
+    font-size: 1.5rem;
+}
+  
+.filterGroup {
+    flex: 1;
+}
+  
+.filterGroup label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-size: 1.5rem;
+}
+  
+.select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+  
+.filtersBtn {
+    padding: 0.8rem 1.5rem;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+.tutorList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+  
+.tutorCard {
+    display: flex;
+    gap: 2rem;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+  
+.tutorImage {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+  
+.tutorImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+  
+.tutorInfo {
+    flex: 1;
+}
+  
+.tutorInfo h3 {
+    margin: 0;
+    color: #333;
+}
+  
+.degree {
+    color: #666;
+    margin: 0.5rem 0;
+}
+  
+.bio {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    font-size: 1.3rem;
+}
+  
+.tutorStats {
+    width: 200px;
+    text-align: right;
+}
+  
+.price {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+  
+.stats {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+  
+.stats p {
+    margin: 0.2rem 0;
+    font-size: 1.2rem;
+}
+  
+.bookBtn {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 0.6rem 2rem;
+    font-size: 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+  
+.bookBtn:hover {
+    background-color: #444;
+}
+  
+.showMoreBtn {
+    display: block;
+    margin: 2rem auto;
+    padding: 0.8rem 2rem;
+    font-size: 1.5rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+  
+.showMoreBtn:hover {
+    background-color: #0056b3;
+}
+  
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+}
+  
+.noResults {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+    font-style: italic;
+}

@@ -11,17 +11,31 @@ import { ResetPassword } from "./components/tutorSignUp/PasswordReset";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/tutorDashboard/Sidebar";
 
+import DashboardClasses from "./components/Dashbaord/DashboardClasses";
 
+
+
+// import DashboardClasses from "./components/Dashbaord/DashboardClasses";
+// import DashBoard from "../components/Dashbaord/DashboardClasses"
+
+
+// import DashBoard from "./components/Dashbaord/DashboardClasses"
 
 
 import MainContent from "./components/tutorDashboard/MainContent";
 
 // import MainContent from "../components/tutorDashboard/MainContent";
 import StudentView from "./components/tutorDashboard/StudentSection";
-import DashboardClasses from "./components/Dashbaord/DashboardClasses";
+// import DashboardClasses from "./components/Dashbaord/DashboardClasses";
 import Settings from "./components/tutorDashboard/SettingSection";
+
+import KuppiGroups from "./components/KuppiGroups/KuppiGroups.jsx";
+import QuestionForm from "./components/KuppiGroups/QuestionForm.jsx";
+
+
+import FindTutor from "./components/FindATutor";
+
 import KuppiGroups from "./components/KuppiGroups";
-import DashboardPayments from "./components/Dashbaord/DashbaordPayments";
 // import SelectingSubjects from "./components/Parent/Student/SelectingSubjects";
 
 
@@ -40,9 +54,10 @@ function App() {
         {/* <SignInAuth/> */}
         {/* <ResetPassword/> */}
         {/* <DashboardClasses/> */}
-        {/* <KuppiGroups/> */}
+        <KuppiGroups/>
         
           {/* <Sidebar/> */}
+          {/* <FindTutor/> */}
         
         
 
