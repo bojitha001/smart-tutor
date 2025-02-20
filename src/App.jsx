@@ -16,7 +16,6 @@ import DashboardClasses from "./components/Dashbaord/DashboardClasses";
 
 
 // import DashboardClasses from "./components/Dashbaord/DashboardClasses";
-
 // import DashBoard from "../components/Dashbaord/DashboardClasses"
 
 
@@ -36,9 +35,7 @@ import StudentSignUp from "./components/StudentSignUp/StudentSignUp.jsx"
 
 import FindTutor from "./components/FindATutor";
 
-// import KuppiGroups from "./components/KuppiGroups";
-
-
+import KuppiGroups from "./components/KuppiGroups";
 // import SelectingSubjects from "./components/Parent/Student/SelectingSubjects";
 
 
@@ -57,9 +54,9 @@ function App() {
         {/* <SignInAuth/> */}
         {/* <ResetPassword/> */}
         {/* <DashboardClasses/> */}
-        {/* <KuppiGroups/>
-        <QuestionForm /> */}
-  
+        <KuppiGroups/>
+        
+          {/* <Sidebar/> */}
           {/* <FindTutor/> */}
         
         
@@ -77,6 +74,7 @@ function App() {
             <Route path="/" element={<MainContent />} />
             <Route path="/classes" element={<DashboardClasses/>}/>
             <Route path="/students" element={<StudentView />} />
+            <Route path="/payments" element={<DashboardPayments />} />
             <Route path="/settings" element={<Settings />} />
         </Routes>
       </div>
