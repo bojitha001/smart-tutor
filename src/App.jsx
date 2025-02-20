@@ -12,11 +12,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/tutorDashboard/Sidebar";
 
 
-// import DashboardClasses from "./components/Dashbaord/DashboardClasses";
-// import DashBoard from "../components/Dashbaord/DashboardClasses"
-
-
-// import DashBoard from "./components/Dashbaord/DashboardClasses"
 
 
 import MainContent from "./components/tutorDashboard/MainContent";
@@ -26,6 +21,7 @@ import StudentView from "./components/tutorDashboard/StudentSection";
 import DashboardClasses from "./components/Dashbaord/DashboardClasses";
 import Settings from "./components/tutorDashboard/SettingSection";
 import KuppiGroups from "./components/KuppiGroups";
+import DashboardPayments from "./components/Dashbaord/DashbaordPayments";
 // import SelectingSubjects from "./components/Parent/Student/SelectingSubjects";
 
 
@@ -34,7 +30,7 @@ function App() {
   return (
 
       <div className="App"> 
-           <Navbar />
+           {/* <Navbar /> */}
          {/* <BecomeATutor />     */}
         {/* <Sidebar/> */}
         {/* <HomePage /> */}
@@ -44,7 +40,7 @@ function App() {
         {/* <SignInAuth/> */}
         {/* <ResetPassword/> */}
         {/* <DashboardClasses/> */}
-        <KuppiGroups/>
+        {/* <KuppiGroups/> */}
         
           {/* <Sidebar/> */}
         
@@ -56,17 +52,18 @@ function App() {
       
     
 
-      {/* <Router>
+      <Router>
       <div className={styles.app}>
         <Sidebar/>
         <Routes>
             <Route path="/" element={<MainContent />} />
             <Route path="/classes" element={<DashboardClasses/>}/>
             <Route path="/students" element={<StudentView />} />
+            <Route path="/payments" element={<DashboardPayments />} />
             <Route path="/settings" element={<Settings />} />
         </Routes>
       </div>
-    </Router> */}
+    </Router>
     </div>
     
   );
