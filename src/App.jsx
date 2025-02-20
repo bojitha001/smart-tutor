@@ -32,11 +32,11 @@ import Settings from "./components/tutorDashboard/SettingSection";
 
 import KuppiGroups from "./components/KuppiGroups/KuppiGroups.jsx";
 import QuestionForm from "./components/KuppiGroups/QuestionForm.jsx";
-
+import StudentSignUp from "./components/StudentSignUp/StudentSignUp.jsx"
 
 import FindTutor from "./components/FindATutor";
 
-import KuppiGroups from "./components/KuppiGroups";
+// import KuppiGroups from "./components/KuppiGroups";
 
 
 // import SelectingSubjects from "./components/Parent/Student/SelectingSubjects";
@@ -47,7 +47,7 @@ function App() {
   return (
 
       <div className="App"> 
-           <Navbar />
+           {/* <Navbar /> */}
          {/* <BecomeATutor />     */}
         {/* <Sidebar/> */}
         {/* <HomePage /> */}
@@ -57,9 +57,9 @@ function App() {
         {/* <SignInAuth/> */}
         {/* <ResetPassword/> */}
         {/* <DashboardClasses/> */}
-        <KuppiGroups/>
-        <QuestionForm />
-          {/* <Sidebar/> */}
+        {/* <KuppiGroups/>
+        <QuestionForm /> */}
+  
           {/* <FindTutor/> */}
         
         
@@ -70,7 +70,7 @@ function App() {
       
     
 
-      {/* <Router>
+      <Router>
       <div className={styles.app}>
         <Sidebar/>
         <Routes>
@@ -80,7 +80,7 @@ function App() {
             <Route path="/settings" element={<Settings />} />
         </Routes>
       </div>
-    </Router> */}
+    </Router>
     </div>
     
   );
