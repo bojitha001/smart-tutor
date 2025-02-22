@@ -42,7 +42,7 @@ function App() {
   return (
 
       <div className="App"> 
-           <Navbar />
+           {/* <Navbar /> */}
          {/* <BecomeATutor />     */}
         {/* <Sidebar/> */}
         {/* <HomePage /> */}
@@ -52,12 +52,22 @@ function App() {
         {/* <SignInAuth/> */}
         {/* <ResetPassword/> */}
         {/* <DashboardClasses/> */}
-        <KuppiGroups/>
+        {/* <KuppiGroups/> */}
         
           {/* <Sidebar/> */}
-          <FindTutor/>
+          {/* <FindTutor/> */}
         
         
+        <Router>
+          <div className="App">
+            <Navbar/>
+            <Routes>
+              <Route path="/homepage" element={<HomePage/>}/>
+              <Route path="/find-tutor" element={<FindTutor/>}/>
+              <Route path="/courses" element={<KuppiGroups/>}/>
+            </Routes>
+          </div>
+        </Router>
 
       
 
