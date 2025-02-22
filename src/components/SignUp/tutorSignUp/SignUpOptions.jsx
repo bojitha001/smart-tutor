@@ -8,12 +8,6 @@ import signUpImage from "../../../assets/images/signupPage.svg";
 import googleImage from "../../../assets/images/google.png";
 
 export const SignUpOptions = () => {
-    // const firstName = props.firstName;
-    // const lastName = props.lastName;
-    // const dateOfBirth = props.dateOfBirth;
-    // const phoneNumber = props.phoneNumber;
-    // const gender = props.gender;
-    // const degree = props.degree;
     const [userData, setUserData] = useState(null);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -44,34 +38,6 @@ export const SignUpOptions = () => {
         await setDoc(userRef, userDataToSave);
         await setDoc(tutorRef, userDataToSave);
         alert("Account created successfully!");
-
-        // else{
-        //     await setDoc(tutorRef, {
-        //         uid: user.uid,
-        //         // firstName: firstName,
-        //         // lastName: lastName,
-        //         // dateOfBirth: dateOfBirth,
-        //         // phoneNumber: phoneNumber,
-        //         // gender: gender,
-        //         // degree: degree,
-        //         ...userData,
-        //         email: user.email,
-        //         createdAt: new Date() 
-        //     });
-        //     await setDoc(userRef, {
-        //         uid: user.uid,
-        //         // firstName: firstName,
-        //         // lastName: lastName,
-        //         // dateOfBirth: dateOfBirth,
-        //         // phoneNumber: phoneNumber,
-        //         // gender: gender,
-        //         // degree: degree,
-        //         ...userData,
-        //         email: user.email,
-        //         createdAt: new Date() 
-        //     });
-        //     alert("Account created successfully!");
-        // }
     };
 
     //Sign Up with Email and Password
