@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { auth, googleProvider, db } from "../../../config/firebase";
 import {createUserWithEmailAndPassword, signInWithPopup} from 'firebase/auth';
 import { doc, setDoc, getDoc } from "firebase/firestore"; 
@@ -7,18 +7,25 @@ import smartTutorImage from "../../../assets/images/smartTutor.svg";
 import signUpImage from "../../../assets/images/signupPage.svg";
 import googleImage from "../../../assets/images/google.png";
 
-export const SignUpOptions = (props) => {
-    const firstName = props.firstName;
-    const lastName = props.lastName;
-    const dateOfBirth = props.dateOfBirth;
-    const phoneNumber = props.phoneNumber;
-    const gender = props.gender;
-    const degree = props.degree;
+export const SignUpOptions = () => {
+    // const firstName = props.firstName;
+    // const lastName = props.lastName;
+    // const dateOfBirth = props.dateOfBirth;
+    // const phoneNumber = props.phoneNumber;
+    // const gender = props.gender;
+    // const degree = props.degree;
+    const [userData, setUserData] = useState(null);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
+    useEffect(() => {
+        const data = sessionStorage.getItem("signUpData");
+        if (data) setUserData(JSON.parse(data));
+    }, []);
+
     const saveUserToFirestore = async (user) => {
+        if(!userData) return;
         const tutorRef = doc(db, "TutorDetails", user.uid); // Create a reference to the tutor collection
         const userRef = doc(db, "UserDetails", user.uid); // Create a reference to the tutor collection
         const TutorExist = await getDoc(tutorRef);
@@ -27,31 +34,44 @@ export const SignUpOptions = (props) => {
             alert("An account with this email already exists!");
             return;
         }
-        else{
-            await setDoc(tutorRef, {
-                uid: user.uid,
-                firstName: firstName,
-                lastName: lastName,
-                dateOfBirth: dateOfBirth,
-                phoneNumber: phoneNumber,
-                gender: gender,
-                degree: degree,
-                email: user.email,
-                createdAt: new Date() 
-            });
-            await setDoc(userRef, {
-                uid: user.uid,
-                firstName: firstName,
-                lastName: lastName,
-                dateOfBirth: dateOfBirth,
-                phoneNumber: phoneNumber,
-                gender: gender,
-                degree: degree,
-                email: user.email,
-                createdAt: new Date() 
-            });
-            alert("Account created successfully!");
-        }
+        const userDataToSave = {
+            uid: user.uid,
+            ...userData,
+            email: user.email,
+            createdAt: new Date()
+        };
+
+        await setDoc(userRef, userDataToSave);
+        await setDoc(tutorRef, userDataToSave);
+        alert("Account created successfully!");
+
+        // else{
+        //     await setDoc(tutorRef, {
+        //         uid: user.uid,
+        //         // firstName: firstName,
+        //         // lastName: lastName,
+        //         // dateOfBirth: dateOfBirth,
+        //         // phoneNumber: phoneNumber,
+        //         // gender: gender,
+        //         // degree: degree,
+        //         ...userData,
+        //         email: user.email,
+        //         createdAt: new Date() 
+        //     });
+        //     await setDoc(userRef, {
+        //         uid: user.uid,
+        //         // firstName: firstName,
+        //         // lastName: lastName,
+        //         // dateOfBirth: dateOfBirth,
+        //         // phoneNumber: phoneNumber,
+        //         // gender: gender,
+        //         // degree: degree,
+        //         ...userData,
+        //         email: user.email,
+        //         createdAt: new Date() 
+        //     });
+        //     alert("Account created successfully!");
+        // }
     };
 
     //Sign Up with Email and Password
@@ -64,7 +84,6 @@ export const SignUpOptions = (props) => {
         try{
             const result = await createUserWithEmailAndPassword(auth, email, password);
             const user = result.user;
-
             await saveUserToFirestore(user);
         }
         catch(err){
@@ -78,7 +97,6 @@ export const SignUpOptions = (props) => {
         try{
             const result = await signInWithPopup(auth, googleProvider);
             const user = result.user;
-            
             await saveUserToFirestore(user);
         }
         catch(err){
@@ -86,6 +104,8 @@ export const SignUpOptions = (props) => {
             alert(err.message);
         }
     }
+
+    if (!userData) return <p>Loading...</p>;
 
     return(
         <>

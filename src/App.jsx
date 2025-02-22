@@ -7,7 +7,7 @@ import { SignUpOptions } from "./components/SignUp/tutorSignUp/SignUpOptions";
 import { SignUpQuestions } from "./components/SignUp/tutorSignUp/SignUpQuestions";
 import BecomeATutor from "./components/BecomeATutor";
 import { ResetPassword } from "./components/SignUp/tutorSignUp/PasswordReset";
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sidebar from "./components/tutorDashboard/Sidebar";
 // import DashBoard from "./components/Dashboard/DashboardClasses"
 import DashboardClasses from "./components/Dashboard/DashboardClasses";
@@ -21,7 +21,7 @@ function App() {
     <>
  
       <div className="App"> 
-          <Navbar />
+          {/* <Navbar /> */}
          {/* <BecomeATutor />    */}
         {/* <Sidebar/> */}
         {/* <HomePage /> */}
@@ -29,7 +29,7 @@ function App() {
         {/* <SignUpQuestions/> */}
         {/* <SignUpOptions/> */}
         {/* <SignInAuth/> */}
-        <ResetPassword/>
+        {/* <ResetPassword/> */}
         {/* <DashboardClasses/> */}
         
           {/* <Sidebar/> */}
@@ -47,7 +47,15 @@ function App() {
       </div>
     </Router> */}
       
-      
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/SignUpQuestions" element={<SignUpQuestions />} />
+          <Route path="/SignUpOptions" element={<SignUpOptions />} />
+          <Route path="/SignIn" element={<SignInAuth />} />
+          <Route path="/ResetPassword" element={<ResetPassword />} />
+        </Routes>
+      </Router>
     </>
   );
 }
