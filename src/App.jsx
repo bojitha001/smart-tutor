@@ -42,7 +42,7 @@ import KuppiGroups from "./components/KuppiGroups";
 
 function App() {
   return (
-
+    <>
       <div className="App"> 
            {/* <Navbar /> */}
          {/* <BecomeATutor />     */}
@@ -54,7 +54,7 @@ function App() {
         {/* <SignInAuth/> */}
         {/* <ResetPassword/> */}
         {/* <DashboardClasses/> */}
-        <KuppiGroups/>
+        {/* <KuppiGroups/> */}
         
           {/* <Sidebar/> */}
           {/* <FindTutor/> */}
@@ -67,7 +67,7 @@ function App() {
       
     
 
-      <Router>
+      {/* <Router>
       <div className={styles.app}>
         <Sidebar/>
         <Routes>
@@ -79,8 +79,20 @@ function App() {
         </Routes>
       </div>
     </Router>
-    </div>
+    </div> */}
     
+
+        <Router>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/SignUpQuestions" element={<SignUpQuestions />} />
+            <Route path="/SignUpOptions" element={<SignUpOptions />} />
+            <Route path="/SignIn" element={<SignInAuth />} />
+            <Route path="/ResetPassword" element={<ResetPassword />} />
+          </Routes>
+        </Router>
+      </div>
+      </>
   );
 }
 
