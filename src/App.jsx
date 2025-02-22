@@ -23,6 +23,11 @@ import StudentSignUp from "./components/StudentSignUp/StudentSignUp.jsx"
 import FindTutor from "./components/FindATutor";
 
 
+// import KuppiGroups from "./components/KuppiGroups";
+// import SelectingSubjects from "./components/Parent/Student/SelectingSubjects";
+
+
+
 
 function App() {
   return (
