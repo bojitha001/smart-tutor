@@ -3,16 +3,17 @@ import '../../.ExternalCss/SignUpQuestions.css';
 import smartTutorImage from "../../assets/images/smartTutor.svg"
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import { SignUpOptions } from "./SignUpOptions";
+// import { SignUpOptions } from "./SignUpOptions";
 
 export const SignUpQuestions = () => {
+    const navigate = useNavigate();
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [dateOfBirth, setDateOfBirth] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [gender, setGender] = useState("");
     const [degree, setDegree] = useState("");
-    const [showSignUpOptions, setShowSignUpOptions] = useState(false); // Declare the state to control visibility
+    // const [showSignUpOptions, setShowSignUpOptions] = useState(false); // Declare the state to control visibility
 
     const handleGenderSelect = (selectedGender) => {
         setGender(selectedGender);
@@ -27,12 +28,19 @@ export const SignUpQuestions = () => {
             alert("Please fill in all the details before continuing.");
             return;
         }
-        setShowSignUpOptions(true);
+
+        // Store data in session storage
+        const formData = { firstName, lastName, dateOfBirth, phoneNumber, gender, degree };
+        sessionStorage.setItem("signUpData", JSON.stringify(formData));
+
+        navigate("/SignUpOptions"); // Navigate to SignUpOptions
+
+        // setShowSignUpOptions(true);
     };
 
     return(
         <>
-        {!showSignUpOptions ? (
+        {/* {!showSignUpOptions ? ( */}
         <div className="row g-3">
             <div className="col-md-12 signUp-form">
                 <img className="smartTutor-Img" src={smartTutorImage} alt="" />
@@ -108,7 +116,6 @@ export const SignUpQuestions = () => {
                             type="button"
                             className="btn btn-lg continue-signup-button"
                             onClick={handleContinueToSignup}
-                            // onClick={signUpWithGoogle}
                         >  
                             Continue to Sign-up &nbsp;&nbsp;&#129122;
                         </button>
@@ -116,9 +123,9 @@ export const SignUpQuestions = () => {
                 </form>
             </div>
         </div>
-        ):(
+        {/* ):(
         <SignUpOptions firstName={firstName} lastName={lastName} dateOfBirth={dateOfBirth} phoneNumber={phoneNumber} gender={gender} degree={degree}/>
-        )}
+        )} */}
         </>
     );
 }

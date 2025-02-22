@@ -4,8 +4,8 @@ import { getFirestore, collection, query, where, getDocs } from "firebase/firest
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Button from "react-bootstrap/Button";
-import styles from "../../.ExternalCss/PasswordReset.module.css";
-import image from "../../assets/images/rb_5488.png";
+import styles from "../../../.ExternalCss/PasswordReset.module.css";
+import image from "../../../assets/images/rb_5488.png";
 
 export const ResetPassword = () => {
     const [email, setEmail] = useState("");
