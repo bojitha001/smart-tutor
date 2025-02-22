@@ -7,36 +7,25 @@ import { SignInAuth } from "./components/LoginPage";
 import { SignUpOptions } from "./components/SignUp/tutorSignUp/SignUpOptions";
 import { SignUpQuestions } from "./components/SignUp/tutorSignUp/SignUpQuestions";
 import BecomeATutor from "./components/BecomeATutor";
-import { ResetPassword } from "./components/tutorSignUp/PasswordReset";
+// import ResetPassword from "./components/tutorSignUp/PasswordReset";
+import { ResetPassword } from "./components/SignUp/tutorSignUp/PasswordReset.jsx"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/tutorDashboard/Sidebar";
 
-import DashboardClasses from "./components/Dashbaord/DashboardClasses";
-
-
-
-// import DashboardClasses from "./components/Dashbaord/DashboardClasses";
-// import DashBoard from "../components/Dashbaord/DashboardClasses"
-
-
-// import DashBoard from "./components/Dashbaord/DashboardClasses"
-
-
+import DashboardClasses from "./components/Dashboard/DashboardClasses.jsx"
+import DashboardPayments from "./components/Dashboard/DashboardPayments.jsx"
 import MainContent from "./components/tutorDashboard/MainContent";
-
-// import MainContent from "../components/tutorDashboard/MainContent";
 import StudentView from "./components/tutorDashboard/StudentSection";
-// import DashboardClasses from "./components/Dashbaord/DashboardClasses";
 import Settings from "./components/tutorDashboard/SettingSection";
-
 import KuppiGroups from "./components/KuppiGroups/KuppiGroups.jsx";
 import QuestionForm from "./components/KuppiGroups/QuestionForm.jsx";
 import StudentSignUp from "./components/StudentSignUp/StudentSignUp.jsx"
-
 import FindTutor from "./components/FindATutor";
+
 
 // import KuppiGroups from "./components/KuppiGroups";
 // import SelectingSubjects from "./components/Parent/Student/SelectingSubjects";
+
 
 
 
@@ -44,9 +33,9 @@ function App() {
   return (
     <>
       <div className="App"> 
-           {/* <Navbar /> */}
-         {/* <BecomeATutor />     */}
-        {/* <Sidebar/> */}
+        <Navbar />
+        {/* <BecomeATutor />*/}
+
         {/* <HomePage /> */}
         {/* <SelectingSubjects /> */}
         {/* <SignUpQuestions/> */}
@@ -60,6 +49,16 @@ function App() {
           {/* <FindTutor/> */}
         
         
+        {/* <Router>
+          <div className="App">
+            <Navbar/>
+            <Routes>
+              <Route path="/homepage" element={<HomePage/>}/>
+              <Route path="/find-tutor" element={<FindTutor/>}/>
+              <Route path="/courses" element={<KuppiGroups/>}/>
+            </Routes>
+          </div>
+        </Router> */}
 
       
 
@@ -78,8 +77,8 @@ function App() {
             <Route path="/settings" element={<Settings />} />
         </Routes>
       </div>
-    </Router>
-    </div> */}
+    </Router> */}
+    {/* </div> */}
     
 
         <Router>
