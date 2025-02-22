@@ -58,7 +58,7 @@ function App() {
           {/* <FindTutor/> */}
         
         
-        <Router>
+        {/* <Router>
           <div className="App">
             <Navbar/>
             <Routes>
@@ -67,7 +67,7 @@ function App() {
               <Route path="/courses" element={<KuppiGroups/>}/>
             </Routes>
           </div>
-        </Router>
+        </Router> */}
 
       
 
