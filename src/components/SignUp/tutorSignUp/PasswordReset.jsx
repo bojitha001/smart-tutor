@@ -46,17 +46,6 @@ export const ResetPassword = () => {
         } finally {
             setLoading(false);
         }
-
-        // const auth = getAuth();
-        // sendPasswordResetEmail(auth, email)
-        // .then(() => {
-        //     alert("Password reset email has been sent!");
-        // })
-        // .catch((error) => {
-        //     const errorCode = error.code;
-        //     const errorMessage = error.message;
-        //     alert(errorMessage);
-        // });
     };
 
     return (

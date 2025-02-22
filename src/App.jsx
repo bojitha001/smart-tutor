@@ -25,7 +25,7 @@ import FindTutor from "./components/FindATutor";
 
 function App() {
   return (
-
+    <>
       <div className="App"> 
         {/* <Navbar /> */}
         {/* <BecomeATutor />*/}
@@ -35,10 +35,21 @@ function App() {
         {/* <SignUpOptions/> */}
         {/* <SignInAuth/> */}
         {/* <ResetPassword/> */}
+        {/* <DashboardClasses/> */}
         {/* <KuppiGroups/> */}
-        {/* <FindTutor/> */}
         
-      <Router>
+          {/* <Sidebar/> */}
+          {/* <FindTutor/> */}
+        
+        
+
+      
+
+
+      
+    
+
+      {/* <Router>
       <div className={styles.app}>
         <Sidebar/>
         <Routes>
@@ -50,8 +61,20 @@ function App() {
         </Routes>
       </div>
     </Router>
-    </div>
+    </div> */}
     
+
+        <Router>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/SignUpQuestions" element={<SignUpQuestions />} />
+            <Route path="/SignUpOptions" element={<SignUpOptions />} />
+            <Route path="/SignIn" element={<SignInAuth />} />
+            <Route path="/ResetPassword" element={<ResetPassword />} />
+          </Routes>
+        </Router>
+      </div>
+      </>
   );
 }
 
