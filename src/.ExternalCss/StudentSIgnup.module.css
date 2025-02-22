@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.student-signup-main {
+    background-color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.student-signup-main-inside {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    padding: 1rem;
+}
+
+.student-signup-main-inside-left {
+    background-color: #F3D186;
+    /* height: 95vh; */
+    padding: 3rem;
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.student-signup-main-tutor-txt-1 {
+    font-family: 'Inria Sans';
+    font-size: 2.8rem;
+    font-weight: 600;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.student-signup-main-tutor-txt-2 {
+    font-family: 'Inria Sans';
+    font-size: 3.6rem;
+    font-weight: 500;
+}
+
+.student-signup-main-tutor-txt-3 {
+    font-family: 'Inria Sans';
+    font-size: 1.6rem;
+    
+}
+
+.student-signup-main-tutor-txt-span {
+    color: #FCC939;
+}
+
+.student-signup-main-inside-left-img {
+    width: 70%;
+    text-align: center;
+    display:block;
+    margin: 0 auto;
+}
+
+.student-signup-main-inside-right {
+
+}
+
+.student-signup-main-inside-txt-1 {
+    
+}
