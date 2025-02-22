@@ -1,0 +1,68 @@
+.descrip-card-signUp .signUp-Img {
+    margin-top:10px;     
+    width: 85%;
+}
+
+.descrip-card-signUp .smartTutor-Img {
+    margin-bottom: 5%;
+    width: 30%;
+}
+
+.sub-titles-signUp{
+    /* font-family: 'Lato'; */
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.descrip-card-signUp{
+    text-align: center;
+    background-color: #5A6DEE;
+    border-radius: 2%;
+}
+
+.descrip-signUp, .signUp-form{
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.signUp-form input{
+    height: 40px;
+    border-color: #D0D0D0;
+    font-size: 15px;
+}
+
+.signUp-form button{
+    height: 45px;
+    font-size: 17px;
+    font-weight: 500 ;
+}
+
+.create-account-button{
+    background-color: #5A6DEE !important;
+    color: #ffffff !important;
+}
+
+.create-google-account-button{
+    border-color: #D0D0D0 !important;
+    padding: 0 4.5em 0 4.5em !important;
+    margin-top: 1em;
+}
+
+.google-Img{
+    width: 28px;
+    margin-right: 1rem;
+}
+
+.signUp-terms{
+    font-size: 12px;
+    font-weight: 400;
+    margin: 25px 0 45px 0;
+}
+
+.signUp-form{
+    margin-top: 4% !important;
+}
+
+.signUp-form .form-topic{
+    font-size: 30px;
+}
