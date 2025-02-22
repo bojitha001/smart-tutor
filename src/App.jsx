@@ -4,47 +4,37 @@ import styles from "../src/.ExternalCss/TutorMainView.module.css";
 import { Navbar } from "./components/NavBar";
 import { HomePage } from "./components/HomePage";
 import { SignInAuth } from "./components/LoginPage";
-import { SignUpOptions } from "./components/tutorSignUp/SignUpOptions";
-import { SignUpQuestions } from "./components/tutorSignUp/SignUpQuestions";
+import { SignUpOptions } from "./components/SignUp/tutorSignUp/SignUpOptions";
+import { SignUpQuestions } from "./components/SignUp/tutorSignUp/SignUpQuestions";
 import BecomeATutor from "./components/BecomeATutor";
 import { ResetPassword } from "./components/tutorSignUp/PasswordReset";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/tutorDashboard/Sidebar";
 
 import DashboardClasses from "./components/Dashbaord/DashboardClasses";
-
-
-
-// import DashboardClasses from "./components/Dashbaord/DashboardClasses";
-
-// import DashBoard from "../components/Dashbaord/DashboardClasses"
-
-
-// import DashBoard from "./components/Dashbaord/DashboardClasses"
-
-
+import DashboardPayments from "./components/Dashbaord/DashbaordPayments.jsx"
 import MainContent from "./components/tutorDashboard/MainContent";
-
-// import MainContent from "../components/tutorDashboard/MainContent";
 import StudentView from "./components/tutorDashboard/StudentSection";
-// import DashboardClasses from "./components/Dashbaord/DashboardClasses";
 import Settings from "./components/tutorDashboard/SettingSection";
-
+import KuppiGroups from "./components/KuppiGroups/KuppiGroups.jsx";
+import QuestionForm from "./components/KuppiGroups/QuestionForm.jsx";
+import StudentSignUp from "./components/StudentSignUp/StudentSignUp.jsx"
 import FindTutor from "./components/FindATutor";
-
-import KuppiGroups from "./components/KuppiGroups";
-
-// import SelectingSubjects from "./components/Parent/Student/SelectingSubjects";
 
 
 
 function App() {
   return (
-
+    <>
       <div className="App"> 
+
            {/* <Navbar /> */}
          {/* <BecomeATutor />     */}
         {/* <Sidebar/> */}
+
+        {/* <Navbar /> */}
+        {/* <BecomeATutor />*/}
+
         {/* <HomePage /> */}
         {/* <SelectingSubjects /> */}
         {/* <SignUpQuestions/> */}
@@ -82,12 +72,25 @@ function App() {
             <Route path="/" element={<MainContent />} />
             <Route path="/classes" element={<DashboardClasses/>}/>
             <Route path="/students" element={<StudentView />} />
+            <Route path="/payments" element={<DashboardPayments />} />
             <Route path="/settings" element={<Settings />} />
         </Routes>
       </div>
-    </Router> */}
-    </div>
+    </Router>
+    </div> */}
     
+
+        <Router>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/SignUpQuestions" element={<SignUpQuestions />} />
+            <Route path="/SignUpOptions" element={<SignUpOptions />} />
+            <Route path="/SignIn" element={<SignInAuth />} />
+            <Route path="/ResetPassword" element={<ResetPassword />} />
+          </Routes>
+        </Router>
+      </div>
+      </>
   );
 }
 
