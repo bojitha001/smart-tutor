@@ -27,8 +27,14 @@ function App() {
   return (
     <>
       <div className="App"> 
+
+           {/* <Navbar /> */}
+         {/* <BecomeATutor />     */}
+        {/* <Sidebar/> */}
+
         {/* <Navbar /> */}
         {/* <BecomeATutor />*/}
+
         {/* <HomePage /> */}
         {/* <SelectingSubjects /> */}
         {/* <SignUpQuestions/> */}
@@ -42,6 +48,16 @@ function App() {
           {/* <FindTutor/> */}
         
         
+        {/* <Router>
+          <div className="App">
+            <Navbar/>
+            <Routes>
+              <Route path="/homepage" element={<HomePage/>}/>
+              <Route path="/find-tutor" element={<FindTutor/>}/>
+              <Route path="/courses" element={<KuppiGroups/>}/>
+            </Routes>
+          </div>
+        </Router> */}
 
       
 
