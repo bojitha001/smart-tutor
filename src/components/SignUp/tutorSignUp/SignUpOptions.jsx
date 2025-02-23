@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { auth, googleProvider, db } from "../../../config/firebase";
 import {createUserWithEmailAndPassword, signInWithPopup} from 'firebase/auth';
 import { doc, setDoc, getDoc } from "firebase/firestore"; 
-import '../../.ExternalCss/SignUpOptions.css';
-import smartTutorImage from "../../assets/images/smartTutor.svg";
-import signUpImage from "../../assets/images/signupPage.svg";
-import googleImage from "../../assets/images/google.png";
+import '../../../.ExternalCss/SignUpOptions.css';
+import smartTutorImage from "../../../assets/images/smartTutor.svg";
+import signUpImage from "../../../assets/images/signupPage.svg";
+import googleImage from "../../../assets/images/google.png";
 
 export const SignUpOptions = () => {
     const [userData, setUserData] = useState(null);
