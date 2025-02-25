@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from '../../../.ExternalCss/SignUpQuestions.module.css';
+import styles from '../../../.ExternalCss/TutorSignUpQuestions.module.css';
 import smartTutorImage from "../../../assets/images/smartTutor.svg"
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 
-export const SignUpQuestions = () => {
+export const StudentSignUpQuestions = () => {
     const navigate = useNavigate();
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -14,6 +14,20 @@ export const SignUpQuestions = () => {
     const [gender, setGender] = useState("");
     const [degree, setDegree] = useState("");
     
+    // Load saved data when component mounts
+    useEffect(() => {
+        const savedData = sessionStorage.getItem("signUpData");
+        if (savedData) {
+            const { firstName, lastName, dateOfBirth, phoneNumber, gender, degree } = JSON.parse(savedData);
+            setFirstName(firstName || "");
+            setLastName(lastName || "");
+            setDateOfBirth(dateOfBirth || "");
+            setPhoneNumber(phoneNumber || "");
+            setGender(gender || "");
+            setDegree(degree || "");
+        }
+    }, []);
+
     const handleGenderSelect = (selectedGender) => {
         setGender(selectedGender);
     };
@@ -33,7 +47,7 @@ export const SignUpQuestions = () => {
         sessionStorage.setItem("signUpData", JSON.stringify(formData));
 
          // Navigate to SignUpOptions
-        navigate("/SignUpOptions");
+        navigate("/StudentSignUpOptions");
     };
 
     return(
@@ -45,7 +59,7 @@ export const SignUpQuestions = () => {
                         <h1 className={`text-center ${styles.signUpQuestionTopic}`}>Get to Know You Better !</h1>
                         <h3 className={`text-center ${styles.signUpQuestionDescrip}`}>We just need a few details to set up your profile and stay connected. This will help us<br></br> provide a seamless experience as you start your journey as a tutor!</h3>
                         <div className="col-md-5">
-                            <label className="form-label">First Name</label>
+                            <label className={`form-label ${styles.formLabel}`}>First Name</label>
                             <input
                             type="text"
                             className="form-control"
@@ -55,7 +69,7 @@ export const SignUpQuestions = () => {
                             />
                         </div>
                         <div className="col-md-5">
-                            <label className="form-label">Last Name</label>
+                            <label className={`form-label ${styles.formLabel}`}>Last Name</label>
                             <input
                             type="text"
                             className="form-control"
@@ -65,7 +79,7 @@ export const SignUpQuestions = () => {
                             />
                         </div>
                         <div className="col-md-5">
-                            <label className="form-label">Date of Birth</label>
+                            <label className={`form-label ${styles.formLabel}`}>Date of Birth</label>
                             <input
                             className="form-control"
                             type="date"
@@ -75,7 +89,7 @@ export const SignUpQuestions = () => {
                             />
                         </div>
                         <div className="col-md-5">
-                            <label className="form-label">Phone Number</label>
+                            <label className={`form-label ${styles.formLabel}`}>Phone Number</label>
                             <input
                             className="form-control"
                             type="tel"
@@ -85,7 +99,7 @@ export const SignUpQuestions = () => {
                             />
                         </div>
                         <div className="col-md-5">
-                            <label className="form-label">Gender</label>
+                            <label className={`form-label ${styles.formLabel}`}>Gender</label>
                             <DropdownButton 
                                 className={`${styles.dropdownGender}`} 
                                 title={gender} 
@@ -98,7 +112,7 @@ export const SignUpQuestions = () => {
 
                         </div>
                         <div className="col-md-5">
-                            <label className="form-label">Degree</label>
+                            <label className={`form-label ${styles.formLabel}`}>Degree</label>
                             <DropdownButton 
                                 className={`${styles.dropdownDegree}`}
                                 title={degree} 

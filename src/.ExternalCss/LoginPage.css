@@ -1,4 +1,4 @@
-.login-page-main-container {
+.loginPageMainContainer {
     /* background-color: red; */
     display: flex;
     justify-content: center;
@@ -6,11 +6,11 @@
     /* max-width: 120rem; */
 }
 
-.login-page-signIn-Img {
+.loginPageSignInImg {
     height:50%;
 }
 
-.login-page-signIn-form, .descrip-card-signIn{
+.loginPageSignInForm, .descripCardSignIn{
     height: 100vh;
     
 }

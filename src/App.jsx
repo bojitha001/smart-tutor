@@ -4,11 +4,12 @@ import styles from "../src/.ExternalCss/TutorMainView.module.css";
 import { Navbar } from "./components/NavBar";
 import { HomePage } from "./components/HomePage";
 import { SignInAuth } from "./components/LoginPage";
-import { SignUpOptions } from "./components/SignUp/tutorSignUp/SignUpOptions";
-import { SignUpQuestions } from "./components/SignUp/tutorSignUp/SignUpQuestions";
+import { TutorSignUpOptions } from "./components/SignUp/tutorSignUp/TutorSignUpOptions";
+import { TutorSignUpQuestions } from "./components/SignUp/tutorSignUp/TutorSignUpQuestions";
+import { StudentSignUpOptions } from "./components/SignUp/studentSignUp/StudentSignUpOptions";
+import { StudentSignUpQuestions } from "./components/SignUp/studentSignUp/StudentSignUpQuestions";
 import BecomeATutor from "./components/BecomeATutor";
-// import ResetPassword from "./components/tutorSignUp/PasswordReset";
-import { ResetPassword } from "./components/SignUp/tutorSignUp/PasswordReset.jsx"
+import { ResetPassword } from "./components/SignUp/PasswordReset.jsx"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/tutorDashboard/Sidebar";
 
@@ -33,9 +34,9 @@ function App() {
   return (
     <>
       <div className="App"> 
-        <Navbar />
+        {/* <Navbar /> */}
         {/* <BecomeATutor />*/}
-
+        {/* <StudentSignUp/> */}
         {/* <HomePage /> */}
         {/* <SelectingSubjects /> */}
         {/* <SignUpQuestions/> */}
@@ -84,8 +85,10 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/SignUpQuestions" element={<SignUpQuestions />} />
-            <Route path="/SignUpOptions" element={<SignUpOptions />} />
+            <Route path="/TutorSignUpQuestions" element={<TutorSignUpQuestions />} />
+            <Route path="/TutorSignUpOptions" element={<TutorSignUpOptions />} />
+            <Route path="/StudentSignUpQuestions" element={<StudentSignUpQuestions />} />
+            <Route path="/StudentSignUpOptions" element={<StudentSignUpOptions />} />
             <Route path="/SignIn" element={<SignInAuth />} />
             <Route path="/ResetPassword" element={<ResetPassword />} />
           </Routes>
