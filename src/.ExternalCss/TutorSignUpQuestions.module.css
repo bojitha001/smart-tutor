@@ -5,6 +5,12 @@
 
 .formLabel{
     font-size: 15px;
+    font-weight:bold;
+}
+
+.formControl{
+    padding: 0.7rem 0.75rem;
+    font-size: medium;
 }
 
 .questionForm{
@@ -31,6 +37,8 @@
 .dropdownItem{
     font-size: 15px;
 }
+
+
 
 .signUpQuestionTopic{
     font-size: 50px;

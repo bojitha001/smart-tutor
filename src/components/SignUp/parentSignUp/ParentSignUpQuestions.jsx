@@ -1,55 +1,47 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-// import PhoneInput from "react-phone-input-2";
-// import 'react-phone-input-2/lib/style.css';
 import styles from '../../../.ExternalCss/TutorSignUpQuestions.module.css';
 import smartTutorImage from "../../../assets/images/smartTutor.svg"
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 
-export const TutorSignUpQuestions = () => {
+export const ParentSignUpQuestions = () => {
     const navigate = useNavigate();
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
-    const [dateOfBirth, setDateOfBirth] = useState("");
+    const [studentId, setStudentId] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
-    const [gender, setGender] = useState("");
-    const [degree, setDegree] = useState("");
+    const [parent, setParent] = useState("");
     
     // Load saved data when component mounts
     useEffect(() => {
         const savedData = sessionStorage.getItem("signUpData");
         if (savedData) {
-            const { firstName, lastName, dateOfBirth, phoneNumber, gender, degree } = JSON.parse(savedData);
+            const { firstName, lastName, studentId, phoneNumber, parent } = JSON.parse(savedData);
             setFirstName(firstName || "");
             setLastName(lastName || "");
-            setDateOfBirth(dateOfBirth || "");
+            setStudentId(studentId || "");
             setPhoneNumber(phoneNumber || "");
-            setGender(gender || "");
-            setDegree(degree || "");
+            setParent(parent || "");
         }
     }, []);
 
-    const handleGenderSelect = (selectedGender) => {
-        setGender(selectedGender);
-    };
-
-    const handleDegreeSelect = (selectedDegree) => {
-        setDegree(selectedDegree);
+    const handleParentSelect = (selectedParent) => {
+        setParent(selectedParent);
     };
 
     const handleContinueToSignup = () => {
-        if (!firstName || !lastName || !dateOfBirth || !phoneNumber || !gender || !degree) {
+        if (!firstName || !lastName || !studentId || !phoneNumber || !parent ) {
             alert("Please fill in all the details before continuing.");
             return;
         }
 
         // Store data in session storage
-        const formData = { firstName, lastName, dateOfBirth, phoneNumber, gender, degree };
+        const formData = { firstName, lastName, studentId, phoneNumber, parent};
         sessionStorage.setItem("signUpData", JSON.stringify(formData));
 
          // Navigate to SignUpOptions
-        navigate("/TutorSignUpOptions");
+        navigate("/ParentSignUpOptions");
     };
 
     return(
@@ -64,7 +56,7 @@ export const TutorSignUpQuestions = () => {
                             <label className={`form-label ${styles.formLabel}`}>First Name</label>
                             <input
                             type="text"
-                            className={`form-control ${styles.formControl}`}
+                            className="form-control"
                             value={firstName}
                             onChange={(e) => setFirstName(e.target.value)}
                             required
@@ -74,65 +66,42 @@ export const TutorSignUpQuestions = () => {
                             <label className={`form-label ${styles.formLabel}`}>Last Name</label>
                             <input
                             type="text"
-                            className={`form-control ${styles.formControl}`}
+                            className="form-control"
                             value={lastName}
                             onChange={(e) => setLastName(e.target.value)}
                             required
                             />
                         </div>
                         <div className="col-md-5">
-                            <label className={`form-label ${styles.formLabel}`}>Date of Birth</label>
+                            <label className={`form-label ${styles.formLabel}`}>Student ID</label>
                             <input
-                            className={`form-control ${styles.formControl}`}
-                            type="date"
-                            value={dateOfBirth}
-                            onChange={(e) => setDateOfBirth(e.target.value)}
+                            className="form-control"
+                            type="text"
+                            value={studentId}
+                            onChange={(e) => setStudentId(e.target.value)}
                             required
                             />
                         </div>
                         <div className="col-md-5">
                             <label className={`form-label ${styles.formLabel}`}>Phone Number</label>
                             <input
-                            className={`form-control ${styles.formControl}`}
+                            className="form-control"
                             type="tel"
                             value={phoneNumber}
                             onChange={(e) => setPhoneNumber(e.target.value)}
                             required
                             />
                         </div>
-                        {/* <div className="col-md-5">
-                            <label className={`form-label ${styles.formLabel}`}>Phone Number</label>
-                            <PhoneInput
-                                country={'us'} // Set the default country code (optional)
-                                value={phoneNumber}
-                                onChange={setPhoneNumber} // Update state on change
-                                inputClass={`form-control ${styles.formControl}`} // Apply your custom styles
-                                required
-                            />
-                        </div> */}
                         <div className="col-md-5">
-                            <label className={`form-label ${styles.formLabel}`}>Gender</label>
+                            <label className={`form-label ${styles.formLabel}`}>Parent</label>
                             <DropdownButton 
-                                className={`${styles.dropdownGender}`} 
-                                title={gender} 
-                                onSelect={handleGenderSelect}
+                                className={`${styles.dropdownParent}`} 
+                                title={parent} 
+                                onSelect={handleParentSelect}
                             >
-                                <Dropdown.Item eventKey="Male">Male</Dropdown.Item>
-                                <Dropdown.Item eventKey="Female">Female</Dropdown.Item>
-                                <Dropdown.Item eventKey="Other">Other</Dropdown.Item>
-                            </DropdownButton>
-
-                        </div>
-                        <div className="col-md-5">
-                            <label className={`form-label ${styles.formLabel}`}>Degree</label>
-                            <DropdownButton 
-                                className={`${styles.dropdownDegree}`}
-                                title={degree} 
-                                onSelect={handleDegreeSelect}
-                            >
-                                <Dropdown.Item eventKey="Bachelor's">Bachelor's</Dropdown.Item>
-                                <Dropdown.Item eventKey="Master's">Master's</Dropdown.Item>
-                                <Dropdown.Item eventKey="PhD">PhD</Dropdown.Item>
+                                <Dropdown.Item eventKey="Male">Father</Dropdown.Item>
+                                <Dropdown.Item eventKey="Female">Mother</Dropdown.Item>
+                                <Dropdown.Item eventKey="Other">Guardian</Dropdown.Item>
                             </DropdownButton>
                         </div>
                         <div className="col-12 text-center">

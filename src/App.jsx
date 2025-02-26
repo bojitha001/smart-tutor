@@ -8,6 +8,8 @@ import { TutorSignUpOptions } from "./components/SignUp/tutorSignUp/TutorSignUpO
 import { TutorSignUpQuestions } from "./components/SignUp/tutorSignUp/TutorSignUpQuestions";
 import { StudentSignUpOptions } from "./components/SignUp/studentSignUp/StudentSignUpOptions";
 import { StudentSignUpQuestions } from "./components/SignUp/studentSignUp/StudentSignUpQuestions";
+import { ParentSignUpOptions } from "./components/SignUp/parentSignUp/ParentSignUpOptions";
+import { ParentSignUpQuestions } from "./components/SignUp/parentSignUp/ParentSignUpQuestions";
 import BecomeATutor from "./components/BecomeATutor";
 import { ResetPassword } from "./components/SignUp/PasswordReset.jsx"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -89,6 +91,8 @@ function App() {
             <Route path="/TutorSignUpOptions" element={<TutorSignUpOptions />} />
             <Route path="/StudentSignUpQuestions" element={<StudentSignUpQuestions />} />
             <Route path="/StudentSignUpOptions" element={<StudentSignUpOptions />} />
+            <Route path="/ParentSignUpQuestions" element={<ParentSignUpQuestions />} />
+            <Route path="/ParentSignUpOptions" element={<ParentSignUpOptions />} />
             <Route path="/SignIn" element={<SignInAuth />} />
             <Route path="/ResetPassword" element={<ResetPassword />} />
           </Routes>
