@@ -159,6 +159,13 @@ export const HomePage = () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
+
+  const [openId, setOpenId] = useState(null);
+
+  const handleClick = (id) => {
+    setOpenId(openId === id ? null : id);
+  };
+
   
   return (
     <>
@@ -260,6 +267,25 @@ export const HomePage = () => {
         </div>
         
         <button className={`${styles["nav-button next"]}`} onClick={goToNext}>→</button>
+      </div>
+    </div>
+
+    <div className="faq-container">
+      <h1>Frequently Asked Questions</h1>
+      <p className="subtitle">
+        Find quick answers to common questions about our tutoring service
+      </p>
+
+      <div className="faq-list">
+        {faqData.map((faq) => (
+          <FAQItem
+            key={faq.id}
+            question={faq.question}
+            answer={faq.answer}
+            isOpen={openId === faq.id}
+            onClick={() => handleClick(faq.id)}
+          />
+        ))}
       </div>
     </div>
       </> 
