@@ -97,6 +97,43 @@ const features = [
     description: 'Receive reminders about upcoming classes, assignments, fee due dates, and special events so you stay up-to-date with your schedule.'
   }
 ]
+
+const faqData = [
+  {
+    id: 1,
+    question: "Can I choose my own tutor?",
+    answer: "Yes, you can choose your own tutor based on your requirements and tutor ratings.",
+  },
+  {
+    id: 2,
+    question: "How does the tutor rating system work?",
+    answer: "Tutors are rated by students based on their performance and feedback.",
+  },
+  {
+    id: 3,
+    question: "Is there a trial session available?",
+    answer: "Yes, we offer a free trial session with selected tutors.",
+  },
+
+  {
+    id: 4,
+    question: "What subjects do you offer tutoring for?",
+    answer: "We offer tutoring for a wide range of subjects.",
+  },
+
+  {
+    id: 5,
+    question:"How do I schedule a session?",
+    answer: "You can schedule a session by selecting a tutor and choosing a convenient time slot." ,
+  },
+  {
+    id: 6,
+    question: "Do you offer group tutoring?",
+    answer: "Yes, we provide group tutoring sessions at discounted rates.",
+  },
+
+
+];
 export const HomePage = () => {
 
   const [currentIndex, setCurrentIndex] = useState(1);
