@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { auth, googleProvider, db } from "../../../config/firebase";
 import {createUserWithEmailAndPassword, signInWithPopup} from 'firebase/auth';
 import { doc, setDoc, getDoc } from "firebase/firestore"; 
-import '../../../.ExternalCss/SignUpOptions.module.css';
+import '../../../.ExternalCss/TutorSignUpOptions.module.css';
 import smartTutorImage from "../../../assets/images/smartTutor.svg";
 import signUpImage from "../../../assets/images/signupPage.svg";
 import googleImage from "../../../assets/images/google.png";
 
-export const SignUpOptions = () => {
+export const TutorSignUpOptions = () => {
+    const navigate = useNavigate(); // Initialize navigation
     const [userData, setUserData] = useState(null);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -38,6 +40,9 @@ export const SignUpOptions = () => {
         await setDoc(userRef, userDataToSave);
         await setDoc(tutorRef, userDataToSave);
         alert("Account created successfully!");
+
+         // Navigate to HomePage
+        navigate("/");
     };
 
     //Sign Up with Email and Password
@@ -138,7 +143,7 @@ export const SignUpOptions = () => {
                         </button>
                         <p className="signUp-terms">By clicking continue, you agree to our Terms of<br></br> Services and Privacy Policy.</p>
                     </div>
-                    <div className="text-center">Already have an account ?&nbsp;&nbsp;<span className="text-primary"><a href="#" className="text-decoration-none">Login</a></span></div>
+                    <div className="text-center">Already have an account ?&nbsp;&nbsp;<span className="text-primary"><a href="#" className="text-decoration-none" onClick={() => navigate("/SignIn")}>Login</a></span></div>
                 </form>
             </div>
         </div>
