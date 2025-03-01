@@ -47,12 +47,12 @@ const KuppiGroups = () => {
   return (
     <div className={`${styles["main-container"]}`}>
     <div className={styles.container}>
-      <nav className={styles.navbar}>
+      {/* <nav className={styles.navbar}>
         <div className={styles.logo}>
           <span className={styles.smart}>SMART</span>
           <span className={styles.tutor}>TUTOR</span>
         </div>
-      </nav>
+      </nav> */}
 
       <div className={styles.heroSection}>
         <div className={styles.heroContent}>
