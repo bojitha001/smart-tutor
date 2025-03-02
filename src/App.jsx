@@ -52,24 +52,25 @@ function App() {
           {/* <FindTutor/> */}
         
         
-        {/* <Router>
+        {/* { <Router>
           <div className="App">
             <Navbar/>
             <Routes>
               <Route path="/homepage" element={<HomePage/>}/>
               <Route path="/find-tutor" element={<FindTutor/>}/>
               <Route path="/courses" element={<KuppiGroups/>}/>
+              <Route path="/become-tutor" element={<BecomeATutor />}/>
             </Routes>
           </div>
-        </Router> */}
+        </Router> } */}
 
       
 
 
       
     
-
-      {/* <Router>
+     {/* { 
+      <Router>
       <div className={styles.app}>
         <Sidebar/>
         <Routes>
@@ -80,11 +81,12 @@ function App() {
             <Route path="/settings" element={<Settings />} />
         </Routes>
       </div>
-    </Router> */}
-    {/* </div> */}
+    
+     </Router> } */}
+     {/* </div> */}
     
 
-        <Router>
+         <Router>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/TutorSignUpQuestions" element={<TutorSignUpQuestions />} />
@@ -96,7 +98,7 @@ function App() {
             <Route path="/SignIn" element={<SignInAuth />} />
             <Route path="/ResetPassword" element={<ResetPassword />} />
           </Routes>
-        </Router>
+        </Router> 
       </div>
       </>
   );

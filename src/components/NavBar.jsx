@@ -16,7 +16,7 @@ export const Navbar = () => {
           <li>.</li>
           <li><Link to="/find-tutor">Find a Tutor</Link></li>
           <li>.</li>
-          <li><Link to="/courses">Courses</Link></li>
+          <li><Link to="/courses">Kuppi Groups</Link></li>
           <li>.</li>
           {/* <li><Link to="/prices">Prices</Link></li>
           <li>.</li> */}

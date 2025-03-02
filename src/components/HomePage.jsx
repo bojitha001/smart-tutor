@@ -12,7 +12,7 @@ import icon3 from "../assets/images/Calendar 12.png"
 import icon4 from "../assets/images/Test Results.png"
 import icon5 from "../assets/images/Find and Replace.png"
 import icon6 from "../assets/images/Brake Warning.png"
-
+import FAQItem from "../components/FAQItem.jsx"
 
 const categories = [
   { id: 1, name: 'Biology', color: '#FFE9B1', icon: '🧬' },
@@ -97,6 +97,43 @@ const features = [
     description: 'Receive reminders about upcoming classes, assignments, fee due dates, and special events so you stay up-to-date with your schedule.'
   }
 ]
+
+const faqData = [
+  {
+    id: 1,
+    question: "Can I choose my own tutor?",
+    answer: "Yes, you can choose your own tutor based on your requirements and tutor ratings.",
+  },
+  {
+    id: 2,
+    question: "How does the tutor rating system work?",
+    answer: "Tutors are rated by students based on their performance and feedback.",
+  },
+  {
+    id: 3,
+    question: "Is there a trial session available?",
+    answer: "Yes, we offer a free trial session with selected tutors.",
+  },
+
+  {
+    id: 4,
+    question: "What subjects do you offer tutoring for?",
+    answer: "We offer tutoring for a wide range of subjects.",
+  },
+
+  {
+    id: 5,
+    question:"How do I schedule a session?",
+    answer: "You can schedule a session by selecting a tutor and choosing a convenient time slot." ,
+  },
+  {
+    id: 6,
+    question: "Do you offer group tutoring?",
+    answer: "Yes, we provide group tutoring sessions at discounted rates.",
+  },
+
+
+];
 export const HomePage = () => {
 
   const [currentIndex, setCurrentIndex] = useState(1);
@@ -122,6 +159,13 @@ export const HomePage = () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
+
+  const [openId, setOpenId] = useState(null);
+
+  const handleClick = (id) => {
+    setOpenId(openId === id ? null : id);
+  };
+
   
   return (
     <>
@@ -223,6 +267,25 @@ export const HomePage = () => {
         </div>
         
         <button className={`${styles["nav-button next"]}`} onClick={goToNext}>→</button>
+      </div>
+    </div>
+
+    <div className="faq-container">
+      <h1>Frequently Asked Questions</h1>
+      <p className="subtitle">
+        Find quick answers to common questions about our tutoring service
+      </p>
+
+      <div className="faq-list">
+        {faqData.map((faq) => (
+          <FAQItem
+            key={faq.id}
+            question={faq.question}
+            answer={faq.answer}
+            isOpen={openId === faq.id}
+            onClick={() => handleClick(faq.id)}
+          />
+        ))}
       </div>
     </div>
       </> 
