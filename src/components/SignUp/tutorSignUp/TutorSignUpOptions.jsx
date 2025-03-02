@@ -81,9 +81,9 @@ export const TutorSignUpOptions = () => {
     if (!userData) return <p>Loading...</p>;
 
     return(
-        <>
+        <div className={`${styles["main-card"]}`}>
         <div className="row g-3 m-2 p-3">
-            <div className="col-md-5 p-5 text-white descrip-card-signUp">
+            <div className={`col-md-5 p-5 text-white ${styles["descrip-card-signUp"]}`}>
                 <div>
                     <img className={`${styles["smartTutor-Img"]}`} src={smartTutorImage} alt="" />
                     <h3 className={`${styles["sub-titles-signUp"]}`} >Empower Your Learning </h3>
@@ -129,7 +129,7 @@ export const TutorSignUpOptions = () => {
                     <div className="col-12 text-center">
                         <button 
                             type="submit" 
-                            className={`${styles["btn w-100 btn-lg create-account-button"]}`}
+                            className={`btn w-100 btn-lg ${styles["create-account-button"]}`}
                         >
                             Create Account
                         </button>
@@ -145,10 +145,10 @@ export const TutorSignUpOptions = () => {
                         </button>
                         <p className={`${styles["signUp-terms"]}`}>By clicking continue, you agree to our Terms of<br></br> Services and Privacy Policy.</p>
                     </div>
-                    <div className={`${styles["text-center"]}`}>Already have an account ?&nbsp;&nbsp;<span className={`${styles["text-primary"]}`}><a href="#" className={`${styles["text-decoration-none"]}`} onClick={() => navigate("/SignIn")}>Login</a></span></div>
+                    <div className="text-center">Already have an account ?&nbsp;&nbsp;<span className="text-primary"><a href="#" className="text-decoration-none" onClick={() => navigate("/SignIn")}>Login</a></span></div>
                 </form>
             </div>
         </div>
-        </>
+        </div>
     );
 }
