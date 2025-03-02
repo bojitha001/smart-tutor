@@ -12,7 +12,7 @@ import icon3 from "../assets/images/Calendar 12.png"
 import icon4 from "../assets/images/Test Results.png"
 import icon5 from "../assets/images/Find and Replace.png"
 import icon6 from "../assets/images/Brake Warning.png"
-
+import FAQItem from "../components/FAQItem.jsx"
 
 const categories = [
   { id: 1, name: 'Biology', color: '#FFE9B1', icon: '🧬' },

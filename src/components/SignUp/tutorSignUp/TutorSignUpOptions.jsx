@@ -93,7 +93,8 @@ export const TutorSignUpOptions = () => {
                 <img className={`${styles["signUp-Img"]}`}  src={signUpImage} alt="" />
             </div>
             <div className="col-md-1"></div>
-            <div className={`col-md-5 ${styles["signUp-form"]}`}>
+            
+            <div className="col-md-5 signUp-form">
                 <form className="row g-5" onSubmit={signUp}>
                     <h3 className={`text-center ${styles["form-topic"]}`}>Let's Keep in Touch!</h3>
                     <div className="col-md-12">
