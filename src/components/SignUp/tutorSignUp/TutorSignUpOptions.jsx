@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { auth, googleProvider, db } from "../../../config/firebase";
 import {createUserWithEmailAndPassword, signInWithPopup} from 'firebase/auth';
 import { doc, setDoc, getDoc } from "firebase/firestore"; 
-import '../../../.ExternalCss/TutorSignUpOptions.module.css';
+
+
+import styles from '../../../.ExternalCss/TutorSignUpOptions.module.css';
 import smartTutorImage from "../../../assets/images/smartTutor.svg";
 import signUpImage from "../../../assets/images/signupPage.svg";
 import googleImage from "../../../assets/images/google.png";
@@ -83,17 +85,17 @@ export const TutorSignUpOptions = () => {
         <div className="row g-3 m-2 p-3">
             <div className="col-md-5 p-5 text-white descrip-card-signUp">
                 <div>
-                    <img className="smartTutor-Img" src={smartTutorImage} alt="" />
-                    <h3 className="sub-titles-signUp">Empower Your Learning </h3>
-                    <h3 className="sub-titles-signUp">Journey - Join Us Today!</h3>
+                    <img className={`${styles["smartTutor-Img"]}`} src={smartTutorImage} alt="" />
+                    <h3 className={`${styles["sub-titles-signUp"]}`} >Empower Your Learning </h3>
+                    <h3 className={`${styles[ "sub-titles-signUp"]}`}>Journey - Join Us Today!</h3>
                 </div><br/>
-                <div className="descrip-signUp">Join us to unlock new skills and advance with hands-on learning and expert guidance. Start transforming your abilities today!</div>
-                <img className="signUp-Img" src={signUpImage} alt="" />
+                <div className={`${styles["descrip-signUp"]}`} >Join us to unlock new skills and advance with hands-on learning and expert guidance. Start transforming your abilities today!</div>
+                <img className={`${styles["signUp-Img"]}`}  src={signUpImage} alt="" />
             </div>
             <div className="col-md-1"></div>
-            <div className="col-md-5 signUp-form">
+            <div className={`col-md-5 ${styles["signUp-form"]}`}>
                 <form className="row g-5" onSubmit={signUp}>
-                    <h3 className="text-center form-topic">Let's Keep in Touch!</h3>
+                    <h3 className={`text-center ${styles["form-topic"]}`}>Let's Keep in Touch!</h3>
                     <div className="col-md-12">
                         <label className="form-label">Email</label>
                         <input
@@ -105,7 +107,7 @@ export const TutorSignUpOptions = () => {
                         />
                     </div>
                     <div className="col-md-6">
-                        <label className="form-label">Password</label>
+                        <label className={`${styles["form-label"]}`}>Password</label>
                         <input
                         type="password"
                         className="form-control"
@@ -115,7 +117,7 @@ export const TutorSignUpOptions = () => {
                         />
                     </div>
                     <div className="col-md-6">
-                        <label className="form-label">Confirm Password</label>
+                        <label className={`${styles["form-label"]}`}>Confirm Password</label>
                         <input
                         type="password"
                         className="form-control"
@@ -127,7 +129,7 @@ export const TutorSignUpOptions = () => {
                     <div className="col-12 text-center">
                         <button 
                             type="submit" 
-                            className="btn w-100 btn-lg create-account-button"
+                            className={`${styles["btn w-100 btn-lg create-account-button"]}`}
                         >
                             Create Account
                         </button>
@@ -136,14 +138,14 @@ export const TutorSignUpOptions = () => {
                         <p>OR</p>
                         <button
                             type="button"
-                            className="btn btn-lg create-google-account-button"
+                            className={`btn btn-lg ${styles["create-google-account-button"]}`}
                             onClick={signUpWithGoogle}
-                        >  <img className="google-Img" src={googleImage} alt="" />
+                        >  <img className={`${styles["google-Img"]}`} src={googleImage} alt="" />
                             Sign Up with Google
                         </button>
-                        <p className="signUp-terms">By clicking continue, you agree to our Terms of<br></br> Services and Privacy Policy.</p>
+                        <p className={`${styles["signUp-terms"]}`}>By clicking continue, you agree to our Terms of<br></br> Services and Privacy Policy.</p>
                     </div>
-                    <div className="text-center">Already have an account ?&nbsp;&nbsp;<span className="text-primary"><a href="#" className="text-decoration-none" onClick={() => navigate("/SignIn")}>Login</a></span></div>
+                    <div className={`${styles["text-center"]}`}>Already have an account ?&nbsp;&nbsp;<span className={`${styles["text-primary"]}`}><a href="#" className={`${styles["text-decoration-none"]}`} onClick={() => navigate("/SignIn")}>Login</a></span></div>
                 </form>
             </div>
         </div>
