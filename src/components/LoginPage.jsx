@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { auth, googleProvider, db } from "../config/firebase";
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore"; //Import Firestore functions
-import styles from "../.ExternalCss/LoginPage.css";
+import styles from "../.ExternalCss/LoginPage.module.css";
 import smartTutorImage from "../assets/images/smartTutor.svg";
 import signInImage from "../assets/images/mainImg.png";
 
@@ -117,7 +117,7 @@ export const SignInAuth = () => {
               </label>
             </div>
             <div className={`col-12 text-center`}>
-              <button type="submit" className={`btn btn-primary w-100`}>
+              <button type="submit" className={`btn btn-primary w-100 ${styles.loginButtons}`}>
                 Sign In
               </button>
             </div>
@@ -125,7 +125,7 @@ export const SignInAuth = () => {
               <p>OR</p>
               <button
                 type="button"
-                className={`btn btn-primary`}
+                className={`btn btn-primary ${styles.loginButtons}`}
                 onClick={signInWithGoogle}
               >
                 Sign In with Google
@@ -134,7 +134,7 @@ export const SignInAuth = () => {
             <div className={`text-center`}>
               Don't have an account ?&nbsp;&nbsp;
               <span className={`text-primary`}>
-                <a href="#" className={`text-decoration-none`} onClick={() => navigate("/SignUpQuestions")}>
+                <a href="#" className={`text-decoration-none`} onClick={() => navigate("/TutorSignUpQuestions")}>
                   Sign up
                 </a>
               </span>

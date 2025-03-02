@@ -79,7 +79,7 @@ export const ResetPassword = () => {
                         <p className={`text-decoration-none ${styles.cancel}`} onClick={() => navigate("/SignIn")}>Cancel</p>
                     </Form>
                 </div>
-                <img src={image} alt="Decorative" className={styles.image} />
+                {/* <img src={image} alt="Decorative" className={styles.image} /> */}
             </div>
         </>
     );
