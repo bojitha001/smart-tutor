@@ -69,7 +69,7 @@ function App() {
       
     
 
-      {/* <Router>
+      <Router>
       <div className={styles.app}>
         <Sidebar/>
         <Routes>
@@ -80,11 +80,11 @@ function App() {
             <Route path="/settings" element={<Settings />} />
         </Routes>
       </div>
-    </Router> */}
+    </Router>
     {/* </div> */}
     
 
-        <Router>
+        {/* <Router>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/TutorSignUpQuestions" element={<TutorSignUpQuestions />} />
@@ -96,7 +96,7 @@ function App() {
             <Route path="/SignIn" element={<SignInAuth />} />
             <Route path="/ResetPassword" element={<ResetPassword />} />
           </Routes>
-        </Router>
+        </Router> */}
       </div>
       </>
   );
