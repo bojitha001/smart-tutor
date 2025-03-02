@@ -82,7 +82,7 @@ export const TutorSignUpOptions = () => {
 
     return(
         <div className={`${styles["main-card"]}`}>
-        <div className="row g-3 m-2 p-3">
+        <div className="row g-3 m-1 p-1">
             <div className={`col-md-5 p-5 text-white ${styles["descrip-card-signUp"]}`}>
                 <div>
                     <img className={`${styles["smartTutor-Img"]}`} src={smartTutorImage} alt="" />
