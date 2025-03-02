@@ -276,8 +276,14 @@ body {
 .become-a-tutor-third-shadow {
     border-radius: 1rem;
     /* box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.1); */
-    border: 1px solid #989898;
+    /* border: 1px solid #989898; */
 
+}
+
+.become-a-tutor-third-main-title {
+    font-family: 'Lalezar';
+    font-size: 6.8rem;
+    margin-bottom: 2rem;
 }
 
 
@@ -293,7 +299,7 @@ body {
     font-size: 4.2rem;
     color: #2B2D42;
     font-family: 'Inria Sans';
-    font-weight: 600;
+    font-weight: 800;
 }
 
 .solutions-in-numbers-des {
@@ -343,7 +349,8 @@ body {
     /* align-items: center; */
     background-color: #F0F0F0;
     padding: 3rem;
-    margin-top: 4rem;
+    padding-top: 5%;
+    /* margin-top: 4rem; */
     /* background-color: #747474; */
 }
 
@@ -400,8 +407,8 @@ body {
 
 .footer {
     padding: 12.8rem 0;
-    border-top: 1px 
-    solid #989898;
+    border-top: 1px solid #989898;
+    background-color: #F0F0F0;
 }
 
 .footer-logo {

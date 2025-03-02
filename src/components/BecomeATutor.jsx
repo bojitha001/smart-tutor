@@ -23,7 +23,7 @@ const BecomeATutor = () => {
             <p className={`${styles["heading-secondary"]}`}>  
               Teaching on Smart Tutor: Simplify, Engage, Inspire...
             </p>
-            <div className={`${styles["become-a-tutor-timeline"]} row`}>  
+            <div className={`${styles["become-a-tutor-timeline"]} `}>  
               <div className={`${styles["become-a-tutor-timeline-box"]} ${styles["box-1"]}`}>1</div>
               <div className={`${styles["become-a-tutor-timeline-box"]} ${styles["box-2"]}`}>2</div>
               <div className={`${styles["become-a-tutor-timeline-box"]} ${styles["box-3"]}`}>3</div>
@@ -110,7 +110,7 @@ const BecomeATutor = () => {
       <div className={`${styles["become-a-tutor-third"]}`}>
         <div className={`${styles["become-a-tutor-third-center"]} ${styles["max-width-container"]}`}>
           
-          <p className={`${styles["become-a-tutor-third-shadow"]} ${styles["max-width-container"]} ${styles.grid} ${styles["grid-4-cols"]}`}>
+          <p className={`${styles["become-a-tutor-third-shadow"]} ${styles["become-a-tutor-third-main-title"]} ${styles["max-width-container"]} `}>
             Smart Tutor solutions in numbers
           </p>
           <div className={`${styles["become-a-tutor-third-shadow"]} ${styles["max-width-container"]} ${styles.grid} ${styles["grid-4-cols"]}`}>

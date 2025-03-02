@@ -46,6 +46,12 @@ html {
     font-style: normal;
     font-weight: 100;
     font-size: 1.6rem;
+    text-decoration: none;
+    
+}
+
+.main-nav-list a {
+    color: #0e0e0e;
 }
 
 .nav-buttons {

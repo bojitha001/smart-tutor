@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import { getFirestore, collection, query, where, getDocs } from "firebase/firestore"; //Import Firestore functions
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
@@ -8,6 +9,7 @@ import styles from "../../.ExternalCss/PasswordReset.module.css";
 import image from "../../assets/images/rb_5488.png";
 
 export const ResetPassword = () => {
+    const navigate = useNavigate(); // Initialize navigation
     const [email, setEmail] = useState("");
     const [loading, setLoading] = useState(false);
     const db = getFirestore();
@@ -46,17 +48,6 @@ export const ResetPassword = () => {
         } finally {
             setLoading(false);
         }
-
-        // const auth = getAuth();
-        // sendPasswordResetEmail(auth, email)
-        // .then(() => {
-        //     alert("Password reset email has been sent!");
-        // })
-        // .catch((error) => {
-        //     const errorCode = error.code;
-        //     const errorMessage = error.message;
-        //     alert(errorMessage);
-        // });
     };
 
     return (
@@ -85,10 +76,10 @@ export const ResetPassword = () => {
                         className={styles.button}>
                             {loading ? "Sending..." : "Send Reset Email"}
                         </Button>
-                        <p className={styles.cancel}>Cancel</p>
+                        <p className={`text-decoration-none ${styles.cancel}`} onClick={() => navigate("/SignIn")}>Cancel</p>
                     </Form>
                 </div>
-                <img src={image} alt="Decorative" className={styles.image} />
+                {/* <img src={image} alt="Decorative" className={styles.image} /> */}
             </div>
         </>
     );
