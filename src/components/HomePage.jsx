@@ -14,6 +14,7 @@ import icon5 from "../assets/images/Find and Replace.png"
 import icon6 from "../assets/images/Brake Warning.png"
 import FAQItem from "../components/FAQItem.jsx"
 
+
 const categories = [
   { id: 1, name: 'Biology', color: '#FFE9B1', icon: '🧬' },
   { id: 2, name: 'Physics', color: '#E4D3FF', icon: '🚀' },
@@ -270,13 +271,14 @@ export const HomePage = () => {
       </div>
     </div>
 
-    <div className="faq-container">
+    
+          <div className={`${styles["faq-container"]}`}>
       <h1>Frequently Asked Questions</h1>
-      <p className="subtitle">
+      <p className={`${styles["subtitle"]}`}>
         Find quick answers to common questions about our tutoring service
       </p>
 
-      <div className="faq-list">
+      <div className={`${styles["faq-list"]}`}>
         {faqData.map((faq) => (
           <FAQItem
             key={faq.id}
