@@ -1,33 +1,35 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "../.ExternalCss/NavBar.module.css";
 
 export const Navbar = () => {
   return (
     <div className={styles.header}>
-      <div class={styles.logo}>
+      <div className={styles.logo}>
         <p>
-          SMART<span class={styles.smart}>TUTOR</span>
+          SMART<span className={styles.smart}>TUTOR</span>
         </p>
       </div>
-      <nav class={`${styles["main-nav"]}`}>
-        <ul class={`${styles["main-nav-list"]}`}>
-          <li>Find a Tutor</li>
+      <nav className={styles["main-nav"]}>
+        <ul className={styles["main-nav-list"]}>
+          <li><Link to="/homepage">Home</Link></li>
           <li>.</li>
-          <li>Resources</li>
+          <li><Link to="/find-tutor">Find a Tutor</Link></li>
           <li>.</li>
-          <li>Prices</li>
+          <li><Link to="/courses">Kuppi Groups</Link></li>
           <li>.</li>
-          <li>Become a Tutor</li>
+          {/* <li><Link to="/prices">Prices</Link></li>
+          <li>.</li> */}
+          <li><Link to="/become-tutor">Become a Tutor</Link></li>
         </ul>
       </nav>
-      <div class={`${styles["nav-buttons"]}`}>
-        <p class={`${styles["lang"]}`}>&#127760; En</p>
-        {/* <img class="world" src="img/globe-outline.svg" alt=""> */}
+      <div className={styles["nav-buttons"]}>
+        <p className={styles["lang"]}>&#127760; En</p>
         <button>
-          <p class={`${styles["login"]}`}>Log In</p>
+          <Link to="/login" className={styles["login"]}>Log In</Link>
         </button>
         <button>
-          <p class={`${styles["signup"]}`}>Sign up</p>
+          <Link to="/signup" className={styles["signup"]}>Sign up</Link>
         </button>
       </div>
     </div>

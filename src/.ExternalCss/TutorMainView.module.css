@@ -162,12 +162,16 @@
   }
 
   .nav-item:hover {
-    background-color: rgba(253, 184, 19, 0.2); /* Light yellow */
+    background-color: rgba(253, 184, 19, 0.2); 
     color: black;
+    
   }
   
   .nav-item:hover:not(.active) {
-  background-color: #f8f9fa;
+    
+  background-color: #ffea81;
+  animation-name: sideBarAnimation;
+  animation-duration: 1s;
   }
   
   .logout {
@@ -540,6 +544,19 @@
   border-radius: 12px;
   height: 320px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: auto;
+  }
+  .announcements::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .announcements::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+  
+  .announcements::-webkit-scrollbar-track {
+    background: #efe8e8;
   }
   
   .announcement {
@@ -566,4 +583,13 @@
   .icon {
     width: var(--icon-size);
     height: var(--icon-size);
+  }
+
+  @keyframes sideBarAnimation {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
   }
