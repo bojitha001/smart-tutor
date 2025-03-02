@@ -1,4 +1,10 @@
+.main-card{
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
 .descrip-card-signUp .signUp-Img {
+  
     margin-top:10px;     
     width: 85%;
 }
@@ -12,12 +18,17 @@
     /* font-family: 'Lato'; */
     font-size: 30px;
     font-weight: bold;
+    color: #000;
 }
 
 .descrip-card-signUp{
+    
     text-align: center;
     background-color: #5A6DEE;
     border-radius: 2%;
+}
+.descrip-signUp {
+    color: #000;
 }
 
 .descrip-signUp, .signUp-form{
