@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { auth, googleProvider, db } from "../config/firebase";
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore"; //Import Firestore functions
-import styles from "../.ExternalCss/LoginPage.css";
+import styles from "../.ExternalCss/LoginPage.module.css";
 import smartTutorImage from "../assets/images/smartTutor.svg";
 import signInImage from "../assets/images/mainImg.png";
 
@@ -72,8 +72,8 @@ export const SignInAuth = () => {
   };
 
   return (
-    <>
-      <div className={`${styles.loginPageMainContainer} row g-5 m-2 p-4`}>
+      <>
+      <div className={`${styles.loginPageMainContainer} row g-5 m-2 p-5`}>
         {/* <div className="col-md-1"></div> */}
         <div className={`col-md-6 ${styles.loginPageSignInForm}`}>
           <div className={`${styles.loginPageSignInFormLeft}`}>
