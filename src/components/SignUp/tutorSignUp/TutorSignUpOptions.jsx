@@ -146,7 +146,7 @@ export const TutorSignUpOptions = () => {
                         </button>
                         <p className={`${styles["signUp-terms"]}`}>By clicking continue, you agree to our Terms of<br></br> Services and Privacy Policy.</p>
                     </div>
-                    <div className="text-center">Already have an account ?&nbsp;&nbsp;<span className="text-primary"><a href="#" className="text-decoration-none" onClick={() => navigate("/SignIn")}>Login</a></span></div>
+                    <div className="text-center">Already have an account ?&nbsp;&nbsp;<span className="text-primary"><a href="" className="text-decoration-none" onClick={() => navigate("/SignIn")}>Login</a></span></div>
                 </form>
             </div>
         </div>
