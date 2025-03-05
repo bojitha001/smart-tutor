@@ -288,6 +288,7 @@ export const HomePage = () => {
             onClick={() => handleClick(faq.id)}
           />
         ))}
+        
       </div>
     </div>
       </> 
