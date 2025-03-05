@@ -1,98 +1,27 @@
 import { useState, useEffect } from "react";
 import styles from "../.ExternalCss/FindTutor.module.css";
 
-// Sample data for development
-const SAMPLE_TUTORS = [
-  {
-    id: 1,
-    name: 'Sam Sadunka',
-    degree: 'MSc - Computer Science',
-    subject: 'Computer Science',
-    level: 'Higher',
-    bio: 'As a Computer Science graduate with more than 4 years of teaching experience, I am passionate about making this subject easy to understand. My teaching style is interactive and focused on practical examples and problem-solving.',
-    price: 3000,
-    reviews: 0,
-    lessons: 40,
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-  },
-  {
-    id: 2,
-    name: 'Vihan Mendis',
-    degree: 'MSc - SE',
-    subject: 'Computer Science',
-    level: 'Higher',
-    bio: 'As a Software Engineering professional with more than 5 years of teaching experience, I am dedicated to helping students master complex concepts through practical examples.',
-    price: 3000,
-    reviews: 0,
-    lessons: 45,
-    image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-  },
-  {
-    id: 3,
-    name: 'Priya Kumar',
-    degree: 'PhD - Mathematics',
-    subject: 'Mathematics',
-    level: 'A/L',
-    bio: 'Mathematics educator with a passion for making complex concepts simple. Specialized in calculus and linear algebra with 6 years of teaching experience.',
-    price: 3500,
-    reviews: 12,
-    lessons: 150,
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-  },
-  {
-    id: 4,
-    name: 'Alex Chen',
-    degree: 'MSc - Physics',
-    subject: 'Physics',
-    level: 'O/L',
-    bio: 'Experienced physics tutor specializing in making fundamental concepts clear and engaging. Strong focus on practical applications and real-world examples.',
-    price: 2500,
-    reviews: 8,
-    lessons: 95,
-    image: 'https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-  },
-  {
-    id: 5,
-    name: 'Maya Patel',
-    degree: 'BSc - Mathematics',
-    subject: 'Mathematics',
-    level: 'A/L',
-    bio: 'Dedicated mathematics tutor with a talent for breaking down complex problems into simple steps. Specializing in algebra and geometry.',
-    price: 2000,
-    reviews: 15,
-    lessons: 120,
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-  },
-  {
-    id: 6,
-    name: 'Alex Chen',
-    degree: 'MSc - Physics',
-    subject: 'Physics',
-    level: 'O/L',
-    bio: 'Experienced physics tutor specializing in making fundamental concepts clear and engaging. Strong focus on practical applications and real-world examples.',
-    price: 2500,
-    reviews: 8,
-    lessons: 95,
-    image: 'https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-  },
-  {
-    id: 7,
-    name: 'Maya Patel',
-    degree: 'BSc - Mathematics',
-    subject: 'Mathematics',
-    level: 'A/L',
-    bio: 'Dedicated mathematics tutor with a talent for breaking down complex problems into simple steps. Specializing in algebra and geometry.',
-    price: 2000,
-    reviews: 15,
-    lessons: 120,
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-  }
-];
+
+// const SAMPLE_TUTORS = [
+// {
+//   id: 1,
+//   name: 'Sam Sadunka',
+//   degree: 'MSc - Computer Science',
+//   subject: 'Computer Science',
+//   level: 'Higher',
+//   bio: 'As a Computer Science graduate with more than 4 years of teaching experience, I am passionate about making this subject easy to understand. My teaching style is interactive and focused on practical examples and problem-solving.',
+//   price: 3000,
+//   reviews: 0,
+//   lessons: 40,
+//   image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+// },
+
 
 const FindTutor = () => {
-  const [subject, setSubject] = useState('All subjects');
-  const [level, setLevel] = useState('All levels');
-  const [price, setPrice] = useState('All prices');
+  const [SAMPLE_TUTORS, setSAMPLE_TUTORS] = useState([]);
+  const [subject, setSubject] = useState("All subjects");
+  const [level, setLevel] = useState("All levels");
+  const [price, setPrice] = useState("All prices");
   const [tutors, setTutors] = useState([]);
   const [filteredTutors, setFilteredTutors] = useState([]);
   const [page, setPage] = useState(1);
@@ -100,17 +29,40 @@ const FindTutor = () => {
   const [hasMore, setHasMore] = useState(true);
   const TUTORS_PER_PAGE = 4;
 
-  // Fetch tutors (using sample data for now)
-    useEffect(() => {
+  
+  // useEffect(() => {
+  //   const getTeachers = async () => {
+  //     const res = await fetch("http://localhost:8000/teachers", {
+  //       method: "GET",
+  //     });
+  //     const teachers = await res.json();
+  //     console.log(teachers)
+  //     setSAMPLE_TUTORS(teachers);
+  //   };
+
+  //   getTeachers();
+  // }, []);
+
+  useEffect(() => {
     const fetchTutors = async () => {
       try {
         setLoading(true);
-        // Simulate API delay
-        await new Promise(resolve => setTimeout(resolve, 500));
-        setTutors(SAMPLE_TUTORS);
-        setFilteredTutors(SAMPLE_TUTORS);
+        const res = await fetch("http://localhost:8080/teachers", {
+          method: "GET",
+        });
+        
+        if (!res.ok) {
+          throw new Error(`HTTP error! Status: ${res.status}`);
+        }
+        
+        const teachers = await res.json();
+        console.log("Teachers fetched:", teachers); 
+        
+        setTutors(teachers);
+        setSAMPLE_TUTORS(teachers);
+        setFilteredTutors(teachers);
       } catch (error) {
-        console.error('Error fetching tutors:', error);
+        console.error("Error fetching tutors:", error);
       } finally {
         setLoading(false);
       }
@@ -119,25 +71,47 @@ const FindTutor = () => {
     fetchTutors();
   }, []);
 
+
+  // Fetch tutors (using sample data for now)
+  useEffect(() => {
+    const fetchTutors = async () => {
+      try {
+        setLoading(true);
+        // Simulate API delay
+        await new Promise((resolve) => setTimeout(resolve, 500));
+        setTutors(SAMPLE_TUTORS);
+        setFilteredTutors(SAMPLE_TUTORS);
+      } catch (error) {
+        console.error("Error fetching tutors:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTutors();
+  }, [SAMPLE_TUTORS]);
+
   // Apply filters
   useEffect(() => {
     let filtered = [...tutors];
 
     // Filter by subject
-    if (subject !== 'All subjects') {
-      filtered = filtered.filter(tutor => tutor.subject === subject);
+    if (subject !== "All subjects") {
+      filtered = filtered.filter((tutor) => tutor.subject === subject);
     }
 
     // Filter by level
-    if (level !== 'All levels') {
-      filtered = filtered.filter(tutor => tutor.level === level);
+    if (level !== "All levels") {
+      filtered = filtered.filter((tutor) => tutor.level === level);
     }
 
     // Filter by price
-    if (price !== 'All prices') {
-      const [min, max] = price.split('-').map(p => parseInt(p.replace(/[^\d]/g, '')));
-      filtered = filtered.filter(tutor => {
-        if (price === '4000+') {
+    if (price !== "All prices") {
+      const [min, max] = price
+        .split("-")
+        .map((p) => parseInt(p.replace(/[^\d]/g, "")));
+      filtered = filtered.filter((tutor) => {
+        if (price === "4000+") {
           return tutor.price >= 4000;
         }
         return tutor.price >= min && tutor.price <= max;
@@ -161,11 +135,11 @@ const FindTutor = () => {
   const handleBookTutor = async (tutorId) => {
     try {
       // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 500));
-      alert('Booking successful!');
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      alert("Booking successful!");
     } catch (error) {
-      console.error('Error booking tutor:', error);
-      alert('Failed to book tutor. Please try again.');
+      console.error("Error booking tutor:", error);
+      alert("Failed to book tutor. Please try again.");
     }
   };
 
@@ -182,8 +156,8 @@ const FindTutor = () => {
       <div className={styles.filters}>
         <div className={styles.filterGroup}>
           <label>Subject</label>
-          <select 
-            value={subject} 
+          <select
+            value={subject}
             onChange={(e) => setSubject(e.target.value)}
             className={styles.select}
           >
@@ -196,8 +170,8 @@ const FindTutor = () => {
 
         <div className={styles.filterGroup}>
           <label>Level</label>
-          <select 
-            value={level} 
+          <select
+            value={level}
             onChange={(e) => setLevel(e.target.value)}
             className={styles.select}
           >
@@ -210,8 +184,8 @@ const FindTutor = () => {
 
         <div className={styles.filterGroup}>
           <label>Price</label>
-          <select 
-            value={price} 
+          <select
+            value={price}
             onChange={(e) => setPrice(e.target.value)}
             className={styles.select}
           >
@@ -246,7 +220,7 @@ const FindTutor = () => {
                     <p>{tutor.reviews} reviews</p>
                     <p>{tutor.lessons} lessons</p>
                   </div>
-                  <button 
+                  <button
                     className={styles.bookBtn}
                     onClick={() => handleBookTutor(tutor.id)}
                   >
@@ -258,10 +232,7 @@ const FindTutor = () => {
           </div>
 
           {hasMore && (
-            <button 
-              className={styles.showMoreBtn}
-              onClick={handleShowMore}
-            >
+            <button className={styles.showMoreBtn} onClick={handleShowMore}>
               See more tutors
             </button>
           )}
