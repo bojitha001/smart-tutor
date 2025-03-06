@@ -20,6 +20,7 @@ import KuppiGroups from "./components/KuppiGroups/KuppiGroups.jsx";
 import QuestionForm from "./components/KuppiGroups/QuestionForm.jsx";
 import StudentSignUp from "./components/StudentSignUp/StudentSignUp.jsx"
 import FindTutor from "./components/FindATutor";
+import ChatbotWidget from "./components/ChatbotWidget.jsx";
 
 
 
@@ -30,6 +31,7 @@ function App() {
 
            {/* <Navbar /> */}
          {/* <BecomeATutor />     */}
+         {/* <ChatbotWidget/> */}
         {/* <Sidebar/> */}
 
         {/* <Navbar /> */}
@@ -65,8 +67,9 @@ function App() {
       
     
 
-      {/* <Router>
+      <Router>
       <div className={styles.app}>
+        <ChatbotWidget/>
         <Sidebar/>
         <Routes>
             <Route path="/" element={<MainContent />} />
@@ -76,11 +79,12 @@ function App() {
             <Route path="/settings" element={<Settings />} />
         </Routes>
       </div>
-    </Router> */}
+    </Router>
     {/* </div> */}
     
 
-        <Router>
+        {/* <Router>
+          <ChatbotWidget/>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/SignUpQuestions" element={<SignUpQuestions />} />
@@ -88,7 +92,7 @@ function App() {
             <Route path="/SignIn" element={<SignInAuth />} />
             <Route path="/ResetPassword" element={<ResetPassword />} />
           </Routes>
-        </Router>
+        </Router> */}
       </div>
       </>
   );

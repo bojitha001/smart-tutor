@@ -195,8 +195,6 @@ a:hover {
   color: black;
 }
 
-.navText {}
-
 .nav-item:hover:not(.active) {
   background-color: var(--secondary-color);
   animation-name: sideBarAnimation;
