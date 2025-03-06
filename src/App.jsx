@@ -57,7 +57,7 @@ function App() {
           {/* <FindTutor/> */}
         
         
-        {/* { <Router>
+        { <Router>
           <div className="App">
             <Navbar/>
             <Routes>
@@ -67,17 +67,17 @@ function App() {
               <Route path="/become-tutor" element={<BecomeATutor />}/>
             </Routes>
           </div>
-        </Router> } */}
+        </Router> }
 
       
 
 
       
     
-     {/* { 
-      <Router>
+      
+      {/* <Router>
       <div className={styles.app}>
-        <ChatbotWidget/>
+        
         <Sidebar/>
         <Routes>
             <Route path="/" element={<MainContent />} />
@@ -88,11 +88,12 @@ function App() {
         </Routes>
       </div>
     
-     </Router> } */}
+     </Router>  */}
+     
      {/* </div> */}
     
 
-         <Router>
+         {/* <Router>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/TutorSignUpQuestions" element={<TutorSignUpQuestions />} />
@@ -104,7 +105,7 @@ function App() {
             <Route path="/SignIn" element={<SignInAuth />} />
             <Route path="/ResetPassword" element={<ResetPassword />} />
           </Routes>
-        </Router> 
+        </Router>  */}
       </div>
       </>
   );
