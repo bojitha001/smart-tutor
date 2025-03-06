@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { auth, googleProvider, db } from "../../../config/firebase";
 import {createUserWithEmailAndPassword, signInWithPopup} from 'firebase/auth';
 import { doc, setDoc, getDoc } from "firebase/firestore"; 
-import '../../../.ExternalCss/SignUpOptions.css';
+import '../../../.ExternalCss/TutorSignUpOptions.module.css';
 import smartTutorImage from "../../../assets/images/smartTutor.svg";
 import signUpImage from "../../../assets/images/signupPage.svg";
 import googleImage from "../../../assets/images/google.png";
 
-export const SignUpOptions = () => {
+export const StudentSignUpOptions = () => {
+    const navigate = useNavigate(); // Initialize navigation
     const [userData, setUserData] = useState(null);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -20,10 +22,10 @@ export const SignUpOptions = () => {
 
     const saveUserToFirestore = async (user) => {
         if(!userData) return;
-        const tutorRef = doc(db, "TutorDetails", user.uid); // Create a reference to the tutor collection
+        const studentRef = doc(db, "StudentDetails", user.uid); // Create a reference to the tutor collection
         const userRef = doc(db, "UserDetails", user.uid); // Create a reference to the tutor collection
-        const TutorExist = await getDoc(tutorRef);
-        if(TutorExist.exists()){//Checks whether an account with the respective email already exists
+        const studentExist = await getDoc(studentRef);
+        if(studentExist.exists()){//Checks whether an account with the respective email already exists
             console.log("An account with this email already exists!");
             alert("An account with this email already exists!");
             return;
@@ -36,8 +38,11 @@ export const SignUpOptions = () => {
         };
 
         await setDoc(userRef, userDataToSave);
-        await setDoc(tutorRef, userDataToSave);
+        await setDoc(studentRef, userDataToSave);
         alert("Account created successfully!");
+
+         // Navigate to HomePage
+        navigate("/");
     };
 
     //Sign Up with Email and Password
@@ -138,7 +143,7 @@ export const SignUpOptions = () => {
                         </button>
                         <p className="signUp-terms">By clicking continue, you agree to our Terms of<br></br> Services and Privacy Policy.</p>
                     </div>
-                    <div className="text-center">Already have an account ?&nbsp;&nbsp;<span className="text-primary"><a href="#" className="text-decoration-none">Login</a></span></div>
+                    <div className="text-center">Already have an account ?&nbsp;&nbsp;<span className="text-primary"><a href="#" className="text-decoration-none" onClick={() => navigate("/SignIn")}>Login</a></span></div>
                 </form>
             </div>
         </div>

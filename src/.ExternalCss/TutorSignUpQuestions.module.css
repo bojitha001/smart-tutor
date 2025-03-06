@@ -1,6 +1,16 @@
 .smartTutorImg{
-    margin:0 0 3% 4%;
-    width: 12%;
+    margin:2% 0 3% 4%;
+    width: 13%;
+}
+
+.formLabel{
+    font-size: 15px;
+    font-weight:bold;
+}
+
+.formControl{
+    padding: 0.7rem 0.75rem;
+    font-size: medium;
 }
 
 .questionForm{
@@ -29,8 +39,8 @@
 }
 
 .signUpQuestionTopic{
-    font-size: 30px;
-    font-weight: bold;
+    font-size: 50px;
+    font-weight: 550;
 }
 
 .signUpQuestionDescrip{
@@ -40,7 +50,20 @@
 .continueSignupButton{
     background-color: #5A6DEE !important;
     color: #ffffff !important;
-    padding: 0 30px 0 30px !important;
-    margin-top: 20px;
+    padding: 10px 30px 10px 30px !important;
+    margin-top: 30px;
+    font-size:medium;
 }
 
+.dropDown {
+    width: 100% ;
+    background-color: #fff;
+    color: #000000;
+    border: 1px solid #ebebeb;
+    padding: 9px 0;
+}
+
+.dropDown-menu {
+    width: 100%;
+    font-size: 1.5rem;
+}

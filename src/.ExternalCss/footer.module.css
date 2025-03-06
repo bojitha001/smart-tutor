@@ -1,0 +1,143 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "Fira Sans", serif;
+}
+
+.container {
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 0 9rem;
+}
+
+.footer {
+    padding: 12.8rem 0 4rem;
+}
+
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.nav-col {
+   
+}
+
+.footer-heading {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #7474F1;
+}
+
+.footer-nav {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2.4rem;
+}
+
+.footer-link {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: #0E0E0E;
+}
+
+.footer-nav-icon {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.footer-bottom {
+    max-width: 110rem;
+    margin: 0 auto;
+    margin-top: 4rem;
+    color: #D0D0D0;
+}
+
+.footer-bottom-logo-sec {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.footer-bottom-logo-sec p{
+    font-size: 2rem;
+    color: #0E0E0E;
+    font-weight: 500;
+}
+
+.footer-bottom-logo-sec p span {
+    color: #DF9703;
+}
+
+.logos {
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.logos li {
+    border: 2px solid;
+    color: #666666;
+    padding: 1rem;
+    border-radius: 50%;
+    border-color: #666666;
+}
+
+.footer-logo {
+    color: #666666;
+   
+}
+
+@media screen and (max-width: 34em) { 
+
+    .container {
+        max-width: 120rem;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+    
+    .footer {
+        padding: 5rem 0 4rem 0;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr ;
+        gap: 3rem;
+    }
+
+    .footer-bottom-logo-sec {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 0 2rem;
+    }
+
+    .logos {
+        gap: 3rem;
+    }
+    
+    .logos li {
+        border: none;
+        color: #666666;
+        width: 1rem;
+        height: 1rem;
+    }
+    
+    .footer-logo {
+        color: #666666;
+    }
+}

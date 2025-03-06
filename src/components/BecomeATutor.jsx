@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Facebook, Instagram, Linkedin, Mail, Phone } from "lucide-react";
 import styles from "../.ExternalCss/BecomeATutor.module.css";
 import becomATutorImg from "../assets/images/BecomeATutor.png";
 import enhancedSecurity from "../assets/images/Enhanced Security.png";
@@ -7,6 +7,7 @@ import studentMonitoring from "../assets/images/Student Monitoring.png";
 import instantPayment from "../assets/images/Instant Payment.png";
 import avatar1 from "../assets/images/Avatar1.jpg";
 import avatar2 from "../assets/images/Avatar2.jpg";
+import Footer from "./Footer";
 
 const BecomeATutor = () => {
   return (
@@ -192,107 +193,7 @@ const BecomeATutor = () => {
         </div>
       </div>
 
-      <footer className={styles.footer}>
-        <div className={`${styles["max-width-container"]} ${styles["grid"]} ${styles["grid-footer"]}`}> 
-          <div className={`${styles["logo-col"]}`}>
-            <a className={`${styles["footer-logo"]}`} href="#">
-              Smart Tutor
-            </a>
-          </div>
-          <nav class={`${styles["nav-col"]}`}>
-            <p class={`${styles["footer-heading"]}`}>Company Information</p>
-            <ul class={`${styles["footer-nav"]}`}>
-              <li>
-                <a class={`${styles["footer-link"]}`} href="">
-                  Careers
-                </a>
-              </li>
-              <li>
-                <a class={`${styles["footer-link"]}`} href="">
-                  Tution Centers
-                </a>
-              </li>
-              <li>
-                <a class={`${styles["footer-link"]}`} href="">
-                  Become a Tutor
-                </a>
-              </li>
-              <li>
-                <a class={`${styles["footer-link"]}`} href="">
-                  FAQs
-                </a>
-              </li>
-              <li>
-                <a class={`${styles["footer-link"]}`} href="">
-                  Site map
-                </a>
-              </li>
-              <li>
-                <a class={`${styles["footer-link"]}`} href="">
-                  Using the Online Space
-                </a>
-              </li>
-            </ul>
-          </nav>
-
-          <nav class={`${styles["nav-col"]}`}>
-            <p class={`${styles["footer-heading"]}`}>Popular Requests</p>
-            <ul class={`${styles["footer-nav"]}`}>
-              <li>
-                <a class={`${styles["footer-link"]}`} href="">
-                  Combined Mathematics Tutor
-                </a>
-              </li>
-              <li>
-                <a class={`${styles["footer-link"]}`} href="">
-                  Chemistry Tutor
-                </a>
-              </li>
-              <li>
-                <a class={`${styles["footer-link"]}`} href="">
-                  Physics Tutor
-                </a>
-              </li>
-              <li>
-                <a class={`${styles["footer-link"]}`} href="">
-                  Biology Tutor
-                </a>
-              </li>
-              <li>
-                <a class={`${styles["footer-link"]}`} href="">
-                  English Tutor
-                </a>
-              </li>
-              <li>
-                <a class={`${styles["footer-link"]}`} href="">
-                  A level Tutors
-                </a>
-              </li>
-            </ul>
-          </nav>
-
-          <nav class={`${styles["nav-col"]}`}>
-            <p class={`${styles["footer-heading"]}`}>Resources</p>
-            <ul class={`${styles["footer-nav"]}`}>
-              <li>
-                <a class={`${styles["footer-link"]}`} href="">
-                  Contact us
-                </a>
-              </li>
-              <li>
-                <a class={`${styles["footer-link"]}`} href="">
-                  Help center
-                </a>
-              </li>
-              <li>
-                <a class={`${styles["footer-link"]}`} href="">
-                  Privacy & terms
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </footer>
+      <Footer/>
     </>
   );
 };
