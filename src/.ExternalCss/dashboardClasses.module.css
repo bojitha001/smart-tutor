@@ -246,3 +246,9 @@
     font-size: 1rem;
     }
 
+    .app {
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+      }
+

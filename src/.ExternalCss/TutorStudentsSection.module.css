@@ -1,13 +1,12 @@
 .mainContainer {
-    flex: 1;
     display: flex;
     gap: 24px;
     padding: 24px;
     background-color: #f8f9fa;
-    height: 950vh;
+    height: calc(100vh - 3px);
     overflow: hidden;
-    max-height: 100vh;
-    width: 1195px;
+    width: calc(100% - 280px);
+    margin-left: 280px;
 }
   
 .studentView {
@@ -33,7 +32,7 @@
     background-color: white;
     border-radius: 8px;
     width: 300px; 
-    padding: 1.2rem 1.25rem;
+    padding: 0.8rem 1rem;
     border: 1px solid #eee;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
@@ -43,7 +42,7 @@
     outline: none;
     margin-left: 12px;
     width: 100%;
-    font-size: 1.1rem;
+    font-size: 1rem;
     background-color: white; 
     color: black; 
 }
@@ -78,14 +77,13 @@
   
 .userInfo span:first-child {
     font-weight: 500;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: #333;
 }
   
 .username {
     color: #666;
-    font-size: 0.95rem;
-
+    font-size: 0.9rem;
 }
   
 .statsContainer {
@@ -126,7 +124,6 @@
     flex-direction: column;
     min-height: 0;
     overflow: hidden;
-    
 }
   
 .sectionHeader {
@@ -157,9 +154,6 @@
     flex: 1;
     margin: 0 -20px;
     padding: 0 20px;
-    font-size: 1.4rem;
-    font-weight: 500;
-    
 }
   
 /* Modern Scrollbar Styles */
@@ -212,6 +206,7 @@
 .studentsTable td,
 .marksTable td {
     color: #333;
+    font-size: 0.9rem;
 }
   
 .done {
@@ -295,7 +290,6 @@
     flex-direction: column;
     min-height: 0;
     overflow: hidden;
-    font-size: 1.2rem;
 }
   
 .marksSection h2 {
@@ -321,9 +315,86 @@
     color: #28a745;
 }
 
-.app{
-    display: 'flex'; 
-    min-height: 100vh;
-    max-height: 100vh;
-    overflow: hidden;
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .mainContainer {
+        padding: 16px;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 992px) {
+    .mainContainer {
+        width: 100%;
+        margin-left: 0;
+        flex-direction: column;
+        height: auto;
+        max-height: none;
+        overflow-y: auto;
+    }
+    
+    .rightSection {
+        width: 100%;
+        flex-direction: row;
+        height: auto;
+    }
+    
+    .managementSection, 
+    .marksSection {
+        width: 50%;
+        flex: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .search-bar {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .profile {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .statsContainer {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .statBox {
+        padding: 15px;
+    }
+    
+    .rightSection {
+        flex-direction: column;
+    }
+    
+    .managementSection, 
+    .marksSection {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .mainContainer {
+        padding: 12px;
+    }
+    
+    .recentStudents,
+    .managementSection,
+    .marksSection {
+        padding: 15px;
+    }
+    
+    .studentsTable th:nth-child(3),
+    .studentsTable td:nth-child(3) {
+        display: none;
+    }
 }

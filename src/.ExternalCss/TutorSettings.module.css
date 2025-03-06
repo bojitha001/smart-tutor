@@ -1,8 +1,8 @@
 .settingsContainer {
-    padding-left: 49px;
-    padding-right: 49px;
+    padding-left: 25px;
+    padding-right: 30px;
     padding-top: 20px;
-    max-width: 1400px;
+    max-width: 1600px; 
     margin: 0 auto;
     height: 100vh;
     overflow-y: auto;
@@ -34,7 +34,8 @@
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    width: 1130px;
+    width: 1200px; 
+    max-width: 100%; 
 }
   
 .profileSection {

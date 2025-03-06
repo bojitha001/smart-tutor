@@ -1,4 +1,4 @@
-import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 // import { SignUpAuth } from "./components/SignUpAuth";
 import styles from "../src/.ExternalCss/TutorMainView.module.css";
 import { Navbar } from "./components/NavBar";
@@ -77,6 +77,7 @@ function App() {
      {/* { 
       <Router>
       <div className={styles.app}>
+        <ChatbotWidget/>
         <Sidebar/>
         <Routes>
             <Route path="/" element={<MainContent />} />

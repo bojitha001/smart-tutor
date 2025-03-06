@@ -3,7 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { auth, googleProvider, db } from "../../../config/firebase";
 import {createUserWithEmailAndPassword, signInWithPopup} from 'firebase/auth';
 import { doc, setDoc, getDoc } from "firebase/firestore"; 
+<<<<<<< HEAD:src/components/SignUp/tutorSignUp/SignUpOptions.jsx
+import '../../../.ExternalCss/SignUpOptions.css';
+=======
 import '../../../.ExternalCss/TutorSignUpOptions.module.css';
+>>>>>>> main:src/components/SignUp/parentSignUp/ParentSignUpOptions.jsx
 import smartTutorImage from "../../../assets/images/smartTutor.svg";
 import signUpImage from "../../../assets/images/signupPage.svg";
 import googleImage from "../../../assets/images/google.png";
