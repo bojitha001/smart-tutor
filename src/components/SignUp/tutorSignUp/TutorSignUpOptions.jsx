@@ -4,7 +4,6 @@ import { auth, googleProvider, db } from "../../../config/firebase";
 import {createUserWithEmailAndPassword, signInWithPopup} from 'firebase/auth';
 import { doc, setDoc, getDoc } from "firebase/firestore"; 
 
-
 import styles from '../../../.ExternalCss/TutorSignUpOptions.module.css';
 import smartTutorImage from "../../../assets/images/smartTutor.svg";
 import signUpImage from "../../../assets/images/signupPage.svg";
@@ -42,6 +41,9 @@ export const TutorSignUpOptions = () => {
         await setDoc(userRef, userDataToSave);
         await setDoc(tutorRef, userDataToSave);
         alert("Account created successfully!");
+
+         // Clear session storage after successful signup
+        sessionStorage.clear();
 
          // Navigate to HomePage
         navigate("/");
