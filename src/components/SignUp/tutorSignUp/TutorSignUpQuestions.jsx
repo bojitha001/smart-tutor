@@ -141,7 +141,7 @@ export const TutorSignUpQuestions = () => {
                                 className={`btn btn-lg ${styles.continueSignupButton}`}
                                 onClick={handleContinueToSignup}
                             >  
-                                Continue to Sign-up &nbsp;&nbsp;&#129122;
+                                Continue to Sign-up &rarr;;
                             </button>
                         </div>
                     </form>

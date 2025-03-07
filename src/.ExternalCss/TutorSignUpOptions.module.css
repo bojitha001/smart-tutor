@@ -1,12 +1,27 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: #ffffff !important;
+}
+.grid {
+    display: grid;
+    grid-template-columns: .8fr 1fr;
+    gap: 5rem;
+}
+
 .main-card{
-    margin-top: 5%;
-    margin-left: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
 .descrip-card-signUp .signUp-Img {
-  
+    
     margin-top:10px;     
-    width: 85%;
+    width: 80%;
 }
 
 .descrip-card-signUp .smartTutor-Img {
@@ -16,21 +31,29 @@
 
 .sub-titles-signUp{
     /* font-family: 'Lato'; */
-    font-size: 30px;
-    font-weight: bold;
-    color: #000;
+    font-size: 3.5rem;
+    font-weight: 400;
+    color: #fff;
 }
 
 .descrip-card-signUp{
-    
+    height: 95vh;
     text-align: center;
     background-color: #5A6DEE;
     border-radius: 2%;
+    padding: 5rem 0;
 }
 .descrip-signUp {
-    color: #000;
+    color: #fff;
+    font-weight: 200 !important;
 }
 
+.signUp-form-conatainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10rem;
+}
 
 
 .descrip-signUp, .signUp-form{
@@ -57,7 +80,7 @@
 
 .create-google-account-button{
     border-color: #D0D0D0 !important;
-    padding: 0 4.5em 0 4.5em !important;
+    padding: 0 8rem 0 8rem !important;
     margin-top: 1em;
 }
 
@@ -67,8 +90,8 @@
 }
 
 .signUp-terms{
-    font-size: 12px;
-    font-weight: 400;
+    font-size: 1.25rem;
+    font-weight: 300;
     margin: 25px 0 45px 0;
 }
 
@@ -77,5 +100,10 @@
 }
 
 .signUp-form .form-topic{
-    font-size: 30px;
+    font-size: 3rem;
+    font-weight: 400;
+}
+
+.form-label {
+    font-weight: 300;
 }

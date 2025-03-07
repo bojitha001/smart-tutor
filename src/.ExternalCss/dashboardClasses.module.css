@@ -418,4 +418,9 @@
     font-size: 1rem;
     }
 
->>>>>>> main
+    .app {
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+      }
+

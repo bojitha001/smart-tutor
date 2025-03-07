@@ -3,9 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { auth, googleProvider, db } from "../config/firebase";
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore"; //Import Firestore functions
-import styles from "../.ExternalCss/LoginPage.css";
+import styles from "../.ExternalCss/LoginPage.module.css";
 import smartTutorImage from "../assets/images/smartTutor.svg";
 import signInImage from "../assets/images/mainImg.png";
+import googleImage from "../assets/images/google.png";
 
 export const SignInAuth = () => {
   const navigate = useNavigate(); // Initialize navigation
@@ -73,7 +74,7 @@ export const SignInAuth = () => {
 
   return (
     <>
-      <div className={`${styles.loginPageMainContainer} row g-5 m-2 p-4`}>
+      <div className={`${styles.loginPageMainContainer}`}>
         {/* <div className="col-md-1"></div> */}
         <div className={`col-md-6 ${styles.loginPageSignInForm}`}>
           <div className={`${styles.loginPageSignInFormLeft}`}>
@@ -87,7 +88,7 @@ export const SignInAuth = () => {
             <div className={`col-md-12`}>
               <label className={`form-label`}>Email</label>
               <input
-                className={`form-control`}
+                className={`${styles["form-control"]}`}
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -98,7 +99,7 @@ export const SignInAuth = () => {
               <label className={`form-label`}>Password</label>
               <input
                 type="password"
-                className={`form-control`}
+                className={`${styles["form-control"]}`}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -117,24 +118,30 @@ export const SignInAuth = () => {
               </label>
             </div>
             <div className={`col-12 text-center`}>
-              <button type="submit" className={`btn btn-primary w-100`}>
+              <button type="submit" className={`btn btn-primary w-100 ${styles.loginButtons}`}>
                 Sign In
               </button>
             </div>
             <div className={`col-12 text-center`}>
               <p>OR</p>
               <button
-                type="button"
-                className={`btn btn-primary`}
-                onClick={signInWithGoogle}
-              >
-                Sign In with Google
-              </button>
+                              type="button"
+                              className={`btn btn-lg ${styles["create-google-account-button"]}`}
+                              // onClick={signUpWithGoogle}
+                            >
+                              {" "}
+                              <img
+                                className={`${styles["google-Img"]}`}
+                                src={googleImage}
+                                alt=""
+                              />
+                              Sign Up with Google
+                            </button>
             </div>
             <div className={`text-center`}>
               Don't have an account ?&nbsp;&nbsp;
               <span className={`text-primary`}>
-                <a href="#" className={`text-decoration-none`} onClick={() => navigate("/SignUpQuestions")}>
+                <a href="" className={`text-decoration-none`} onClick={() => navigate("/TutorSignUpQuestions")}>
                   Sign up
                 </a>
               </span>

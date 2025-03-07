@@ -1,4 +1,4 @@
-import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 // import { SignUpAuth } from "./components/SignUpAuth";
 import styles from "../src/.ExternalCss/TutorMainView.module.css";
 import { Navbar } from "./components/NavBar";
@@ -46,13 +46,18 @@ function App() {
         {/* <SignInAuth/> */}
         {/* <ResetPassword/> */}
         {/* <DashboardClasses/> */}
+
+        {/* <KuppiGroups/> */}
+        {/* <QuestionForm /> */}
+
         {/* <KuppiGroups/> */}
         
+
           {/* <Sidebar/> */}
           {/* <FindTutor/> */}
         
         
-        {/* { <Router>
+        { <Router>
           <div className="App">
             <Navbar/>
             <Routes>
@@ -62,16 +67,17 @@ function App() {
               <Route path="/become-tutor" element={<BecomeATutor />}/>
             </Routes>
           </div>
-        </Router> } */}
+        </Router> }
 
       
 
 
       
     
-     {/* { 
-      <Router>
+      
+      {/* <Router>
       <div className={styles.app}>
+        
         <Sidebar/>
         <Routes>
             <Route path="/" element={<MainContent />} />
@@ -82,11 +88,12 @@ function App() {
         </Routes>
       </div>
     
-     </Router> } */}
+     </Router>  */}
+     
      {/* </div> */}
     
 
-         <Router>
+         {/* <Router>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/TutorSignUpQuestions" element={<TutorSignUpQuestions />} />
@@ -98,7 +105,7 @@ function App() {
             <Route path="/SignIn" element={<SignInAuth />} />
             <Route path="/ResetPassword" element={<ResetPassword />} />
           </Routes>
-        </Router> 
+        </Router>  */}
       </div>
       </>
   );

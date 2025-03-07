@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaBell } from 'react-icons/fa';
 import { IoSearch } from "react-icons/io5";
 import styles from "../../.ExternalCss/TutorStudentsSection.module.css";
 
 const StudentView = () => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const recentStudents = [
     { name: 'Samadhi Sandunika', dateJoined: '26/12/2024', classesEnrolled: 2, paymentStatus: 'Done' },
     { name: 'Vihan Mendis', dateJoined: '26/12/2024', classesEnrolled: 1, paymentStatus: 'Done' },
@@ -13,7 +26,7 @@ const StudentView = () => {
     { name: 'Samadhi Sandunika', dateJoined: '22/12/2024', classesEnrolled: 3, paymentStatus: 'Done' },
     { name: 'Samadhi Sandunika', dateJoined: '22/12/2024', classesEnrolled: 2, paymentStatus: 'Pending' },
     { name: 'Samadhi Sandunika', dateJoined: '22/12/2024', classesEnrolled: 1, paymentStatus: 'Pending' },
-    { name: 'Samadhi Sandunika', dateJoined: '22/12/2024', classesEnrolled: 1, paymentStatus: 'Pending' },
+    { name: 'Samadhi Sandunika', dateJoined: '26/12/2024', classesEnrolled: 2, paymentStatus: 'Done' },
     { name: 'Vihan Mendis', dateJoined: '26/12/2024', classesEnrolled: 1, paymentStatus: 'Done' },
     { name: 'Manilka Keshan', dateJoined: '25/12/2024', classesEnrolled: 2, paymentStatus: 'Done' },
     { name: 'Bojitha Nawarathna', dateJoined: '25/12/2024', classesEnrolled: 1, paymentStatus: 'Done' },
@@ -30,16 +43,12 @@ const StudentView = () => {
     { name: 'Manilka Keshan', subject: 'Chemistry', marks: 92 },
     { name: 'Bojitha Nawarathna', subject: 'Biology', marks: 85 },
     { name: 'Kavindi Silva', subject: 'Mathematics', marks: 90 },
-    { name: 'Rashmi Perera', subject: 'Physics', marks: 87 },
-    { name: 'Dineth Fernando', subject: 'Chemistry', marks: 94 },
-    { name: 'Malsha Dissanayake', subject: 'Biology', marks: 89 },
+    { name: 'Samadhi Sandunika', subject: 'Mathematics', marks: 95 },
     { name: 'Vihan Mendis', subject: 'Physics', marks: 88 },
     { name: 'Manilka Keshan', subject: 'Chemistry', marks: 92 },
     { name: 'Bojitha Nawarathna', subject: 'Biology', marks: 85 },
     { name: 'Kavindi Silva', subject: 'Mathematics', marks: 90 },
-    { name: 'Rashmi Perera', subject: 'Physics', marks: 87 },
-    { name: 'Dineth Fernando', subject: 'Chemistry', marks: 94 },
-    { name: 'Malsha Dissanayake', subject: 'Biology', marks: 89 }
+    { name: 'Rashmi Perera', subject: 'Physics', marks: 87 }
   ];
 
   return (
@@ -63,11 +72,11 @@ const StudentView = () => {
 
         <div className={styles.statsContainer}>
           <div className={styles.statBox}>
-            <h3>Students Joined on this Month</h3>
+            <h3>Students Joined this Month</h3>
             <span className={styles.statNumber}>133</span>
           </div>
           <div className={styles.statBox}>
-            <h3>Students Joined on this Year</h3>
+            <h3>Students Joined this Year</h3>
             <span className={styles.statNumber}>3056</span>
           </div>
           <div className={styles.statBox}>
