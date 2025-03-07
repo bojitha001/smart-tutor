@@ -141,7 +141,7 @@ export const SignInAuth = () => {
             <div className={`text-center`}>
               Don't have an account ?&nbsp;&nbsp;
               <span className={`text-primary`}>
-                <a href="#" className={`text-decoration-none`} onClick={() => navigate("/TutorSignUpQuestions")}>
+                <a href="" className={`text-decoration-none`} onClick={() => navigate("/TutorSignUpQuestions")}>
                   Sign up
                 </a>
               </span>
