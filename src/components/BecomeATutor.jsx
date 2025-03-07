@@ -1,5 +1,5 @@
 import React from "react";
-import { Facebook, Instagram, Linkedin, Mail, Phone } from "lucide-react";
+
 import styles from "../.ExternalCss/BecomeATutor.module.css";
 import becomATutorImg from "../assets/images/BecomeATutor.png";
 import enhancedSecurity from "../assets/images/Enhanced Security.png";
