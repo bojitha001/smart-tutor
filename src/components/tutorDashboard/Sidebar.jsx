@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link ,useLocation} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import styles from "../../.ExternalCss/TutorMainView.module.css";
 import userIcon from "../../assets/images/User.png";
 import teacherIcon from "../../assets/images/Teacher.png";
@@ -7,39 +7,125 @@ import studentIcon from "../../assets/images/Student Male.png";
 import payIcon from "../../assets/images/Card Payment.png";
 import settingIcon from "../../assets/images/Settings.png";
 import logoutIcon from "../../assets/images/Logout.png";
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Sidebar = () => {
   const location = useLocation();
-  return (
-    
-    <div className={styles.sidebar}>
-    <div className={styles.logo}>
-        <h2><span>SMART</span> TUTOR</h2>
-    </div>
-    <nav>
-       <Link to="/"className={`${styles["nav-item"]} ${location.pathname === "/" ? styles.active : ""}`}>
-       <img src={userIcon} alt="Dashboard" className={styles.icon} /> Dashboard
-       </Link>
-       <Link to="/classes" className={`${styles["nav-item"]} ${location.pathname === "/classes" ? styles.active : ""}`}>
-       <img src={teacherIcon} alt="Classes" className={styles.icon} /> Classes
-       </Link>
-       <Link to="/students" className={`${styles["nav-item"]} ${location.pathname === "/students" ? styles.active : ""}`}>
-        <img src={studentIcon} alt="Students" className={styles.icon} /> Students 
-       </Link>
-       <Link to="/payments" className={`${styles["nav-item"]} ${location.pathname === "/payments" ? styles.active : ""}`}>
-       <img src={payIcon} alt="Payments" className={styles.icon} /> Payments
-       </Link>
-       <Link to="/settings" className={`${styles["nav-item"]} ${location.pathname === "/settings" ? styles.active : ""}`}>
-       <img src={settingIcon} alt="Settings" className={styles.icon} /> Settings
-       </Link>
-    </nav>
-    <div className={styles.logout}>
-        <Link to="/logout" className={`${styles["nav-item"]} ${location.pathname === "/logout" ? styles.active : ""}`}>
-        <img src={logoutIcon} alt="Logout" className={styles.icon}/> Logout
-        </Link>
-    </div>
-</div>
-  )
-}
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-export default Sidebar
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+      if (window.innerWidth >= 992) {
+        setSidebarOpen(true);
+      } else {
+        setSidebarOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    // Set initial state based on window width
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
+  const closeSidebar = () => {
+    if (windowWidth < 992) {
+      setSidebarOpen(false);
+    }
+  };
+
+  return (
+    <>
+      <button 
+        className={styles.menuToggle} 
+        onClick={toggleSidebar}
+        aria-label="Toggle menu"
+      >
+        {sidebarOpen && windowWidth < 992 ? <FaTimes /> : <FaBars />}
+      </button>
+      
+      <div className={`${styles.sidebar} ${sidebarOpen ? styles.open : styles.closed}`}>
+        <div className={styles.logo}>
+          <h2><span>SMART</span> TUTOR</h2>
+        </div>
+        
+        <button 
+          className={styles.closeButton} 
+          onClick={toggleSidebar}
+          aria-label="Close menu"
+        >
+          <FaTimes />
+        </button>
+        
+        <nav className={styles.sidebarNav}>
+          <Link 
+            to="/" 
+            className={`${styles["nav-item"]} ${location.pathname === "/" ? styles.active : ""}`}
+            onClick={closeSidebar}
+          >
+            <img src={userIcon} alt="Dashboard" className={styles.icon} />
+            <span className={styles.navText}>Dashboard</span>
+          </Link>
+          <Link 
+            to="/classes" 
+            className={`${styles["nav-item"]} ${location.pathname === "/classes" ? styles.active : ""}`}
+            onClick={closeSidebar}
+          >
+            <img src={teacherIcon} alt="Classes" className={styles.icon} />
+            <span className={styles.navText}>Classes</span>
+          </Link>
+          <Link 
+            to="/students" 
+            className={`${styles["nav-item"]} ${location.pathname === "/students" ? styles.active : ""}`}
+            onClick={closeSidebar}
+          >
+            <img src={studentIcon} alt="Students" className={styles.icon} />
+            <span className={styles.navText}>Students</span>
+          </Link>
+          <Link 
+            to="/payments" 
+            className={`${styles["nav-item"]} ${location.pathname === "/payments" ? styles.active : ""}`}
+            onClick={closeSidebar}
+          >
+            <img src={payIcon} alt="Payments" className={styles.icon} />
+            <span className={styles.navText}>Payments</span>
+          </Link>
+          <Link 
+            to="/settings" 
+            className={`${styles["nav-item"]} ${location.pathname === "/settings" ? styles.active : ""}`}
+            onClick={closeSidebar}
+          >
+            <img src={settingIcon} alt="Settings" className={styles.icon} />
+            <span className={styles.navText}>Settings</span>
+          </Link>
+        </nav>
+        
+        <div className={styles.logout}>
+          <Link 
+            to="/logout" 
+            className={`${styles["nav-item"]} ${location.pathname === "/logout" ? styles.active : ""}`}
+            onClick={closeSidebar}
+          >
+            <img src={logoutIcon} alt="Logout" className={styles.icon}/>
+            <span className={styles.navText}>Logout</span>
+          </Link>
+        </div>
+      </div>
+      
+      {sidebarOpen && windowWidth < 992 && (
+        <div className={styles.overlay} onClick={toggleSidebar}></div>
+      )}
+    </>
+  );
+};
+
+export default Sidebar;

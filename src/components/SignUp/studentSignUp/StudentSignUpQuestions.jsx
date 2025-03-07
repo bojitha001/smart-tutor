@@ -1,9 +1,15 @@
+
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from '../../../.ExternalCss/TutorSignUpQuestions.module.css';
+// import styles from '../../../.ExternalCss/TutorSignUpQuestions.module.css';
 import smartTutorImage from "../../../assets/images/smartTutor.svg"
+
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
+
+import styles from "../../../.ExternalCss/SignUpQuestions.module.css";
+// import smartTutorImage from "../../../assets/images/smartTutor.svg"
+
 
 export const StudentSignUpQuestions = () => {
     const navigate = useNavigate();
