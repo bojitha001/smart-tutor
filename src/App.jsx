@@ -57,7 +57,7 @@ function App() {
           {/* <FindTutor/> */}
         
         
-        { <Router>
+        {/* { <Router>
           <div className="App">
             <Navbar/>
             <Routes>
@@ -67,7 +67,7 @@ function App() {
               <Route path="/become-tutor" element={<BecomeATutor />}/>
             </Routes>
           </div>
-        </Router> }
+        </Router> } */}
 
       
 
@@ -75,7 +75,7 @@ function App() {
       
     
       
-      {/* <Router>
+      <Router>
       <div className={styles.app}>
         
         <Sidebar/>
@@ -88,7 +88,7 @@ function App() {
         </Routes>
       </div>
     
-     </Router>  */}
+     </Router> 
      
      {/* </div> */}
     
