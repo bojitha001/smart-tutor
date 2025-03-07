@@ -1,19 +1,23 @@
-import React from 'react'
+import React from "react";
+import styles from "../.ExternalCss/FAQ.module.css";
 
 function FAQItem({ question, answer, isOpen, onClick }) {
-    return (
-      <div className="faq-wrapper">
+  return (
+    <div className={`${styles["faq-container"]}`}>
+      <div className={`${styles["faq-wrapper"]}`}>
         <div
-          className={`faq-question-box ${isOpen ? "active" : ""}`}
+          className={`${styles["faq-question-box"]} ${
+            isOpen ? styles["active"] : ""
+          }`}
           onClick={onClick}
         >
           <span>{question}</span>
-          <span className="arrow">{isOpen ? "▼" : "▶"}</span>
+          <span className={`${styles["arrow"]}`}>{isOpen ? "▼" : "▶"}</span>
         </div>
-        {isOpen && <div className="faq-answer">{answer}</div>}
+        {isOpen && <div className={`${styles["faq-answer"]}`}>{answer}</div>}
       </div>
-    );
-  }
+    </div>
+  );
+}
 
-
-export default FAQItem
+export default FAQItem;

@@ -12,6 +12,7 @@ import icon3 from "../assets/images/Calendar 12.png"
 import icon4 from "../assets/images/Test Results.png"
 import icon5 from "../assets/images/Find and Replace.png"
 import icon6 from "../assets/images/Brake Warning.png"
+import FAQItem from "../components/FAQItem.jsx"
 
 
 const categories = [
@@ -270,13 +271,14 @@ export const HomePage = () => {
       </div>
     </div>
 
-    <div className="faq-container">
+    
+          <div className={`${styles["faq-container"]}`}>
       <h1>Frequently Asked Questions</h1>
-      <p className="subtitle">
+      <p className={`${styles["subtitle"]}`}>
         Find quick answers to common questions about our tutoring service
       </p>
 
-      <div className="faq-list">
+      <div className={`${styles["faq-list"]}`}>
         {faqData.map((faq) => (
           <FAQItem
             key={faq.id}
@@ -286,6 +288,7 @@ export const HomePage = () => {
             onClick={() => handleClick(faq.id)}
           />
         ))}
+        
       </div>
     </div>
       </> 
