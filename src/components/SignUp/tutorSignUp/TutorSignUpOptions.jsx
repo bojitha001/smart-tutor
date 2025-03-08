@@ -209,7 +209,7 @@ export const TutorSignUpOptions = () => {
               <span className="text-primary">
                 <a
                   href=""
-                  className="text-decoration-none login-tag"
+                  className={`text-decoration-none ${styles["login-tag"]}`}
                   onClick={() => navigate("/SignIn")}
                 >
                   Login

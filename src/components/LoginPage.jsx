@@ -99,11 +99,11 @@ export const SignInAuth = () => {
             </h3>
           </div>
           <br />
-          <form className={`row g-3`} onSubmit={signIn}>
+          <form className={`row g-3 ${styles["signIn-form"]}`} onSubmit={signIn}>
             <div className={`col-md-12`}>
-              <label className={`form-label`}>Email</label>
+              <label className={`${styles["form-label"]}`}>Email</label>
               <input
-                className={`${styles["form-control"]}`}
+                className="form-control"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -111,16 +111,16 @@ export const SignInAuth = () => {
               />
             </div>
             <div className={`col-md-12`}>
-              <label className={`form-label`}>Password</label>
+              <label className={`${styles["form-label"]}`}>Password</label>
               <input
                 type="password"
-                className={`${styles["form-control"]}`}
+                className="form-control"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
             </div>
-            <div className={`form-check`}>
+            {/* <div className={`form-check`}>
               <input
                 className={`form-check-input`}
                 type="checkbox"
@@ -131,17 +131,17 @@ export const SignInAuth = () => {
                 Remember me<br></br>
                 <span>Save my login details for next time</span>
               </label>
-            </div>
+            </div> */}
             <div className={`col-12 text-center`}>
               <button type="submit" className={`btn btn-primary w-100 ${styles.loginButtons}`}>
                 Sign In
               </button>
             </div>
             <div className={`col-12 text-center`}>
-              <p>OR</p>
+              <p className={`${styles["signIn-or"]}`}>OR</p>
               <button
                               type="button"
-                              className={`btn btn-lg ${styles["create-google-account-button"]}`}
+                              className={`btn btn-lg ${styles["signIn-google-account-button"]}`}
                               onClick={signInWithGoogle}
                             >
                               <img
@@ -152,10 +152,10 @@ export const SignInAuth = () => {
                               Sign Up with Google
                             </button>
             </div>
-            <div className={`text-center`}>
+            <div className={`text-center ${styles["signIn-terms"]}`}>
               Don't have an account ?&nbsp;&nbsp;
               <span className={`text-primary`}>
-                <a href="" className={`text-decoration-none`} onClick={() => navigate("/TutorSignUpQuestions")}>
+                <a href="" className={`text-decoration-none ${styles["signUp-tag"]}`} onClick={() => navigate("/TutorSignUpQuestions")}>
                   Sign up
                 </a>
               </span>
