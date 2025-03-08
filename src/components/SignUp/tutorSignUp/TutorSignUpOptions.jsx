@@ -116,9 +116,9 @@ export const TutorSignUpOptions = () => {
 
   return (
     <div className={`${styles["main-card"]}`}>
-      <div className={`row g-3 m-2 p-3 ${styles["grid"]}`}>
+      <div className="row g-3 m-2 p-3">
         <div
-          className={` text-white ${styles["descrip-card-signUp"]}`}
+          className={`col-md-5 p-5 text-white ${styles["descrip-card-signUp"]}`}
         >
           <div>
             <img
@@ -127,9 +127,11 @@ export const TutorSignUpOptions = () => {
               alt=""
             />
             <h3 className={`${styles["sub-titles-signUp"]}`}>
-              Empower Your Learning Journey{" "}
+              Empower Your Learning{" "}
             </h3>
-            <h3 className={`${styles["sub-titles-signUp"]}`}>Join Us Today!</h3>
+            <h3 className={`${styles["sub-titles-signUp"]}`}>
+              Journey - Join Us Today!
+            </h3>
           </div>
           <br />
           <div className={`${styles["descrip-signUp"]}`}>
@@ -138,14 +140,14 @@ export const TutorSignUpOptions = () => {
           </div>
           <img className={`${styles["signUp-Img"]}`} src={signUpImage} alt="" />
         </div>
-        <div className={` ${styles["signUp-form-conatainer"]}`}>
-        <div className={` ${styles["signUp-form"]}`}>
+        <div className="col-md-1"></div>
+        <div className={`col-md-5 ${styles["signUp-form"]}`}>
           <form className="row g-5" onSubmit={signUp}>
             <h3 className={`text-center ${styles["form-topic"]}`}>
               Let's Keep in Touch!
             </h3>
             <div className="col-md-12">
-              <label className={`${styles["form-label"]}`}>Email</label>
+              <label className="form-label">Email</label>
               <input
                 className="form-control"
                 type="email"
@@ -200,8 +202,8 @@ export const TutorSignUpOptions = () => {
                 Sign Up with Google
               </button>
               <p className={`${styles["signUp-terms"]}`}>
-                By clicking continue, you agree to our Terms of Services and
-                Privacy Policy.
+                By clicking continue, you agree to our Terms of<br></br>{" "}
+                Services and Privacy Policy.
               </p>
             </div>
             <div className="text-center">
@@ -217,7 +219,6 @@ export const TutorSignUpOptions = () => {
               </span>
             </div>
           </form>
-        </div>
         </div>
       </div>
     </div>

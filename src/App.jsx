@@ -23,6 +23,7 @@ import Settings from "./components/tutorDashboard/SettingSection";
 import KuppiGroups from "./components/KuppiGroups/KuppiGroups.jsx";
 import QuestionForm from "./components/KuppiGroups/QuestionForm.jsx";
 import FindTutor from "./components/FindATutor";
+import StudentCourses from "./components/StudentDashboard/StudentCourses.jsx"
 
 
 // import KuppiGroups from "./components/KuppiGroups";
@@ -50,13 +51,13 @@ function App() {
         {/* <QuestionForm /> */}
 
         {/* <KuppiGroups/> */}
-        
+        <StudentCourses/>
 
           {/* <Sidebar/> */}
           {/* <FindTutor/> */}
         
-{/*         
-        { <Router>
+        
+        {/* { <Router>
           <div className="App">
             <Navbar/>
             <Routes>
