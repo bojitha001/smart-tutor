@@ -18,10 +18,13 @@ body {
     height: 100vh;
 }
 
-.descrip-card-signUp .signUp-Img {
-    
-    margin-top:10px;     
-    width: 80%;
+.descrip-card-signUp{
+    width: 95%; 
+    margin-left: 3%;
+}
+
+.signUp-Img{
+    width: 63%;
 }
 
 .descrip-card-signUp .smartTutor-Img {
@@ -33,26 +36,30 @@ body {
     /* font-family: 'Lato'; */
     font-size: 3.5rem;
     font-weight: 400;
-    color: #fff;
+    color: #000;
+    text-align: left;
+    padding-left: 7%;
 }
 
 .descrip-card-signUp{
     height: 95vh;
     text-align: center;
-    background-color: #5A6DEE;
+    background-color: #F3D186;
     border-radius: 2%;
     padding: 5rem 0;
 }
 .descrip-signUp {
-    color: #fff;
+    color: #000;
     font-weight: 200 !important;
+    text-align: left;
+    padding: 0 7%;
 }
 
-.signUp-form-conatainer {
+.signUp-form-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 10rem;
+    padding: 0 10rem 0 5rem;
 }
 
 

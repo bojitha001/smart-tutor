@@ -1,15 +1,10 @@
-
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-// import styles from '../../../.ExternalCss/TutorSignUpQuestions.module.css';
-import smartTutorImage from "../../../assets/images/smartTutor.svg"
 
+import styles from '../../../.ExternalCss/StudentSignUpQuestions.module.css';
+import smartTutorImage from "../../../assets/images/smartTutor.svg"
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-
-import styles from "../../../.ExternalCss/SignUpQuestions.module.css";
-// import smartTutorImage from "../../../assets/images/smartTutor.svg"
-
 
 export const StudentSignUpQuestions = () => {
     const navigate = useNavigate();
@@ -18,19 +13,19 @@ export const StudentSignUpQuestions = () => {
     const [dateOfBirth, setDateOfBirth] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [gender, setGender] = useState("");
-    const [educationLevel, setEducationLevel] = useState("");
+    const [degree, setDegree] = useState("");
     
     // Load saved data when component mounts
     useEffect(() => {
         const savedData = sessionStorage.getItem("signUpData");
         if (savedData) {
-            const { firstName, lastName, dateOfBirth, phoneNumber, gender, educationLevel } = JSON.parse(savedData);
+            const { firstName, lastName, dateOfBirth, phoneNumber, gender, degree } = JSON.parse(savedData);
             setFirstName(firstName || "");
             setLastName(lastName || "");
             setDateOfBirth(dateOfBirth || "");
             setPhoneNumber(phoneNumber || "");
             setGender(gender || "");
-            setDegree(educationLevel || "");
+            setDegree(degree || "");
         }
     }, []);
 
@@ -38,18 +33,18 @@ export const StudentSignUpQuestions = () => {
         setGender(selectedGender);
     };
 
-    const handleEducationLevelSelect = (selectedEducationLevel) => {
-        setEducationLevel(selectedEducationLevel);
+    const handleDegreeSelect = (selectedDegree) => {
+        setDegree(selectedDegree);
     };
 
     const handleContinueToSignup = () => {
-        if (!firstName || !lastName || !dateOfBirth || !phoneNumber || !gender || !educationLevel) {
+        if (!firstName || !lastName || !dateOfBirth || !phoneNumber || !gender || !degree) {
             alert("Please fill in all the details before continuing.");
             return;
         }
 
         // Store data in session storage
-        const formData = { firstName, lastName, dateOfBirth, phoneNumber, gender, educationLevel };
+        const formData = { firstName, lastName, dateOfBirth, phoneNumber, gender, degree };
         sessionStorage.setItem("signUpData", JSON.stringify(formData));
 
          // Navigate to SignUpOptions
@@ -68,7 +63,7 @@ export const StudentSignUpQuestions = () => {
                             <label className={`form-label ${styles.formLabel}`}>First Name</label>
                             <input
                             type="text"
-                            className="form-control"
+                            className={`form-control ${styles.formControl}`}
                             value={firstName}
                             onChange={(e) => setFirstName(e.target.value)}
                             required
@@ -78,7 +73,7 @@ export const StudentSignUpQuestions = () => {
                             <label className={`form-label ${styles.formLabel}`}>Last Name</label>
                             <input
                             type="text"
-                            className="form-control"
+                            className={`form-control ${styles.formControl}`}
                             value={lastName}
                             onChange={(e) => setLastName(e.target.value)}
                             required
@@ -87,7 +82,7 @@ export const StudentSignUpQuestions = () => {
                         <div className="col-md-5">
                             <label className={`form-label ${styles.formLabel}`}>Date of Birth</label>
                             <input
-                            className="form-control"
+                            className={`form-control ${styles.formControl}`}
                             type="date"
                             value={dateOfBirth}
                             onChange={(e) => setDateOfBirth(e.target.value)}
@@ -97,7 +92,7 @@ export const StudentSignUpQuestions = () => {
                         <div className="col-md-5">
                             <label className={`form-label ${styles.formLabel}`}>Phone Number</label>
                             <input
-                            className="form-control"
+                            className={`form-control ${styles.formControl}`}
                             type="tel"
                             value={phoneNumber}
                             onChange={(e) => setPhoneNumber(e.target.value)}
@@ -118,15 +113,15 @@ export const StudentSignUpQuestions = () => {
 
                         </div>
                         <div className="col-md-5">
-                            <label className={`form-label ${styles.formLabel}`}>Educational Level</label>
+                            <label className={`form-label ${styles.formLabel}`}>Degree</label>
                             <DropdownButton 
-                                className={`${styles.dropdownEducationLevel}`}
-                                title={educationLevel} 
-                                onSelect={handleEducationLevelSelect}
+                                className={`${styles.dropdownDegree}`}
+                                title={degree} 
+                                onSelect={handleDegreeSelect}
                             >
-                                <Dropdown.Item eventKey="Bachelor's">Primary</Dropdown.Item>
-                                <Dropdown.Item eventKey="Master's">O/L</Dropdown.Item>
-                                <Dropdown.Item eventKey="PhD">A/L</Dropdown.Item>
+                                <Dropdown.Item eventKey="Bachelor's">Bachelor's</Dropdown.Item>
+                                <Dropdown.Item eventKey="Master's">Master's</Dropdown.Item>
+                                <Dropdown.Item eventKey="PhD">PhD</Dropdown.Item>
                             </DropdownButton>
                         </div>
                         <div className="col-12 text-center">
@@ -135,7 +130,7 @@ export const StudentSignUpQuestions = () => {
                                 className={`btn btn-lg ${styles.continueSignupButton}`}
                                 onClick={handleContinueToSignup}
                             >  
-                                Continue to Sign-up &nbsp;&nbsp;&#129122;
+                                Continue to Sign-up &rarr;
                             </button>
                         </div>
                     </form>

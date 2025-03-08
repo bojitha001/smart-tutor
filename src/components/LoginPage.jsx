@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth, googleProvider, db } from "../config/firebase";
-import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { signInWithEmailAndPassword, signInWithPopup, sendEmailVerification } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore"; //Import Firestore functions
+
 import styles from "../.ExternalCss/LoginPage.module.css";
 import smartTutorImage from "../assets/images/smartTutor.svg";
 import signInImage from "../assets/images/mainImg.png";
@@ -24,15 +25,26 @@ export const SignInAuth = () => {
       );
       const user = userCredential.user;
 
+      //Check if email is verified before proceeding
+      if (!user.emailVerified) {
+        alert("Your email is not verified! Please check your inbox.");
+        return; // Stop login if email is not verified
+      }
+
       const userRef = doc(db, "UserDetails", user.uid);
       const userDoc = await getDoc(userRef);
 
       if (userDoc.exists()) {
         console.log("User details from Firestore:", userDoc.data());
         alert("Welcome back, " + userDoc.data().firstName);
+        //navigate("/dashboard");
       } else {
         alert("User authenticated but no details found in Firestore.");
       }
+
+      //Navigate to the homepage
+      navigate("/");
+
     } catch (err) {
       if (err.code === "auth/user-not-found") {
         alert("No user found with this email. Please sign up first.");
@@ -60,6 +72,10 @@ export const SignInAuth = () => {
       } else {
         alert("User authenticated but no details found in Firestore.");
       }
+
+      //Navigate to the homepage
+      navigate("/");
+
     } catch (err) {
       if (err.code === "auth/user-not-found") {
         alert("No user found with this email. Please sign up first.");
@@ -75,7 +91,6 @@ export const SignInAuth = () => {
   return (
     <>
       <div className={`${styles.loginPageMainContainer}`}>
-        {/* <div className="col-md-1"></div> */}
         <div className={`col-md-6 ${styles.loginPageSignInForm}`}>
           <div className={`${styles.loginPageSignInFormLeft}`}>
             <img className={`${styles.smartTutorImg}`} src={smartTutorImage} alt="" />
@@ -127,9 +142,8 @@ export const SignInAuth = () => {
               <button
                               type="button"
                               className={`btn btn-lg ${styles["create-google-account-button"]}`}
-                              // onClick={signUpWithGoogle}
+                              onClick={signInWithGoogle}
                             >
-                              {" "}
                               <img
                                 className={`${styles["google-Img"]}`}
                                 src={googleImage}
@@ -148,7 +162,6 @@ export const SignInAuth = () => {
             </div>
           </form>
         </div>
-        {/* <div className="col-md-1"></div> */}
         <div className={`col-md-4 p-5 text-white rounded ${styles.descripCardSignIn}`}>
           <img className={`${styles.loginPageSignInImg}`} src={signInImage} alt="" />
         </div>
