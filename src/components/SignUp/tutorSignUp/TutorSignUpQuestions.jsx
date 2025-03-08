@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-// import PhoneInput from "react-phone-input-2";
-// import 'react-phone-input-2/lib/style.css';
+
 import styles from '../../../.ExternalCss/TutorSignUpQuestions.module.css';
 import smartTutorImage from "../../../assets/images/smartTutor.svg"
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -141,7 +140,7 @@ export const TutorSignUpQuestions = () => {
                                 className={`btn btn-lg ${styles.continueSignupButton}`}
                                 onClick={handleContinueToSignup}
                             >  
-                                Continue to Sign-up &rarr;;
+                                Continue to Sign-up &rarr;
                             </button>
                         </div>
                     </form>

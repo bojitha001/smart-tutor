@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth, googleProvider, db } from "../config/firebase";
-import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { signInWithEmailAndPassword, signInWithPopup, sendEmailVerification } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore"; //Import Firestore functions
+
 import styles from "../.ExternalCss/LoginPage.module.css";
 import smartTutorImage from "../assets/images/smartTutor.svg";
 import signInImage from "../assets/images/mainImg.png";
@@ -24,15 +25,26 @@ export const SignInAuth = () => {
       );
       const user = userCredential.user;
 
+      //Check if email is verified before proceeding
+      if (!user.emailVerified) {
+        alert("Your email is not verified! Please check your inbox.");
+        return; // Stop login if email is not verified
+      }
+
       const userRef = doc(db, "UserDetails", user.uid);
       const userDoc = await getDoc(userRef);
 
       if (userDoc.exists()) {
         console.log("User details from Firestore:", userDoc.data());
         alert("Welcome back, " + userDoc.data().firstName);
+        //navigate("/dashboard");
       } else {
         alert("User authenticated but no details found in Firestore.");
       }
+
+      //Navigate to the homepage
+      navigate("/");
+
     } catch (err) {
       if (err.code === "auth/user-not-found") {
         alert("No user found with this email. Please sign up first.");
@@ -60,6 +72,10 @@ export const SignInAuth = () => {
       } else {
         alert("User authenticated but no details found in Firestore.");
       }
+
+      //Navigate to the homepage
+      navigate("/");
+
     } catch (err) {
       if (err.code === "auth/user-not-found") {
         alert("No user found with this email. Please sign up first.");
@@ -88,11 +104,11 @@ export const SignInAuth = () => {
             </h3>
           </div>
           <br />
-          <form className={`row g-3`} onSubmit={signIn}>
+          <form className={`row g-3 ${styles["signIn-form"]}`} onSubmit={signIn}>
             <div className={`col-md-12`}>
-              <label className={`form-label`}>Email</label>
+              <label className={`${styles["form-label"]}`}>Email</label>
               <input
-                className={`${styles["form-control"]}`}
+                className="form-control"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -100,16 +116,16 @@ export const SignInAuth = () => {
               />
             </div>
             <div className={`col-md-12`}>
-              <label className={`form-label`}>Password</label>
+              <label className={`${styles["form-label"]}`}>Password</label>
               <input
                 type="password"
-                className={`${styles["form-control"]}`}
+                className="form-control"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
             </div>
-            <div className={`form-check`}>
+            {/* <div className={`form-check`}>
               <input
                 className={`form-check-input`}
                 type="checkbox"
@@ -120,7 +136,7 @@ export const SignInAuth = () => {
                 Remember me<br></br>
                 <span>Save my login details for next time</span>
               </label>
-            </div>
+            </div> */}
             <div className={`col-12 text-center`}>
               <button
                 type="submit"
@@ -130,7 +146,7 @@ export const SignInAuth = () => {
               </button>
             </div>
             <div className={`col-12 text-center`}>
-              <p>OR</p>
+              <p className={`${styles["signIn-or"]}`}>OR</p>
               <button
                 type="button"
                 className={`btn btn-lg ${styles["create-google-account-button"]}`}
@@ -145,7 +161,7 @@ export const SignInAuth = () => {
                 Sign Up with Google
               </button>
             </div>
-            <div className={`text-center`}>
+            <div className={`text-center ${styles["signIn-terms"]}`}>
               Don't have an account ?&nbsp;&nbsp;
               <span className={`text-primary`}>
                 <a

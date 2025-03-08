@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth, googleProvider, db } from "../../../config/firebase";
-import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithPopup , sendEmailVerification} from "firebase/auth";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 
 import styles from "../../../.ExternalCss/TutorSignUpOptions.module.css";
@@ -25,8 +25,8 @@ export const TutorSignUpOptions = () => {
     if (!userData) return;
     const tutorRef = doc(db, "TutorDetails", user.uid); // Create a reference to the tutor collection
     const userRef = doc(db, "UserDetails", user.uid); // Create a reference to the tutor collection
-    const TutorExist = await getDoc(tutorRef);
-    if (TutorExist.exists()) {
+    const userExist = await getDoc(userRef);
+    if (userExist.exists()) {
       //Checks whether an account with the respective email already exists
       console.log("An account with this email already exists!");
       alert("An account with this email already exists!");
@@ -43,6 +43,9 @@ export const TutorSignUpOptions = () => {
     await setDoc(tutorRef, userDataToSave);
     alert("Account created successfully!");
 
+    // Clear session storage after signup
+    sessionStorage.clear();
+    
     // Navigate to HomePage
     navigate("/");
   };
@@ -55,6 +58,11 @@ export const TutorSignUpOptions = () => {
       return;
     }
     try {
+      // If a user is already signed in, sign them out
+      if (auth.currentUser) {
+        await auth.signOut();
+      }
+
       const result = await createUserWithEmailAndPassword(
         auth,
         email,
@@ -62,6 +70,14 @@ export const TutorSignUpOptions = () => {
       );
       const user = result.user;
       await saveUserToFirestore(user);
+
+      // Send verification email
+      await sendEmailVerification(user);
+      alert("A verification email has been sent. Please check your inbox and verify your email before logging in.");
+
+      // Sign out the user to prevent auto sign-in
+      await auth.signOut();
+
     } catch (err) {
       console.error(err);
       alert(err.message);
@@ -71,9 +87,25 @@ export const TutorSignUpOptions = () => {
   //Sign Up with Google
   const signUpWithGoogle = async () => {
     try {
+      // If a user is already signed in, sign them out
+      if (auth.currentUser) {
+        await auth.signOut();
+      }
+
       const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
+
       await saveUserToFirestore(user);
+
+      // Send verification email
+      await sendEmailVerification(user);
+      alert("A verification email has been sent. Please check your inbox and verify your email before logging in.");
+
+      // Sign out the user to prevent auto sign-in
+      await auth.signOut();
+
+      // Navigate to Sign-In page
+      navigate("/SignIn");
     } catch (err) {
       console.error(err);
       alert(err.message);
@@ -178,8 +210,8 @@ export const TutorSignUpOptions = () => {
               Already have an account ?&nbsp;&nbsp;
               <span className="text-primary">
                 <a
-                  href="#"
-                  className="text-decoration-none"
+                  href=""
+                  className={`text-decoration-none ${styles["login-tag"]}`}
                   onClick={() => navigate("/SignIn")}
                 >
                   Login
