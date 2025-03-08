@@ -157,7 +157,7 @@
   margin-top: 20px;
   cursor: pointer;
 }
-=======
+
 .dashboard {
   padding: 2rem;
   min-height: 100vh; /* Use viewport height instead of just height */
@@ -420,4 +420,4 @@ header {
     .seeMoreButton:hover {
       background-color: #e9ecef;
     }
->>>>>>> main
+
