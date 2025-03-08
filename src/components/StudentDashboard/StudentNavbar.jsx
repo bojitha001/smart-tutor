@@ -41,7 +41,17 @@ function Navbar() {
             </div>
           )}
         </div>
-        
+        <div className="user-profile">
+          <img 
+            src="https://randomuser.me/api/portraits/men/32.jpg" 
+            alt="User" 
+            className="user-avatar" 
+          />
+          <div className="user-info">
+            <h4>Thevinu Perera</h4>
+            <p>@thevinu456</p>
+          </div>
+        </div>
         
       </div>
     </div>
