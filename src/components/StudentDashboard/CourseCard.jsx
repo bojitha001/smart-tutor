@@ -27,7 +27,35 @@ function CourseCard({ course, type }) {
         </>
       ) : (
         <>
-          
+          <div className="upcoming-course-image">
+            <img src={course.image} alt={course.title} />
+          </div>
+          <div className="upcoming-course-content">
+            <div className="course-tag">{course.tag}</div>
+            <h3 className="course-title">{course.title}</h3>
+            <p className="course-description">{course.description}</p>
+            <div className="course-meta">
+              <div className="course-duration">
+                <span>{course.duration}</span>
+              </div>
+              <div className="course-lessons">
+                <span>{course.lessons} lessons</span>
+              </div>
+            </div>
+            <div className="course-instructors">
+              <div className="instructor-avatars">
+                {course.instructors.map((instructor, index) => (
+                  <img 
+                    key={index} 
+                    src={instructor} 
+                    alt="Instructor" 
+                    className="instructor-avatar" 
+                  />
+                ))}
+              </div>
+              <button className="button primary-button">Buy course</button>
+            </div>
+          </div>
         </>
       )}
     </div>
