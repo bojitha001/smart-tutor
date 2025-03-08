@@ -22,7 +22,52 @@ function Courses() {
       }
     ];
 
-    
+    const upcomingCourses = [
+        {
+          id: 1,
+          title: 'Java Script Fundamentals',
+          tag: 'Programming',
+          description: 'An introduction to core JavaScript concepts, including variables, data types, operators, functions, control structures, and basic DOM manipulation.',
+          duration: '3 months',
+          lessons: 42,
+          instructors: [
+            'https://randomuser.me/api/portraits/men/32.jpg',
+            'https://randomuser.me/api/portraits/women/44.jpg',
+            'https://randomuser.me/api/portraits/men/46.jpg',
+            'https://randomuser.me/api/portraits/women/65.jpg'
+          ],
+          image: 'https://img.freepik.com/free-photo/programming-background-with-person-working-with-codes-computer_23-2150010125.jpg?w=740&t=st=1701338561~exp=1701339161~hmac=a5b7d1d51cae0b8a5a7cf1f0bcc4cf01f5b7e0a3e2c838c859b7b8d463e8c911'
+        },
+        {
+          id: 2,
+          title: 'Java Script Fundamentals',
+          tag: 'Programming',
+          description: 'An introduction to core JavaScript concepts, including variables, data types, operators, functions, control structures, and basic DOM manipulation.',
+          duration: '3 months',
+          lessons: 42,
+          instructors: [
+            'https://randomuser.me/api/portraits/men/32.jpg',
+            'https://randomuser.me/api/portraits/women/44.jpg',
+            'https://randomuser.me/api/portraits/men/46.jpg'
+          ],
+          image: 'https://img.freepik.com/free-photo/programming-background-with-person-working-with-codes-computer_23-2150010125.jpg?w=740&t=st=1701338561~exp=1701339161~hmac=a5b7d1d51cae0b8a5a7cf1f0bcc4cf01f5b7e0a3e2c838c859b7b8d463e8c911'
+        },
+        {
+          id: 3,
+          title: 'Java Script Fundamentals',
+          tag: 'Programming',
+          description: 'An introduction to core JavaScript concepts, including variables, data types, operators, functions, control structures, and basic DOM manipulation.',
+          duration: '3 months',
+          lessons: 42,
+          instructors: [
+            'https://randomuser.me/api/portraits/men/32.jpg',
+            'https://randomuser.me/api/portraits/women/44.jpg',
+            'https://randomuser.me/api/portraits/men/46.jpg'
+          ],
+          image: 'https://img.freepik.com/free-photo/programming-background-with-person-working-with-codes-computer_23-2150010125.jpg?w=740&t=st=1701338561~exp=1701339161~hmac=a5b7d1d51cae0b8a5a7cf1f0bcc4cf01f5b7e0a3e2c838c859b7b8d463e8c911'
+        }
+      ];
+
 
 }
 
