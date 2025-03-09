@@ -3,10 +3,11 @@
     padding-right: 30px;
     padding-top: 20px;
     max-width: 1600px; 
-    margin: 0 auto;
+    margin-left: 265px; 
     height: 100vh;
     overflow-y: auto;
     background-color: #f5f5f5;
+    width: 1600px;
 }
   
 .header {
@@ -14,6 +15,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-left: 42rem;
 }
   
 .header h1 {
@@ -34,8 +36,8 @@
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    width: 1200px; 
-    max-width: 100%; 
+    width: 100%; 
+    max-width: calc(100vw - 320px); /* Account for sidebar width + some padding */
 }
   
 .profileSection {
@@ -178,28 +180,48 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
   
-@media (max-width: 768px) {
-  .formGrid {
-      grid-template-columns: 1fr;
-  }
-    
-  .settingsContainer {
-      padding: 20px;
-  }
-    
-  .profileSection {
-      flex-direction: column;
-      text-align: center;
-  }
-    
-  .profileImageContainer {
-      margin-right: 0;
-      margin-bottom: 20px;
+@media (max-width: 1024px) {
+    .settingsForm {
+        max-width: calc(100vw - 290px);
     }
-  }
-.app{
-    display: 'flex'; 
+}
+
+@media (max-width: 768px) {
+    .formGrid {
+        grid-template-columns: 1fr;
+    }
+      
+    .settingsContainer {
+        margin-left: 0;
+        padding: 20px;
+        padding-top: 70px; 
+    }
+      
+    .settingsForm {
+        max-width: 100%;
+        padding: 20px;
+    }
+      
+    .profileSection {
+        flex-direction: column;
+        text-align: center;
+    }
+      
+    .profileImageContainer {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+
+.app {
+    display: flex; 
     min-height: 100vh;
     max-height: 100vh;
     overflow: hidden;
+}
+.contentContainer {
+    flex: 1;
+    margin-left: 250px; 
+    padding: 20px;
+    overflow-y: auto;
 }
