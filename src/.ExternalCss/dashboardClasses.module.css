@@ -1,426 +1,304 @@
-
-.container {
-  padding: 2rem;
-  background-color: #f9fafb;
-  min-height: 100vh;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.upcomingSection {
-  margin-bottom: 2rem;
+.dashboard {
+  padding: 3rem;
+  padding-left: 4rem;
+  min-height: 100vh;
+  margin-left: 265px; /* Account for sidebar width */
+  background: #f5f5f5;
+  overflow-y: auto;
+  width: calc(100% - 265px); /* Important: ensure the width accounts for sidebar */
+}
+
+/* Hide the duplicate header with search and profile */
+header {
+  display: none;
+}
+
+.content {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.upcoming {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.text {
+  color: red;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .sectionHeader {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin-bottom: 1.5rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0 0.5rem;
 }
 
-.sectionTitle {
+.viewAll {
+  color: #666;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.classGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.classCard {
+  background: white;
+  padding: 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.classCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.classTime {
+  color: #666;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.classDate {
+  color: #666;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.classCard h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.classCard p {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.statsRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.progress, .homework {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  height: fit-content;
+}
+
+.progress h2, .homework h2 {
   font-size: 1.25rem;
-  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.progressWrapper {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.circularProgress {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.backgroundCircle {
+  stroke: #f5f5f5;
+}
+
+.progressCircle {
+  stroke: #4CAF50;
+  transition: stroke-dashoffset 0.5s ease;
+}
+
+.percentage {
+  font-size: 1.25rem;
+  font-weight: bold;
+  fill: #333;
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.legendItem {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.upcomingText {
-  color: #ef4444;
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffc107;
 }
 
-.viewAll {
-  font-size: 0.875rem;
-  color: #6b7280;
-  text-decoration: none;
-  transition: color 0.2s ease;
+.dot.done {
+  background: #4CAF50;
 }
 
-.viewAll:hover {
-  color: #d97706;
+.homeworkContent {
+  margin-top: 1rem;
+  color: #666;
 }
 
-.classGrid {
+/* Advertisements */
+.advertisements {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.ad-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 }
 
-.classCard {
-  background-color: white;
-  padding: 1.25rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+.ad-card {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.classCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.ad-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.classTime {
-  font-size: 0.875rem;
-  color: #6b7280;
-  margin-bottom: 0.5rem;
-}
-
-.classDate {
-  font-size: 0.875rem;
-  color: #6b7280;
-  margin-bottom: 0.75rem;
-}
-
-.classTitle {
-  font-weight: 600;
-  color: #111827;
-  margin-bottom: 0.25rem;
-}
-
-.classType {
-  font-size: 0.875rem;
-  color: #4b5563;
-}
-
-.statsSection {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.statCard {
-  background-color: white;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.statHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 2rem;
-}
-
-.select {
-  padding: 0.5rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.375rem;
-  background-color: white;
-  font-size: 0.875rem;
-  color: #374151;
-  cursor: pointer;
-}
-
-.select:focus {
-  outline: none;
-  border-color: #f59e0b;
-  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
-}
-
-.chartContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-}
-
-.progressCircle {
-  position: relative;
-  width: 150px;
-  height: 150px;
-}
-
-.progressCircle svg {
+.ad-card img {
   width: 100%;
-  height: 100%;
-  transform: rotate(-90deg);
+  height: 120px;
+  object-fit: cover;
 }
 
-.progressBackground {
-  fill: none;
-  stroke: #e5e7eb;
-  stroke-width: 10;
+.ad-content {
+  padding: 0.75rem;
 }
 
-.progressBar {
-  fill: none;
-  stroke: #3b82f6;
-  stroke-width: 10;
-  stroke-linecap: round;
-  transition: stroke-dashoffset 0.5s ease;
+.ad-content h4 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  color: #333;
 }
 
-.progressText {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #111827;
+.ad-content p {
+  color: #666;
+  font-size: 0.875rem;
+}
+
+/* Responsive styles - IMPROVED */
+@media (max-width: 1366px) {
+  .statsRow {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .advertisements {
+    grid-column: 1 / 3;
+  }
+  
+  .classGrid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 1024px) {
+  .dashboard {
+    padding: 1.5rem;
+    width: calc(100% - 265px);
+  }
+  
+  .classGrid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .classGrid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}
+
+@media (max-width: 800px) {
+  .statsRow {
+    grid-template-columns: 1fr;
+  }
+  
+  .advertisements {
+    grid-column: auto;
+  }
 }
 
 @media (max-width: 768px) {
-  .classGrid {
+  .dashboard {
+    margin-left: 0;
+    width: 100%;
+    padding: 1rem;
+  }
+  
+  .ad-cards {
     grid-template-columns: 1fr;
   }
   
-  .statsSection {
-    grid-template-columns: 1fr;
+  .classGrid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }
 
-.dashboard {
-
-    padding: 2rem;
-    height: 100%;
-    width: 100%;
-    background: #f5f5f5;
-  }
-  
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    grid-column: 1 / -1;
-    }
-    
-    .search-bar {
-      display: flex;
-      align-items: center;
-      background-color: white;
-      border-radius: 8px;
-      width: 300px; 
-      padding: 1.2rem 1.25rem;
-      border: 1px solid #eee;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-    }
-    
-    .search-bar input {
-      border: none;
-      outline: none;
-      margin-left: 12px;
-      width: 100%;
-      font-size: 1.1rem;
-      background-color: white; 
-      color: black; 
-    }
-    
-    .search-bar input::placeholder {
-      color: #aaa; 
-    }
-    
-    .search-bar:focus-within {
-      border-color: #007bff;
-      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
-    }
-    
-    .profile-section {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    }
-    
-    .notification-icon {
-    font-size: 2rem;
-    color: #666;
-    cursor: pointer;
-    }
-    
-    .profile-info {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    }
-    
-    .profile-pic {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-    }
-    
-    .profile-name {
-    font-weight: 500;
-    font-size: 1.5rem;
-    }
-    
-    .profile-username {
-    color: #666;
-    font-size: 0.95rem;
-    }
-  
-  .content {
-    padding: 2%;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .text{
-    color: red;
-  }
-
-  
-  .sectionHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-  
-  .viewAll {
-    color: #666;
-    text-decoration: none;
-  }
-  
-  .classGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
-  }
-  
-  .classCard {
-    background: white;
-    padding: 10%;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-  
-  .classTime {
-    color: #666;
-    font-size: 0.875rem;
-  }
-  
-  .statsRow {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
-  
-  .progress, .homework {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-  
-  .progressWrapper {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    margin-top: 1rem;
-  }
-  
-  .circularProgress {
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  
-  .backgroundCircle {
-    stroke: #f5f5f5;
-  }
-  
-  .progressCircle {
-    stroke: #4CAF50;
-    transition: stroke-dashoffset 0.5s ease;
-  }
-  
-  .percentage {
-    font-size: 1.25rem;
-    font-weight: bold;
-    fill: #333;
-  }
-  
-  .legend {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  
-  .legendItem {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
-  .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #ffc107;
-  }
-  
-  .dot.done {
-    background: #4CAF50;
-  }
-  
-  .homeworkContent {
-    margin-top: 1rem;
-    color: #666;
-  }
-
-
-/* Advertisemnet */
-  .advertisements {
-    
-    background-color: white;
-    padding: 1.5rem;
-
-    border-radius: 12px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    
-    .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2.25rem;
-    }
-    
-    .section-title {
-    font-size: 1.7rem;
-    font-weight: 600;
-    }
-    
-    .ad-cards {
-
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    }
-    
-    .ad-card {
-    border: 1px solid #eee;
-    border-radius: 10px;
-    overflow: hidden;
-    height: 200px;
-    }
-    
-    .ad-card img {
-    width: 100%;
-    height: 120px;
-    object-fit: cover;
-    }
-    
-    .ad-content {
-    padding: 0.75rem;
-    }
-    
-    .ad-content h4 {
-    font-size: 1.5rem;
-    margin-bottom: 0.25rem;
-    }
-    
-    .ad-content p {
-    color: #666;
-    font-size: 1rem;
-    }
-
-    .app {
-      display: flex;
-      height: 100vh;
-      overflow: hidden;
-      }
-
+/* Remaining classes that might be used */
+.search-bar, 
+.profile-section, 
+.notification-icon, 
+.profile-info, 
+.profile-pic, 
+.profile-name, 
+.profile-username {
+  display: none; /* Hide all header-related elements */
+}

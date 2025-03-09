@@ -215,6 +215,7 @@ a:hover {
   flex: 1;
   padding: 1.5rem;
   min-height: 100vh;
+  padding-left: 2.5rem;
   margin-left: var(--sidebar-width);
   transition: margin-left var(--transition-speed) ease;
   background-color: var(--bg-light);
