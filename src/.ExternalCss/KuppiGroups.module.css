@@ -1,87 +1,96 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  }
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.kuppiGroupsHeader {
+  background-color: #ffffff;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  padding: 0 10rem;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.headerContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.headerTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
   
-  .kuppiGroupsHeader {
-    background-color: #ffffff;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    position: relative;
-    max-width: 100rem;
-    padding: 0 10rem;
-    height: 100vh;
-  }
+}
+
+.headerTitle h1 {
+  font-size: 8rem;
+  margin-bottom: 1.5rem;
+  color: #000;
+  font-weight: 700;
+  text-align: left;
+}
+
+.headerTitle p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.headerButtons {
+  display: flex;
+  gap: 1rem;
   
-  .headerContent {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  
-  .headerTitle {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 3rem;
-  }
-  
-  .headerTitle h1 {
-    font-size: 2.8rem;
-    margin-bottom: 1.5rem;
-    color: #000;
-    font-weight: 700;
-  }
-  
-  .headerTitle p {
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-    font-size: 1.1rem;
-  }
-  
-  .headerButtons {
-    display: flex;
-    gap: 1rem;
-  }
-  
-  .openTopic,
-  .exploreCommunities {
-    padding: 0.75rem 1.5rem;
-    border-radius: 5px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 1rem;
-  }
-  
-  .openTopic {
-    background-color: #000;
-    color: white;
-    border: none;
-  }
-  
-  .exploreCommunities {
-    background-color: transparent;
-    border: 1px solid #ccc;
-    color: #333;
-  }
-  
-  .openTopic:hover {
-    background-color: #333;
-  }
-  
-  .exploreCommunities:hover {
-    border-color: #999;
-  }
-  
-  .headerImage {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .headerImage img {
-    max-width: 100%;
-    height: auto;
-  }
+}
+
+.openTopic,
+.exploreCommunities {
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.5rem;
+
+}
+
+.openTopic {
+  background-color: #000;
+  color: white;
+  border: none;
+}
+
+.exploreCommunities {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  color: #333;
+}
+
+.openTopic:hover {
+  background-color: #333;
+}
+
+.exploreCommunities:hover {
+  border-color: #999;
+}
+
+.headerImage {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.headerImage img {
+  max-width: 100%;
+  height: auto;
+}

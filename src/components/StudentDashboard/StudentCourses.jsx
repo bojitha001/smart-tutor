@@ -121,7 +121,7 @@ function Courses() {
             </div>
             
             <div className="side-section">
-              <Calendar />
+              {/* <Calendar /> */}
             </div>
           </div>
         </div>
