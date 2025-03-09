@@ -25,6 +25,7 @@ import QuestionForm from "./components/KuppiGroups/QuestionForm.jsx";
 import FindTutor from "./components/FindATutor";
 import StudentCourses from "./components/StudentDashboard/StudentCourses.jsx"
 import Communities from "./components/KuppiGroups/Communities.jsx";
+import MainSign from "./components/MainSIgn.jsx";
 
 
 // import KuppiGroups from "./components/KuppiGroups";
@@ -70,8 +71,8 @@ function App() {
           </div>
         </Router> } */}
 
-      
-      <QuestionForm/>
+      <MainSign/>
+      {/* <QuestionForm/> */}
 
       
     
@@ -94,7 +95,7 @@ function App() {
      {/* </div> */}
     
 
-         <Router>
+         {/* <Router>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/TutorSignUpQuestions" element={<TutorSignUpQuestions />} />
@@ -106,7 +107,7 @@ function App() {
             <Route path="/SignIn" element={<SignInAuth />} />
             <Route path="/ResetPassword" element={<ResetPassword />} />
           </Routes>
-        </Router> 
+        </Router>  */}
       </div>
       </>
   );
