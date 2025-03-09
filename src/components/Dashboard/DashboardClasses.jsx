@@ -14,7 +14,6 @@ function DashboardClasses() {
       date: 'Tomorrow',
       teacher: 'Monali Rathnayake',
       grade: 'Gr.10 - Individual'
-    
     },
     {
       time: '4:00 PM',
@@ -45,44 +44,17 @@ function DashboardClasses() {
       date: '25/01/2025',
       teacher: 'Bojitha Soma',
       grade: 'Gr.11 - Individual'
-    },
-    {
-      time: '8:00 PM',
-      date: '25/01/2025',
-      teacher: 'Bojitha Soma',
-      grade: 'Gr.11 - Individual'
-    },
-    {
-      time: '8:00 PM',
-      date: '25/01/2025',
-      teacher: 'Bojitha Soma',
-      grade: 'Gr.11 - Individual'
     }
   ];
 
   return (
     <div className={styles.dashboard}>
-        <header>
-          <div className={`${styles["search-bar"]}`}>
-            <IoSearch />
-            <input type="text" placeholder="Search here..." />
-          </div>
-          <div className={`${styles["profile-section"]}`}>
-            <FaBell className={`${styles["notification-icon"]}`} />
-            <div className={`${styles["profile-info"]}`}>
-              <img src={testImg} alt="Profile" className={`${styles["profile-pic"]}`} />
-              <div>
-                <div className={`${styles["profile-name"]}`}>Sarah Perera</div>
-                <div className={`${styles["profile-username"]}`}>@sarah123</div>
-              </div>
-            </div>
-          </div>
-        </header>
-
+      {/* Removed the header section with search bar and profile */}
+      
       <main className={styles.content}>
         <section className={styles.upcoming}>
           <div className={styles.sectionHeader}>
-            <h2 className={styles.text}>UPCOMING Classes </h2>
+            <h2 className={styles.text}>UPCOMING Classes</h2>
             <a href="#" className={styles.viewAll}>view all</a>
           </div>
           <div className={styles.classGrid}>
@@ -90,7 +62,6 @@ function DashboardClasses() {
               <div key={index} className={styles.classCard}>
                 <div className={styles.classTime}>{cls.time}</div>
                 <div className={styles.classDate}>{cls.date}</div>
-                
                 <h3>{cls.teacher}</h3>
                 <p>{cls.grade}</p>
               </div>
@@ -155,20 +126,20 @@ function DashboardClasses() {
           </section>
 
           <div className={styles.advertisements}>
-            <div className={`${styles["section-header"]}`}>
-              <h3 className={`${styles["section-title"]}`}>Advertisements</h3>
+            <div className={styles["section-header"]}>
+              <h3 className={styles["section-title"]}>Advertisements</h3>
             </div>
-            <div className={`${styles["ad-cards"]}`}>
-              <div className={`${styles["ad-card"]}`}>
+            <div className={styles["ad-cards"]}>
+              <div className={styles["ad-card"]}>
                 <img src={testImg} alt="Mathematics Class" />
-                <div className={`${styles["ad-content"]}`}>
+                <div className={styles["ad-content"]}>
                   <h4>Mathematics Class</h4>
                   <p>Advanced calculus for Grade 12 students</p>
                 </div>
               </div>
-              <div className={`${styles["ad-card"]}`}>
+              <div className={styles["ad-card"]}>
                 <img src={testImg} alt="Physics Class" />
-                <div className={`${styles["ad-content"]}`}>
+                <div className={styles["ad-content"]}>
                   <h4>Physics Class</h4>
                   <p>Mechanics and dynamics for Grade 11 students</p>
                 </div>
