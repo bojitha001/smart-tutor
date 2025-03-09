@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
-import Sidebar from './Sidebar';
-import Navbar from './Navbar';
+import Sidebar from '../StudentDashboard/StudentSidebar';
+import Navbar from '../StudentDashboard/StudentNavbar';
 
 function Layout() {
   return (
