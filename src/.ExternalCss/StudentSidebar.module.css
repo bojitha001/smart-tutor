@@ -1,0 +1,81 @@
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #eaeaea;
+    padding: 20px 0;
+  }
+  
+  .logo {
+    padding: 0 20px;
+    margin-bottom: 40px;
+  }
+  
+  .logo h1 {
+    font-size: 24px;
+    font-weight: 700;
+  }
+  
+  .logo-dark {
+    color: #333;
+  }
+  
+  .logo-accent {
+    color: #f5a623;
+  }
+  
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  
+  .nav-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: #666;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-bottom: 8px;
+  }
+  
+  .nav-item:hover {
+    background-color: #f5f7ff;
+    color: #4a6cf7;
+  }
+  
+  .nav-item.active {
+    background-color: #4a6cf7;
+    color: white;
+    border-radius: 0 20px 20px 0;
+  }
+  
+  .nav-icon {
+    margin-right: 12px;
+    font-size: 18px;
+  }
+  
+  .logout-container {
+    padding: 20px;
+    margin-top: auto;
+  }
+  
+  .logout-button {
+    display: flex;
+    align-items: center;
+    color: #666;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+  }
+  
+  .logout-button:hover {
+    background-color: #fff1f1;
+    color: #f44336;
+  }
