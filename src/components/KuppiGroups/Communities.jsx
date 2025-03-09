@@ -1,5 +1,5 @@
 import React from 'react'
-
+import styles from '../../.ExternalCss/KuppiGroups.module.css'
 
 const communities = [
     {
@@ -54,7 +54,29 @@ const communities = [
   
 const Communities = () => {
   return (
-    <div>Communities</div>
+    
+          <div className={styles.communitiesPage}>
+            <h1 className={styles.communitiesTitle}>Communities</h1>
+            <div className={styles.communitiesGrid}>
+              {communities.map((community) => (
+                <div key={community.id} className={styles.communityCard}>
+                  <div className={styles.communityImage}>
+                    <img src="/community-book.png" alt={community.name} />
+                  </div>
+                  <div className={styles.communityInfo}>
+                      <div>
+                    <h3>{community.name}</h3>
+                    <p>{community.members} members</p>
+                    </div>
+                    <button className={styles.joinButton}>
+                      Join
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        
   )
 }
 

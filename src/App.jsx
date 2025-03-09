@@ -24,6 +24,7 @@ import KuppiGroups from "./components/KuppiGroups/KuppiGroups.jsx";
 import QuestionForm from "./components/KuppiGroups/QuestionForm.jsx";
 import FindTutor from "./components/FindATutor";
 import StudentCourses from "./components/StudentDashboard/StudentCourses.jsx"
+import Communities from "./components/KuppiGroups/Communities.jsx";
 
 
 // import KuppiGroups from "./components/KuppiGroups";
@@ -51,7 +52,7 @@ function App() {
         {/* <QuestionForm /> */}
 
         {/* <KuppiGroups/> */}
-        <StudentCourses/>
+        {/* <StudentCourses/> */}
 
           {/* <Sidebar/> */}
           {/* <FindTutor/> */}
@@ -70,7 +71,7 @@ function App() {
         </Router> } */}
 
       
-
+          <Communities/>
 
       
     
