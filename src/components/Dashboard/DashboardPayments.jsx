@@ -44,27 +44,8 @@ const DashboardPayments = () => {
 
   return (
     <div className={styles.dashboard}>
-      <header>
-        <div className={styles["search-bar"]}>
-          <IoSearch />
-          <input type="text" placeholder="Search here..." />
-        </div>
-        <div className={styles["profile-section"]}>
-          <FaBell className={styles["notification-icon"]} />
-          <div className={styles["profile-info"]}>
-            <img
-              src={testImg}
-              alt="Profile"
-              className={styles["profile-pic"]}
-            />
-            <div>
-              <div className={styles["profile-name"]}>Sarah Perera</div>
-              <div className={styles["profile-username"]}>@sarah123</div>
-            </div>
-          </div>
-        </div>
-      </header>
-
+      {/* Removed the extra header with search bar and profile info */}
+      
       <div className={styles.container}>
         {/* Smart Tutor Wallet Section */}
         <div className={styles.walletSection}>
