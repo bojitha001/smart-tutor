@@ -71,7 +71,7 @@ function App() {
         </Router> } */}
 
       
-          <Communities/>
+      <QuestionForm/>
 
       
     
