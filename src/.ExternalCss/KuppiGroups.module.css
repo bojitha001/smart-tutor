@@ -94,3 +94,67 @@ html {
   max-width: 100%;
   height: auto;
 }
+
+.communitiesPage {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.communitiesTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.communitiesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding: 2rem 8rem;
+}
+
+.communityCard {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.communityCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.communityImage {
+  height: 150px;
+  overflow: hidden;
+  background-color: #e0e0e0;
+}
+
+.communityImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.communityInfo {
+  padding: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.joinButton {
+  padding: 0.4rem 1rem;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  font-weight: 500;
+}
+
+.joinButton:disabled {
+  background-color: #555;
+}
