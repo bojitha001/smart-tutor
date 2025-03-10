@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import CourseCard from '../StudentDashboard/CourseCard';
-import styles from '../../.ExternalCss/CourseCard.module.css';
+import styles from '../../.ExternalCss/StudentCourses.module.css';
 // import Calendar from '../components/Calendar';
 
 
