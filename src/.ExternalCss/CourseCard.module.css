@@ -1,0 +1,123 @@
+ .course-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+  }
+  
+  .course-card.enrolled {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .course-card.upcoming {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    flex-shrink: 0;
+    margin-right: 20px;
+  }
+  
+  .course-header {
+    margin-bottom: 15px;
+  }
+  
+  .course-tag {
+    display: inline-block;
+    padding: 4px 8px;
+    background-color: #f0f7ff;
+    color: #4a6cf7;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  
+  .course-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .course-progress {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .course-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .course-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .upcoming-course-image {
+    height: 160px;
+    overflow: hidden;
+  }
+  
+  .upcoming-course-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .upcoming-course-content {
+    padding: 15px;
+  }
+  
+  .course-description {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .course-meta {
+    display: flex;
+    margin-bottom: 15px;
+  }
+  
+  .course-duration, .course-lessons {
+    font-size: 12px;
+    color: #666;
+    display: flex;
+    align-items: center;
+  }
+  
+  .course-duration {
+    margin-right: 15px;
+  }
+  
+  .course-instructors {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .instructor-avatars {
+    display: flex;
+  }
+  
+  .instructor-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-right: -10px;
+  }
+
+
+
+  

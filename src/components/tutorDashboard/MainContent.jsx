@@ -13,7 +13,7 @@ function MainContent() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
     const enrollmentData = [
-      { name: 'Jan', students: 30 },
+      { name: 'Jan', students: 10 },
       { name: 'Feb', students: 40 },
       { name: 'Mar', students: 35 },
       { name: 'Apr', students: 45 },
