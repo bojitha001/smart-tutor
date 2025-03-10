@@ -4,8 +4,7 @@ import styles from "../src/.ExternalCss/TutorMainView.module.css";
 function App() {
   return (
     <>
-      <div className="App"> 
-      </div>
+
       </>
   );
 }
