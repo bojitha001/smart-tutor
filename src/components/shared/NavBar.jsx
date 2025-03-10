@@ -12,7 +12,7 @@ export const Navbar = () => {
       </div>
       <nav className={styles["main-nav"]}>
         <ul className={styles["main-nav-list"]}>
-          <li><Link to="/home">Home</Link></li>
+          <li><Link to="/">Home</Link></li>
           <li>.</li>
           <li><Link to="/find-tutor">Find a Tutor</Link></li>
           <li>.</li>
