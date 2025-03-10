@@ -2,7 +2,7 @@ import { useState } from "react";
 import React from "react";
 import styles from "../../.ExternalCss/KuppiGroups.module.css";
 import img from "../../assets/images/KuppiMainImage.png";
-
+import { Link } from "react-router";
 const KuppiGroups = () => {
   return (
     <div className={styles.kuppiGroupsHeader}>
@@ -17,9 +17,11 @@ const KuppiGroups = () => {
           </p>
           <div className={styles.headerButtons}>
             <button className={styles.openTopic}>Open a Topic</button>
+            <Link to='/kuppigroups-communities'>
             <button className={styles.exploreCommunities}>
               Explore Communities
             </button>
+            </Link>
           </div>
         </div>
         <div className={styles.headerImage}>

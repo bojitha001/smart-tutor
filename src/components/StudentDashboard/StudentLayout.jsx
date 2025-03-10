@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 import Sidebar from '../StudentDashboard/StudentSidebar';
 import Navbar from '../StudentDashboard/StudentNavbar';
 
-function Layout() {
+function StudentDashBoardLayout() {
   return (
     <div className="app">
       <Sidebar />
@@ -14,4 +14,4 @@ function Layout() {
   );
 }
 
-export default Layout;
+export default StudentDashBoardLayout;

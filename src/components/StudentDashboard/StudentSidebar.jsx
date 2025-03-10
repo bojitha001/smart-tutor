@@ -8,6 +8,7 @@ import {
   FaSignOutAlt 
 } from 'react-icons/fa';
 import styles from '../../.ExternalCss/StudentSidebar.module.css';
+import { Link } from 'react-router';
 
 function Sidebar() {
   return (
@@ -20,30 +21,32 @@ function Sidebar() {
   </div>
   
   <nav className={`${styles["nav-menu"]}`}>
-    {/* <NavLink to="/" className={`${styles["nav-item"]}`}> */}
+    <Link to='dashboard'>
       <FaHome className={`${styles["nav-icon"]}`} />
       <span>Dashboard</span>
-    {/* </NavLink> */}
+      </Link>
     
-    {/* <NavLink to="/courses" className={`${styles["nav-item"]}`}> */}
+    <Link to='dashboard/courses'>
       <FaBook className={`${styles["nav-icon"]}`} />
       <span>Courses</span>
-    {/* </NavLink> */}
+      </Link>
     
-    {/* <NavLink to="/results" className={`${styles["nav-item"]}`}> */}
+    <Link to='dashboard/results'>
       <FaClipboardList className={`${styles["nav-icon"]}`} />
       <span>Results</span>
-    {/* </NavLink> */}
-    
-    {/* <NavLink to="/payments" className={`${styles["nav-item"]}`}> */}
+      </Link>
+
+    <Link to='dashboard/payments'>
       <FaCreditCard className={`${styles["nav-icon"]}`} />
       <span>Payments</span>
-    {/* </NavLink> */}
+    </Link>
+
     
-    {/* <NavLink to="/settings" className={`${styles["nav-item"]}`}> */}
+  <Link to='dashboard/settings'>
       <FaCog className={`${styles["nav-icon"]}`} />
       <span>Settings</span>
-    {/* </NavLink> */}
+  </Link>
+
   </nav>
   
   <div className={`${styles["logout-container"]}`}>
