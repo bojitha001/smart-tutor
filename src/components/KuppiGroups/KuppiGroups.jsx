@@ -1,12 +1,9 @@
-import { useState } from 'react';
-import React from 'react'
-import styles from '../../.ExternalCss/KuppiGroups.module.css';
+import { useState } from "react";
+import React from "react";
+import styles from "../../.ExternalCss/KuppiGroups.module.css";
 import img from "../../assets/images/KuppiMainImage.png";
 
 const KuppiGroups = () => {
-
-
-  
   return (
     <div className={styles.kuppiGroupsHeader}>
       <div className={styles.headerContent}>
@@ -19,9 +16,7 @@ const KuppiGroups = () => {
             and succeed through group sessions.
           </p>
           <div className={styles.headerButtons}>
-
-              <button className={styles.openTopic}>Open a Topic</button>
-
+            <button className={styles.openTopic}>Open a Topic</button>
             <button className={styles.exploreCommunities}>
               Explore Communities
             </button>
@@ -32,7 +27,7 @@ const KuppiGroups = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default KuppiGroups
+export default KuppiGroups;

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "../.ExternalCss/NavBar.module.css";
+import styles from "../../.ExternalCss/NavBar.module.css";
 
 export const Navbar = () => {
   return (
@@ -12,11 +12,11 @@ export const Navbar = () => {
       </div>
       <nav className={styles["main-nav"]}>
         <ul className={styles["main-nav-list"]}>
-          <li><Link to="/homepage">Home</Link></li>
+          <li><Link to="/home">Home</Link></li>
           <li>.</li>
           <li><Link to="/find-tutor">Find a Tutor</Link></li>
           <li>.</li>
-          <li><Link to="/courses">Kuppi Groups</Link></li>
+          <li><Link to="/kuppiGroups">Kuppi Groups</Link></li>
           <li>.</li>
           {/* <li><Link to="/prices">Prices</Link></li>
           <li>.</li> */}

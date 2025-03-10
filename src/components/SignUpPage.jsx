@@ -6,7 +6,7 @@ import '../.ExternalCss/SignUpPage.module.css';
 import smartTutorImage from "../assets/images/smartTutor.svg";
 import signUpImage from "../assets/images/signupPage.svg";
 
-export const SignUpAuth = () => {
+const SignUpAuth = () => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [dateOfBirth, setDateOfBirth] = useState("");
@@ -187,3 +187,4 @@ export const SignUpAuth = () => {
         </>
     );
 }
+export default SignUpAuth;
