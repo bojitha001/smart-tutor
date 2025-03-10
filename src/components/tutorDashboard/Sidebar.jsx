@@ -68,7 +68,7 @@ const Sidebar = () => {
         
         <nav className={styles.sidebarNav}>
           <Link 
-            to="/" 
+            to="/tutor-dashboard" 
             className={`${styles["nav-item"]} ${location.pathname === "/" ? styles.active : ""}`}
             onClick={closeSidebar}
           >
@@ -76,7 +76,7 @@ const Sidebar = () => {
             <span className={styles.navText}>Dashboard</span>
           </Link>
           <Link 
-            to="/classes" 
+            to="/tutor-dashboard-classes" 
             className={`${styles["nav-item"]} ${location.pathname === "/classes" ? styles.active : ""}`}
             onClick={closeSidebar}
           >
@@ -84,7 +84,7 @@ const Sidebar = () => {
             <span className={styles.navText}>Classes</span>
           </Link>
           <Link 
-            to="/students" 
+            to="/tutor-dashboard-students" 
             className={`${styles["nav-item"]} ${location.pathname === "/students" ? styles.active : ""}`}
             onClick={closeSidebar}
           >
@@ -92,7 +92,7 @@ const Sidebar = () => {
             <span className={styles.navText}>Students</span>
           </Link>
           <Link 
-            to="/payments" 
+            to="/tutor-dashboard-payments" 
             className={`${styles["nav-item"]} ${location.pathname === "/payments" ? styles.active : ""}`}
             onClick={closeSidebar}
           >
@@ -100,7 +100,7 @@ const Sidebar = () => {
             <span className={styles.navText}>Payments</span>
           </Link>
           <Link 
-            to="/settings" 
+            to="/tutor-dashboard-settings" 
             className={`${styles["nav-item"]} ${location.pathname === "/settings" ? styles.active : ""}`}
             onClick={closeSidebar}
           >
