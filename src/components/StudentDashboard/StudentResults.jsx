@@ -38,7 +38,7 @@
       <div className={styles.container}>
         {/* Recent Test Results */}
         <div className={styles.resultsContainer}>
-          
+
           <div className={styles.recentResults}>
             <h2>Recent Test Results</h2>
             <div className={styles.resultCard}>
@@ -51,6 +51,38 @@
               <div className={styles.lastUpdated}>Last Updated: {testData.lastUpdated}</div>
             </div>
           </div>
+
+          {/* Performance Chart */}
+        <div className={styles.chartContainer}>
+          <div className={styles.chart}>
+            {chartData.map((data, index) => (
+              <div key={index} className={styles.barGroup}>
+                <div className={styles.barLabel}>{data.test}</div>
+                <div className={styles.bars}>
+                  <div 
+                    className={styles.barStudent} 
+                    style={{ height: `${data.studentAvg}%` }}
+                  />
+                  <div 
+                    className={styles.barThevinu} 
+                    style={{ height: `${data.thevinu}%` }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className={styles.legend}>
+            <div className={styles.legendItem}>
+              <div className={styles.legendColor} style={{ background: '#2DD4BF' }} />
+              <span>Student's avg</span>
+            </div>
+            <div className={styles.legendItem}>
+              <div className={styles.legendColor} style={{ background: '#0D4C92' }} />
+              <span>Thevinu</span>
+            </div>
+          </div>
+        </div>
+      
   
        
         </div>
