@@ -1,5 +1,7 @@
+import React from "react";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { ClerkProvider } from '@clerk/clerk-react';
 import App from "./App.jsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { HomePage } from "./components/HomePage.jsx";
@@ -26,6 +28,13 @@ import StudentCourses from './components/StudentDashboard/StudentCourses.jsx'
 import StudentResults from './components/StudentDashboard/StudentResults.jsx'
 import StudentPayments from './components/StudentDashboard/StudentPayment.jsx'
 import StudentSettings from './components/StudentDashboard/StudentSettings.jsx'
+
+// Import your Publishable Key
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
+
+if (!PUBLISHABLE_KEY) {
+  throw new Error("Missing Publishable Key")
+}
 
 const router = createBrowserRouter([
   {
@@ -126,6 +135,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
+      <RouterProvider router={router} />
+    </ClerkProvider>
   </StrictMode>
 );
