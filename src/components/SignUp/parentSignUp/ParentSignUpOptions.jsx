@@ -36,6 +36,7 @@ export const ParentSignUpOptions = () => {
         }
         const userDataToSave = {
             uid: user.uid,
+            role: "parent",
             ...userData,
             email: user.email,
             createdAt: new Date()

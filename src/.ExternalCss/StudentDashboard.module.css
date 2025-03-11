@@ -2,6 +2,165 @@
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
-  }
+}
   
+.welcomeBanner {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  border-radius: 20px;
+  padding: 40px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.welcomeBanner h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.welcomeBanner p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.courseGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.courseCard {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.continueBtn {
+  background: #6366f1;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.continueBtn:hover {
+  background: #4f46e5;
+}
+
+.notesContainer {
+  display: grid;
+  gap: 20px;
+}
+
+.noteCard {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 20px;
+  border-left: 4px solid #6366f1;
+}
+
+.noteCard h4 {
+  margin-bottom: 10px;
+  color: #1e293b;
+}
+
+.noteCard p {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.addNoteBtn {
+  background: #6366f1;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.seeAllBtn {
+  color: #6366f1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.calendarSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.testList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.testItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #f8fafc;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.testDate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60px;
+  padding: 8px;
+  background: #6366f1;
+  color: white;
+  border-radius: 8px;
+}
+
+.testSubject {
+  font-weight: 500;
+  color: #1e293b;
+}
+
+/* React Calendar Customization */
+.calendar {
+  width: 100% !important;
+  border: none !important;
+  background: #f8fafc !important;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.calendar button {
+  color: #1e293b !important;
+}
+
+.calendar .react-calendar__tile--active {
+  background: #6366f1 !important;
+  color: white !important;
+  border-radius: 6px;
+}
+
+.calendar .react-calendar__tile--now {
+  background: #e0e7ff !important;
+  border-radius: 6px;
+}
   

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { auth, googleProvider, db } from "../config/firebase";
 import { signInWithEmailAndPassword, signInWithPopup, sendEmailVerification } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore"; //Import Firestore functions
+import { Link } from "react-router-dom";
 
 import styles from "../.ExternalCss/LoginPage.module.css";
 import smartTutorImage from "../assets/images/smartTutor.svg";
@@ -37,7 +38,18 @@ export const SignInAuth = () => {
       if (userDoc.exists()) {
         console.log("User details from Firestore:", userDoc.data());
         alert("Welcome back, " + userDoc.data().firstName);
-        //navigate("/dashboard");
+        
+        // Navigate based on user role
+        if (userDoc.data().role === "tutor") {
+          navigate("/tutor-dashboard");
+        } else if (userData.role === "student") {
+          navigate("/student-dashboard");
+        } else if (userData.role === "parent") {
+          navigate("/parent-dashboard");
+        } else {
+          alert("Invalid user role. Contact support.");
+        }
+
       } else {
         alert("User authenticated but no details found in Firestore.");
       }
@@ -69,6 +81,18 @@ export const SignInAuth = () => {
       if (userDoc.exists()) {
         console.log("User details from Firestore:", userDoc.data());
         alert("Welcome back, " + userDoc.data().firstName);
+
+        // Navigate based on user role
+        if (userDoc.data().role === "tutor") {
+          navigate("/tutor-dashboard");
+        } else if (userData.role === "student") {
+          navigate("/student-dashboard");
+        } else if (userData.role === "parent") {
+          navigate("/parent-dashboard");
+        } else {
+          alert("Invalid user role. Contact support.");
+        }
+
       } else {
         alert("User authenticated but no details found in Firestore.");
       }
@@ -90,7 +114,7 @@ export const SignInAuth = () => {
 
   return (
     <>
-      <div className={`${styles.loginPageMainContainer} row g-5 m-2 p-4`}>
+      <div className={`${styles.loginPageMainContainer} row g-5 p-4`}>
         <div className={`col-md-6 ${styles.loginPageSignInForm}`}>
           <div className={`${styles.loginPageSignInFormLeft}`}>
             <img
@@ -136,7 +160,7 @@ export const SignInAuth = () => {
               <p className={`${styles["signIn-or"]}`}>OR</p>
               <button
                 type="button"
-                className={`btn btn-lg ${styles["create-google-account-button"]}`}
+                className={`btn btn-lg ${styles["signIn-google-account-button"]}`}
                 onClick={signInWithGoogle}
               >
                 <img
@@ -150,13 +174,7 @@ export const SignInAuth = () => {
             <div className={`text-center ${styles["signIn-terms"]}`}>
               Don't have an account ?&nbsp;&nbsp;
               <span className={`text-primary`}>
-                <a
-                  href=""
-                  className={`text-decoration-none`}
-                  onClick={() => navigate("/TutorSignUpQuestions")}
-                >
-                  Sign up
-                </a>
+                <Link to="/signup" className={`text-decoration-none`}>Sign Up</Link>
               </span>
             </div>
           </form>
