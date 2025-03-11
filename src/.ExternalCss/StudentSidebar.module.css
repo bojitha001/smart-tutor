@@ -46,6 +46,7 @@
   .nav-item:hover {
     background-color: #f5f7ff;
     color: #4a6cf7;
+    border-radius: 0 20px 20px 0;
   }
   
   .nav-item.active {

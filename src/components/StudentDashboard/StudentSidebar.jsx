@@ -21,28 +21,28 @@ function Sidebar() {
   </div>
   
   <nav className={`${styles["nav-menu"]}`}>
-    <Link to='dashboard'>
+    <Link to='dashboard' className= {`${styles["nav-item"]}`}>
       <FaHome className={`${styles["nav-icon"]}`} />
       <span>Dashboard</span>
       </Link>
     
-    <Link to='dashboard/courses'>
+    <Link to='dashboard/courses' className= {`${styles["nav-item"]}`}>
       <FaBook className={`${styles["nav-icon"]}`} />
       <span>Courses</span>
       </Link>
     
-    <Link to='dashboard/results'>
+    <Link to='dashboard/results' className= {`${styles["nav-item"]}`}>
       <FaClipboardList className={`${styles["nav-icon"]}`} />
       <span>Results</span>
       </Link>
 
-    <Link to='dashboard/payments'>
+    <Link to='dashboard/payments' className= {`${styles["nav-item"]}`}>
       <FaCreditCard className={`${styles["nav-icon"]}`} />
       <span>Payments</span>
     </Link>
 
     
-  <Link to='dashboard/settings'>
+  <Link to='dashboard/settings' className= {`${styles["nav-item"]}`}>
       <FaCog className={`${styles["nav-icon"]}`} />
       <span>Settings</span>
   </Link>
