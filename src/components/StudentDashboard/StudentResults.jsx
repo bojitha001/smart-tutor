@@ -117,6 +117,44 @@
           </div>
         </div>
   
+
+       {/* Course Hours */}
+       <div className={styles.hoursCard}>
+          <h3>Course Hours</h3>
+          <select className={styles.weekSelect}>
+            <option>Week</option>
+          </select>
+          <div className={styles.progressCircle}>
+            <svg viewBox="0 0 36 36" className={styles.circularChart}>
+              <path
+                d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831"
+                fill="none"
+                stroke="#eee"
+                strokeWidth="3"
+              />
+              <path
+                d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831"
+                fill="none"
+                stroke="#818CF8"
+                strokeWidth="3"
+                strokeDasharray="81, 100"
+              />
+            </svg>
+            <div className={styles.percentage}>81%</div>
+          </div>
+          <div className={styles.legend}>
+            <div className={styles.legendItem}>
+              <span className={styles.dot} style={{ background: '#EAB308' }} /> Pending
+            </div>
+            <div className={styles.legendItem}>
+              <span className={styles.dot} style={{ background: '#818CF8' }} /> Done
+            </div>
+          </div>
+        </div>
        
         </div>
         </div>
