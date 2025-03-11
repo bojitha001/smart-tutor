@@ -67,22 +67,7 @@ const Dashboard = () => {
         </div>
       </section>
 
-      {/* Notes Section */}
-      <section className={styles.section}>
-        <div className={styles.sectionHeader}>
-          <h2>Your notes</h2>
-          <button className={styles.addNoteBtn}>+Add Note</button>
-        </div>
-        <div className={styles.notesContainer}>
-          {notes.map(note => (
-            <div key={note.id} className={styles.noteCard}>
-              <h4>{note.title}</h4>
-              <p>{note.content}</p>
-            </div>
-          ))}
-          <button className={styles.seeAllBtn}>See all</button>
-        </div>
-      </section>
+      
 
 
      {/* Upcoming Tests */}
@@ -106,11 +91,28 @@ const Dashboard = () => {
             onChange={setDate}
             value={date}
             className={styles.calendar}
+
+          
           />
         </div>
       </section>  
 
-      
+      {/* Notes Section */}
+      <section className={styles.section}>
+        <div className={styles.sectionHeader}>
+          <h2>Your notes</h2>
+          <button className={styles.addNoteBtn}>+Add Note</button>
+        </div>
+        <div className={styles.notesContainer}>
+          {notes.map(note => (
+            <div key={note.id} className={styles.noteCard}>
+              <h4>{note.title}</h4>
+              <p>{note.content}</p>
+            </div>
+          ))}
+          <button className={styles.seeAllBtn}>See all</button>
+        </div>
+      </section>
     
 
     
