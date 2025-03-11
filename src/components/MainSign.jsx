@@ -8,7 +8,9 @@ const MainSign = () => {
             <div className={`${styles["main-container-left"]}`}>
                 <img className={`${styles["main-img"]}`} src={img} alt="" />
             </div>
-            <div></div>
+            <div>
+                <div></div>
+            </div>
         </div>
     )
 }

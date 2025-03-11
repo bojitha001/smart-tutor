@@ -112,12 +112,12 @@ const router = createBrowserRouter([
         element: <QuestionForm />,
       },
       {
-        path: "/sign-up",
-        element: <MainSign />,
+        path: "/login",
+        element: <SignInAuth />,
       },
       {
-        path: "/student-dash-board",
-        element: <Layout />,
+        path: "/signup",
+        element: <MainSign />,
       },
       //
     ],
