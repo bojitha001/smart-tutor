@@ -1,8 +1,5 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { auth, googleProvider, db } from "../../../config/firebase";
-import { createUserWithEmailAndPassword, signInWithPopup , sendEmailVerification} from "firebase/auth";
-import { doc, setDoc, getDoc } from "firebase/firestore";
 
 import styles from "../../../.ExternalCss/TutorSignUpOptions.module.css";
 import smartTutorImage from "../../../assets/images/smartTutor.svg";

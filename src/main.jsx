@@ -8,7 +8,8 @@ import { HomePage } from "./components/HomePage.jsx";
 import { Navbar } from "./components/shared/NavBar.jsx";
 import RootLayout from "./layouts/root.layout.jsx";
 import MainLayout from "./layouts/main.layout.jsx";
-import { SignInAuth } from "./components/LoginPage.jsx";
+// import { SignInAuth } from "./components/LoginPage.jsx";
+import { ClerkLogin } from "./components/SignUp/clerkTutorSignUp&Login/clerkTutorLoginPage.jsx";
 import FindTutor from "./components/FindATutor.jsx";
 import KuppiGroups from "./components/KuppiGroups/KuppiGroups.jsx";
 import BecomeATutor from "./components/BecomeATutor.jsx";
@@ -120,9 +121,17 @@ const router = createBrowserRouter([
         path: "/kuppigroups-communities/:id",
         element: <QuestionForm />,
       },
+      // {
+      //   path: "/login",
+      //   element: <SignInAuth />,
+      // },
+      // {
+      //   path: "/signup",
+      //   element: <MainSign />,
+      // },
       {
         path: "/login",
-        element: <SignInAuth />,
+        element: <ClerkLogin />,
       },
       {
         path: "/signup",

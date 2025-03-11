@@ -1,8 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { auth, googleProvider, db } from "../config/firebase";
-import { signInWithEmailAndPassword, signInWithPopup, sendEmailVerification } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore"; //Import Firestore functions
 import { Link } from "react-router-dom";
 
 import styles from "../.ExternalCss/LoginPage.module.css";
