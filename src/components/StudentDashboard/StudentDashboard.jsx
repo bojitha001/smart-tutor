@@ -1,11 +1,6 @@
 import { Link } from 'react-router-dom';
-
-
-
-
 import { useState } from 'react';
 import Calendar from 'react-calendar';
-
 import styles from '../../.ExternalCss/StudentDashboard.module.css'
 import { format } from 'date-fns';
 
@@ -49,7 +44,30 @@ const Dashboard = () => {
 
   return (
     <div className={styles.dashboard}>
-     
+     {/* Welcome Banner */}
+     <div className={styles.welcomeBanner}>
+        <div>
+          <h1>Welcome back, Sarah!</h1>
+          <p>Have a good day!</p>
+        </div>
+        <img src="/student-illustration.png" alt="Student" />
+      </div>
+
+      {/* Ongoing Courses */}
+      <section className={styles.section}>
+        <h2>This is where you left off!</h2>
+        <div className={styles.courseGrid}>
+          {ongoingCourses.map(course => (
+            <div key={course.id} className={styles.courseCard}>
+              <h3>{course.subject}</h3>
+              <p>{course.lecture}</p>
+              <button className={styles.continueBtn}>Continue</button>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      
 
       
     
