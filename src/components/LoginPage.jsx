@@ -90,7 +90,7 @@ export const SignInAuth = () => {
 
   return (
     <>
-      <div className={`${styles.loginPageMainContainer} row g-5 m-2 p-4`}>
+      <div className={`${styles.loginPageMainContainer} row g-5 p-4`}>
         <div className={`col-md-6 ${styles.loginPageSignInForm}`}>
           <div className={`${styles.loginPageSignInFormLeft}`}>
             <img
@@ -136,7 +136,7 @@ export const SignInAuth = () => {
               <p className={`${styles["signIn-or"]}`}>OR</p>
               <button
                 type="button"
-                className={`btn btn-lg ${styles["create-google-account-button"]}`}
+                className={`btn btn-lg ${styles["signIn-google-account-button"]}`}
                 onClick={signInWithGoogle}
               >
                 <img
