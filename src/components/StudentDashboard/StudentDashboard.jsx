@@ -85,7 +85,30 @@ const Dashboard = () => {
       </section>
 
 
-      
+     {/* Upcoming Tests */}
+     <section className={styles.section}>
+        <h2>Upcoming Tests</h2>
+        <div className={styles.calendarSection}>
+          <div className={styles.testList}>
+            {upcomingTests.map(test => (
+              <div key={test.id} className={styles.testItem}>
+                <div className={styles.testDate}>
+                  <span>{format(new Date(test.date), 'EEE')}</span>
+                  <span>{format(new Date(test.date), 'd')}</span>
+                </div>
+                <div className={styles.testSubject}>
+                  {test.subject}
+                </div>
+              </div>
+            ))}
+          </div>
+          <Calendar
+            onChange={setDate}
+            value={date}
+            className={styles.calendar}
+          />
+        </div>
+      </section>  
 
       
     
