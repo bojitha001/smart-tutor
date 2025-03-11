@@ -91,7 +91,6 @@ export const SignInAuth = () => {
   return (
     <>
       <div className={`${styles.loginPageMainContainer} row g-5 m-2 p-4`}>
-        {/* <div className="col-md-1"></div> */}
         <div className={`col-md-6 ${styles.loginPageSignInForm}`}>
           <div className={`${styles.loginPageSignInFormLeft}`}>
             <img
@@ -125,18 +124,6 @@ export const SignInAuth = () => {
                 required
               />
             </div>
-            {/* <div className={`form-check`}>
-              <input
-                className={`form-check-input`}
-                type="checkbox"
-                id="flexCheckChecked"
-                defaultChecked
-              />
-              <label className={`form-check-label`} htmlFor="flexCheckChecked">
-                Remember me<br></br>
-                <span>Save my login details for next time</span>
-              </label>
-            </div> */}
             <div className={`col-12 text-center`}>
               <button
                 type="submit"
@@ -150,9 +137,8 @@ export const SignInAuth = () => {
               <button
                 type="button"
                 className={`btn btn-lg ${styles["create-google-account-button"]}`}
-                // onClick={signUpWithGoogle}
+                onClick={signInWithGoogle}
               >
-                {" "}
                 <img
                   className={`${styles["google-Img"]}`}
                   src={googleImage}
@@ -175,7 +161,6 @@ export const SignInAuth = () => {
             </div>
           </form>
         </div>
-        {/* <div className="col-md-1"></div> */}
         <div
           className={`col-md-4 p-5 text-white rounded ${styles.descripCardSignIn}`}
         >
