@@ -155,6 +155,21 @@
             </div>
           </div>
         </div>
+
+
+        {/* Feedback Report */}
+        <div className={styles.feedbackCard}>
+          <h3>Feedback Report</h3>
+          <img 
+            src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b"
+            alt="Student studying"
+            className={styles.feedbackImage}
+          />
+          <button className={styles.downloadButton} onClick={handleDownloadReport}>
+            <Download size={20} />
+            Download Report
+          </button>
+        </div>
        
         </div>
         </div>
