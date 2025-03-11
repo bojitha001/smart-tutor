@@ -83,8 +83,42 @@
           </div>
         </div>
       
+
+      {/* Bottom Section */}
+        <div className={styles.bottomSection}>
+        {/* Attendance Tracker */}
+        <div className={styles.attendanceCard}>
+          <h3>Attendance</h3>
+          <div className={styles.attendanceCircle}>
+            <svg viewBox="0 0 36 36" className={styles.circularChart}>
+              <path
+                d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831"
+                fill="none"
+                stroke="#eee"
+                strokeWidth="3"
+              />
+              <path
+                d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831"
+                fill="none"
+                stroke="#4C1D95"
+                strokeWidth="3"
+                strokeDasharray="67, 100"
+              />
+            </svg>
+            <div className={styles.percentage}>67%</div>
+          </div>
+          <div className={styles.attendanceInfo}>
+            <p>Absent - 28 days</p>
+            <p>Present - 180 days</p>
+          </div>
+        </div>
   
        
+        </div>
         </div>
       </div>
     );
