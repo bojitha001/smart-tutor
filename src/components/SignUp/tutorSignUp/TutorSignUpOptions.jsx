@@ -34,6 +34,7 @@ export const TutorSignUpOptions = () => {
     }
     const userDataToSave = {
       uid: user.uid,
+      role: "tutor",
       ...userData,
       email: user.email,
       createdAt: new Date(),
