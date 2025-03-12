@@ -50,6 +50,8 @@ const StudentPayment = () => {
     console.log('Add new card');
   };
 
+
+
   return (
     <div className={styles.container}>
       
@@ -63,20 +65,26 @@ const StudentPayment = () => {
         </div>
        
         <div className={styles.paymentMethods}>
-          <h2>Select Payment Method</h2>
+          <h2>Select Payment Method!</h2>
           <div className={styles.cardContainer}>
             {savedCards.map(card => (
+             
               <div key={card.id} className={styles.card}>
                 <div className={styles.bankName}>{card.bank}</div>
                 <div className={styles.cardNumber}>{card.number}</div>
                 <div className={styles.cardExpiry}>{card.expiry}</div>
+               
               </div>
+             
+              
             ))}
             <button onClick={handleAddCard} className={styles.addCardButton}>
               + Add Card
             </button>
           </div>
         </div>
+
+        
       
 
 <div className={styles.paymentHistory}>
@@ -104,6 +112,8 @@ const StudentPayment = () => {
           </tbody>
         </table>
       </div>
+
+
 
       
     </div>
