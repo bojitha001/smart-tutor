@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 
 const StudentPayment = () => {
-  const [showPaymentMethods, setShowPaymentMethods] = useState(false);
+  // const [showPaymentMethods, setShowPaymentMethods] = useState(false);
   const [savedCards, setSavedCards] = useState([
     { id: 1, number: '1233 3232 4344 7757', expiry: '06/25', bank: 'Commercial Bank' },
     { id: 2, number: '1233 3232 4344 7757', expiry: '06/25', bank: 'Commercial Bank' }
