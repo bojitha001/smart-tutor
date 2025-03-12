@@ -52,7 +52,7 @@ const StudentPayment = () => {
 
   return (
     <div className={styles.container}>
-      {!showPaymentMethods ? (
+      
         <div className={styles.pendingPayment}>
           <h2>Pending Payment</h2>
           <div className={styles.amount}>LKR 12,000</div>
@@ -61,7 +61,7 @@ const StudentPayment = () => {
           </button>
           <p className={styles.deadline}>Need to be done before 31st March</p>
         </div>
-      ) : (
+       
         <div className={styles.paymentMethods}>
           <h2>Select Payment Method</h2>
           <div className={styles.cardContainer}>
@@ -77,9 +77,33 @@ const StudentPayment = () => {
             </button>
           </div>
         </div>
-      )}
-
       
+
+<div className={styles.paymentHistory}>
+        <h2>Payment History</h2>
+        <table className={styles.historyTable}>
+          <thead>
+            <tr>
+              <th>Transaction No.</th>
+              <th>Date & Time</th>
+              <th>To user</th>
+              <th>Category</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            {paymentHistory.map(transaction => (
+              <tr key={transaction.transactionNo}>
+                <td>{transaction.transactionNo}</td>
+                <td>{transaction.date}</td>
+                <td>{transaction.user}</td>
+                <td>{transaction.category}</td>
+                <td>{transaction.amount}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       
     </div>
