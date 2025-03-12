@@ -25,3 +25,24 @@
     width: 90%;
 }
 
+.main-container-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.choose-sign-up {
+    display: flex;
+    justify-content: center;
+    height: 30vh;
+    border: .5px solid;
+}
+
+.choose-sign-up div {
+    margin: auto 0;
+}
+
+.choose-sign-up button {
+    padding: 1.5rem;
+    min-width: 10rem;
+    background-color: black;
+}

@@ -10,13 +10,19 @@ const MainSign = () => {
             </div>
             <div className={`${styles["main-container-right"]}`}>
                 <div className={`${styles["choose-sign-up"]}`}>
-                    <p>Tutor</p>
+                    <div>
+                        <button>Tutor</button>
+                    </div>
                 </div>
                 <div className={`${styles["choose-sign-up"]}`}>
-                    <p>Tutor</p>
+                    <div>
+                        <button>Student</button>
+                    </div>
                 </div>
                 <div className={`${styles["choose-sign-up"]}`}>
-                    <p>Tutor</p>
+                    <div>
+                        <button>Parents</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -24,3 +30,4 @@ const MainSign = () => {
 }
 
 export default MainSign
+
