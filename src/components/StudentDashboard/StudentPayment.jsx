@@ -50,7 +50,40 @@ const StudentPayment = () => {
     console.log('Add new card');
   };
 
-  
+  return (
+    <div className={styles.container}>
+      {!showPaymentMethods ? (
+        <div className={styles.pendingPayment}>
+          <h2>Pending Payment</h2>
+          <div className={styles.amount}>LKR 12,000</div>
+          <button onClick={handlePayClick} className={styles.payButton}>
+            Pay
+          </button>
+          <p className={styles.deadline}>Need to be done before 31st March</p>
+        </div>
+      ) : (
+        <div className={styles.paymentMethods}>
+          <h2>Select Payment Method</h2>
+          <div className={styles.cardContainer}>
+            {savedCards.map(card => (
+              <div key={card.id} className={styles.card}>
+                <div className={styles.bankName}>{card.bank}</div>
+                <div className={styles.cardNumber}>{card.number}</div>
+                <div className={styles.cardExpiry}>{card.expiry}</div>
+              </div>
+            ))}
+            <button onClick={handleAddCard} className={styles.addCardButton}>
+              + Add Card
+            </button>
+          </div>
+        </div>
+      )}
+
+      
+
+      
+    </div>
+  );
 };
 
 export default StudentPayment;
