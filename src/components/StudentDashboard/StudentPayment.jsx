@@ -112,7 +112,19 @@ const StudentPayment = () => {
           </tbody>
         </table>
       </div>
-
+      
+      
+      <div className={styles.paymentStatus}>
+        <h2>Payment Status</h2>
+        {paymentStatus.map((item, index) => (
+          <div key={index} className={styles.statusItem}>
+            <span className={styles.className}>{item.class}</span>
+            <span className={`${styles.status} ${styles[item.status.toLowerCase()]}`}>
+              {item.status}
+            </span>
+          </div>
+        ))}
+      </div>
 
 
       
