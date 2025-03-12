@@ -1,12 +1,10 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { SignUp } from "@clerk/clerk-react";
+import styles from "../../../.ExternalCss/TutorSignUpPage.module.css";
 
 export const TutorSignUp = () => {
   return (
     <>
-      <div className="flex justify-center items-center">
+      <div className={`${styles["sign-up-container"]}`}>
         <SignUp />
       </div>;
     </>
