@@ -21,7 +21,7 @@ const MainSign = () => {
         </div>
         <div className={`${styles["choose-sign-up"]}`}>
           <div>
-            <button>Parent</button>
+            <button>Parents</button>
           </div>
         </div>
       </div>
