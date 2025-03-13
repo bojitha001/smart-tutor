@@ -33,6 +33,8 @@ import StudentSettings from './components/StudentDashboard/StudentSettings.jsx';
 import { TutorSignUp } from "./components/SignUp/tutorSignUp/tutorSignUp.jsx";
 import { StudentSignUp } from "./components/SignUp/studentSignUp/studentSignUp.jsx";
 import { ParentSignUp } from "./components/SignUp/parentSignUp/parentSignUp.jsx";
+import Questions from "./components/KuppiGroups/Questions.jsx";
+import FullQuestion from "./components/KuppiGroups/FullQuestion.jsx";
 
 // Import your Publishable Key
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
@@ -124,6 +126,14 @@ const router = createBrowserRouter([
       {
         path: "/kuppigroups-communities/:id",
         element: <QuestionForm />,
+      },
+      {
+        path: "/kuppigroups-communities/:id/questionform",
+        element: <Questions />,
+      },
+      {
+        path: "/kuppigroups-communities/:id/questionform/:id",
+        element: <FullQuestion />,
       },
       // {
       //   path: "/login",

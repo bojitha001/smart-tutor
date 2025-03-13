@@ -46,7 +46,7 @@ const FullQuestion = () => {
       answers: formData.answer,
       question: params.id,
     });
-    // console.log(answer);
+    console.log(answer);
   };
 
   useEffect(() => {
