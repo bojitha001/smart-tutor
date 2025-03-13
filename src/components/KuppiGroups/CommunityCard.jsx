@@ -8,7 +8,7 @@ const CommunityCard = ({ id, name, members }) => {
     <Link to={`/kuppigroups-communities/${id}`}>
       <div key={id} className={styles.communityCard}>
         <div className={styles.communityImage}>
-          <img src={img} alt={name} />
+          <img src="" alt={name} />
         </div>
         <div className={styles.communityInfo}>
           <div>

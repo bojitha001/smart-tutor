@@ -224,7 +224,7 @@ const FindTutor = () => {
                     className={styles.bookBtn}
                     onClick={() => handleBookTutor(tutor.id)}
                   >
-                    Book
+                    Explore more
                   </button>
                 </div>
               </div>

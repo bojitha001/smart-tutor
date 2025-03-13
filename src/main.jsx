@@ -20,12 +20,14 @@ import DashboardPayments from "./components/Dashboard/DashboardPayments.jsx";
 import Settings from "./components/tutorDashboard/SettingSection.jsx";
 import Communities from "./components/KuppiGroups/Communities.jsx";
 import QuestionForm from "./components/KuppiGroups/QuestionForm.jsx";
+import Question from "./components/KuppiGroups/Questions.jsx";
 import StudentDashBoardLayout from "./layouts/student.dashboard.layout.jsx";
 import StudentDashboard from './components/StudentDashboard/StudentDashboard.jsx'
 import StudentCourses from './components/StudentDashboard/StudentCourses.jsx'
 import StudentResults from './components/StudentDashboard/StudentResults.jsx'
 import StudentPayments from './components/StudentDashboard/StudentPayment.jsx'
 import StudentSettings from './components/StudentDashboard/StudentSettings.jsx'
+import FullQuestion from "./components/KuppiGroups/FullQuestion.jsx";
 
 const router = createBrowserRouter([
   {
@@ -110,6 +112,14 @@ const router = createBrowserRouter([
       {
         path: "/kuppigroups-communities/:id",
         element: <QuestionForm />,
+      },
+      {
+        path: "/kuppigroups-communities/:id/questionform",
+        element: <Question />,
+      },
+      {
+        path: "/kuppigroups-communities/:id/questionform/:id",
+        element: <FullQuestion />,
       },
       {
         path: "/login",

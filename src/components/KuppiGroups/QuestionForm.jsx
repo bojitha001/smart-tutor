@@ -2,6 +2,10 @@ import React from "react";
 import styles from "../../.ExternalCss/KuppiGroups.module.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
+import Questions from "./Questions";
+import { Link } from "react-router";
+
+
 
 const getCommunityById = async (id) => {
   const res = await fetch(`http://localhost:8080/communities/${id}`, {
@@ -10,16 +14,6 @@ const getCommunityById = async (id) => {
   const communities = await res.json();
   return communities;
   // console.log(jobs);
-};
-
-const createCommunityQuestionForm = async (questionForm) => {
-  const res = await fetch("http://localhost:8080/comunityQuestions", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json", //saying we are passing a json
-    },
-    body: JSON.stringify(questionForm),
-  });
 };
 
 export const getCommunityQuestionForm = async (id) => {
@@ -55,28 +49,13 @@ const QuestionForm = () => {
       });
   }, [params, setQuestionForm]);
 
-  const [questions, setQuestions] = useState([
-    {
-      questions:
-        "The component below uses Material UI Datagrid Premium to display a list of scholarships, and if students have applied for the scholarship, they are grouped by scholarshipName and ex",
-      subQ: "The component below uses Material UI Datagrid Premium to display a list of scholarships, and if students have applied for the scholarship, they are grouped by scholarshipName and ex",
-    },
-  ]);
+  
 
-  const [formData, setFormData] = useState({
-    topic: "",
-    questions: " ",
-  });
+  const [expandedQuestions, setExpandedQuestions] = useState({});
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(formData);
-    createCommunityQuestionForm({
-      userId: "123",
-      topic: formData.topic,
-      questions: formData.questions,
-      community: params.id,
-    });
+  const truncateText = (text, maxLength = 400) => {
+    if (text.length <= maxLength) return text;
+    return text.substr(0, maxLength) + "...";
   };
 
   return (
@@ -84,40 +63,34 @@ const QuestionForm = () => {
       <div className={`${styles["questions-container"]}`}>
         <div className={`${styles["questions-box"]}`}>
           {questionForm.map((question) => (
-            <div key={question.id}>
-              <p>{question.topic}</p>
-              <p>{question.questions}</p>
-            </div>
+            <Link
+              className={`${styles["main-questions-container"]}`}
+              to={`/kuppigroups-communities/${params.id}/questionform/${question._id}`}
+            >
+              <div key={question.id}>
+                <p className={styles.questionTopic}>{question.topic}</p>
+                <p className={styles.questionText}>
+                  {expandedQuestions[question.id]
+                    ? question.questions
+                    : truncateText(question.questions)}
+                  {/* {question.questions.length > 100 &&
+                  !expandedQuestions[question.id] && (
+                    <span className={styles.readMore}>Read more</span>
+                  )} */}
+                </p>
+              </div>
+            </Link>
           ))}
         </div>
       </div>
       <div>
         <h1>{`Welcome to ${communities?.name}`}</h1>
       </div>
-      <form action="" onSubmit={handleSubmit}>
-        <div className={styles.questionInput}>
-          <input
-            type="text"
-            placeholder="Enter your topic here"
-            className={styles.topicInput}
-            required
-            value={formData.topic}
-            onChange={(event) =>
-              setFormData({ ...formData, topic: event.target.value })
-            }
-          />
-          <textarea
-            placeholder="Describe your question here"
-            className={styles.questionTextarea}
-            required
-            value={formData.questions}
-            onChange={(event) =>
-              setFormData({ ...formData, questions: event.target.value })
-            }
-          ></textarea>
-          <button className={styles.postQuestionButton}>Post Question</button>
-        </div>
-      </form>
+      <Link to={`/kuppigroups-communities/${params.id}/questionform`}>
+        <button className={`${styles["question-button"]}`}>
+          Add a Question
+        </button>
+      </Link>
     </>
   );
 };

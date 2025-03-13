@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router";
 import styles from "../.ExternalCss/BecomeATutor.module.css";
 import becomATutorImg from "../assets/images/BecomeATutor.png";
 import enhancedSecurity from "../assets/images/Enhanced Security.png";
@@ -57,9 +57,11 @@ const BecomeATutor = () => {
               </div>
             </div>
 
+            <Link to="/signup">
             <button className={`${styles["become-a-tutor-main-button"]}`}>
               Create a Tutor Profile
             </button>
+            </Link>
           </div>
 
           <div className={`${styles["become-a-tutor-container1-right"]}`}>
@@ -193,7 +195,7 @@ const BecomeATutor = () => {
         </div>
       </div>
 
-      <Footer/>
+      
     </>
   );
 };
