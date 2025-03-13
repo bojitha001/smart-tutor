@@ -5,8 +5,8 @@ export const TutorSignUp = () => {
   return (
     <>
       <div className={`${styles["sign-up-container"]}`}>
-        <SignUp />
-      </div>;
+        <SignUp/>
+      </div>
     </>
   );
 };
