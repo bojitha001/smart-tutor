@@ -1,12 +1,15 @@
+import React from "react";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { ClerkProvider } from '@clerk/clerk-react';
 import App from "./App.jsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { HomePage } from "./components/HomePage.jsx";
 import { Navbar } from "./components/shared/NavBar.jsx";
 import RootLayout from "./layouts/root.layout.jsx";
 import MainLayout from "./layouts/main.layout.jsx";
-import { SignInAuth } from "./components/LoginPage.jsx";
+// import { SignInAuth } from "./components/LoginPage.jsx";
+import { Login } from "./components/LoginPage.jsx";
 import FindTutor from "./components/FindATutor.jsx";
 import KuppiGroups from "./components/KuppiGroups/KuppiGroups.jsx";
 import BecomeATutor from "./components/BecomeATutor.jsx";
@@ -22,12 +25,21 @@ import Communities from "./components/KuppiGroups/Communities.jsx";
 import QuestionForm from "./components/KuppiGroups/QuestionForm.jsx";
 import Question from "./components/KuppiGroups/Questions.jsx";
 import StudentDashBoardLayout from "./layouts/student.dashboard.layout.jsx";
-import StudentDashboard from './components/StudentDashboard/StudentDashboard.jsx'
-import StudentCourses from './components/StudentDashboard/StudentCourses.jsx'
-import StudentResults from './components/StudentDashboard/StudentResults.jsx'
-import StudentPayments from './components/StudentDashboard/StudentPayment.jsx'
-import StudentSettings from './components/StudentDashboard/StudentSettings.jsx'
-import FullQuestion from "./components/KuppiGroups/FullQuestion.jsx";
+import StudentDashboard from './components/StudentDashboard/StudentDashboard.jsx';
+import StudentCourses from './components/StudentDashboard/StudentCourses.jsx';
+import StudentResults from './components/StudentDashboard/StudentResults.jsx';
+import StudentPayments from './components/StudentDashboard/StudentPayment.jsx';
+import StudentSettings from './components/StudentDashboard/StudentSettings.jsx';
+import { TutorSignUp } from "./components/SignUp/tutorSignUp/tutorSignUp.jsx";
+import { StudentSignUp } from "./components/SignUp/studentSignUp/studentSignUp.jsx";
+import { ParentSignUp } from "./components/SignUp/parentSignUp/parentSignUp.jsx";
+
+// Import your Publishable Key
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
+
+if (!PUBLISHABLE_KEY) {
+  throw new Error("Missing Publishable Key")
+}
 
 const router = createBrowserRouter([
   {
@@ -113,29 +125,42 @@ const router = createBrowserRouter([
         path: "/kuppigroups-communities/:id",
         element: <QuestionForm />,
       },
-      {
-        path: "/kuppigroups-communities/:id/questionform",
-        element: <Question />,
-      },
-      {
-        path: "/kuppigroups-communities/:id/questionform/:id",
-        element: <FullQuestion />,
-      },
+      // {
+      //   path: "/login",
+      //   element: <SignInAuth />,
+      // },
+      // {
+      //   path: "/signup",
+      //   element: <MainSign />,
+      // },
       {
         path: "/login",
-        element: <SignInAuth />,
+        element: <Login />,
       },
       {
         path: "/signup",
         element: <MainSign />,
       },
-      //
+      {
+        path: "/tutor-sign-up",
+        element: <TutorSignUp />,
+      },
+      {
+        path: "/student-sign-up",
+        element: <StudentSignUp />,
+      },
+      {
+        path: "/parent-sign-up",
+        element: <ParentSignUp />,
+      }
     ],
   },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
+      <RouterProvider router={router} />
+    </ClerkProvider>
   </StrictMode>
 );

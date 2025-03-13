@@ -143,6 +143,19 @@ const FindTutor = () => {
     }
   };
 
+  const handleBookATutor = async () => {
+    const token = await window.Clerk.session.getToken();
+
+    const res = await fetch(`http://localhost:8000/teachers`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json", //saying we are passing a json
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(jobApplicaion),
+    });
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -150,7 +163,12 @@ const FindTutor = () => {
             <h2><span>SMART</span> TUTOR</h2>
         </div> */}
         <p>Private tutors that fit your schedule, ready to help you succeed.</p>
-        <button className={styles.bookTutorBtn}>Book a Tutor</button>
+        <button 
+          className={styles.bookTutorBtn}
+          onClick={() => handleBookATutor()}
+        >
+          Book a Tutor
+        </button>
       </div>
 
       <div className={styles.filters}>

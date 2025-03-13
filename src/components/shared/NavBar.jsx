@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../../.ExternalCss/NavBar.module.css";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
 
 export const Navbar = () => {
   return (
@@ -25,12 +26,25 @@ export const Navbar = () => {
       </nav>
       <div className={styles["nav-buttons"]}>
         <p className={styles["lang"]}>&#127760; En</p>
-        <button>
+        <SignedIn>
+            <UserButton/>
+        </SignedIn>
+        <SignedOut>
+          <div className="flex gap-x-4 items-center">
+            <button>
+              <Link to={"/login"} className={styles["login"]}>Login</Link>
+            </button>
+            <button asChild>
+              <Link to={"/signup"} className={styles["signup"]}>Sign up</Link>
+            </button>
+          </div>
+        </SignedOut> 
+        {/*<button>
           <Link to="/login" className={styles["login"]}>Log In</Link>
         </button>
         <button>
           <Link to="/signup" className={styles["signup"]}>Sign up</Link>
-        </button>
+        </button> */}
       </div>
     </div>
   );
