@@ -1,6 +1,7 @@
 import { Facebook, Instagram, Linkedin, Mail, Phone } from "lucide-react";
-import styles from "../.ExternalCss/footer.module.css"
-import React from 'react'
+import styles from "../.ExternalCss/footer.module.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -10,24 +11,24 @@ const Footer = () => {
           <p className={`${styles["footer-heading"]}`}>Site Map</p>
           <ul className={`${styles["footer-nav"]}`}>
             <li>
-              <a className={`${styles["footer-link"]}`} href="#">
+              <Link className={`${styles["footer-link"]}`} to="/">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a className={`${styles["footer-link"]}`} href="#">
+              <Link className={`${styles["footer-link"]}`} to="/about">
                 About us
-              </a>
+              </Link>
             </li>
             <li>
-              <a className={`${styles["footer-link"]}`} href="#">
+              <Link className={`${styles["footer-link"]}`} to="/why-us">
                 Why Us
-              </a>
+              </Link>
             </li>
             <li>
-              <a className={`${styles["footer-link"]}`} href="#">
+              <Link className={`${styles["footer-link"]}`} to="/blog">
                 Blog
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -36,19 +37,19 @@ const Footer = () => {
           <p className={`${styles["footer-heading"]}`}>Legal</p>
           <ul className={`${styles["footer-nav"]}`}>
             <li>
-              <a className={`${styles["footer-link"]}`} href="#">
+              <Link className={`${styles["footer-link"]}`} to="/info">
                 General Info
-              </a>
+              </Link>
             </li>
             <li>
-              <a className={`${styles["footer-link"]}`} href="#">
+              <Link className={`${styles["footer-link"]}`} to="/privacy">
                 Privacy Policy
-              </a>
+              </Link>
             </li>
             <li>
-              <a className={`${styles["footer-link"]}`} href="#">
+              <Link className={`${styles["footer-link"]}`} to="/terms">
                 Terms and Conditions
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -57,24 +58,24 @@ const Footer = () => {
           <p className={`${styles["footer-heading"]}`}>Services</p>
           <ul className={`${styles["footer-nav"]}`}>
             <li>
-              <a className={`${styles["footer-link"]}`} href="#">
-                Home
-              </a>
+              <Link className={`${styles["footer-link"]}`} to="/find-tutor">
+                Find a Tutor
+              </Link>
             </li>
             <li>
-              <a className={`${styles["footer-link"]}`} href="#">
-                About us
-              </a>
+              <Link className={`${styles["footer-link"]}`} to="/kuppiGroups">
+                Kuppi Groups
+              </Link>
             </li>
             <li>
-              <a className={`${styles["footer-link"]}`} href="#">
+              <Link className={`${styles["footer-link"]}`} to="/pricing">
                 Pricing Plan
-              </a>
+              </Link>
             </li>
             <li>
-              <a className={`${styles["footer-link"]}`} href="#">
-                Blog
-              </a>
+              <Link className={`${styles["footer-link"]}`} to="/become-tutor">
+                Become a Tutor
+              </Link>
             </li>
           </ul>
         </nav>
@@ -83,15 +84,15 @@ const Footer = () => {
           <p className={`${styles["footer-heading"]}`}>Contact Us</p>
           <ul className={`${styles["footer-nav"]}`}>
             <li className={`${styles["footer-nav-icon"]}`}>
-              <Phone />
-              <a className={`${styles["footer-link"]}`} href="">
+              <Phone size={18} />
+              <a className={`${styles["footer-link"]}`} href="tel:+94768694195">
                 +94 76 869 4195
               </a>
             </li>
             <li className={`${styles["footer-nav-icon"]}`}>
-              <Mail />
-              <a className={`${styles["footer-link"]}`} href="">
-                smarttutor0019@gamil.com
+              <Mail size={18} />
+              <a className={`${styles["footer-link"]}`} href="mailto:smarttutor0019@gmail.com">
+                smarttutor0019@gmail.com
               </a>
             </li>
           </ul>
@@ -100,16 +101,28 @@ const Footer = () => {
       <div className={`${styles["footer-bottom"]}`}>
         <hr />
         <div className={`${styles["footer-bottom-logo-sec"]}`}>
-          <p>SMART <span>TUTOR</span></p>
+          <p>SMART<span> TUTOR</span></p>
           <ul className={`${styles.logos}`}>
-            <li><a className={`${styles["footer-logo"]}`} href="#"><Facebook /></a></li>
-            <li><a className={`${styles["footer-logo"]}`} href="#"></a><Instagram /></li>
-            <li><a className={`${styles["footer-logo"]}`} href="#"></a><Linkedin /></li>
+            <li>
+              <a className={`${styles["footer-logo"]}`} href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                <Facebook size={18} />
+              </a>
+            </li>
+            <li>
+              <a className={`${styles["footer-logo"]}`} href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                <Instagram size={18} />
+              </a>
+            </li>
+            <li>
+              <a className={`${styles["footer-logo"]}`} href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                <Linkedin size={18} />
+              </a>
+            </li>
           </ul>
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
