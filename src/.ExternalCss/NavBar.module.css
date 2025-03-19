@@ -271,3 +271,7 @@ button {
 .mobile-menu-open .overlay {
     display: block;
 }
+
+.dashboard{
+    background-color: #0e0e0e;
+}

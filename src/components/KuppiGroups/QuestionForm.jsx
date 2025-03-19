@@ -1,15 +1,19 @@
 import React from "react";
 import styles from "../../.ExternalCss/KuppiGroups.module.css";
+import { useUser } from "@clerk/clerk-react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import Questions from "./Questions";
 import { Link } from "react-router";
 
-
-
 const getCommunityById = async (id) => {
+  // const token = await window.Clerk.session.getToken();
+
   const res = await fetch(`http://localhost:8080/communities/${id}`, {
     method: "GET",
+    // headers: {
+    //   Authorization: `Bearer ${token}`,
+    // },
   });
   const communities = await res.json();
   return communities;
@@ -17,10 +21,15 @@ const getCommunityById = async (id) => {
 };
 
 export const getCommunityQuestionForm = async (id) => {
+  // const token = await window.Clerk.session.getToken();
+
   const res = await fetch(
     `http://localhost:8080/comunityQuestions?communityId=${id}`,
     {
       method: "GET",
+      // headers: {
+      //   Authorization: `Bearer ${token}`,
+      // },
     }
   );
   const data = await res.json();
@@ -31,6 +40,8 @@ const QuestionForm = () => {
   const [communities, setCommunities] = useState(null);
   const [questionForm, setQuestionForm] = useState([]);
   const params = useParams();
+
+  // const { isLoaded, isSignedIn, user } = useUser();
 
   useEffect(() => {
     getCommunityById(params.id)
@@ -57,6 +68,14 @@ const QuestionForm = () => {
     if (text.length <= maxLength) return text;
     return text.substr(0, maxLength) + "...";
   };
+
+  // if (!isLoaded) {
+  //   return <div>Loading...</div>;
+  // }
+
+  // if (!isSignedIn) {
+  //   return <Navigate to="/login"/>;
+  // }
 
   return (
     <>

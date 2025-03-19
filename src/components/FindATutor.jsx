@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "../.ExternalCss/FindTutor.module.css";
-
+import { useUser } from "@clerk/clerk-react";
 
 // const SAMPLE_TUTORS = [
 // {
@@ -42,6 +42,8 @@ const FindTutor = () => {
 
   //   getTeachers();
   // }, []);
+
+  const { isLoaded, isSignedIn, user } = useUser();
 
   useEffect(() => {
     const fetchTutors = async () => {
@@ -143,18 +145,19 @@ const FindTutor = () => {
     }
   };
 
-  const handleBookATutor = async () => {
-    const token = await window.Clerk.session.getToken();
+  // const handleBookATutor = async () => {
+  //   const token = await window.Clerk.session.getToken();
 
-    const res = await fetch(`http://localhost:8000/teachers`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json", //saying we are passing a json
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(jobApplicaion),
-    });
-  }
+  //   const res = await fetch(`http://localhost:8000/teachers`, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json", //saying we are passing a json
+  //       Authorization: `Bearer ${token}`,
+  //     },
+  //     body: JSON.stringify(jobApplicaion),
+  //   });
+  // }
+
 
   return (
     <div className={styles.container}>
@@ -165,7 +168,7 @@ const FindTutor = () => {
         <p>Private tutors that fit your schedule, ready to help you succeed.</p>
         <button 
           className={styles.bookTutorBtn}
-          onClick={() => handleBookATutor()}
+          // onClick={() => handleBookATutor()}
         >
           Book a Tutor
         </button>

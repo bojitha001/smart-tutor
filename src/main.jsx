@@ -135,14 +135,6 @@ const router = createBrowserRouter([
         path: "/kuppigroups-communities/:id/questionform/:id",
         element: <FullQuestion />,
       },
-      // {
-      //   path: "/login",
-      //   element: <SignInAuth />,
-      // },
-      // {
-      //   path: "/signup",
-      //   element: <MainSign />,
-      // },
       {
         path: "/login",
         element: <Login />,
