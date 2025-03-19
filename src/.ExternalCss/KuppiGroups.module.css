@@ -286,3 +286,24 @@ html {
   font-size: 0.8rem;
   color: #666;
 }
+
+.userInfoContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.userName {
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.noQuestions {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}
+.userImageUrl {
+  width: 3rem;
+  border-radius: 50%;
+}
