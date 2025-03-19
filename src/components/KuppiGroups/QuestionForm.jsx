@@ -6,6 +6,7 @@ import { useParams } from "react-router";
 import Questions from "./Questions";
 import { Link } from "react-router";
 
+
 const getCommunityById = async (id) => {
   // const token = await window.Clerk.session.getToken();
 
@@ -41,6 +42,7 @@ const QuestionForm = () => {
   const [questionForm, setQuestionForm] = useState([]);
   const params = useParams();
 
+  const { user } = useUser();
   // const { isLoaded, isSignedIn, user } = useUser();
 
   useEffect(() => {
@@ -87,7 +89,12 @@ const QuestionForm = () => {
               to={`/kuppigroups-communities/${params.id}/questionform/${question._id}`}
             >
               <div key={question.id}>
+
                 <p className={styles.questionTopic}>{question.topic}</p>
+                <img 
+                  src={question.userImageUrl || "https://via.placeholder.com/40"} 
+                  alt="User avatar" 
+                />
                 <p className={styles.questionText}>
                   {expandedQuestions[question.id]
                     ? question.questions

@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useParams } from "react-router";
 import styles from "../../.ExternalCss/KuppiGroups.module.css";
+import { useUser, UserButton } from '@clerk/clerk-react';
 
 const createCommunityQuestionForm = async (questionForm) => {
   const res = await fetch("http://localhost:8080/comunityQuestions", {
@@ -15,6 +16,9 @@ const createCommunityQuestionForm = async (questionForm) => {
 
 const Questions = () => {
   const params = useParams();
+  const { user } = useUser();
+  const userId = user?.id;
+  const userImageUrl = user?.imageUrl;
 
   const [formData, setFormData] = useState({
     topic: "",
@@ -25,10 +29,12 @@ const Questions = () => {
     event.preventDefault();
     console.log(formData);
     createCommunityQuestionForm({
-      userId: "123",
+      userId,
       topic: formData.topic,
       questions: formData.questions,
+      userImageUrl,
       community: params.id,
+      
     });
   };
   return (
