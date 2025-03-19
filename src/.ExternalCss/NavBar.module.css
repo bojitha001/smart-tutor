@@ -59,6 +59,32 @@ button {
     border-style: none;
 }
 
+.dashboardButtonMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.dashboardButton a{
+    background-color: #5A6DEE !important;
+    padding: 10px 10px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.dashboardButton:hover a{
+    color: #fff !important;
+
+}
+
 .login, .signup {
     padding: 1.2rem 2.4rem;
     font-family: 'Inria Sans';
@@ -148,7 +174,7 @@ button {
     left: 50%;
 }
 
-/* Responsive styles */
+
 @media (max-width: 1080px) {
     .header {
         height: 10rem;
@@ -219,7 +245,7 @@ button {
     }
     
     .main-nav-list li:nth-child(even) {
-        display: none; /* Hide the dots */
+        display: none; 
     }
     
     .nav-buttons {
@@ -256,7 +282,7 @@ button {
     }
 }
 
-/* Overlay when mobile menu is open */
+
 .overlay {
     display: none;
     position: fixed;

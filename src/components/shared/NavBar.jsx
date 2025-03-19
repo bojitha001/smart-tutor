@@ -93,7 +93,7 @@ export const Navbar = () => {
             <UserButton appearance={{
                           elements: {
                             userButtonAvatarBox: {
-                              width: "50%",
+                              width: "3rem",
                               height: "50%"
                               ,}
                             ,}
@@ -101,9 +101,13 @@ export const Navbar = () => {
                         }
             />
             {isLoaded && (
-              <button>
-                <Link to={dashboardPath} className={styles["dashboard"]}>Dashboard</Link>
+              <div className={styles.dashboardButtonMain}>
+
+              <button className={styles.dashboardButton}>
+                <Link to={dashboardPath} >Dashboard</Link>
               </button>
+              
+              </div>
             )}
           </SignedIn>
           <SignedOut>

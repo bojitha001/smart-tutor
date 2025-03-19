@@ -161,18 +161,7 @@ const FindTutor = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
-        {/* <div className={styles.logo}>
-            <h2><span>SMART</span> TUTOR</h2>
-        </div> */}
-        <p>Private tutors that fit your schedule, ready to help you succeed.</p>
-        <button 
-          className={styles.bookTutorBtn}
-          // onClick={() => handleBookATutor()}
-        >
-          Book a Tutor
-        </button>
-      </div>
+      
 
       <div className={styles.filters}>
         <div className={styles.filterGroup}>
