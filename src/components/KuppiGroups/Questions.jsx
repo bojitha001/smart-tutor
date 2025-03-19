@@ -19,6 +19,7 @@ const Questions = () => {
   const { user } = useUser();
   const userId = user?.id;
   const userImageUrl = user?.imageUrl;
+  const userName = user ? `${user.firstName || ''} ${user.lastName || ''}`.trim() : 'Anonymous';
 
   const [formData, setFormData] = useState({
     topic: "",
@@ -30,6 +31,7 @@ const Questions = () => {
     console.log(formData);
     createCommunityQuestionForm({
       userId,
+      userName, 
       topic: formData.topic,
       questions: formData.questions,
       userImageUrl,

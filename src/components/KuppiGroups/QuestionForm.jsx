@@ -6,7 +6,6 @@ import { useParams } from "react-router";
 import Questions from "./Questions";
 import { Link } from "react-router";
 
-
 const getCommunityById = async (id) => {
   // const token = await window.Clerk.session.getToken();
 
@@ -37,6 +36,7 @@ export const getCommunityQuestionForm = async (id) => {
   return data;
 };
 
+
 const QuestionForm = () => {
   const [communities, setCommunities] = useState(null);
   const [questionForm, setQuestionForm] = useState([]);
@@ -62,8 +62,6 @@ const QuestionForm = () => {
       });
   }, [params, setQuestionForm]);
 
-  
-
   const [expandedQuestions, setExpandedQuestions] = useState({});
 
   const truncateText = (text, maxLength = 400) => {
@@ -80,37 +78,56 @@ const QuestionForm = () => {
   // }
 
   return (
+    
     <>
       <div className={`${styles["questions-container"]}`}>
         <div className={`${styles["questions-box"]}`}>
-          {questionForm.map((question) => (
-            <Link
-              className={`${styles["main-questions-container"]}`}
-              to={`/kuppigroups-communities/${params.id}/questionform/${question._id}`}
-            >
-              <div key={question.id}>
+          {questionForm.length === 0 ? (
+            <div className={styles.noQuestions}>No questions yet</div>
+          ) : (
+            questionForm.map((question) => (
+              <Link
+                className={`${styles["main-questions-container"]}`}
+                to={`/kuppigroups-communities/${params.id}/questionform/${question._id}`}
+                key={question._id}
+              >
+                <div>
+                  <div className={styles.questionHeader}>
+                    <p className={styles.questionTopic}>{question.topic}</p>
 
-                <p className={styles.questionTopic}>{question.topic}</p>
-                <img 
-                  src={question.userImageUrl || "https://via.placeholder.com/40"} 
-                  alt="User avatar" 
-                />
-                <p className={styles.questionText}>
-                  {expandedQuestions[question.id]
-                    ? question.questions
-                    : truncateText(question.questions)}
-                  {/* {question.questions.length > 100 &&
-                  !expandedQuestions[question.id] && (
-                    <span className={styles.readMore}>Read more</span>
-                  )} */}
-                </p>
-              </div>
-            </Link>
-          ))}
+                    
+                    <span className={styles.timeAgo}>
+                      {timeAgo(question.createdAt)}
+                    </span>
+                  </div>
+
+                  <div className={styles.userInfoContainer}>
+                    <img
+                      className={styles.userImageUrl}
+                      src={
+                        question.userImageUrl ||
+                        "https://via.placeholder.com/40"
+                      }
+                      alt="User avatar"
+                    />
+                    <span className={styles.userName}>
+                      {question.userName || "Anonymous"}
+                    </span>
+                  </div>
+
+                  <p className={styles.questionText}>
+                    {expandedQuestions[question._id]
+                      ? question.questions
+                      : truncateText(question.questions)}
+                  </p>
+                </div>
+              </Link>
+            ))
+          )}
         </div>
       </div>
       <div>
-        <h1>{`Welcome to ${communities?.name}`}</h1>
+        <h1>{`Welcome to ${communities?.name || "Community"}`}</h1>
       </div>
       <Link to={`/kuppigroups-communities/${params.id}/questionform`}>
         <button className={`${styles["question-button"]}`}>
