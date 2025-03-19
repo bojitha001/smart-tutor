@@ -275,3 +275,14 @@ html {
   color: #333;
 }
 
+.questionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.timeAgo {
+  font-size: 0.8rem;
+  color: #666;
+}
