@@ -123,8 +123,8 @@ const QuestionForm = () => {
     
     <>
       <div className={`${styles["questions-container"]}`}>
-        <div>
-          <h1>{`Welcome to ${communities?.name || "Community"}`}</h1>
+        <div >
+          <h1>Disscussion Area</h1>
           <Link to={`/kuppigroups-communities/${params.id}/questionform`}>
             <button className={`${styles["question-button"]}`}>
               Add a Question
