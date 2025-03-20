@@ -89,6 +89,11 @@ button {
 
 }
 
+.buttonAlign{
+    display: flex;
+    gap: 1rem;
+}
+
 .login, .signup {
     padding: 1.2rem 2.4rem;
     font-family: 'Inria Sans';
@@ -96,7 +101,9 @@ button {
     font-size: 1.4rem;
     border-radius: 1rem !important;
     text-decoration: none;
-    display: inline-block;
+    display: flex;
+
+
 }
 
 .lang {
@@ -107,11 +114,17 @@ button {
 }
 
 .signup {
-    background-color: #fff;
+    background-color: #272727;
 }
 
 .login {
-    background-color: #E6E6E6;
+    background-color: #ffffff;
+    color: #0e0e0e;
+}
+
+.login:hover{
+    color: black;
+    border: 0.5px solid rgb(114, 114, 114);
 }
 
 .world {
