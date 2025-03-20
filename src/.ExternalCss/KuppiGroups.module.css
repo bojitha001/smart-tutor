@@ -15,7 +15,7 @@ html {
   position: relative;
   padding: 0 10rem;
   height: 100vh;
-  background-color: #f0f0f0;
+  
 }
 
 .headerContent {
@@ -227,10 +227,20 @@ html {
   max-width: 100rem;
   width: 100%;
   padding: 5rem ;
+  
 }
 
 .questions-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 8rem 8rem;
+}
+.questions-container h1 {
+  font-family: 'Sora';
+  color: #444;
+  font-weight: 500;
 }
 
 .questions-box {
@@ -246,6 +256,8 @@ html {
 .question-button {
   background-color: #000;
   padding: 2rem;
+  width: 100rem;
+  margin: 2rem 0;
 }
 .main-questions-container {
   background-color: #f5f5f5;
@@ -303,7 +315,162 @@ html {
   padding: 20px;
   color: #666;
 }
+
 .userImageUrl {
   width: 3rem;
   border-radius: 50%;
+}
+
+.fullQuestion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.questoinBox {
+  width: 100rem;
+  background-color: white;
+  padding: 5rem 3rem;
+  border-radius: 1rem;
+}
+
+.questionTopic {
+  font-size: 2rem;
+}
+
+.questionDes {
+  font-size: 1.5rem;
+}
+
+.answerBoxMain {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  background-color: white;
+  width: 100rem;
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.answerBoxTopic {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: left;
+  
+}
+
+.answerBox {
+  padding: 5rem 3rem;
+  font-size: 1.5rem;
+  position: relative;
+  border: .5px solid rgb(179, 179, 179);
+  border-radius: 1rem;
+  
+  /* margin: 1rem 1rem; */
+}
+
+.answerBoxSection1 {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* .answerBox::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 5%; 
+  right: 5%; 
+  height: 0.5px;
+  background-color: rgb(179, 179, 179);
+} */
+
+.formContainer {
+  /* max-width: 100rem; */
+  margin: 2rem auto;
+  padding: 2rem;
+  /* background-color: #f9fafb; */
+  border-radius: 12px;
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+  position: relative;
+}
+
+.textareaWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers child elements horizontally */
+  width: 100%;
+}
+
+.textareaContainer {
+  position: relative;
+  width: 100%;
+   
+}
+
+.textarea {
+  min-width: 90rem; /* Use 100% of the container */
+  min-height: 200px;
+  padding: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  resize: vertical;
+  transition: all 0.3s ease;
+  background-color: white;
+  color: #000;
+}
+
+.characterCounter {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+.textarea::placeholder {
+  color: #a0aec0;
+}
+
+
+.submitButton {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 2rem;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: .5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #333;
+}
+
+.submitButton:disabled {
+  background-color: #e2e8f0;
+  color: #a0aec0;
+  cursor: not-allowed;
+}
+
+.tipText {
+  text-align: center;
+  color: #718096;
+  font-style: italic;
+  margin-top: 1rem;
 }
