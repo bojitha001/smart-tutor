@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { data, useParams } from "react-router";
+import { data, useParams, useNavigate} from "react-router-dom";
 
 const getCommunityQuestionFormById = async (id) => {
   const res = await fetch(`http://localhost:8080/comunityQuestions/${id}`, {
@@ -33,6 +33,8 @@ const FullQuestion = () => {
   //   console.log(params);
   const [questionForm, setQuestionForm] = useState(null);
   const [answer, setAnswer] = useState([]);
+  const navigate = useNavigate();
+  const [communityId, setCommunityId] = useState(null);
 
   const [formData, setFormData] = useState({
     answer: "",
@@ -47,12 +49,17 @@ const FullQuestion = () => {
       question: params.id,
     });
     console.log(answer);
+
+    navigate(`/kuppigroups-communities/${communityId}`);
   };
 
   useEffect(() => {
     getCommunityQuestionFormById(params.id)
       .then((data) => {
         setQuestionForm(data);
+        if (data && data.community) {
+          setCommunityId(data.community);
+        }
       })
       .catch((err) => {})
       .finally(() => {});

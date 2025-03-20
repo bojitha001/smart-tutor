@@ -43,7 +43,7 @@ const Questions = () => {
       
     });
     
-    navigate(`/kuppigroups-communities/${params.id}`)
+    navigate(`/kuppigroups-communities/${userId}`)
   };
   return (
     <form action="" onSubmit={handleSubmit}>
