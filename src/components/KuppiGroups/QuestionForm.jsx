@@ -131,11 +131,14 @@ const QuestionForm = () => {
     
     <>
       <div className={`${styles["questions-container"]}`}>
+        <div>
+          <h1>{`Welcome to ${communities?.name || "Community"}`}</h1>
+        </div>
         <div className={`${styles["questions-box"]}`}>
           {questionForm.length === 0 ? (
             <div className={styles.noQuestions}>No questions yet</div>
           ) : (
-            questionForm.map((question) => (
+            [...questionForm].reverse().map((question) => (
               <Link
                 className={`${styles["main-questions-container"]}`}
                 to={`/kuppigroups-communities/${params.id}/questionform/${question._id}`}
@@ -175,9 +178,6 @@ const QuestionForm = () => {
             ))
           )}
         </div>
-      </div>
-      <div>
-        <h1>{`Welcome to ${communities?.name || "Community"}`}</h1>
       </div>
       <Link to={`/kuppigroups-communities/${params.id}/questionform`}>
         <button className={`${styles["question-button"]}`}>
