@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import styles from "../../.ExternalCss/KuppiGroups.module.css";
 import { useUser, UserButton } from '@clerk/clerk-react';
 
@@ -20,6 +20,7 @@ const Questions = () => {
   const userId = user?.id;
   const userImageUrl = user?.imageUrl;
   const userName = user ? `${user.firstName || ''} ${user.lastName || ''}`.trim() : 'Anonymous';
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     topic: "",
@@ -61,7 +62,7 @@ const Questions = () => {
             setFormData({ ...formData, questions: event.target.value })
           }
         ></textarea>
-        <button className={styles.postQuestionButton}>Post Question</button>
+        <button className={styles.postQuestionButton} onClick={() => navigate(`/kuppigroups-communities/${params.id}`)}>Post Question</button>
       </div>
     </form>
   );
