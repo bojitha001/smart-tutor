@@ -16,11 +16,13 @@ const KuppiGroups = () => {
             and succeed through group sessions.
           </p>
           <div className={styles.headerButtons}>
-            <button className={styles.openTopic}>Open a Topic</button>
+            <Link to='/kuppigroups-requestTopic'>
+              <button className={styles.openTopic}>Open a Topic</button>
+            </Link>
             <Link to='/kuppigroups-communities'>
-            <button className={styles.exploreCommunities}>
-              Explore Communities
-            </button>
+              <button className={styles.exploreCommunities}>
+                Explore Communities
+              </button>
             </Link>
           </div>
         </div>
