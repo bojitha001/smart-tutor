@@ -2,6 +2,7 @@ import { useState } from "react";
 import React from "react";
 import styles from "../../.ExternalCss/KuppiGroups.module.css";
 import img from "../../assets/images/KuppiMainImage.png";
+import collab from "../../assets/images/KuppiImg2.png";
 import { Link } from "react-router";
 const KuppiGroups = () => {
   return (
@@ -17,15 +18,44 @@ const KuppiGroups = () => {
           </p>
           <div className={styles.headerButtons}>
             <button className={styles.openTopic}>Open a Topic</button>
-            <Link to='/kuppigroups-communities'>
-            <button className={styles.exploreCommunities}>
-              Explore Communities
-            </button>
+            <Link to="/kuppigroups-communities">
+              <button className={styles.exploreCommunities}>
+                Explore Communities
+              </button>
             </Link>
           </div>
         </div>
         <div className={styles.headerImage}>
           <img src={img} alt="Students group" />
+        </div>
+      </div>
+
+      <div className={styles.bodysection}>
+        <h2>Why Collaborate?</h2>
+
+        <ul className={styles.whyPoint}>
+          <li>
+            Group Learning – Exchange ideas, ask questions, and solve problems
+            together.
+          </li>
+          <li>
+            Live Study Sessions – Join scheduled or on-demand sessions with
+            expert tutors.
+          </li>
+          <li>
+            Resource Sharing – Access notes, study guides, and recorded
+            sessions.
+          </li>
+          <li>
+            Discussion Forums – Engage in topic-based discussions and knowledge
+            sharing.
+          </li>
+          <li>
+            Real-Time Assistance – Get instant help from peers and tutors.
+          </li>
+        </ul>
+        <div className={styles.bodyImage}>
+          <img src={collab} alt="Kuppi-Collab-Image"></img>
         </div>
       </div>
     </div>
