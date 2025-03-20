@@ -15,9 +15,9 @@ export const Navbar = () => {
         
         if (publicMetadata.role) {
           switch (publicMetadata.role) {
-            case 'admin':
-              setDashboardPath('/student/dashboard');
-              break;
+            // case 'admin':
+            //   setDashboardPath('/student/dashboard');
+            //   break;
             case 'tutor':
               setDashboardPath('/tutor-dashboard');
               break;
@@ -25,16 +25,16 @@ export const Navbar = () => {
               setDashboardPath('/student/dashboard');
               break;
             default:
-              setDashboardPath('/student/dashboard');
+              setDashboardPath(null);
           }
         } else {
-          console.log("No userType found in metadata, using default dashboard");
-          setDashboardPath('/student/dashboard');
+          console.log("No userType found in metadata");
+          setDashboardPath(null);
         }
       }
     } catch (error) {
       console.error("Error in useEffect:", error);
-      setDashboardPath('/student/dashboard'); // Fallback to default on error
+      setDashboardPath(null); // Fallback to default on error
     }
   }, [isLoaded, user]);
 
@@ -100,7 +100,7 @@ export const Navbar = () => {
                           ,}
                         }
             />
-            {isLoaded && (
+            {isLoaded && dashboardPath &&(
               <div className={styles.dashboardButtonMain}>
 
               <button className={styles.dashboardButton}>
