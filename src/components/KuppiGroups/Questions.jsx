@@ -5,10 +5,13 @@ import styles from "../../.ExternalCss/KuppiGroups.module.css";
 import { useUser, UserButton } from '@clerk/clerk-react';
 
 const createCommunityQuestionForm = async (questionForm) => {
+  const token = await window.Clerk.session.getToken();
+
   const res = await fetch("http://localhost:8080/comunityQuestions", {
     method: "POST",
     headers: {
       "Content-Type": "application/json", //saying we are passing a json
+      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(questionForm),
   });
@@ -39,6 +42,8 @@ const Questions = () => {
       community: params.id,
       
     });
+    
+    navigate(`/kuppigroups-communities/${params.id}`)
   };
   return (
     <form action="" onSubmit={handleSubmit}>
@@ -62,7 +67,7 @@ const Questions = () => {
             setFormData({ ...formData, questions: event.target.value })
           }
         ></textarea>
-        <button className={styles.postQuestionButton} onClick={() => navigate(`/kuppigroups-communities/${params.id}`)}>Post Question</button>
+        <button className={styles.postQuestionButton}>Post Question</button>
       </div>
     </form>
   );
