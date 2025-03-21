@@ -35,7 +35,7 @@ import { StudentSignUp } from "./components/SignUp/studentSignUp/studentSignUp.j
 import { ParentSignUp } from "./components/SignUp/parentSignUp/parentSignUp.jsx";
 import Questions from "./components/KuppiGroups/Questions.jsx";
 import FullQuestion from "./components/KuppiGroups/FullQuestion.jsx";
-import RequestTopic from "./components/KuppiGroups/RequestTopic.jsx";
+import RequestTopic from "./components/KuppiGroups/RequestCommunity.jsx";
 
 // Import your Publishable Key
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
