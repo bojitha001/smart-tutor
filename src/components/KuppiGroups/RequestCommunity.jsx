@@ -1,6 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import '../../.ExternalCss/requestCommunity.module.css'; 
+import styles from '../../.ExternalCss/requestCommunity.module.css'; 
+import win from '../../assets/images/win.jpg'
 
 const RequestCommunity = () => {
   const form = useRef();
