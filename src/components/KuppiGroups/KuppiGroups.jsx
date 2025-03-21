@@ -18,7 +18,7 @@ const KuppiGroups = () => {
           </p>
           <div className={styles.headerButtons}>
             <Link to='/kuppigroups-requestTopic'>
-              <button className={styles.openTopic}>Open a Topic</button>
+              <button className={styles.openTopic}>Request a Community</button>
             </Link>
             <Link to='/kuppigroups-communities'>
               <button className={styles.exploreCommunities}>
