@@ -57,8 +57,10 @@ const KuppiGroups = () => {
             and succeed through group sessions.
           </p>
           <div className={styles.headerButtons}>
-            <button className={styles.openTopic}>Open a Topic</button>
-            <Link to="/kuppigroups-communities">
+            <Link to='/kuppigroups-requestTopic'>
+              <button className={styles.openTopic}>Request a Community</button>
+            </Link>
+            <Link to='/kuppigroups-communities'>
               <button className={styles.exploreCommunities}>
                 Explore Communities
               </button>
