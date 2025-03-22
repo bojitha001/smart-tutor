@@ -116,7 +116,54 @@ export const StudentSettings = () => {
               </div>
             </div>
 
-            
+            <div className={styles.formGroup}>
+              <label>Bio & Qualifications</label>
+              <textarea
+                name="bio"
+                value={formData.bio}
+                onChange={handleInputChange}
+                placeholder="Tell us about yourself and your qualifications"
+                rows="4"
+              />
+            </div>
+    
+            <div className={styles.passwordSection}>
+              <h3>Change Password</h3>
+              <div className={styles.formGrid}>
+                <div className={styles.formGroup}>
+                  <label>Current Password</label>
+                  <input
+                    type="password"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleInputChange}
+                    placeholder="Enter current password"
+                  />
+                </div>
+    
+                <div className={styles.formGroup}>
+                  <label>New Password</label>
+                  <input
+                    type="password"
+                    name="newPassword"
+                    value={formData.newPassword}
+                    onChange={handleInputChange}
+                    placeholder="Enter new password"
+                  />
+                </div>
+    
+                <div className={styles.formGroup}>
+                  <label>Confirm New Password</label>
+                  <input
+                    type="password"
+                    name="confirmPassword"
+                    value={formData.confirmPassword}
+                    onChange={handleInputChange}
+                    placeholder="Confirm new password"
+                  />
+                </div>
+              </div>
+            </div>
     
             <button type="submit" className={styles.saveButton}>
               Save Changes
