@@ -205,3 +205,260 @@
   margin: 0 auto 16px;
   color: var(--primary-dark);
 }
+/* Updated for Font Awesome */
+.welcomeAvatar svg {
+  font-size: 40px;
+}
+
+.welcomeTitle {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--primary-color);
+}
+
+.welcomeText {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--dark-color);
+  opacity: 0.8;
+}
+
+/* Message Display */
+.message {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  position: relative;
+  max-width: 90%;
+}
+
+.botAvatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+/* Updated for Font Awesome */
+.botAvatar svg {
+  font-size: 16px;
+}
+
+.messageContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.userMessage {
+  margin-left: auto;
+  flex-direction: row-reverse;
+}
+
+.messageText {
+  padding: 12px 16px;
+  border-radius: 18px;
+  box-shadow: var(--message-shadow);
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.userMessage .messageText {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  border-bottom-right-radius: 4px;
+}
+
+.botMessage .messageText {
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  border-bottom-left-radius: 4px;
+}
+
+.userMessage .messageContent {
+  align-items: flex-end;
+}
+
+.messageTime {
+  font-size: 10px;
+  opacity: 0.7;
+  margin-top: 4px;
+}
+
+.userMessage .messageTime {
+  text-align: right;
+}
+
+/* Typing Indicator */
+.typingIndicator {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.typingDots {
+  padding: 12px 16px;
+  background-color: var(--light-color);
+  border-radius: 18px;
+  border-bottom-left-radius: 4px;
+  display: flex;
+  box-shadow: var(--message-shadow);
+}
+
+.typingDot {
+  width: 8px;
+  height: 8px;
+  background-color: #aaa;
+  border-radius: 50%;
+  margin: 0 2px;
+  animation: typing 1.4s infinite ease-in-out;
+}
+
+.typingDot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.typingDot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typingDot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Suggestions Area */
+.suggestionsContainer {
+  padding: 16px;
+  background-color: var(--light-color);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.suggestionsTitle {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: var(--dark-color);
+  opacity: 0.8;
+}
+
+.suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.suggestion {
+  background-color: var(--secondary-color);
+  border-radius: 16px;
+  padding: 8px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  white-space: nowrap;
+}
+
+.suggestion:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-1px);
+}
+
+/* Input Area */
+.inputContainer {
+  padding: 16px;
+  background-color: var(--light-color);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.inputField {
+  flex: 1;
+  background-color: var(--secondary-color);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 24px;
+  padding: 12px 16px;
+  font-size: 14px;
+  height: 48px;
+  outline: none;
+  resize: none;
+  line-height: 1.5;
+  overflow-y: auto;
+  max-height: 120px;
+  transition: all 0.2s ease;
+}
+
+.inputField:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(124, 77, 255, 0.1);
+}
+
+.inputField::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.actionButton {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+/* Updated for Font Awesome */
+.actionButton svg {
+  font-size: 18px;
+}
+
+.actionButton:hover {
+  transform: scale(1.05);
+  background-color: var(--primary-dark);
+}
+
+/* Resources section */
+.resourcesContainer {
+  margin-top: 8px;
+  width: 100%;
+}
+
+.resourcesToggle {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.resourcesToggle:hover {
+  background-color: rgba(124, 77, 255, 0.08);
+}
