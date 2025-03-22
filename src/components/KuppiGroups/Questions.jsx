@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import styles from "../../.ExternalCss/Questions.module.css";
 import { useUser, UserButton } from "@clerk/clerk-react";
+import { Link } from "react-router-dom";
 
 const createCommunityQuestionForm = async (questionForm) => {
   const token = await window.Clerk.session.getToken();
@@ -71,7 +72,12 @@ const Questions = () => {
               setFormData({ ...formData, questions: event.target.value })
             }
           ></textarea>
-          <button className={styles.postQuestionButton}>Post Question</button>
+          <div className={styles.buttons}>
+            <button className={styles.postQuestionButton}>Post Question</button>
+            <Link to="/kuppigroups-communities">
+              <button className={styles.cancelButton}>Cancel</button>
+            </Link>
+          </div>
         </div>
       </form>
     </div>
