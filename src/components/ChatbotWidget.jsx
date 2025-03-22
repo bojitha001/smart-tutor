@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCommentDots, faTimes, faMinus, faPaperPlane,faChevronDown,faBook} from '@fortawesome/free-solid-svg-icons';
 import styles from "../.ExternalCss/ChatbotWidget.module.css";
 import ReactMarkdown from 'react-markdown';
 
@@ -209,3 +211,172 @@ const ChatbotWidget = () => {
       setMessages((prev) => [...prev, errorMessage]);
     }
   };
+  return (
+    <>
+      {/* Chat Button (Closed State) */}
+      {!isOpen && (
+        <div className={styles.chatWidgetButton} onClick={toggleChat}>
+          <FontAwesomeIcon icon={faCommentDots} />
+          <span className={styles.chatButtonLabel}>Ask Tutor AI</span>
+        </div>
+      )}
+
+      {/* Minimized Chat Widget */}
+      {isOpen && minimized && (
+        <div className={styles.minimizedChat} onClick={toggleChat}>
+          <div className={styles.minimizedAvatar}>
+            <FontAwesomeIcon icon={faCommentDots} />
+          </div>
+          <div className={styles.minimizedText}>Tutor AI</div>
+        </div>
+      )}
+
+      {/* Chat Widget (Open State) */}
+      {isOpen && !minimized && (
+        <div className={styles.chatWidget}>
+          {/* Header */}
+          <div className={styles.chatHeader}>
+            <div className={styles.chatHeaderLeft}>
+              <div className={styles.headerAvatar}>
+                <FontAwesomeIcon icon={faCommentDots} />
+              </div>
+              <div className={styles.headerInfo}>
+                <h4>Tutor AI Assistant</h4>
+                <span>Online</span>
+              </div>
+            </div>
+            <div className={styles.headerActions}>
+              <div className={styles.actionIcon} onClick={minimizeChat} title="Minimize">
+                <FontAwesomeIcon icon={faMinus} />
+              </div>
+              <div className={styles.actionIcon} onClick={toggleChat} title="Close">
+                <FontAwesomeIcon icon={faTimes} />
+              </div>
+            </div>
+          </div>
+
+          {/* Messages */}
+          <div className={styles.messagesContainer}>
+            <div className={styles.welcomeSection}>
+              <div className={styles.welcomeAvatar}>
+                <FontAwesomeIcon icon={faCommentDots} size="2x" />
+              </div>
+              <h3 className={styles.welcomeTitle}>Smart Tutor AI</h3>
+              <p className={styles.welcomeText}>
+                Ask me anything about Smart Tutor platform, how to find tutors, schedule sessions, or any other questions you might have.
+              </p>
+            </div>
+
+            {messages.slice(1).map((msg, index) => (
+              <div 
+                key={index} 
+                className={`${styles.message} ${msg.sender === 'bot' ? styles.botMessage : styles.userMessage}`}
+              >
+                {msg.sender === 'bot' && (
+                  <div className={styles.botAvatar}>
+                    <FontAwesomeIcon icon={faCommentDots} />
+                  </div>
+                )}
+                <div className={styles.messageContent}>
+                  <div className={styles.messageText}>
+                    {typeof ReactMarkdown === 'function' ? (
+                      <ReactMarkdown>{msg.text}</ReactMarkdown>
+                    ) : (
+                      <div dangerouslySetInnerHTML={{ __html: msg.text.replace(/\n/g, '<br />') }} />
+                    )}
+                  </div>
+                  <div className={styles.messageTime}>{msg.time}</div>
+                  
+                  {/* Show resources if available and it's a bot message */}
+                  {msg.sender === 'bot' && resources.length > 0 && messages[messages.length - 1] === msg && (
+                    <div className={styles.resourcesContainer}>
+                      <button 
+                        className={styles.resourcesToggle}
+                        onClick={toggleResources}
+                      >
+                        {showResources ? 'Hide Resources' : 'Show Related Resources'} 
+                        <FontAwesomeIcon 
+                          icon={faChevronDown} 
+                          className={showResources ? styles.iconRotated : ''} 
+                        />
+                      </button>
+                      
+                      {showResources && (
+                        <div className={styles.resourcesList}>
+                          {resources.map((resource, idx) => (
+                            <a 
+                              key={idx} 
+                              href={resource.url} 
+                              className={styles.resourceLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <FontAwesomeIcon icon={faBook} />
+                              {resource.title}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+            
+            {/* Typing Indicator */}
+            {isTyping && (
+              <div className={styles.typingIndicator}>
+                <div className={styles.botAvatar}>
+                  <FontAwesomeIcon icon={faCommentDots} />
+                </div>
+                <div className={styles.typingDots}>
+                  <div className={styles.typingDot}></div>
+                  <div className={styles.typingDot}></div>
+                  <div className={styles.typingDot}></div>
+                </div>
+              </div>
+            )}
+            
+            {/* Invisible element to scroll to */}
+            <div ref={messagesEndRef} />
+          </div>
+          
+          {/* Suggestions */}
+          {messages.length < 3 && (
+            <div className={styles.suggestionsContainer}>
+              <h4 className={styles.suggestionsTitle}>Frequently asked questions</h4>
+              <div className={styles.suggestions}>
+                {suggestions.map((suggestion, index) => (
+                  <div 
+                    key={index} 
+                    className={styles.suggestion}
+                    onClick={() => handleSuggestionClick(suggestion)}
+                  >
+                    {suggestion}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Input Area */}
+          <div className={styles.inputContainer}>
+            <textarea
+              ref={textareaRef}
+              className={styles.inputField}
+              placeholder="Type your message..."
+              value={inputMessage}
+              onChange={handleInputChange}
+              onKeyPress={handleKeyPress}
+            />
+            <div className={styles.actionButton} onClick={sendMessage}>
+              <FontAwesomeIcon icon={faPaperPlane} />
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+export default ChatbotWidget;
