@@ -152,3 +152,60 @@ const ChatbotWidget = () => {
       callback();
     }, typingDelay);
   };
+
+  // Send message to backend and get response
+  const sendMessageToBackend = async (text) => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/chatbot/message`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 
+          message: text,
+          sessionId: sessionId
+        }),
+      });
+      
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      
+      const data = await response.json();
+      
+      // Store any resources that came with the response
+      if (data.resources && data.resources.length > 0) {
+        setResources(data.resources);
+      } else {
+        setResources([]);
+      }
+      
+      // Simulate typing for a more natural feel
+      simulateTypingEffect(data.response, () => {
+        // Hide typing indicator and add bot response
+        setIsTyping(false);
+        
+        const newBotMessage = {
+          text: data.response,
+          sender: 'bot',
+          time: formatTime(new Date()),
+          source: data.source // 'faq', 'ai', or 'simple'
+        };
+        
+        setMessages((prev) => [...prev, newBotMessage]);
+      });
+    } catch (error) {
+      console.error('Error sending message to backend:', error);
+      
+      // Hide typing indicator and add error message
+      setIsTyping(false);
+      
+      const errorMessage = {
+        text: 'Sorry, there was an error processing your request. Please try again later.',
+        sender: 'bot',
+        time: formatTime(new Date()),
+      };
+      
+      setMessages((prev) => [...prev, errorMessage]);
+    }
+  };
