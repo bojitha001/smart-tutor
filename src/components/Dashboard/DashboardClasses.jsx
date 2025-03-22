@@ -92,7 +92,9 @@ function DashboardClasses() {
                 <div className={styles.classTime}>{cls.time}</div>
                 <div className={styles.classDate}>{cls.date}</div>
                 <h3>{cls.name}</h3>
+                
                 <p>{cls.duration}</p>
+                
               </div>
             ))}
           </div>
