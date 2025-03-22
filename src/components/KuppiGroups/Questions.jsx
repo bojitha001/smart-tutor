@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import styles from "../../.ExternalCss/KuppiGroups.module.css";
+import styles from "../../.ExternalCss/Questions.module.css";
 import { useUser, UserButton } from '@clerk/clerk-react';
 
 const createCommunityQuestionForm = async (questionForm) => {
@@ -46,6 +46,8 @@ const Questions = () => {
     navigate(`/kuppigroups-communities/${userId}`)
   };
   return (
+    <div className={styles.formContainer}>
+    <h1 className={styles.formTitle}>Your Question!</h1>
     <form action="" onSubmit={handleSubmit}>
       <div className={styles.questionInput}>
         <input
@@ -70,6 +72,7 @@ const Questions = () => {
         <button className={styles.postQuestionButton}>Post Question</button>
       </div>
     </form>
+    </div>
   );
 };
 

@@ -1,51 +1,80 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Search, Bell } from 'lucide-react';
 import { FaBell, FaUserGraduate, FaChalkboardTeacher, FaMoneyBillWave, FaChartLine } from 'react-icons/fa';
 import { IoSearch } from "react-icons/io5";
 import styles from "../../.ExternalCss/dashboardClasses.module.css";
 import testImg from "../../assets/images/Avatar1.jpg"; 
+import { useUser } from '@clerk/clerk-react';
 
 
 
 function DashboardClasses() {
-  const upcomingClasses = [
-    {
-      time: '6:00 PM',
-      date: 'Tomorrow',
-      teacher: 'Monali Rathnayake',
-      grade: 'Gr.10 - Individual'
-    },
-    {
-      time: '4:00 PM',
-      date: '23/01/2025',
-      teacher: 'Thevinu Perera',
-      grade: 'Gr.11 - Group'
-    },
-    {
-      time: '5:00 PM',
-      date: '25/01/2025',
-      teacher: 'Manilka Sadakan',
-      grade: 'Gr.10 - Individual'
-    },
-    {
-      time: '8:00 PM',
-      date: '25/01/2025',
-      teacher: 'Bojitha Soma',
-      grade: 'Gr.11 - Individual'
-    },
-    {
-      time: '8:00 PM',
-      date: '25/01/2025',
-      teacher: 'Bojitha Soma',
-      grade: 'Gr.11 - Individual'
-    },
-    {
-      time: '8:00 PM',
-      date: '25/01/2025',
-      teacher: 'Bojitha Soma',
-      grade: 'Gr.11 - Individual'
+  const [upcomingClasses,setUpComingClasses] = useState([]);
+    // {
+    //   time: '6:00 PM',
+    //   date: 'Tomorrow',
+    //   teacher: 'Monali Rathnayake',
+    //   grade: 'Gr.10 - Individual'
+    // },
+    // {
+    //   time: '4:00 PM',
+    //   date: '23/01/2025',
+    //   teacher: 'Thevinu Perera',
+    //   grade: 'Gr.11 - Group'
+    // },
+    // {
+    //   time: '5:00 PM',
+    //   date: '25/01/2025',
+    //   teacher: 'Manilka Sadakan',
+    //   grade: 'Gr.10 - Individual'
+    // },
+    // {
+    //   time: '8:00 PM',
+    //   date: '25/01/2025',
+    //   teacher: 'Bojitha Soma',
+    //   grade: 'Gr.11 - Individual'
+    // },
+    // {
+    //   time: '8:00 PM',
+    //   date: '25/01/2025',
+    //   teacher: 'Bojitha Soma',
+    //   grade: 'Gr.11 - Individual'
+    // },
+    // {
+    //   time: '8:00 PM',
+    //   date: '25/01/2025',
+    //   teacher: 'Bojitha Soma',
+    //   grade: 'Gr.11 - Individual'
+    // }
+  
+
+  const {user} = useUser();
+  const userClerk = user?.id;
+  // console.log(userClerk);
+
+  useEffect(() => {
+    const fetchClasses = async() => {
+      if(userClerk) {
+        try {
+          const response = await fetch(
+            `http://localhost:8080/classes?teacherClerkId=${user.id}`
+          );
+          
+          if (response.ok) {
+            const data = await response.json();
+            setUpComingClasses(data);
+          } else {
+            console.error('Failed to fetch classes');
+          }
+        } catch (error) {
+          console.error('Error fetching classes:', error);
+        }
+      }
     }
-  ];
+    fetchClasses();
+  }, [userClerk])
+
+  console.log(upcomingClasses)
 
   return (
     <div className={styles.dashboard}>
@@ -62,8 +91,8 @@ function DashboardClasses() {
               <div key={index} className={styles.classCard}>
                 <div className={styles.classTime}>{cls.time}</div>
                 <div className={styles.classDate}>{cls.date}</div>
-                <h3>{cls.teacher}</h3>
-                <p>{cls.grade}</p>
+                <h3>{cls.name}</h3>
+                <p>{cls.duration}</p>
               </div>
             ))}
           </div>

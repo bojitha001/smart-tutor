@@ -36,6 +36,8 @@ import { ParentSignUp } from "./components/SignUp/parentSignUp/parentSignUp.jsx"
 import Questions from "./components/KuppiGroups/Questions.jsx";
 import FullQuestion from "./components/KuppiGroups/FullQuestion.jsx";
 import RequestTopic from "./components/KuppiGroups/RequestCommunity.jsx";
+import TutorProfile from "./components/TutorProfile.jsx";
+import InputForm from "./components/tutorSignUp/InputForm.jsx";
 
 // Import your Publishable Key
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
@@ -58,6 +60,10 @@ const router = createBrowserRouter([
           {
             path: "/find-tutor",
             element: <FindTutor />,
+          },
+          {
+            path: "/find-tutor/:id",
+            element: <TutorProfile/>,
           },
           {
             path: "/kuppiGroups",
@@ -159,6 +165,10 @@ const router = createBrowserRouter([
       {
         path: "/parent-sign-up",
         element: <ParentSignUp />,
+      },
+      {
+        path: "/input",
+        element: <InputForm />,
       }
     ],
   },

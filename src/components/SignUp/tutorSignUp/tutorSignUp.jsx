@@ -2,6 +2,7 @@ import { SignUp, useAuth } from "@clerk/clerk-react";
 import styles from "../../../.ExternalCss/TutorSignUpPage.module.css";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import InputForm from "../../tutorSignUp/InputForm";
 
 export const TutorSignUp = () => {
   const { isSignedIn, userId, getToken } = useAuth();
