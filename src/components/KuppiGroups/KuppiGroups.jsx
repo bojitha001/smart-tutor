@@ -56,6 +56,7 @@ const KuppiGroups = () => {
             Real-Time Assistance – Get instant help from peers and tutors.
           </li>
         </ul>
+        
         <div className={styles.bodyImage}>
           <img src={collab} alt="Kuppi-Collab-Image"></img>
         </div>

@@ -57,6 +57,7 @@ import { SignUp, useSignUp, useAuth } from "@clerk/clerk-react";
 import styles from "../../../.ExternalCss/TutorSignUpPage.module.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import InputForm from "../../tutorSignUp/InputForm";
 
 export const TutorSignUp = () => {
   const { isLoaded: isAuthLoaded, isSignedIn, userId, getToken } = useAuth();
@@ -110,8 +111,10 @@ export const TutorSignUp = () => {
         signUpCallback={() => {
           console.log("SignUp callback triggered");
           setSignupComplete(true);
+          
         }}
       />
+      
     </div>
   );
 };
