@@ -15,9 +15,14 @@ export const StudentSettings = () => {
 
   const [profileImage, setProfileImage] = useState('https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=2080&auto=format&fit=crop');
 
-  
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
 
-  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,7 +41,24 @@ export const StudentSettings = () => {
           </div>
     
           <form onSubmit={handleSubmit} className={styles.settingsForm}>
-            
+          <div className={styles.profileSection}>
+              <div className={styles.profileImageContainer}>
+                <img src={profileImage} alt="Profile" className={styles.profileImage} />
+                <label className={styles.imageUpload}>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageChange}
+                    hidden
+                  />
+                  Change Photo
+                </label>
+              </div>
+              <div className={styles.profileInfo}>
+                <h2>{`${formData.firstName} ${formData.lastName}`}</h2>
+                <p>@thevinu_</p>
+              </div>
+            </div>
     
             
     
