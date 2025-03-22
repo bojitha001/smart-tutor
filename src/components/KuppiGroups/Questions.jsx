@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import styles from "../../.ExternalCss/KuppiGroups.module.css";
-import { useUser, UserButton } from '@clerk/clerk-react';
+import styles from "../../.ExternalCss/Questions.module.css";
+import { useUser, UserButton } from "@clerk/clerk-react";
 
 const createCommunityQuestionForm = async (questionForm) => {
   const token = await window.Clerk.session.getToken();
@@ -22,7 +22,9 @@ const Questions = () => {
   const { user } = useUser();
   const userId = user?.id;
   const userImageUrl = user?.imageUrl;
-  const userName = user ? `${user.firstName || ''} ${user.lastName || ''}`.trim() : 'Anonymous';
+  const userName = user
+    ? `${user.firstName || ""} ${user.lastName || ""}`.trim()
+    : "Anonymous";
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -35,40 +37,44 @@ const Questions = () => {
     console.log(formData);
     createCommunityQuestionForm({
       userId,
-      userName, 
+      userName,
       topic: formData.topic,
       questions: formData.questions,
       userImageUrl,
       community: params.id,
     });
-    
+
     // navigate(`/kuppigroups-communities/${params.id}`)
   };
+
   return (
-    <form action="" onSubmit={handleSubmit}>
-      <div className={styles.questionInput}>
-        <input
-          type="text"
-          placeholder="Enter your topic here"
-          className={styles.topicInput}
-          required
-          value={formData.topic}
-          onChange={(event) =>
-            setFormData({ ...formData, topic: event.target.value })
-          }
-        />
-        <textarea
-          placeholder="Describe your question here"
-          className={styles.questionTextarea}
-          required
-          value={formData.questions}
-          onChange={(event) =>
-            setFormData({ ...formData, questions: event.target.value })
-          }
-        ></textarea>
-        <button className={styles.postQuestionButton}>Post Question</button>
-      </div>
-    </form>
+    <div className={styles.formContainer}>
+      <h1 className={styles.formTitle}>Your Question!</h1>
+      <form action="" onSubmit={handleSubmit}>
+        <div className={styles.questionInput}>
+          <input
+            type="text"
+            placeholder="Enter your topic here"
+            className={styles.topicInput}
+            required
+            value={formData.topic}
+            onChange={(event) =>
+              setFormData({ ...formData, topic: event.target.value })
+            }
+          />
+          <textarea
+            placeholder="Describe your question here"
+            className={styles.questionTextarea}
+            required
+            value={formData.questions}
+            onChange={(event) =>
+              setFormData({ ...formData, questions: event.target.value })
+            }
+          ></textarea>
+          <button className={styles.postQuestionButton}>Post Question</button>
+        </div>
+      </form>
+    </div>
   );
 };
 
