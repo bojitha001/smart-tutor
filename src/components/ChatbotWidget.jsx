@@ -1,29 +1,36 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCommentDots, faTimes, faMinus, faPaperPlane,faChevronDown,faBook} from '@fortawesome/free-solid-svg-icons';
+import React, { useState, useRef, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCommentDots,
+  faTimes,
+  faMinus,
+  faPaperPlane,
+  faChevronDown,
+  faBook,
+} from "@fortawesome/free-solid-svg-icons";
 import styles from "../.ExternalCss/ChatbotWidget.module.css";
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown from "react-markdown";
 
 const ChatbotWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
     {
       text: "Hi there! I'm your Smart Tutor assistant. How can I help you today?",
-      sender: 'bot',
+      sender: "bot",
       time: formatTime(new Date()),
     },
   ]);
-  const [inputMessage, setInputMessage] = useState('');
+  const [inputMessage, setInputMessage] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [suggestions, setSuggestions] = useState([
-    'How do I find a tutor?',
-    'What subjects are available?',
-    'How do I schedule a session?',
-    'What are the pricing plans?',
-    'How do I create an account?',
-    'How do I login to my account?'
+    "How do I find a tutor?",
+    "What subjects are available?",
+    "How do I schedule a session?",
+    "What are the pricing plans?",
+    "How do I create an account?",
+    "How do I login to my account?",
   ]);
-  const [sessionId, setSessionId] = useState('');
+  const [sessionId, setSessionId] = useState("");
   const [resources, setResources] = useState([]);
   const [showResources, setShowResources] = useState(false);
   const messagesEndRef = useRef(null);
@@ -31,12 +38,14 @@ const ChatbotWidget = () => {
   const [minimized, setMinimized] = useState(false);
 
   // API endpoint (adjust if your backend runs on a different port)
-  const API_BASE_URL = 'http://localhost:8080';
+  const API_BASE_URL = "http://localhost:8080";
 
   useEffect(() => {
     // Generate a unique session ID for this chat
     if (!sessionId) {
-      setSessionId(`session_${Date.now()}_${Math.random().toString(36).substring(2, 11)}`);
+      setSessionId(
+        `session_${Date.now()}_${Math.random().toString(36).substring(2, 11)}`
+      );
     }
   }, [sessionId]);
 
@@ -60,17 +69,17 @@ const ChatbotWidget = () => {
     try {
       const response = await fetch(`${API_BASE_URL}/chatbot/suggestions`);
       if (!response.ok) {
-        throw new Error('Failed to fetch suggestions');
+        throw new Error("Failed to fetch suggestions");
       }
       const data = await response.json();
       setSuggestions(data.suggestions || []);
     } catch (error) {
-      console.error('Error fetching suggestions:', error);
+      console.error("Error fetching suggestions:", error);
     }
   };
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const toggleChat = () => {
@@ -93,34 +102,34 @@ const ChatbotWidget = () => {
 
   const adjustTextareaHeight = () => {
     const textarea = textareaRef.current;
-    textarea.style.height = 'auto';
+    textarea.style.height = "auto";
     const newHeight = Math.min(textarea.scrollHeight, 120);
     textarea.style.height = `${newHeight}px`;
   };
 
   const handleKeyPress = (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
+    if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       sendMessage();
     }
   };
 
   const sendMessage = () => {
-    if (inputMessage.trim() === '') return;
+    if (inputMessage.trim() === "") return;
 
     const newUserMessage = {
       text: inputMessage.trim(),
-      sender: 'user',
+      sender: "user",
       time: formatTime(new Date()),
     };
 
     setMessages((prev) => [...prev, newUserMessage]);
-    setInputMessage('');
-    
+    setInputMessage("");
+
     // Show typing indicator
     setIsTyping(true);
     setShowResources(false);
-    
+
     // Send message to backend
     sendMessageToBackend(newUserMessage.text);
   };
@@ -136,8 +145,8 @@ const ChatbotWidget = () => {
 
   function formatTime(date) {
     const hours = date.getHours() % 12 || 12;
-    const minutes = date.getMinutes().toString().padStart(2, '0');
-    const ampm = date.getHours() >= 12 ? 'PM' : 'AM';
+    const minutes = date.getMinutes().toString().padStart(2, "0");
+    const ampm = date.getHours() >= 12 ? "PM" : "AM";
     return `${hours}:${minutes} ${ampm}`;
   }
 
@@ -149,7 +158,7 @@ const ChatbotWidget = () => {
       1200, // minimum delay
       Math.max(600, response.length / 10) // at least 600ms, at most 1200ms
     );
-    
+
     setTimeout(() => {
       callback();
     }, typingDelay);
@@ -159,55 +168,55 @@ const ChatbotWidget = () => {
   const sendMessageToBackend = async (text) => {
     try {
       const response = await fetch(`${API_BASE_URL}/chatbot/message`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
           message: text,
-          sessionId: sessionId
+          sessionId: sessionId,
         }),
       });
-      
+
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error("Network response was not ok");
       }
-      
+
       const data = await response.json();
-      
+
       // Store any resources that came with the response
       if (data.resources && data.resources.length > 0) {
         setResources(data.resources);
       } else {
         setResources([]);
       }
-      
+
       // Simulate typing for a more natural feel
       simulateTypingEffect(data.response, () => {
         // Hide typing indicator and add bot response
         setIsTyping(false);
-        
+
         const newBotMessage = {
           text: data.response,
-          sender: 'bot',
+          sender: "bot",
           time: formatTime(new Date()),
-          source: data.source // 'faq', 'ai', or 'simple'
+          source: data.source, // 'faq', 'ai', or 'simple'
         };
-        
+
         setMessages((prev) => [...prev, newBotMessage]);
       });
     } catch (error) {
-      console.error('Error sending message to backend:', error);
-      
+      console.error("Error sending message to backend:", error);
+
       // Hide typing indicator and add error message
       setIsTyping(false);
-      
+
       const errorMessage = {
-        text: 'Sorry, there was an error processing your request. Please try again later.',
-        sender: 'bot',
+        text: "Sorry, there was an error processing your request. Please try again later.",
+        sender: "bot",
         time: formatTime(new Date()),
       };
-      
+
       setMessages((prev) => [...prev, errorMessage]);
     }
   };
@@ -217,7 +226,7 @@ const ChatbotWidget = () => {
       {!isOpen && (
         <div className={styles.chatWidgetButton} onClick={toggleChat}>
           <FontAwesomeIcon icon={faCommentDots} />
-          <span className={styles.chatButtonLabel}>Ask Tutor AI</span>
+          <span className={styles.chatButtonLabel}>Ask Smart AI</span>
         </div>
       )}
 
@@ -246,10 +255,18 @@ const ChatbotWidget = () => {
               </div>
             </div>
             <div className={styles.headerActions}>
-              <div className={styles.actionIcon} onClick={minimizeChat} title="Minimize">
+              <div
+                className={styles.actionIcon}
+                onClick={minimizeChat}
+                title="Minimize"
+              >
                 <FontAwesomeIcon icon={faMinus} />
               </div>
-              <div className={styles.actionIcon} onClick={toggleChat} title="Close">
+              <div
+                className={styles.actionIcon}
+                onClick={toggleChat}
+                title="Close"
+              >
                 <FontAwesomeIcon icon={faTimes} />
               </div>
             </div>
@@ -263,66 +280,77 @@ const ChatbotWidget = () => {
               </div>
               <h3 className={styles.welcomeTitle}>Smart Tutor AI</h3>
               <p className={styles.welcomeText}>
-                Ask me anything about Smart Tutor platform, how to find tutors, schedule sessions, or any other questions you might have.
+                Ask me anything about Smart Tutor platform, how to find tutors,
+                schedule sessions, or any other questions you might have.
               </p>
             </div>
 
             {messages.slice(1).map((msg, index) => (
-              <div 
-                key={index} 
-                className={`${styles.message} ${msg.sender === 'bot' ? styles.botMessage : styles.userMessage}`}
+              <div
+                key={index}
+                className={`${styles.message} ${
+                  msg.sender === "bot" ? styles.botMessage : styles.userMessage
+                }`}
               >
-                {msg.sender === 'bot' && (
+                {msg.sender === "bot" && (
                   <div className={styles.botAvatar}>
                     <FontAwesomeIcon icon={faCommentDots} />
                   </div>
                 )}
                 <div className={styles.messageContent}>
                   <div className={styles.messageText}>
-                    {typeof ReactMarkdown === 'function' ? (
+                    {typeof ReactMarkdown === "function" ? (
                       <ReactMarkdown>{msg.text}</ReactMarkdown>
                     ) : (
-                      <div dangerouslySetInnerHTML={{ __html: msg.text.replace(/\n/g, '<br />') }} />
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: msg.text.replace(/\n/g, "<br />"),
+                        }}
+                      />
                     )}
                   </div>
                   <div className={styles.messageTime}>{msg.time}</div>
-                  
+
                   {/* Show resources if available and it's a bot message */}
-                  {msg.sender === 'bot' && resources.length > 0 && messages[messages.length - 1] === msg && (
-                    <div className={styles.resourcesContainer}>
-                      <button 
-                        className={styles.resourcesToggle}
-                        onClick={toggleResources}
-                      >
-                        {showResources ? 'Hide Resources' : 'Show Related Resources'} 
-                        <FontAwesomeIcon 
-                          icon={faChevronDown} 
-                          className={showResources ? styles.iconRotated : ''} 
-                        />
-                      </button>
-                      
-                      {showResources && (
-                        <div className={styles.resourcesList}>
-                          {resources.map((resource, idx) => (
-                            <a 
-                              key={idx} 
-                              href={resource.url} 
-                              className={styles.resourceLink}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <FontAwesomeIcon icon={faBook} />
-                              {resource.title}
-                            </a>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  )}
+                  {msg.sender === "bot" &&
+                    resources.length > 0 &&
+                    messages[messages.length - 1] === msg && (
+                      <div className={styles.resourcesContainer}>
+                        <button
+                          className={styles.resourcesToggle}
+                          onClick={toggleResources}
+                        >
+                          {showResources
+                            ? "Hide Resources"
+                            : "Show Related Resources"}
+                          <FontAwesomeIcon
+                            icon={faChevronDown}
+                            className={showResources ? styles.iconRotated : ""}
+                          />
+                        </button>
+
+                        {showResources && (
+                          <div className={styles.resourcesList}>
+                            {resources.map((resource, idx) => (
+                              <a
+                                key={idx}
+                                href={resource.url}
+                                className={styles.resourceLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <FontAwesomeIcon icon={faBook} />
+                                {resource.title}
+                              </a>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    )}
                 </div>
               </div>
             ))}
-            
+
             {/* Typing Indicator */}
             {isTyping && (
               <div className={styles.typingIndicator}>
@@ -336,19 +364,21 @@ const ChatbotWidget = () => {
                 </div>
               </div>
             )}
-            
+
             {/* Invisible element to scroll to */}
             <div ref={messagesEndRef} />
           </div>
-          
+
           {/* Suggestions */}
           {messages.length < 3 && (
             <div className={styles.suggestionsContainer}>
-              <h4 className={styles.suggestionsTitle}>Frequently asked questions</h4>
+              <h4 className={styles.suggestionsTitle}>
+                Frequently asked questions
+              </h4>
               <div className={styles.suggestions}>
                 {suggestions.map((suggestion, index) => (
-                  <div 
-                    key={index} 
+                  <div
+                    key={index}
                     className={styles.suggestion}
                     onClick={() => handleSuggestionClick(suggestion)}
                   >
