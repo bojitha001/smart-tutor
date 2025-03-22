@@ -391,7 +391,7 @@
 
 .inputField {
   flex: 1;
-  background-color: var(--secondary-color);
+  background-color: rgb(160, 160, 160);
   border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 24px;
   padding: 12px 16px;
