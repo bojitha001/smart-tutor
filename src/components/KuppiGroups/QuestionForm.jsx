@@ -7,12 +7,12 @@ import Questions from "./Questions";
 import { Link } from "react-router";
 
 const getCommunityById = async (id) => {
-  const token = await window.Clerk.session.getToken();
+  
 
   const res = await fetch(`http://localhost:8080/communities/${id}`, {
     method: "GET",
     headers: {
-      Authorization: `Bearer ${token}`,
+      // Authorization: `Bearer ${token}`,
     },
   });
   const communities = await res.json();
@@ -21,14 +21,14 @@ const getCommunityById = async (id) => {
 };
 
 export const getCommunityQuestionForm = async (id) => {
-  const token = await window.Clerk.session.getToken();
+  
 
   const res = await fetch(
     `http://localhost:8080/comunityQuestions?communityId=${id}`,
     {
       method: "GET",
       headers: {
-        Authorization: `Bearer ${token}`,
+        // Authorization: `Bearer ${token}`,
       },
     }
   );
@@ -91,7 +91,7 @@ const QuestionForm = () => {
   const [communities, setCommunities] = useState(null);
   const [questionForm, setQuestionForm] = useState([]);
   const params = useParams();
-
+  
   const { user } = useUser();
   // const { isLoaded, isSignedIn, user } = useUser();
 

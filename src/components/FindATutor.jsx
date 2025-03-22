@@ -73,7 +73,7 @@ const FindTutor = () => {
     fetchTutors();
   }, []);
 
-  
+
 
 
   // Fetch tutors (using sample data for now)
@@ -140,7 +140,7 @@ const FindTutor = () => {
     try {
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 500));
-      alert("Booking successful!");
+      // alert("Booking successful!");
     } catch (error) {
       console.error("Error booking tutor:", error);
       alert("Failed to book tutor. Please try again.");
@@ -162,6 +162,7 @@ const FindTutor = () => {
 
 
   return (
+    <div className={styles.body}>
     <div className={styles.container}>
       
 
@@ -258,6 +259,7 @@ const FindTutor = () => {
           )}
         </>
       )}
+    </div>
     </div>
   );
 };

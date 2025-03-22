@@ -1,5 +1,10 @@
+.body{
+    width: 1500px;
+    background-color: #fff;
+}
+
 .container {
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 0.5rem;
 }
@@ -98,8 +103,8 @@
 }
   
 .tutorImage {
-    width: 150px;
-    height: 150px;
+    width: 70px;
+    height: 70px;
     border-radius: 8px;
     overflow: hidden;
 }
