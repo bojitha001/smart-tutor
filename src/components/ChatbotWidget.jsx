@@ -54,3 +54,101 @@ const ChatbotWidget = () => {
       fetchSuggestions();
     }
   }, [isOpen, minimized]);
+  const fetchSuggestions = async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/chatbot/suggestions`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch suggestions');
+      }
+      const data = await response.json();
+      setSuggestions(data.suggestions || []);
+    } catch (error) {
+      console.error('Error fetching suggestions:', error);
+    }
+  };
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const toggleChat = () => {
+    if (isOpen && minimized) {
+      setMinimized(false);
+    } else {
+      setIsOpen(!isOpen);
+      setMinimized(false);
+    }
+  };
+
+  const minimizeChat = (e) => {
+    e.stopPropagation();
+    setMinimized(true);
+  };
+
+  const handleInputChange = (e) => {
+    setInputMessage(e.target.value);
+  };
+
+  const adjustTextareaHeight = () => {
+    const textarea = textareaRef.current;
+    textarea.style.height = 'auto';
+    const newHeight = Math.min(textarea.scrollHeight, 120);
+    textarea.style.height = `${newHeight}px`;
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  };
+
+  const sendMessage = () => {
+    if (inputMessage.trim() === '') return;
+
+    const newUserMessage = {
+      text: inputMessage.trim(),
+      sender: 'user',
+      time: formatTime(new Date()),
+    };
+
+    setMessages((prev) => [...prev, newUserMessage]);
+    setInputMessage('');
+    
+    // Show typing indicator
+    setIsTyping(true);
+    setShowResources(false);
+    
+    // Send message to backend
+    sendMessageToBackend(newUserMessage.text);
+  };
+
+  const handleSuggestionClick = (suggestion) => {
+    setInputMessage(suggestion);
+    sendMessage();
+  };
+
+  const toggleResources = () => {
+    setShowResources(!showResources);
+  };
+
+  function formatTime(date) {
+    const hours = date.getHours() % 12 || 12;
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    const ampm = date.getHours() >= 12 ? 'PM' : 'AM';
+    return `${hours}:${minutes} ${ampm}`;
+  }
+
+  // Simulate typing effect for longer responses
+  const simulateTypingEffect = (response, callback) => {
+    // For longer responses (like from AI), simulate a realistic typing delay
+    // based on response length
+    const typingDelay = Math.min(
+      1200, // minimum delay
+      Math.max(600, response.length / 10) // at least 600ms, at most 1200ms
+    );
+    
+    setTimeout(() => {
+      callback();
+    }, typingDelay);
+  };
