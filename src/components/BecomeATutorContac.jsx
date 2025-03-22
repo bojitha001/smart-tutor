@@ -64,7 +64,7 @@ const ContactForm = () => {
   return (
     <div className={styles["contact-us-main"]}>
       <div className={styles["contact-us-container"]}>
-        <h1 className={styles["contact-us-title"]}>Contact Us</h1>
+        <h1 className={styles["contact-us-title"]}>Contact Us!</h1>
         <p className={styles["contact-us-subtitle"]}>
           Have questions or need assistance? Reach out to our team and we'll get back to you shortly!
         </p>
@@ -139,14 +139,11 @@ const ContactForm = () => {
           </form>
           
           <div className={styles["contact-info"]}>
-            <div className={styles["info-section"]}>
-              <h3>Our Address</h3>
-              <p>123 Education Lane, Learning City</p>
-            </div>
+            
             
             <div className={styles["info-section"]}>
               <h3>Email Us</h3>
-              <p>support@smarttutor.com</p>
+              <p>support@smar</p>
             </div>
             
             <div className={styles["info-section"]}>
