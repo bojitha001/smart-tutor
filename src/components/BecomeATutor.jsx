@@ -189,9 +189,11 @@ const BecomeATutor = () => {
             and freelance discounts, or want a custom quote. We’ll get back to
             you shortly!
           </p>
+          <Link to="/contact-us">
           <a className={`${styles["btn"]} ${styles["btn-connect"]}`} href="#">  
             Contact us
           </a>
+          </Link>
         </div>
       </div>
 

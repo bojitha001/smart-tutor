@@ -38,7 +38,7 @@ import FullQuestion from "./components/KuppiGroups/FullQuestion.jsx";
 import RequestTopic from "./components/KuppiGroups/RequestCommunity.jsx";
 import TutorProfile from "./components/TutorProfile.jsx";
 import InputForm from "./components/tutorSignUp/InputForm.jsx";
-
+import BecomeATutorContac from './components/BecomeATutorContac.jsx'
 // Import your Publishable Key
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
@@ -169,6 +169,10 @@ const router = createBrowserRouter([
       {
         path: "/input",
         element: <InputForm />,
+      },
+      {
+        path: "/contact-us",
+        element: <BecomeATutorContac/>,
       }
     ],
   },
