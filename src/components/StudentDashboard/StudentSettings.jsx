@@ -70,6 +70,52 @@ export const StudentSettings = () => {
               </div>
             </div>
     
+            <div className={styles.formGrid}>
+              <div className={styles.formGroup}>
+                <label>First Name</label>
+                <input
+                  type="text"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleInputChange}
+                  placeholder="Enter your first name"
+                />
+              </div>
+    
+              <div className={styles.formGroup}>
+                <label>Last Name</label>
+                <input
+                  type="text"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleInputChange}
+                  placeholder="Enter your last name"
+                />
+              </div>
+    
+              <div className={styles.formGroup}>
+                <label>E-mail</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  placeholder="Enter your email"
+                />
+              </div>
+    
+              <div className={styles.formGroup}>
+                <label>Contact Info</label>
+                <input
+                  type="tel"
+                  name="contact"
+                  value={formData.contact}
+                  onChange={handleInputChange}
+                  placeholder="Enter your contact number"
+                />
+              </div>
+            </div>
+
             
     
             <button type="submit" className={styles.saveButton}>
