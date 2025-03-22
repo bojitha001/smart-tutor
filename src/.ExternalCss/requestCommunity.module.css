@@ -74,7 +74,7 @@
   }
   
   .submitButton {
-    background-color: #d19000;
+    background-color: rgba(241, 172, 1, 1);
     color: white;
     padding: 12px;
     border: none;

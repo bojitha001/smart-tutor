@@ -446,10 +446,10 @@ html {
 
 .submitButton {
   display: block;
-  width: 100%;
+  width: 25%;
   padding: 0.75rem;
   margin-top: 2rem;
-  background-color: #000;
+  background-color: rgba(241, 172, 1, 1);
   color: white;
   border: none;
   border-radius: .5rem;
@@ -459,7 +459,7 @@ html {
 }
 
 .submitButton:hover {
-  background-color: #333;
+  background-color: #b37a00;
 }
 
 .submitButton:disabled {

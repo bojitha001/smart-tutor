@@ -148,7 +148,7 @@ const FullQuestion = () => {
         </div>
 
         <div className={styles.answerBoxMain}>
-          <p className={styles.answerBoxTopic}>#General Disscusions</p>
+          <p className={styles.answerBoxTopic}>General Disscusions</p>
           <div className={styles.answerBoxSection1}>
             {answer && answer.length > 0 ? (
               answer.map((ans, index) => (
