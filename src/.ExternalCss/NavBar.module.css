@@ -7,10 +7,14 @@ html {
     list-style: none;
     align-items: center;
     justify-content: space-between;
-    height: 12.6rem;
+    height: 8rem;
     padding: 0 5.6rem;
     background-color: #F0F0F0;
-    position: relative;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100vw;
 }
 
 .smart {
@@ -37,6 +41,7 @@ html {
     font-weight: 100;
     font-size: 1.6rem;
     text-decoration: none;
+    padding-top: 10px;
 }
 
 .main-nav-list a {
@@ -85,6 +90,11 @@ button {
 
 }
 
+.buttonAlign{
+    display: flex;
+    gap: 1rem;
+}
+
 .login, .signup {
     padding: 1.2rem 2.4rem;
     font-family: 'Inria Sans';
@@ -92,7 +102,9 @@ button {
     font-size: 1.4rem;
     border-radius: 1rem !important;
     text-decoration: none;
-    display: inline-block;
+    display: flex;
+
+
 }
 
 .lang {
@@ -103,11 +115,17 @@ button {
 }
 
 .signup {
-    background-color: #fff;
+    background-color: #272727;
 }
 
 .login {
-    background-color: #E6E6E6;
+    background-color: #ffffff;
+    color: #0e0e0e;
+}
+
+.login:hover{
+    color: black;
+    border: 0.5px solid rgb(114, 114, 114);
 }
 
 .world {
