@@ -6,12 +6,13 @@ import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, R
 import 'react-calendar/dist/Calendar.css';
 import styles from "../../.ExternalCss/TutorMainView.module.css";
 import testImg from "../../assets/images/Avatar1.jpg"; 
-
+import { useUser, UserButton } from '@clerk/clerk-react';
 
 function MainContent() {
     const [value, onChange] = useState(new Date());
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
+    const { user, isLoaded } = useUser();
+
     const enrollmentData = [
       { name: 'Jan', students: 10 },
       { name: 'Feb', students: 40 },
@@ -30,6 +31,14 @@ function MainContent() {
       { name: 'Jun', revenue: 25000 },
     ];
   
+    // Get user's first name or full name
+    const userName = isLoaded && user ? ( user.fullName || user.firstName || 'User') : 'User';
+    // Get email if available
+    // Get primary email address if available
+    const userEmail = isLoaded && user && user.emailAddresses && user.emailAddresses.length > 0 
+      ? user.emailAddresses[0].emailAddress 
+      : '';
+  
     return (
       <div className={`${styles["main-content"]}`}>
         <header className={styles.header}>
@@ -40,10 +49,27 @@ function MainContent() {
           <div className={`${styles["profile-section"]}`}>
             <FaBell className={`${styles["notification-icon"]}`} />
             <div className={`${styles["profile-info"]}`}>
-              <img src={testImg} alt="Profile" className={`${styles["profile-pic"]}`} />
+            <UserButton 
+                appearance={{
+                  elements: {
+                    userButtonAvatarBox: {
+                      width: "40px",
+                      height: "40px"
+                    },
+                    userButtonTrigger: {
+                      padding: "0",
+                      margin: "0"
+                    }
+                  }
+                }}
+              />
               <div className={styles["profile-details"]}>
-                <div className={`${styles["profile-name"]}`}>Sarah Perera</div>
-                <div className={`${styles["profile-username"]}`}>@sarah123</div>
+                <div className={`${styles["profile-name"]}`}>
+                  {userName}
+                </div>
+                <div className={`${styles["profile-email"]}`}>
+                  {userEmail}
+                </div>
               </div>
             </div>
           </div>
@@ -53,10 +79,10 @@ function MainContent() {
           <div className={`${styles["main-content-left"]}`}>
             <div className={`${styles["welcome-banner"]}`}>
               <div className={`${styles["welcome-text"]}`}>
-                <h1>Welcome Back, Sarah!</h1>
+                <h1>Welcome Back, {user.firstName}!</h1>
                 <p>Let's share your knowledge</p>
               </div>
-              <img src={testImg} alt="Welcome" />
+              <img src={user.imageUrl} alt="Welcome" />
             </div>
     
             <div className={styles.statistics}>

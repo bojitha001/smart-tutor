@@ -1,13 +1,17 @@
 import React from "react";
 import { useState } from "react";
-import { useParams } from "react-router";
-import styles from "../../.ExternalCss/KuppiGroups.module.css";
+import { useNavigate, useParams } from "react-router";
+import styles from "../../.ExternalCss/Questions.module.css";
+import { useUser, UserButton } from '@clerk/clerk-react';
 
 const createCommunityQuestionForm = async (questionForm) => {
+  const token = await window.Clerk.session.getToken();
+
   const res = await fetch("http://localhost:8080/comunityQuestions", {
     method: "POST",
     headers: {
       "Content-Type": "application/json", //saying we are passing a json
+      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(questionForm),
   });
@@ -15,6 +19,11 @@ const createCommunityQuestionForm = async (questionForm) => {
 
 const Questions = () => {
   const params = useParams();
+  const { user } = useUser();
+  const userId = user?.id;
+  const userImageUrl = user?.imageUrl;
+  const userName = user ? `${user.firstName || ''} ${user.lastName || ''}`.trim() : 'Anonymous';
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     topic: "",
@@ -25,13 +34,20 @@ const Questions = () => {
     event.preventDefault();
     console.log(formData);
     createCommunityQuestionForm({
-      userId: "123",
+      userId,
+      userName, 
       topic: formData.topic,
       questions: formData.questions,
+      userImageUrl,
       community: params.id,
+      
     });
+    
+    navigate(`/kuppigroups-communities/${userId}`)
   };
   return (
+    <div className={styles.formContainer}>
+    <h1 className={styles.formTitle}>Your Question!</h1>
     <form action="" onSubmit={handleSubmit}>
       <div className={styles.questionInput}>
         <input
@@ -56,6 +72,7 @@ const Questions = () => {
         <button className={styles.postQuestionButton}>Post Question</button>
       </div>
     </form>
+    </div>
   );
 };
 

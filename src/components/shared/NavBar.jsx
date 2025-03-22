@@ -1,10 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "../../.ExternalCss/NavBar.module.css";
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
+import { SignedIn, SignedOut, SignInButton, UserButton, useUser } from "@clerk/clerk-react";
 
 export const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [dashboardPath, setDashboardPath] = useState('/student/dashboard');
+  const { user, isLoaded } = useUser();
+
+  useEffect(() => {
+    try {
+      if (isLoaded && user) {
+        const publicMetadata = user.publicMetadata || {};
+        
+        if (publicMetadata.role) {
+          switch (publicMetadata.role) {
+            // case 'admin':
+            //   setDashboardPath('/student/dashboard');
+            //   break;
+            case 'tutor':
+              setDashboardPath('/tutor-dashboard');
+              break;
+            case 'student':
+              setDashboardPath('/student/dashboard');
+              break;
+            default:
+              setDashboardPath(null);
+          }
+        } else {
+          console.log("No userType found in metadata");
+          setDashboardPath(null);
+        }
+      }
+    } catch (error) {
+      console.error("Error in useEffect:", error);
+      setDashboardPath(null); // Fallback to default on error
+    }
+  }, [isLoaded, user]);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -58,7 +90,25 @@ export const Navbar = () => {
         <div className={styles["nav-buttons"]}>
           <p className={styles["lang"]}>&#127760; En</p>
           <SignedIn>
-            <UserButton />
+            <UserButton appearance={{
+                          elements: {
+                            userButtonAvatarBox: {
+                              width: "3rem",
+                              height: "50%"
+                              ,}
+                            ,}
+                          ,}
+                        }
+            />
+            {isLoaded && dashboardPath &&(
+              <div className={styles.dashboardButtonMain}>
+
+              <button className={styles.dashboardButton}>
+                <Link to={dashboardPath} >Dashboard</Link>
+              </button>
+              
+              </div>
+            )}
           </SignedIn>
           <SignedOut>
             <div className="flex gap-x-4 items-center">

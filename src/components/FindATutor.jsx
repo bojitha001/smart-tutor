@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "../.ExternalCss/FindTutor.module.css";
-
-
+import { useUser } from "@clerk/clerk-react";
+import { Link } from "react-router";
 // const SAMPLE_TUTORS = [
 // {
 //   id: 1,
@@ -43,6 +43,8 @@ const FindTutor = () => {
   //   getTeachers();
   // }, []);
 
+  const { isLoaded, isSignedIn, user } = useUser();
+
   useEffect(() => {
     const fetchTutors = async () => {
       try {
@@ -70,6 +72,8 @@ const FindTutor = () => {
 
     fetchTutors();
   }, []);
+
+  
 
 
   // Fetch tutors (using sample data for now)
@@ -143,33 +147,23 @@ const FindTutor = () => {
     }
   };
 
-  const handleBookATutor = async () => {
-    const token = await window.Clerk.session.getToken();
+  // const handleBookATutor = async () => {
+  //   const token = await window.Clerk.session.getToken();
 
-    const res = await fetch(`http://localhost:8000/teachers`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json", //saying we are passing a json
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(jobApplicaion),
-    });
-  }
+  //   const res = await fetch(`http://localhost:8000/teachers`, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json", //saying we are passing a json
+  //       Authorization: `Bearer ${token}`,
+  //     },
+  //     body: JSON.stringify(jobApplicaion),
+  //   });
+  // }
+
 
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
-        {/* <div className={styles.logo}>
-            <h2><span>SMART</span> TUTOR</h2>
-        </div> */}
-        <p>Private tutors that fit your schedule, ready to help you succeed.</p>
-        <button 
-          className={styles.bookTutorBtn}
-          onClick={() => handleBookATutor()}
-        >
-          Book a Tutor
-        </button>
-      </div>
+      
 
       <div className={styles.filters}>
         <div className={styles.filterGroup}>
@@ -225,7 +219,7 @@ const FindTutor = () => {
             {displayedTutors.map((tutor) => (
               <div key={tutor.id} className={styles.tutorCard}>
                 <div className={styles.tutorImage}>
-                  <img src={tutor.image} alt={tutor.name} />
+                  <img src={tutor.userImageUrl} alt={tutor.name} />
                 </div>
                 <div className={styles.tutorInfo}>
                   <h3>{tutor.name}</h3>
@@ -238,12 +232,14 @@ const FindTutor = () => {
                     <p>{tutor.reviews} reviews</p>
                     <p>{tutor.lessons} lessons</p>
                   </div>
+                  <Link to={`/find-tutor/${tutor._id}`}>
                   <button
                     className={styles.bookBtn}
                     onClick={() => handleBookTutor(tutor.id)}
                   >
                     Explore more
                   </button>
+                  </Link>
                 </div>
               </div>
             ))}
