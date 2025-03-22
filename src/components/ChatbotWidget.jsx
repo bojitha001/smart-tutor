@@ -1,25 +1,44 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCommentDots, faTimes, faMinus, faPaperPlane,faChevronDown,faBook} from '@fortawesome/free-solid-svg-icons';
 import styles from "../.ExternalCss/ChatbotWidget.module.css";
+import ReactMarkdown from 'react-markdown';
 
 const ChatbotWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
     {
-      text: "Hi there! I'm your AI assistant. How can I help you today?",
+      text: "Hi there! I'm your Smart Tutor assistant. How can I help you today?",
       sender: 'bot',
       time: formatTime(new Date()),
     },
   ]);
   const [inputMessage, setInputMessage] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [suggestions, setSuggestions] = useState([
+    'How do I find a tutor?',
+    'What subjects are available?',
+    'How do I schedule a session?',
+    'What are the pricing plans?',
+    'How do I create an account?',
+    'How do I login to my account?'
+  ]);
+  const [sessionId, setSessionId] = useState('');
+  const [resources, setResources] = useState([]);
+  const [showResources, setShowResources] = useState(false);
   const messagesEndRef = useRef(null);
   const textareaRef = useRef(null);
+  const [minimized, setMinimized] = useState(false);
 
-  const suggestions = [
-    'Pricing plans',
-    'Integration options',
-    'Setup guide',
-  ];
+  // API endpoint (adjust if your backend runs on a different port)
+  const API_BASE_URL = 'http://localhost:8080';
+
+  useEffect(() => {
+    // Generate a unique session ID for this chat
+    if (!sessionId) {
+      setSessionId(`session_${Date.now()}_${Math.random().toString(36).substring(2, 11)}`);
+    }
+  }, [sessionId]);
 
   useEffect(() => {
     scrollToBottom();
@@ -31,12 +50,41 @@ const ChatbotWidget = () => {
     }
   }, [inputMessage]);
 
+  // Fetch suggested questions when chat is opened
+  useEffect(() => {
+    if (isOpen && !minimized) {
+      fetchSuggestions();
+    }
+  }, [isOpen, minimized]);
+  const fetchSuggestions = async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/chatbot/suggestions`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch suggestions');
+      }
+      const data = await response.json();
+      setSuggestions(data.suggestions || []);
+    } catch (error) {
+      console.error('Error fetching suggestions:', error);
+    }
+  };
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const toggleChat = () => {
-    setIsOpen(!isOpen);
+    if (isOpen && minimized) {
+      setMinimized(false);
+    } else {
+      setIsOpen(!isOpen);
+      setMinimized(false);
+    }
+  };
+
+  const minimizeChat = (e) => {
+    e.stopPropagation();
+    setMinimized(true);
   };
 
   const handleInputChange = (e) => {
@@ -69,27 +117,21 @@ const ChatbotWidget = () => {
     setMessages((prev) => [...prev, newUserMessage]);
     setInputMessage('');
     
-    // Simulate bot typing
+    // Show typing indicator
     setIsTyping(true);
+    setShowResources(false);
     
-    // Here you would normally make a request to your Node.js backend
-    // This is just a simulation
-    setTimeout(() => {
-      setIsTyping(false);
-      
-      const newBotMessage = {
-        text: "Thanks for your message! I'll help you with that.",
-        sender: 'bot',
-        time: formatTime(new Date()),
-      };
-      
-      setMessages((prev) => [...prev, newBotMessage]);
-    }, 1500);
+    // Send message to backend
+    sendMessageToBackend(newUserMessage.text);
   };
 
   const handleSuggestionClick = (suggestion) => {
     setInputMessage(suggestion);
     sendMessage();
+  };
+
+  const toggleResources = () => {
+    setShowResources(!showResources);
   };
 
   function formatTime(date) {
@@ -99,15 +141,32 @@ const ChatbotWidget = () => {
     return `${hours}:${minutes} ${ampm}`;
   }
 
-  // Replace this with your actual API call
+  // Simulate typing effect for longer responses
+  const simulateTypingEffect = (response, callback) => {
+    // For longer responses (like from AI), simulate a realistic typing delay
+    // based on response length
+    const typingDelay = Math.min(
+      1200, // minimum delay
+      Math.max(600, response.length / 10) // at least 600ms, at most 1200ms
+    );
+    
+    setTimeout(() => {
+      callback();
+    }, typingDelay);
+  };
+
+  // Send message to backend and get response
   const sendMessageToBackend = async (text) => {
     try {
-      const response = await fetch('YOUR_BACKEND_ENDPOINT', {
+      const response = await fetch(`${API_BASE_URL}/chatbot/message`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ message: text }),
+        body: JSON.stringify({ 
+          message: text,
+          sessionId: sessionId
+        }),
       });
       
       if (!response.ok) {
@@ -115,66 +174,166 @@ const ChatbotWidget = () => {
       }
       
       const data = await response.json();
-      return data.response; // Assuming your backend returns a response field
+      
+      // Store any resources that came with the response
+      if (data.resources && data.resources.length > 0) {
+        setResources(data.resources);
+      } else {
+        setResources([]);
+      }
+      
+      // Simulate typing for a more natural feel
+      simulateTypingEffect(data.response, () => {
+        // Hide typing indicator and add bot response
+        setIsTyping(false);
+        
+        const newBotMessage = {
+          text: data.response,
+          sender: 'bot',
+          time: formatTime(new Date()),
+          source: data.source // 'faq', 'ai', or 'simple'
+        };
+        
+        setMessages((prev) => [...prev, newBotMessage]);
+      });
     } catch (error) {
       console.error('Error sending message to backend:', error);
-      return 'Sorry, there was an error processing your request.';
+      
+      // Hide typing indicator and add error message
+      setIsTyping(false);
+      
+      const errorMessage = {
+        text: 'Sorry, there was an error processing your request. Please try again later.',
+        sender: 'bot',
+        time: formatTime(new Date()),
+      };
+      
+      setMessages((prev) => [...prev, errorMessage]);
     }
   };
-
   return (
     <>
       {/* Chat Button (Closed State) */}
       {!isOpen && (
         <div className={styles.chatWidgetButton} onClick={toggleChat}>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-          </svg>
+          <FontAwesomeIcon icon={faCommentDots} />
+          <span className={styles.chatButtonLabel}>Ask Tutor AI</span>
+        </div>
+      )}
+
+      {/* Minimized Chat Widget */}
+      {isOpen && minimized && (
+        <div className={styles.minimizedChat} onClick={toggleChat}>
+          <div className={styles.minimizedAvatar}>
+            <FontAwesomeIcon icon={faCommentDots} />
+          </div>
+          <div className={styles.minimizedText}>Tutor AI</div>
         </div>
       )}
 
       {/* Chat Widget (Open State) */}
-      {isOpen && (
+      {isOpen && !minimized && (
         <div className={styles.chatWidget}>
           {/* Header */}
           <div className={styles.chatHeader}>
             <div className={styles.chatHeaderLeft}>
               <div className={styles.headerAvatar}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                  <path d="M8.5 5.034v1.1l.953-.55.5.867L9 7l.953.55-.5.866-.953-.55v1.1h-1v-1.1l-.953.55-.5-.866L7 7l-.953-.55.5-.866.953.55v-1.1h1zM7 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
-                  <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a1.5 1.5 0 1 0 2.12-2.12l-.354-.354.354-.354a1.5 1.5 0 1 0-2.12-2.12L13.6 1.7l-.013-.012A7 7 0 0 0 8 0H6.5zm2.5 4a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                </svg>
+                <FontAwesomeIcon icon={faCommentDots} />
               </div>
               <div className={styles.headerInfo}>
-                <h4>AI Assistant</h4>
+                <h4>Tutor AI Assistant</h4>
                 <span>Online</span>
               </div>
             </div>
-            <div className={styles.closeButton} onClick={toggleChat}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-              </svg>
+            <div className={styles.headerActions}>
+              <div className={styles.actionIcon} onClick={minimizeChat} title="Minimize">
+                <FontAwesomeIcon icon={faMinus} />
+              </div>
+              <div className={styles.actionIcon} onClick={toggleChat} title="Close">
+                <FontAwesomeIcon icon={faTimes} />
+              </div>
             </div>
           </div>
 
           {/* Messages */}
           <div className={styles.messagesContainer}>
-            {messages.map((msg, index) => (
+            <div className={styles.welcomeSection}>
+              <div className={styles.welcomeAvatar}>
+                <FontAwesomeIcon icon={faCommentDots} size="2x" />
+              </div>
+              <h3 className={styles.welcomeTitle}>Smart Tutor AI</h3>
+              <p className={styles.welcomeText}>
+                Ask me anything about Smart Tutor platform, how to find tutors, schedule sessions, or any other questions you might have.
+              </p>
+            </div>
+
+            {messages.slice(1).map((msg, index) => (
               <div 
                 key={index} 
                 className={`${styles.message} ${msg.sender === 'bot' ? styles.botMessage : styles.userMessage}`}
               >
-                {msg.text}
-                <div className={styles.messageTime}>{msg.time}</div>
+                {msg.sender === 'bot' && (
+                  <div className={styles.botAvatar}>
+                    <FontAwesomeIcon icon={faCommentDots} />
+                  </div>
+                )}
+                <div className={styles.messageContent}>
+                  <div className={styles.messageText}>
+                    {typeof ReactMarkdown === 'function' ? (
+                      <ReactMarkdown>{msg.text}</ReactMarkdown>
+                    ) : (
+                      <div dangerouslySetInnerHTML={{ __html: msg.text.replace(/\n/g, '<br />') }} />
+                    )}
+                  </div>
+                  <div className={styles.messageTime}>{msg.time}</div>
+                  
+                  {/* Show resources if available and it's a bot message */}
+                  {msg.sender === 'bot' && resources.length > 0 && messages[messages.length - 1] === msg && (
+                    <div className={styles.resourcesContainer}>
+                      <button 
+                        className={styles.resourcesToggle}
+                        onClick={toggleResources}
+                      >
+                        {showResources ? 'Hide Resources' : 'Show Related Resources'} 
+                        <FontAwesomeIcon 
+                          icon={faChevronDown} 
+                          className={showResources ? styles.iconRotated : ''} 
+                        />
+                      </button>
+                      
+                      {showResources && (
+                        <div className={styles.resourcesList}>
+                          {resources.map((resource, idx) => (
+                            <a 
+                              key={idx} 
+                              href={resource.url} 
+                              className={styles.resourceLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <FontAwesomeIcon icon={faBook} />
+                              {resource.title}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
               </div>
             ))}
             
             {/* Typing Indicator */}
             {isTyping && (
               <div className={styles.typingIndicator}>
-                <div className={styles.typingDot}></div>
-                <div className={styles.typingDot}></div>
-                <div className={styles.typingDot}></div>
+                <div className={styles.botAvatar}>
+                  <FontAwesomeIcon icon={faCommentDots} />
+                </div>
+                <div className={styles.typingDots}>
+                  <div className={styles.typingDot}></div>
+                  <div className={styles.typingDot}></div>
+                  <div className={styles.typingDot}></div>
+                </div>
               </div>
             )}
             
@@ -183,17 +342,22 @@ const ChatbotWidget = () => {
           </div>
           
           {/* Suggestions */}
-          <div className={styles.suggestions}>
-            {suggestions.map((suggestion, index) => (
-              <div 
-                key={index} 
-                className={styles.suggestion}
-                onClick={() => handleSuggestionClick(suggestion)}
-              >
-                {suggestion}
+          {messages.length < 3 && (
+            <div className={styles.suggestionsContainer}>
+              <h4 className={styles.suggestionsTitle}>Frequently asked questions</h4>
+              <div className={styles.suggestions}>
+                {suggestions.map((suggestion, index) => (
+                  <div 
+                    key={index} 
+                    className={styles.suggestion}
+                    onClick={() => handleSuggestionClick(suggestion)}
+                  >
+                    {suggestion}
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          )}
 
           {/* Input Area */}
           <div className={styles.inputContainer}>
@@ -206,9 +370,7 @@ const ChatbotWidget = () => {
               onKeyPress={handleKeyPress}
             />
             <div className={styles.actionButton} onClick={sendMessage}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
-              </svg>
+              <FontAwesomeIcon icon={faPaperPlane} />
             </div>
           </div>
         </div>
