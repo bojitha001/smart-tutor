@@ -1,15 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCommentDots,
-  faTimes,
-  faMinus,
+import {faCommentDots,faTimes,faMinus,
   faPaperPlane,
   faChevronDown,
   faBook,
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "../.ExternalCss/ChatbotWidget.module.css";
 import ReactMarkdown from "react-markdown";
+import logo from "../assets/images/LOGO SM.png";
 
 const ChatbotWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,12 +27,19 @@ const ChatbotWidget = () => {
     "What are the pricing plans?",
     "How do I create an account?",
     "How do I login to my account?",
+    "Do you offer group sessions?",
+    "Can I see tutor reviews?",
+    "How do I cancel a session?",
+    "Are there any discounts available?",
+    "How do I become a tutor?",
+    "Is there a mobile app?",
   ]);
   const [sessionId, setSessionId] = useState("");
   const [resources, setResources] = useState([]);
   const [showResources, setShowResources] = useState(false);
   const messagesEndRef = useRef(null);
   const textareaRef = useRef(null);
+  const suggestionsRef = useRef(null);
   const [minimized, setMinimized] = useState(false);
 
   // API endpoint (adjust if your backend runs on a different port)
@@ -65,6 +70,7 @@ const ChatbotWidget = () => {
       fetchSuggestions();
     }
   }, [isOpen, minimized]);
+  
   const fetchSuggestions = async () => {
     try {
       const response = await fetch(`${API_BASE_URL}/chatbot/suggestions`);
@@ -72,9 +78,13 @@ const ChatbotWidget = () => {
         throw new Error("Failed to fetch suggestions");
       }
       const data = await response.json();
-      setSuggestions(data.suggestions || []);
+      // If API returns suggestions, use them; otherwise, keep the default ones
+      if (data.suggestions && data.suggestions.length > 0) {
+        setSuggestions(data.suggestions);
+      }
     } catch (error) {
       console.error("Error fetching suggestions:", error);
+      // Keep default suggestions on error
     }
   };
 
@@ -167,43 +177,54 @@ const ChatbotWidget = () => {
   // Send message to backend and get response
   const sendMessageToBackend = async (text) => {
     try {
-      const response = await fetch(`${API_BASE_URL}/chatbot/message`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          message: text,
-          sessionId: sessionId,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-
-      const data = await response.json();
-
-      // Store any resources that came with the response
-      if (data.resources && data.resources.length > 0) {
-        setResources(data.resources);
-      } else {
-        setResources([]);
+      // In a real implementation, this would call your actual backend
+      // For now, we're simulating a response
+      
+      // Simulate network delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      let responseText = "I don't have information about that yet. Our team is still working on improving my knowledge base. Is there anything else I can help you with?";
+      let responseResources = [];
+      
+      // Simple keyword matching for demo purposes
+      if (text.toLowerCase().includes("tutor")) {
+        responseText = "You can find a tutor by using the 'Find a Tutor' option in the main menu. You can filter tutors by subject, experience level, and availability.";
+        responseResources = [
+          { title: "How to choose the right tutor", url: "/guides/choosing-tutor" },
+          { title: "Tutor qualifications", url: "/about/tutor-standards" }
+        ];
+      } else if (text.toLowerCase().includes("pricing") || text.toLowerCase().includes("cost") || text.toLowerCase().includes("price")) {
+        responseText = "Our pricing depends on the tutor's experience and qualifications. Basic sessions start at Rs. 2000 per hour, while sessions with specialized tutors may cost up to Rs. 4000 per hour.";
+        responseResources = [
+          { title: "Pricing details", url: "/pricing" },
+          { title: "Discount packages", url: "/pricing/packages" }
+        ];
+      } else if (text.toLowerCase().includes("schedule") || text.toLowerCase().includes("booking") || text.toLowerCase().includes("book")) {
+        responseText = "To schedule a session, first select a tutor from the 'Find a Tutor' page, then click on 'Book Session' on their profile. You can choose a date and time that works for you from their available slots.";
+      } else if (text.toLowerCase().includes("account")) {
+        responseText = "You can create an account by clicking the 'Sign Up' button in the top-right corner of the homepage. You'll need to provide your email address and create a password. For login issues, you can use the 'Forgot Password' option on the login page.";
       }
 
       // Simulate typing for a more natural feel
-      simulateTypingEffect(data.response, () => {
+      simulateTypingEffect(responseText, () => {
         // Hide typing indicator and add bot response
         setIsTyping(false);
 
         const newBotMessage = {
-          text: data.response,
+          text: responseText,
           sender: "bot",
           time: formatTime(new Date()),
-          source: data.source, // 'faq', 'ai', or 'simple'
+          source: "ai", // Simulating AI response
         };
 
         setMessages((prev) => [...prev, newBotMessage]);
+        
+        // Set resources if any
+        if (responseResources.length > 0) {
+          setResources(responseResources);
+        } else {
+          setResources([]);
+        }
       });
     } catch (error) {
       console.error("Error sending message to backend:", error);
@@ -220,6 +241,7 @@ const ChatbotWidget = () => {
       setMessages((prev) => [...prev, errorMessage]);
     }
   };
+  
   return (
     <>
       {/* Chat Button (Closed State) */}
@@ -276,7 +298,7 @@ const ChatbotWidget = () => {
           <div className={styles.messagesContainer}>
             <div className={styles.welcomeSection}>
               <div className={styles.welcomeAvatar}>
-                <FontAwesomeIcon icon={faCommentDots} size="2x" />
+              <img src={logo} alt="Tutor AI" className={styles.avatarImage} />
               </div>
               <h3 className={styles.welcomeTitle}>Smart Tutor AI</h3>
               <p className={styles.welcomeText}>
@@ -369,13 +391,13 @@ const ChatbotWidget = () => {
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Suggestions */}
+          {/* Suggestions - Now with scrollbar and reduced height */}
           {messages.length < 3 && (
             <div className={styles.suggestionsContainer}>
               <h4 className={styles.suggestionsTitle}>
                 Frequently asked questions
               </h4>
-              <div className={styles.suggestions}>
+              <div className={styles.suggestions} ref={suggestionsRef}>
                 {suggestions.map((suggestion, index) => (
                   <div
                     key={index}
