@@ -10,6 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "../.ExternalCss/ChatbotWidget.module.css";
 import ReactMarkdown from "react-markdown";
+import logo from "../assets/images/LOGO SM.png";
 
 const ChatbotWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -276,7 +277,7 @@ const ChatbotWidget = () => {
           <div className={styles.messagesContainer}>
             <div className={styles.welcomeSection}>
               <div className={styles.welcomeAvatar}>
-                <FontAwesomeIcon icon={faCommentDots} size="2x" />
+              <img src={logo} alt="Tutor AI" className={styles.avatarImage} />
               </div>
               <h3 className={styles.welcomeTitle}>Smart Tutor AI</h3>
               <p className={styles.welcomeText}>

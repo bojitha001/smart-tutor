@@ -2,19 +2,6 @@ import { useState, useEffect } from "react";
 import styles from "../.ExternalCss/FindTutor.module.css";
 import { useUser } from "@clerk/clerk-react";
 import { Link } from "react-router";
-// const SAMPLE_TUTORS = [
-// {
-//   id: 1,
-//   name: 'Sam Sadunka',
-//   degree: 'MSc - Computer Science',
-//   subject: 'Computer Science',
-//   level: 'Higher',
-//   bio: 'As a Computer Science graduate with more than 4 years of teaching experience, I am passionate about making this subject easy to understand. My teaching style is interactive and focused on practical examples and problem-solving.',
-//   price: 3000,
-//   reviews: 0,
-//   lessons: 40,
-//   image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-// },
 
 const FindTutor = () => {
   const [SAMPLE_TUTORS, setSAMPLE_TUTORS] = useState([]);
@@ -27,21 +14,13 @@ const FindTutor = () => {
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const TUTORS_PER_PAGE = 4;
-
-  // useEffect(() => {
-  //   const getTeachers = async () => {
-  //     const res = await fetch("http://localhost:8000/teachers", {
-  //       method: "GET",
-  //     });
-  //     const teachers = await res.json();
-  //     console.log(teachers)
-  //     setSAMPLE_TUTORS(teachers);
-  //   };
-
-  //   getTeachers();
-  // }, []);
-
+  const [isFilterVisible, setIsFilterVisible] = useState(true);
   const { isLoaded, isSignedIn, user } = useUser();
+
+  // Toggle filters on mobile
+  const toggleFilters = () => {
+    setIsFilterVisible(!isFilterVisible);
+  };
 
   useEffect(() => {
     const fetchTutors = async () => {
@@ -142,67 +121,64 @@ const FindTutor = () => {
     }
   };
 
-  // const handleBookATutor = async () => {
-  //   const token = await window.Clerk.session.getToken();
-
-  //   const res = await fetch(`http://localhost:8000/teachers`, {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json", //saying we are passing a json
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //     body: JSON.stringify(jobApplicaion),
-  //   });
-  // }
-
   return (
     <div className={styles.body}>
       <div className={styles.container}>
-        <div className={styles.filters}>
-          <div className={styles.filterGroup}>
-            <label>Subject</label>
-            <select
-              value={subject}
-              onChange={(e) => setSubject(e.target.value)}
-              className={styles.select}
-            >
-              <option value="All subjects">All subjects</option>
-              <option value="Mathematics">Mathematics</option>
-              <option value="Physics">Physics</option>
-              <option value="Computer Science">Computer Science</option>
-            </select>
-          </div>
+        <button
+          className={styles.filtersBtn}
+          onClick={toggleFilters}
+          style={{ marginBottom: "1rem", display: "block", width: "auto" }}
+        >
+          {isFilterVisible ? "Hide Filters" : "Show Filters"}
+        </button>
 
-          <div className={styles.filterGroup}>
-            <label>Level</label>
-            <select
-              value={level}
-              onChange={(e) => setLevel(e.target.value)}
-              className={styles.select}
-            >
-              <option value="All levels">All levels</option>
-              <option value="O/L">O/L</option>
-              <option value="A/L">A/L</option>
-              <option value="Higher">Higher</option>
-            </select>
-          </div>
+        {isFilterVisible && (
+          <div className={styles.filters}>
+            <div className={styles.filterGroup}>
+              <label>Subject</label>
+              <select
+                value={subject}
+                onChange={(e) => setSubject(e.target.value)}
+                className={styles.select}
+              >
+                <option value="All subjects">All subjects</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="Physics">Physics</option>
+                <option value="Computer Science">Computer Science</option>
+              </select>
+            </div>
 
-          <div className={styles.filterGroup}>
-            <label>Price</label>
-            <select
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
-              className={styles.select}
-            >
-              <option value="All prices">All prices</option>
-              <option value="0-2000">Rs. 0 - 2000</option>
-              <option value="2000-4000">Rs. 2000 - 4000</option>
-              <option value="4000+">Rs. 4000+</option>
-            </select>
-          </div>
+            <div className={styles.filterGroup}>
+              <label>Level</label>
+              <select
+                value={level}
+                onChange={(e) => setLevel(e.target.value)}
+                className={styles.select}
+              >
+                <option value="All levels">All levels</option>
+                <option value="O/L">O/L</option>
+                <option value="A/L">A/L</option>
+                <option value="Higher">Higher</option>
+              </select>
+            </div>
 
-          <button className={styles.filtersBtn}>Filters</button>
-        </div>
+            <div className={styles.filterGroup}>
+              <label>Price</label>
+              <select
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+                className={styles.select}
+              >
+                <option value="All prices">All prices</option>
+                <option value="0-2000">Rs. 0 - 2000</option>
+                <option value="2000-4000">Rs. 2000 - 4000</option>
+                <option value="4000+">Rs. 4000+</option>
+              </select>
+            </div>
+
+            <button className={styles.filtersBtn}>Apply</button>
+          </div>
+        )}
 
         {loading ? (
           <div className={styles.loading}>Loading tutors...</div>
@@ -212,18 +188,30 @@ const FindTutor = () => {
               {displayedTutors.map((tutor) => (
                 <div key={tutor.id} className={styles.tutorCard}>
                   <div className={styles.tutorImage}>
-                    <img src={tutor.userImageUrl} alt={tutor.name} />
+                    <img
+                      src={tutor.userImageUrl}
+                      alt={tutor.name}
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = "https://via.placeholder.com/70";
+                      }}
+                    />
                   </div>
                   <div className={styles.tutorInfo}>
                     <h3>{tutor.name}</h3>
                     <p className={styles.degree}>{tutor.degree}</p>
-                    <p className={styles.bio}>{tutor.bio}</p>
+                    <p className={styles.bio}>
+                      {tutor.bio && tutor.bio.length > 150
+                        ? `${tutor.bio.substring(0, 150)}...`
+                        : tutor.bio}
+                    </p>
                     <div className={styles.hashTagsContainer}>
-                      {tutor.keyWords.map((keyword, index) => (
-                        <p key={index} className={styles.hashTags}>
-                          {keyword}
-                        </p>
-                      ))}
+                      {tutor.keyWords &&
+                        tutor.keyWords.map((keyword, index) => (
+                          <p key={index} className={styles.hashTags}>
+                            {keyword}
+                          </p>
+                        ))}
                     </div>
                   </div>
                   <div className={styles.tutorStats}>
@@ -236,8 +224,8 @@ const FindTutor = () => {
                       </button>
                     </Link>
                     <div className={styles.stats}>
-                      <p>{tutor.reviews} reviews</p>
-                      <p>{tutor.lessons} lessons</p>
+                      <p>{tutor.reviews || 0} reviews</p>
+                      <p>{tutor.lessons || 0} lessons</p>
                     </div>
                   </div>
                 </div>

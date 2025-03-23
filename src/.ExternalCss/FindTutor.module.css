@@ -1,26 +1,28 @@
-.body{
-    width: 1500px;
+.body {
+    width: 100%;
     background-color: #fff;
+    max-width: 100%;
 }
 
 .container {
-    max-width: 800px;
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0.5rem;
+    padding: 1rem;
+    box-sizing: border-box;
 }
   
 .header {
     text-align: center;
     margin-bottom: 2rem;
-    
 }
   
 .logo {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
 }
     
 .logo h2 {
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
     font-weight: 600;
 }
     
@@ -32,7 +34,7 @@
     color: #333;
     font-family: "Inter", sans-serif;
     margin-bottom: 2rem;
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 3vw, 1.5rem);
 }
   
 .bookTutorBtn {
@@ -41,9 +43,10 @@
     padding: 0.8rem 2rem;
     border-radius: 4px;
     font-weight: 600;
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
     cursor: pointer;
     transition: background-color 0.3s;
+    width: auto;
 }
   
 .bookTutorBtn:hover {
@@ -52,21 +55,23 @@
   
 .filters {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 1rem;
     margin-bottom: 2rem;
     align-items: flex-end;
-    font-size: 1.5rem;
 }
   
 .filterGroup {
-    flex: 1;
+    flex: 1 1 200px;
+    min-width: 0;
 }
   
 .filterGroup label {
     display: block;
     margin-bottom: 0.5rem;
     color: #333;
-    font-size: 1.5rem;
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
 }
   
 .select {
@@ -76,16 +81,20 @@
     border-radius: 4px;
     background-color: white;
     cursor: pointer;
-    font-size: 1.5rem;
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
     color: #333;
 }
   
 .filtersBtn {
     padding: 0.8rem 1.5rem;
     background-color: white;
+    color: #333;
     border: 1px solid #ddd;
     border-radius: 4px;
     cursor: pointer;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    margin-top: auto;
+    flex: 0 0 auto;
 }
   
 .tutorList {
@@ -96,7 +105,9 @@
   
 .tutorCard {
     display: flex;
-    gap: 2rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
     padding: 1.5rem;
     background-color: white;
     border-radius: 8px;
@@ -108,6 +119,7 @@
     height: 70px;
     border-radius: 8px;
     overflow: hidden;
+    flex-shrink: 0;
 }
   
 .tutorImage img {
@@ -117,69 +129,82 @@
 }
   
 .tutorInfo {
-    flex: 1;
+    flex: 1 1 280px;
+    min-width: 0;
 }
   
 .tutorInfo h3 {
     margin: 0;
     color: #333;
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
 }
   
 .degree {
     color: #666;
     margin: 0.5rem 0;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
 }
   
 .bio {
     color: #666;
-    font-size: 0.9rem;
     line-height: 1.5;
-    font-size: 1.3rem;
+    font-size: clamp(0.9rem, 2vw, 1.3rem);
+    margin-bottom: 0.75rem;
 }
 
 .hashTagsContainer {
     display: flex;
-    gap: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
 }
 
 .hashTags {
     border: solid #666 .5px;
-    padding: 3px 3px;
+    padding: 3px 6px;
     border-radius: 5px;
+    font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+    margin: 0;
 }
   
 .tutorStats {
-    width: 200px;
+    width: 100%;
     text-align: right;
+    flex: 1 1 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
 }
   
 .price {
     font-weight: 600;
     color: #333;
     margin-bottom: 1rem;
-    font-size: 1.5rem;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
 }
   
 .stats {
     color: #666;
-    font-size: 0.9rem;
     margin-bottom: 1rem;
+    text-align: right;
 }
   
 .stats p {
     margin: 0.2rem 0;
-    font-size: 1.2rem;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
 }
   
 .bookBtn {
     background-color: #333;
     color: white;
     border: none;
-    padding: 0.6rem 2rem;
-    font-size: 1.5rem;
+    padding: 0.6rem 1.5rem;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
+    width: auto;
 }
   
 .bookBtn:hover {
@@ -190,13 +215,14 @@
     display: block;
     margin: 2rem auto;
     padding: 0.8rem 2rem;
-    font-size: 1.5rem;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
+    width: auto;
 }
   
 .showMoreBtn:hover {
@@ -207,6 +233,7 @@
     text-align: center;
     padding: 2rem;
     color: #666;
+    font-size: clamp(1rem, 3vw, 1.3rem);
 }
   
 .noResults {
@@ -214,4 +241,54 @@
     padding: 2rem;
     color: #666;
     font-style: italic;
+    font-size: clamp(1rem, 3vw, 1.3rem);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .tutorCard {
+        flex-direction: column;
+    }
+    
+    .tutorStats {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1rem;
+    }
+    
+    .stats {
+        margin-bottom: 0;
+    }
+    
+    .tutorImage {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .filterGroup {
+        flex: 1 1 100%;
+    }
+    
+    .filtersBtn {
+        width: 100%;
+        margin-top: 1rem;
+    }
+    
+    .tutorStats {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .bookBtn {
+        width: 100%;
+    }
+    
+    .stats {
+        text-align: left;
+        margin-top: 0.5rem;
+    }
 }
