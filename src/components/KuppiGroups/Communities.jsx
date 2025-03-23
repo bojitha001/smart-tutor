@@ -48,6 +48,7 @@ const Communities = () => {
             key={community._id}
             name={community.name}
             members={community.members}
+            imageUrl={community.imageUrl}
           />
         ))}
       </div>

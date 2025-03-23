@@ -3,12 +3,12 @@ import styles from "../../.ExternalCss/KuppiGroups.module.css";
 import { Link } from "react-router";
 
 
-const CommunityCard = ({ id, name, members }) => {
+const CommunityCard = ({ id, name, members, imageUrl }) => {
   return (
     <Link to={`/kuppigroups-communities/${id}`}>
       <div key={id} className={styles.communityCard}>
         <div className={styles.communityImage}>
-          <img src="" alt={name} />
+          <img src={imageUrl} alt={name} />
         </div>
         <div className={styles.communityInfo}>
           <div>
