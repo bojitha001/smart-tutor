@@ -26,7 +26,7 @@ const FindTutor = () => {
     const fetchTutors = async () => {
       try {
         setLoading(true);
-        const res = await fetch("http://localhost:8080/teachers", {
+        const res = await fetch("http://www.smarttutor.lk/teachers", {
           method: "GET",
         });
 

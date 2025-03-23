@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const createCommunityQuestionForm = async (questionForm) => {
   const token = await window.Clerk.session.getToken();
 
-  const res = await fetch("http://localhost:8080/comunityQuestions", {
+  const res = await fetch("http://www.smarttutor.lk/comunityQuestions", {
     method: "POST",
     headers: {
       "Content-Type": "application/json", //saying we are passing a json

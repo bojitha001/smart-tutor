@@ -6,7 +6,7 @@ import { Link } from "react-router";
 import { useUser } from "@clerk/clerk-react";
 
 const getATeacherById = async (id) => {
-  const res = await fetch(`http://localhost:8080/teachers/${id}`, {
+  const res = await fetch(`http://www.smarttutor.lk/teachers/${id}`, {
     method: "GET",
   });
   const tutor = await res.json();
@@ -46,7 +46,7 @@ const TutorProfile = () => {
       };
       console.log(bookingData);
 
-      const res = await fetch("http://localhost:8080/bookings", {
+      const res = await fetch("http://www.smarttutor.lk/bookings", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

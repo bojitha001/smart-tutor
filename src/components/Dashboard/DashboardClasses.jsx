@@ -57,7 +57,7 @@ function DashboardClasses() {
       if(userClerk) {
         try {
           const response = await fetch(
-            `http://localhost:8080/bookings/${user.id}`
+            `http://www.smarttutor.lk/bookings/${user.id}`
           );
           
           if (response.ok) {
