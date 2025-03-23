@@ -43,6 +43,7 @@ const TutorProfile = () => {
         studentName: user
           ? `${user.firstName || ""} ${user.lastName || ""}`.trim()
           : "Anonymous",
+        studentEmail: user.emailAddresses[0]?.emailAddress || "",
       };
       console.log(bookingData);
 
