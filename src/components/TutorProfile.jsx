@@ -43,6 +43,7 @@ const TutorProfile = () => {
         studentName: user
           ? `${user.firstName || ""} ${user.lastName || ""}`.trim()
           : "Anonymous",
+        studentEmail: user.emailAddresses[0]?.emailAddress || "",
       };
       console.log(bookingData);
 
@@ -81,7 +82,7 @@ const TutorProfile = () => {
             <div class={`${styles.profileInfo}`}>
               <h1 class={`${styles.name}`}>{tutor?.name}</h1>
               <p class={`${styles.title}`}>
-                Senior Product Designer based in San Francisco
+              {tutor?.degree}
               </p>
               <div className={styles.contactItemContainer}>
                 <div className={styles.contactItem}>
@@ -107,15 +108,9 @@ const TutorProfile = () => {
             <div>
               <h3 class={`${styles.aboutTitle}`}>About me</h3>
               <p class={`${styles.aboutText}`}>
-                I'm a Product Designer with over 5 years of experience. I enjoy
-                working on challenging projects and creating user-centered
-                designs that solve real problems.
+                {tutor?.bio}
               </p>
-              <p class={`${styles.aboutText}`}>
-                I've worked with various startups and established companies,
-                helping them improve their UX and drive business growth through
-                effective design solutions.
-              </p>
+              
             </div>
           </div>
 
