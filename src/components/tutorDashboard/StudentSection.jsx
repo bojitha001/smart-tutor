@@ -133,7 +133,7 @@ const StudentView = () => {
           </div>
         </div>
 
-        <div className={styles.statsContainer}>
+        {/* <div className={styles.statsContainer}>
           <div className={styles.statBox}>
             <h3>Students Joined this Month</h3>
             <span className={styles.statNumber}>133</span>
@@ -146,7 +146,7 @@ const StudentView = () => {
             <h3>Total Students joined with you</h3>
             <span className={styles.statNumber}>99056</span>
           </div>
-        </div>
+        </div> */}
 
         <div className={styles.recentStudents}>
           <div className={styles.sectionHeader}>
@@ -196,7 +196,7 @@ const StudentView = () => {
       </div>
 
       <div className={styles.rightSection}>
-        <div className={styles.managementSection}>
+        {/* <div className={styles.managementSection}>
           <h2>Manage Students</h2>
           <div className={styles.managementCard}>
             <div className={styles.cardHeader}>
@@ -216,7 +216,7 @@ const StudentView = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className={styles.marksSection}>
           <h2>Student Marks</h2>
