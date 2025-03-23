@@ -45,24 +45,24 @@ const testimonials = [
   },
   {
     id: 3,
-    name: "A. Fernando",
-    role: "Tutor",
+    name: "Tharindu Fernando",
+    role: "(ICT Tutor)",
     image: "src/assets/images/aFernando.jpg",
-    text: "An unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    text: "Smart Tutor gave me the opportunity to teach passionate students while earning flexibly. The platform is smooth, and I’ve built great relationships with my students!",
   },
   {
     id: 4,
-    name: "S. Mendis",
-    role: "Parent",
+    name: "Isuri M.",
+    role: "(Math Tutor)",
     image: "src/assets/images/sMendis.jpg",
-    text: "Lorem Ipsum is not just random text; it has roots in classical Latin.",
+    text: "Being a tutor on Smart Tutor has been an amazing experience! The student engagement is great, and the support from the platform helps me focus on teaching.",
   },
   {
     id: 5,
-    name: "M. Smith",
-    role: "Tutor",
+    name: "Mrs. Perera ",
+    role: "(Parent of a Grade 10 Student)",
     image: "src/assets/images/mSmith.jpg",
-    text: "The passage has been used in typesetting for centuries.",
+    text: "Finding a reliable tutor for my child was so stressful—until we found Smart Tutor. Now, they have a dedicated tutor who truly understands their needs. Best decision ever!",
   },
 ];
 
