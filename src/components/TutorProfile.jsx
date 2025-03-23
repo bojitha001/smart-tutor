@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Star, Mail, Phone, GraduationCap, Clock } from "lucide-react";
 import styles from "../.ExternalCss/tutorProfile.module.css";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { Link } from "react-router";
 import { useUser } from "@clerk/clerk-react";
 
@@ -15,9 +15,9 @@ const getATeacherById = async (id) => {
 
 const TutorProfile = () => {
   const params = useParams();
-  console.log(params.id)
+  console.log(params.id);
   const { user } = useUser();
-  
+  const navigate = useNavigate();
   const [tutor, setTutor] = useState(null);
 
   useEffect(() => {
@@ -34,8 +34,6 @@ const TutorProfile = () => {
     console.log("hi");
   };
 
-
-
   const createBooking = async () => {
     try {
       const bookingData = {
@@ -47,7 +45,7 @@ const TutorProfile = () => {
           : "Anonymous",
       };
       console.log(bookingData);
-      
+
       const res = await fetch("http://localhost:8080/bookings", {
         method: "POST",
         headers: {
@@ -55,11 +53,11 @@ const TutorProfile = () => {
         },
         body: JSON.stringify(bookingData),
       });
-  
+
       if (!res.ok) {
         throw new Error(`HTTP error! Status: ${res.status}`);
       }
-  
+
       const data = await res.json();
       console.log("Booking successful:", data);
     } catch (error) {
@@ -148,11 +146,11 @@ const TutorProfile = () => {
           </div>
           <div></div>
 
-
-          <button onClick={createBooking} className={`${styles.bookButton}`}>
-            Book
-            
-          </button>
+          <Link to="/find-tutor">
+            <button onClick={createBooking} className={`${styles.bookButton}`}>
+              Book
+            </button>
+          </Link>
         </div>
       </div>
     </div>
