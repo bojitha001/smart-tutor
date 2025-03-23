@@ -26,7 +26,7 @@ const FindTutor = () => {
     const fetchTutors = async () => {
       try {
         setLoading(true);
-        const res = await fetch("http://smart-tutor-backend-production.up.railway.app/teachers", {
+        const res = await fetch("http://localhost:8080/teachers", {
           method: "GET",
         });
 

@@ -39,7 +39,7 @@ const ChatbotWidget = () => {
   const [minimized, setMinimized] = useState(false);
 
   // API endpoint (adjust if your backend runs on a different port)
-  const API_BASE_URL = "http://smart-tutor-backend-production.up.railway.app";
+  const API_BASE_URL = "http://localhost:8080";
 
   useEffect(() => {
     // Generate a unique session ID for this chat
