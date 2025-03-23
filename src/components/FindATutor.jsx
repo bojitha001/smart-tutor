@@ -16,7 +16,6 @@ import { Link } from "react-router";
 //   image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
 // },
 
-
 const FindTutor = () => {
   const [SAMPLE_TUTORS, setSAMPLE_TUTORS] = useState([]);
   const [subject, setSubject] = useState("All subjects");
@@ -29,7 +28,6 @@ const FindTutor = () => {
   const [hasMore, setHasMore] = useState(true);
   const TUTORS_PER_PAGE = 4;
 
-  
   // useEffect(() => {
   //   const getTeachers = async () => {
   //     const res = await fetch("http://localhost:8000/teachers", {
@@ -52,14 +50,14 @@ const FindTutor = () => {
         const res = await fetch("http://localhost:8080/teachers", {
           method: "GET",
         });
-        
+
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
         }
-        
+
         const teachers = await res.json();
-        console.log("Teachers fetched:", teachers); 
-        
+        console.log("Teachers fetched:", teachers);
+
         setTutors(teachers);
         setSAMPLE_TUTORS(teachers);
         setFilteredTutors(teachers);
@@ -72,9 +70,6 @@ const FindTutor = () => {
 
     fetchTutors();
   }, []);
-
-
-
 
   // Fetch tutors (using sample data for now)
   useEffect(() => {
@@ -160,106 +155,109 @@ const FindTutor = () => {
   //   });
   // }
 
-
   return (
     <div className={styles.body}>
-    <div className={styles.container}>
-      
-
-      <div className={styles.filters}>
-        <div className={styles.filterGroup}>
-          <label>Subject</label>
-          <select
-            value={subject}
-            onChange={(e) => setSubject(e.target.value)}
-            className={styles.select}
-          >
-            <option value="All subjects">All subjects</option>
-            <option value="Mathematics">Mathematics</option>
-            <option value="Physics">Physics</option>
-            <option value="Computer Science">Computer Science</option>
-          </select>
-        </div>
-
-        <div className={styles.filterGroup}>
-          <label>Level</label>
-          <select
-            value={level}
-            onChange={(e) => setLevel(e.target.value)}
-            className={styles.select}
-          >
-            <option value="All levels">All levels</option>
-            <option value="O/L">O/L</option>
-            <option value="A/L">A/L</option>
-            <option value="Higher">Higher</option>
-          </select>
-        </div>
-
-        <div className={styles.filterGroup}>
-          <label>Price</label>
-          <select
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-            className={styles.select}
-          >
-            <option value="All prices">All prices</option>
-            <option value="0-2000">Rs. 0 - 2000</option>
-            <option value="2000-4000">Rs. 2000 - 4000</option>
-            <option value="4000+">Rs. 4000+</option>
-          </select>
-        </div>
-
-        <button className={styles.filtersBtn}>Filters</button>
-      </div>
-
-      {loading ? (
-        <div className={styles.loading}>Loading tutors...</div>
-      ) : (
-        <>
-          <div className={styles.tutorList}>
-            {displayedTutors.map((tutor) => (
-              <div key={tutor.id} className={styles.tutorCard}>
-                <div className={styles.tutorImage}>
-                  <img src={tutor.userImageUrl} alt={tutor.name} />
-                </div>
-                <div className={styles.tutorInfo}>
-                  <h3>{tutor.name}</h3>
-                  <p className={styles.degree}>{tutor.degree}</p>
-                  <p className={styles.bio}>{tutor.bio}</p>
-                </div>
-                <div className={styles.tutorStats}>
-                  <p className={styles.price}>Rs. {tutor.price}/hr</p>
-                  <div className={styles.stats}>
-                    <p>{tutor.reviews} reviews</p>
-                    <p>{tutor.lessons} lessons</p>
-                  </div>
-                  <Link to={`/find-tutor/${tutor._id}`}>
-                  <button
-                    className={styles.bookBtn}
-                    onClick={() => handleBookTutor(tutor.id)}
-                  >
-                    Explore more
-                  </button>
-                  </Link>
-                </div>
-              </div>
-            ))}
+      <div className={styles.container}>
+        <div className={styles.filters}>
+          <div className={styles.filterGroup}>
+            <label>Subject</label>
+            <select
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
+              className={styles.select}
+            >
+              <option value="All subjects">All subjects</option>
+              <option value="Mathematics">Mathematics</option>
+              <option value="Physics">Physics</option>
+              <option value="Computer Science">Computer Science</option>
+            </select>
           </div>
 
-          {hasMore && (
-            <button className={styles.showMoreBtn} onClick={handleShowMore}>
-              See more tutors
-            </button>
-          )}
+          <div className={styles.filterGroup}>
+            <label>Level</label>
+            <select
+              value={level}
+              onChange={(e) => setLevel(e.target.value)}
+              className={styles.select}
+            >
+              <option value="All levels">All levels</option>
+              <option value="O/L">O/L</option>
+              <option value="A/L">A/L</option>
+              <option value="Higher">Higher</option>
+            </select>
+          </div>
 
-          {!loading && displayedTutors.length === 0 && (
-            <div className={styles.noResults}>
-              No tutors found matching your criteria
+          <div className={styles.filterGroup}>
+            <label>Price</label>
+            <select
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              className={styles.select}
+            >
+              <option value="All prices">All prices</option>
+              <option value="0-2000">Rs. 0 - 2000</option>
+              <option value="2000-4000">Rs. 2000 - 4000</option>
+              <option value="4000+">Rs. 4000+</option>
+            </select>
+          </div>
+
+          <button className={styles.filtersBtn}>Filters</button>
+        </div>
+
+        {loading ? (
+          <div className={styles.loading}>Loading tutors...</div>
+        ) : (
+          <>
+            <div className={styles.tutorList}>
+              {displayedTutors.map((tutor) => (
+                <div key={tutor.id} className={styles.tutorCard}>
+                  <div className={styles.tutorImage}>
+                    <img src={tutor.userImageUrl} alt={tutor.name} />
+                  </div>
+                  <div className={styles.tutorInfo}>
+                    <h3>{tutor.name}</h3>
+                    <p className={styles.degree}>{tutor.degree}</p>
+                    <p className={styles.bio}>{tutor.bio}</p>
+                    <div className={styles.hashTagsContainer}>
+                      {tutor.keyWords.map((keyword, index) => (
+                        <p key={index} className={styles.hashTags}>
+                          {keyword}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                  <div className={styles.tutorStats}>
+                    <Link to={`/find-tutor/${tutor._id}`}>
+                      <button
+                        className={styles.bookBtn}
+                        onClick={() => handleBookTutor(tutor.id)}
+                      >
+                        Explore more
+                      </button>
+                    </Link>
+                    <div className={styles.stats}>
+                      <p>{tutor.reviews} reviews</p>
+                      <p>{tutor.lessons} lessons</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-          )}
-        </>
-      )}
-    </div>
+
+            {hasMore && (
+              <button className={styles.showMoreBtn} onClick={handleShowMore}>
+                See more tutors
+              </button>
+            )}
+
+            {!loading && displayedTutors.length === 0 && (
+              <div className={styles.noResults}>
+                No tutors found matching your criteria
+              </div>
+            )}
+          </>
+        )}
+      </div>
     </div>
   );
 };

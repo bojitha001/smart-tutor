@@ -79,10 +79,10 @@ function MainContent() {
           <div className={`${styles["main-content-left"]}`}>
             <div className={`${styles["welcome-banner"]}`}>
               <div className={`${styles["welcome-text"]}`}>
-                <h1>Welcome Back, {user.firstName}!</h1>
+                <h1>Welcome Back, {user?.firstName}!</h1>
                 <p>Let's share your knowledge</p>
               </div>
-              <img src={user.imageUrl} alt="Welcome" />
+              <img src={user?.imageUrl} alt="Welcome" />
             </div>
     
             <div className={styles.statistics}>
