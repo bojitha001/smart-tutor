@@ -57,7 +57,7 @@ function DashboardClasses() {
       if(userClerk) {
         try {
           const response = await fetch(
-            `http://localhost:8080/classes?teacherClerkId=${user.id}`
+            `http://localhost:8080/bookings/${user.id}`
           );
           
           if (response.ok) {
@@ -91,9 +91,9 @@ function DashboardClasses() {
               <div key={index} className={styles.classCard}>
                 <div className={styles.classTime}>{cls.time}</div>
                 <div className={styles.classDate}>{cls.date}</div>
-                <h3>{cls.name}</h3>
+                <h3>{cls.tutorID?.name || 'Unknown Tutor'}</h3>
                 
-                <p>{cls.duration}</p>
+                <p>{cls.studentName}</p>
                 
               </div>
             ))}
