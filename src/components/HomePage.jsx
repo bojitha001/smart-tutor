@@ -12,6 +12,9 @@ import icon5 from "../assets/images/Find and Replace.png";
 import icon6 from "../assets/images/Brake Warning.png";
 import FAQItem from "../components/FAQItem.jsx";
 import ChatbotWidget from "./ChatbotWidget.jsx";
+import student from "../assets/images/student.png";
+import tutor from "../assets/images/tutor.png";
+import parent from "../assets/images/parent.png";
 
 const categories = [
   { id: 1, name: "Biology", color: "#FFE9B1", icon: "🧬" },
@@ -28,17 +31,17 @@ const categories = [
 const testimonials = [
   {
     id: 1,
-    name: "T. Perera",
-    role: "Student",
+    name: "Ayesha R.",
+    role: "(AL Student)",
     image: "src/assets/images/tPerera.jpg",
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    text: "Smart Tutor made studying so much easier! I found the perfect tutor for ICT, and their teaching style matched exactly what I needed. My grades have improved, and I actually enjoy learning now!",
   },
   {
     id: 2,
-    name: "S. Silva",
-    role: "Student",
+    name: "Kavindu P.",
+    role: "(University Student)",
     image: "src/assets/images/sSilva.jpg",
-    text: "It has been the industry's standard dummy text ever since the 1500s.",
+    text: "The study groups on Smart Tutor’s Discord helped me stay accountable and motivated. Learning with others makes a huge difference!",
   },
   {
     id: 3,
@@ -99,6 +102,30 @@ const features = [
     title: "Alerts and Notifications",
     description:
       "Receive reminders about upcoming classes, assignments, fee due dates, and special events so you stay up-to-date with your schedule.",
+  },
+];
+
+const who = [
+  {
+    id: 1,
+    image: student,
+    title: "Student",
+    subtitle:
+      "Studying smart is just as important as studying hard. Use techniques like Pomodoro, active recall, and the Feynman method to boost learning. Stay consistent, set SMART goals, and remember—mistakes are just lessons in disguise! 🚀",
+  },
+  {
+    id: 2,
+    image: tutor,
+    title: "Tutor",
+    subtitle:
+      "Great tutors don’t just teach—they inspire. Focus on understanding student needs, simplifying complex topics, and encouraging active learning. A tutor’s impact isn’t measured by answers given but by curiosity sparked and confidence built. 🚀",
+  },
+  {
+    id: 3,
+    image: parent,
+    title: "Parent",
+    subtitle:
+      "Education isn’t just about grades—it’s about growth. Support your child by encouraging curiosity, creating a positive learning environment, and celebrating progress. Your belief in them shapes their confidence and success! 🚀",
   },
 ];
 
@@ -243,7 +270,7 @@ export const HomePage = () => {
       </div>
 
       {/* Categories Section */}
-      <div className={`${styles["categories-container"]}`}>
+      {/* <div className={`${styles["categories-container"]}`}>
         <h1>Explore Top Categories</h1>
         <div className={`${styles["categories-grid"]}`}>
           {categories.map((category) => (
@@ -273,6 +300,31 @@ export const HomePage = () => {
           alt="Student illustration"
           className={styles["student-illustration"]}
         />
+      </div> */}
+
+      <div className={styles["who-container"]}>
+        <h1>Who is SMART TUTOR for?</h1>
+        <div className={styles["who-header"]}>
+          <h2 className={styles["who-tagline"]}>
+            We Market - We Provide - We Monitor
+          </h2>
+        </div>
+        <div className={styles["card-grid"] + " " + styles["who-grid"]}>
+          {who.map((post) => (
+            <div
+              className={styles["card"] + " " + styles["who-card"]}
+              key={post.id}
+            >
+              <div className={styles["card-image"]}>
+                <img src={post.image} alt={post.title} loading="lazy" />
+              </div>
+              <div className={styles["card-content"]}>
+                <h3 className={styles["card-title"]}>{post.title}</h3>
+                <p className={styles["card-subtitle"]}>{post.subtitle}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Features Section */}
@@ -406,7 +458,7 @@ export const HomePage = () => {
         />
       )} */}
 
-      <ChatbotWidget/>
+      <ChatbotWidget />
     </>
   );
 };
