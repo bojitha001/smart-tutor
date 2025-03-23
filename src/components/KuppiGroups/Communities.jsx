@@ -13,7 +13,7 @@ const Communities = () => {
     const fetchCommunities = async () => {
       const token = await window.Clerk.session.getToken();
 
-      const res = await fetch("http://www.smarttutor.lk/communities", {
+      const res = await fetch("http://smart-tutor-backend-production.up.railway.app/communities", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,

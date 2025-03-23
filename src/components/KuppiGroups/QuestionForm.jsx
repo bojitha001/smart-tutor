@@ -9,7 +9,7 @@ import { Link } from "react-router";
 const getCommunityById = async (id) => {
   
 
-  const res = await fetch(`http://www.smarttutor.lk/communities/${id}`, {
+  const res = await fetch(`http://smart-tutor-backend-production.up.railway.app/communities/${id}`, {
     method: "GET",
     headers: {
       // Authorization: `Bearer ${token}`,
@@ -24,7 +24,7 @@ export const getCommunityQuestionForm = async (id) => {
   
 
   const res = await fetch(
-    `http://www.smarttutor.lk/comunityQuestions?communityId=${id}`,
+    `http://smart-tutor-backend-production.up.railway.app/comunityQuestions?communityId=${id}`,
     {
       method: "GET",
       headers: {

@@ -5,7 +5,7 @@ import { useUser } from "@clerk/clerk-react";
 import QuestionForm from "./QuestionForm";
 
 const getCommunityQuestionFormById = async (id) => {
-  const res = await fetch(`http://www.smarttutor.lk/comunityQuestions/${id}`, {
+  const res = await fetch(`http://smart-tutor-backend-production.up.railway.app/comunityQuestions/${id}`, {
     method: "GET",
   });
   const communityForm = await res.json();
@@ -13,7 +13,7 @@ const getCommunityQuestionFormById = async (id) => {
 };
 
 const addAnswer = async (answers) => {
-  const res = await fetch("http://www.smarttutor.lk/answers", {
+  const res = await fetch("http://smart-tutor-backend-production.up.railway.app/answers", {
     method: "POST",
     headers: {
       "Content-Type": "application/json", //saying we are passing a json
@@ -24,7 +24,7 @@ const addAnswer = async (answers) => {
 
 const getAnswerByQuestionId = async (id) => {
   //   console.log(id)
-  const res = await fetch(`http://www.smarttutor.lk/answers?questionId=${id}`, {
+  const res = await fetch(`http://smart-tutor-backend-production.up.railway.app/answers?questionId=${id}`, {
     method: "GET",
   });
   const data = await res.json();
