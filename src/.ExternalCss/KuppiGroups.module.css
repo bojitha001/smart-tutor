@@ -8,49 +8,53 @@ html {
   font-size: 62.5%;
 }
 
+/* Base mobile styles first (mobile-first approach) */
 .kuppiGroupsHeader {
   background-color: #ffffff;
   padding: 2rem;
   margin-bottom: 2rem;
   position: relative;
-  padding: 0 10rem;
+  width: 100%;
   height: 100%;
-  
 }
 
 .headerContent {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .headerTitle {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 3rem;
-  
+  gap: 2rem;
+  width: 100%;
+  margin-bottom: 3rem;
 }
 
 .headerTitle h1 {
-  font-size: 8rem;
-  margin-bottom: 1.5rem;
+  font-size: 4rem;
+  margin-bottom: 1rem;
   color: #000;
   font-weight: 700;
-  text-align: left;
+  text-align: center;
 }
 
 .headerTitle p {
   color: #666;
   line-height: 1.6;
-  margin-bottom: 2rem;
-  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 300;
+  text-align: center;
 }
 
 .headerButtons {
   display: flex;
+  flex-direction: column;
   gap: 1rem;
-  
+  align-items: center;
 }
 
 .openTopic,
@@ -61,7 +65,9 @@ html {
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 1.5rem;
-
+  width: 100%;
+  max-width: 25rem;
+  text-align: center;
 }
 
 .openTopic {
@@ -85,9 +91,10 @@ html {
 }
 
 .headerImage {
-  flex: 1;
+  width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  margin-bottom: 3rem;
 }
 
 .headerImage img {
@@ -95,6 +102,52 @@ html {
   height: auto;
 }
 
+.bodysection {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.bodysection h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.bodyImage {
+  width: 100%;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.bodyImage img {
+  width: 100%;
+  height: auto;
+}
+
+.whyPoint {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  width: 100%;
+}
+
+.whyPoint li {
+  position: relative;
+  width: 100%;
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Other styles (kept for reference but not directly affecting the main layout) */
 .communitiesPage {
   text-decoration: none;
   color: #333;
@@ -109,10 +162,10 @@ html {
 
 .communitiesGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 2rem;
   margin-bottom: 2rem;
-  padding: 2rem 8rem;
+  padding: 2rem;
 }
 
 .communityCard {
@@ -138,6 +191,7 @@ html {
   height: 100%;
   object-fit: cover;
 }
+
 .communityInfo {
   padding: 1.2rem;
   display: flex;
@@ -159,6 +213,7 @@ html {
   background-color: #555;
 }
 
+/* Form styles */
 .questionInput {
   display: flex;
   flex-direction: column;
@@ -222,12 +277,17 @@ html {
 }
 
 .main-questions-container {
-  background-color: #D9DDE0;
+  background-color: #f5f5f5;
+  font-family: "Sora", sans-serif;
   margin-bottom: 2rem;
-  max-width: 100rem;
   width: 100%;
-  padding: 5rem ;
-  
+  padding: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.main-questions-container:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .questions-container {
@@ -235,44 +295,32 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 8rem 8rem;
+  padding: 2rem;
+  width: 100%;
 }
+
 .questions-container h1 {
   font-family: 'Sora';
   color: #444;
   font-weight: 500;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .questions-box {
-  /* display: grid; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
-  /* grid-template-row: 1fr 1fr; */
 }
 
 .question-button {
   background-color: #000;
-  padding: 2rem;
-  width: 100rem;
-  margin: 2rem 0;
-}
-.main-questions-container {
-  background-color: #f5f5f5;
-  font-family: "Sora", sans-serif;
-  margin-bottom: 2rem;
-  max-width: 100rem;
+  padding: 1.5rem;
   width: 100%;
-  padding: 5rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  
-}
-
-.main-questions-container:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 1.5rem 0;
 }
 
 .questionTopic {
@@ -328,17 +376,14 @@ html {
   justify-content: center;
   gap: 2rem;
   margin-top: 2rem;
+  width: 100%;
 }
 
 .questoinBox {
-  width: 100rem;
+  width: 100%;
   background-color: white;
-  padding: 5rem 3rem;
+  padding: 2rem;
   border-radius: 1rem;
-}
-
-.questionTopic {
-  font-size: 2rem;
 }
 
 .questionDes {
@@ -348,10 +393,9 @@ html {
 .answerBoxMain {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   justify-content: center;
   background-color: white;
-  width: 100rem;
+  width: 100%;
   border-radius: 1rem;
   padding: 1.5rem;
 }
@@ -360,17 +404,14 @@ html {
   font-size: 2rem;
   font-weight: bold;
   text-align: left;
-  
 }
 
 .answerBox {
-  padding: 5rem 3rem;
+  padding: 2rem;
   font-size: 1.5rem;
   position: relative;
   border: .5px solid rgb(179, 179, 179);
   border-radius: 1rem;
-  
-  /* margin: 1rem 1rem; */
 }
 
 .answerBoxSection1 {
@@ -379,41 +420,28 @@ html {
   gap: 1rem;
 }
 
-/* .answerBox::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 5%; 
-  right: 5%; 
-  height: 0.5px;
-  background-color: rgb(179, 179, 179);
-} */
-
 .formContainer {
-  /* max-width: 100rem; */
   margin: 2rem auto;
-  padding: 2rem;
-  /* background-color: #f9fafb; */
+  padding: 1.5rem;
   border-radius: 12px;
-  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
   position: relative;
+  width: 100%;
 }
 
 .textareaWrapper {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centers child elements horizontally */
+  align-items: center;
   width: 100%;
 }
 
 .textareaContainer {
   position: relative;
   width: 100%;
-   
 }
 
 .textarea {
-  min-width: 90rem; /* Use 100% of the container */
+  width: 100%;
   min-height: 200px;
   padding: 1rem;
   border: 2px solid #e2e8f0;
@@ -443,12 +471,12 @@ html {
   color: #a0aec0;
 }
 
-
 .submitButton {
   display: block;
-  width: 25%;
+  width: 100%;
+  max-width: 20rem;
   padding: 0.75rem;
-  margin-top: 2rem;
+  margin: 2rem auto 0;
   background-color: rgba(241, 172, 1, 1);
   color: white;
   border: none;
@@ -473,98 +501,218 @@ html {
   color: #718096;
   font-style: italic;
   margin-top: 1rem;
+  font-size: 1.2rem;
 }
 
-.bodysection {
-  position: relative;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.bodysection h2 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-  text-align: left;
-}
-
-.bodyImage {
-  width: 100%;
-  position: relative;
-}
-
-.bodyImage img {
-  width: 100%;
-  height: auto;
-}
-
-.whyPoint {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.whyPoint li {
-  position: absolute;
-  width: 100%;
-  padding-right: 20px;
-  font-size: 1.5rem;
-  line-height: 1.4;
-  right: 0;
-  text-align: left;
-}
-
-
-.whyPoint li.l1 {
-  bottom: 10%;
-  right: 0;
-  left: 45%;
- 
-}
-
-.whyPoint li.l2 {
-  bottom: 30%;
-  right: 0;
-  left: 55%;
-}
-
-.whyPoint li.l3 {
-  bottom: 45%;
-  right: 0;
-  left: 65%;
-}
-
-.whyPoint li.l4 {
-  bottom: 65%;
-  right: 0;
-  left: 75%;
-}
-
-.whyPoint li.l5 {
-  bottom: 80%;
-  right: 0;
-  left: 85%;
-}
-
-
-@media (max-width: 768px) {
+/* Tablet styles */
+@media (min-width: 768px) {
+  .kuppiGroupsHeader {
+    padding: 3rem;
+  }
+  
+  .headerTitle h1 {
+    font-size: 5rem;
+  }
+  
+  .headerTitle p {
+    font-size: 1.8rem;
+  }
+  
+  .headerButtons {
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .openTopic, 
+  .exploreCommunities {
+    width: auto;
+  }
+  
+  .communitiesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2rem 4rem;
+  }
+  
+  .main-questions-container {
+    padding: 3rem;
+  }
+  
+  .questions-container {
+    padding: 4rem;
+  }
+  
+  .bodysection h2 {
+    text-align: left;
+    margin-left: 2rem;
+  }
+  
   .whyPoint li {
-    position: static;
-    width: 100%;
-    margin: 15px 0;
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.8);
-  }
-
-  .bodyImage {
-    margin-bottom: 250px;
+    padding: 1.5rem 2rem;
   }
 }
 
+/* Desktop styles */
+@media (min-width: 1024px) {
+  .kuppiGroupsHeader {
+    padding: 2rem 10rem;
+  }
+  
+  .headerContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  
+  .headerTitle {
+    margin-bottom: 0;
+  }
+  
+  .headerTitle h1 {
+    font-size: 6rem;
+    text-align: left;
+  }
+  
+  .headerTitle p {
+    font-size: 2rem;
+    text-align: left;
+  }
+  
+  .headerButtons {
+    justify-content: flex-start;
+  }
+  
+  .headerImage {
+    margin-bottom: 0;
+  }
+  
+  .communitiesGrid {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 2rem 8rem;
+  }
+  
+  .bodysection {
+    max-width: 1000px;
+    padding: 20px;
+  }
+  
+  .bodyImage {
+    margin-bottom: 0;
+  }
+  
+  /* Restore the absolute positioning for desktop view */
+  .whyPoint {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .whyPoint li {
+    position: absolute;
+    background: none;
+    box-shadow: none;
+    margin-bottom: 0;
+    padding: 0;
+  }
+  
+  .whyPoint li.l1 {
+    bottom: 10%;
+    right: 0;
+    left: 45%;
+  }
+  
+  .whyPoint li.l2 {
+    bottom: 30%;
+    right: 0;
+    left: 55%;
+  }
+  
+  .whyPoint li.l3 {
+    bottom: 45%;
+    right: 0;
+    left: 65%;
+  }
+  
+  .whyPoint li.l4 {
+    bottom: 65%;
+    right: 0;
+    left: 75%;
+  }
+  
+  .whyPoint li.l5 {
+    bottom: 80%;
+    right: 0;
+    left: 85%;
+  }
+  
+  .main-questions-container {
+    max-width: 100rem;
+    padding: 5rem;
+  }
+  
+  .questions-container {
+    padding: 8rem;
+  }
+  
+  .questoinBox {
+    padding: 5rem 3rem;
+  }
+  
+  .answerBox {
+    padding: 5rem 3rem;
+  }
+  
+  .textarea {
+    min-width: auto;
+  }
+}
 
+/* Large desktop styles */
+@media (min-width: 1280px) {
+  .headerTitle h1 {
+    font-size: 8rem;
+  }
+  
+  .bodysection {
+    max-width: 1200px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  html {
+    font-size: 58%; /* Slightly reduce base font size for very small screens */
+  }
+  
+  .kuppiGroupsHeader {
+    padding: 1.5rem;
+  }
+  
+  .headerTitle h1 {
+    font-size: 3.5rem;
+  }
+  
+  .main-questions-container {
+    padding: 1.5rem;
+  }
+  
+  .questions-container {
+    padding: 1.5rem;
+  }
+  
+  .questions-container h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Font size adjustment for orientation changes */
+@media (orientation: landscape) and (max-height: 600px) {
+  .headerTitle h1 {
+    font-size: 3.5rem;
+  }
+  
+  .headerTitle {
+    gap: 1rem;
+  }
+}
