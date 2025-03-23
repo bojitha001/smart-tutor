@@ -16,6 +16,7 @@ import student from "../assets/images/student.png";
 import tutor from "../assets/images/tutor.png";
 import parent from "../assets/images/parent.png";
 import tutorblock from "../assets/images/tutorblock.png";
+import studentblock from "../assets/images/studentblock.png";
 
 const testimonials = [
   {
@@ -327,6 +328,29 @@ export const HomePage = () => {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* student block */}
+      <div className={`${styles["container-block2"]}`}>
+        <div className={`${styles["block2-container"]}`}>
+          <h2 className={`${styles["block2-numbers"]}`}>
+            04. Personalized Learning
+          </h2>
+          <p className={`${styles["block2-desc"]}`}>
+            Find tutors that match your learning style and academic needs.
+          </p>
+          <h2 className={`${styles["block2-numbers"]}`}>
+            05. Collaborative Study{" "}
+          </h2>
+          <p className={`${styles["block2-desc"]}`}>
+            Engage in group learning and share resources to improve together.
+          </p>
+          <h2 className={`${styles["block2-numbers"]}`}>06. Convenience</h2>
+          <p className={`${styles["block2-desc"]}`}>
+            Study at your own pace, on your own time, from anywhere.
+          </p>
+        </div>
+        <img className={`${styles["block2-img"]}`} src={studentblock}></img>
       </div>
 
       {/* Testimonials Section */}

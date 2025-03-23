@@ -210,7 +210,7 @@ html {
   }
 }
 
-/* contain block */
+/* tutor contain block */
 .container-block{
   width: 100vw;
   height: 50vh;
@@ -229,11 +229,6 @@ html {
   height: 400px;
 }
 
-/* .block-container{
-
-  display: grid;
-
-} */
 
 .block-numbers{
  
@@ -329,6 +324,50 @@ html {
   font-size: 1.5rem;
   flex-grow: 1;
 }
+
+
+/* student contain block */
+.container-block2{
+  width: 100vw;
+  height: 50vh;
+  /* background: linear-gradient( to left, rgb(237, 187, 48),#5A6DEE ); */
+  background-color: rgb(237, 187, 48);
+  display: flex;
+  justify-content: center;
+
+  padding-top: 5rem;
+  
+
+}
+
+.block2-img {
+  display: flex;
+  width: 400px;
+  height: 400px;
+}
+
+
+.block2-numbers{
+ 
+  padding-top: 3.5rem;
+  font-family: "Prompt", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 5rem;
+  color: #ffffff;
+
+}
+
+.block2-desc {
+  padding-left: 8rem;
+  font-family: "Prompt", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+ font-size: 2rem;
+  color: rgb(255, 255, 255);
+}
+
+
 
 /* Testimonials Section */
 .testimonials-container {
