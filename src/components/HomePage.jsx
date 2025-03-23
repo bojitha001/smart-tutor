@@ -15,18 +15,7 @@ import ChatbotWidget from "./ChatbotWidget.jsx";
 import student from "../assets/images/student.png";
 import tutor from "../assets/images/tutor.png";
 import parent from "../assets/images/parent.png";
-
-const categories = [
-  { id: 1, name: "Biology", color: "#FFE9B1", icon: "🧬" },
-  { id: 2, name: "Physics", color: "#E4D3FF", icon: "🚀" },
-  { id: 3, name: "Chemistry", color: "#FFD6D6", icon: "🧪" },
-  { id: 4, name: "Mathematics", color: "#D6E4FF", icon: "📐" },
-  { id: 5, name: "ICT", color: "#D6FFF0", icon: "💻" },
-  { id: 6, name: "Econ", color: "#F0E6C8", icon: "📊" },
-  { id: 7, name: "Accounting", color: "#FFD6E8", icon: "📚" },
-  { id: 8, name: "Business Studies", color: "#D6FFF6", icon: "💼" },
-  { id: 9, name: "Agriculture", color: "#E3FFD6", icon: "🌱" },
-];
+import tutorblock from "../assets/images/tutorblock.png";
 
 const testimonials = [
   {
@@ -269,39 +258,6 @@ export const HomePage = () => {
         </div>
       </div>
 
-      {/* Categories Section */}
-      {/* <div className={`${styles["categories-container"]}`}>
-        <h1>Explore Top Categories</h1>
-        <div className={`${styles["categories-grid"]}`}>
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              className={`${styles["category-box"]}`}
-              style={{ backgroundColor: category.color }}
-              aria-label={`${category.name} category`}
-            >
-              <span className={`${styles["category-icon"]}`}>
-                {category.icon}
-              </span>
-              <span className={`${styles["category-name"]}`}>
-                {category.name}
-              </span>
-            </button>
-          ))}
-        </div>
-        <button
-          className={`${styles["see-more-button"]}`}
-          aria-label="See more categories"
-        >
-          See More <span className={`${styles["arrow"]}`}>→</span>
-        </button>
-        <img
-          src={sitting}
-          alt="Student illustration"
-          className={styles["student-illustration"]}
-        />
-      </div> */}
-
       <div className={styles["who-container"]}>
         <h1>Who is SMART TUTOR for?</h1>
         <div className={styles["who-header"]}>
@@ -324,6 +280,26 @@ export const HomePage = () => {
               </div>
             </div>
           ))}
+        </div>
+      </div>
+
+      {/* tutor block */}
+      <div className={`${styles["container-block"]}`}>
+        <img className={`${styles["block-img"]}`} src={tutorblock}></img>
+        <div className={`${styles["block-container"]}`}>
+          <h2 className={`${styles["block-numbers"]}`}>01. Market</h2>
+          <p className={`${styles["block-desc"]}`}>
+            Connecting with students, parents, and tutors to meet educational
+            needs.
+          </p>
+          <h2 className={`${styles["block-numbers"]}`}>02. Brand</h2>
+          <p className={`${styles["block-desc"]}`}>
+            Building trust and a consistent, positive identity for Smart Tutor.
+          </p>
+          <h2 className={`${styles["block-numbers"]}`}>03. Expand</h2>
+          <p className={`${styles["block-desc"]}`}>
+            Growing through new subjects, more users, and platform improvements.
+          </p>
         </div>
       </div>
 
