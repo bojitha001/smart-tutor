@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Calendar from 'react-calendar';
 import styles from '../../.ExternalCss/StudentDashboard.module.css'
 import { format } from 'date-fns';
+import { useUser, UserButton } from '@clerk/clerk-react';
 
 const Dashboard = () => {
   const [notes, setNotes] = useState([
@@ -50,7 +51,8 @@ const Dashboard = () => {
           <h1>Welcome back, Sarah!</h1>
           <p>Have a good day!</p>
         </div>
-        <img src="/student-illustration.png" alt="Student" />
+        {/* <img src="/student-illustration.png" alt="Student" /> */}
+        
       </div>
 
       {/* Ongoing Courses */}
