@@ -27,7 +27,8 @@ const InputForm = () => {
         subject:"",
         bio:"",
         contactNo:"",
-        keyWords: []
+        keyWords: [],
+        experience: []
     })
 
     const handleSubmit = (event) => {
@@ -41,7 +42,8 @@ const InputForm = () => {
             subject: formData.subject,
             bio: formData.bio,
             contactNo: formData.contactNo,
-            keyWords: formData.keyWords
+            keyWords: formData.keyWords,
+            experience: formData.experience
         });
         navigate(`/`)
     }
