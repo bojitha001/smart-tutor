@@ -22,7 +22,7 @@ const whyCollab = [
     id: 2,
     title: "Live Study Sessions",
     description: "Join scheduled or on-demand sessions with expert tutors.",
-    image: liveSessionsImg,
+    // image: liveSessionsImg,
   },
   {
     id: 3,
