@@ -3,8 +3,11 @@ import { useState } from 'react';
 import Calendar from 'react-calendar';
 import styles from '../../.ExternalCss/StudentDashboard.module.css'
 import { format } from 'date-fns';
+import { useUser, UserButton } from '@clerk/clerk-react';
 
 const Dashboard = () => {
+  const { user, isLoaded } = useUser();
+
   const [notes, setNotes] = useState([
     { id: 1, title: 'UI/UX Principle', content: 'Preview of the note here, is simply dummy text of the printing and typesetting industry.' },
     { id: 2, title: 'Chemistry - Organic', content: 'Preview of the note here, is simply dummy text of the printing and typesetting industry.' },
@@ -47,10 +50,11 @@ const Dashboard = () => {
      {/* Welcome Banner */}
      <div className={styles.welcomeBanner}>
         <div>
-          <h1>Welcome back, Sarah!</h1>
+          <h1>Welcome back, {user?.firstName}!</h1>
           <p>Have a good day!</p>
         </div>
-        <img src="/student-illustration.png" alt="Student" />
+        {/* <img src="/student-illustration.png" alt="Student" /> */}
+        <img src={user?.imageUrl} alt="Welcome" />
       </div>
 
       {/* Ongoing Courses */}

@@ -1,14 +1,24 @@
 import { useState } from 'react';
 import { FaSearch, FaBell } from 'react-icons/fa';
 import styles from "../../.ExternalCss/StudentNavbar.module.css";
+import { useUser, UserButton } from '@clerk/clerk-react';
 
 function Navbar() {
   const [showNotifications, setShowNotifications] = useState(false);
-  
+  const { user, isLoaded } = useUser();
+
   const toggleNotifications = () => {
     setShowNotifications(!showNotifications);
   };
   
+  // Get user's first name or full name
+  const userName = isLoaded && user ? ( user.fullName || user.firstName || 'User') : 'User';
+  // Get email if available
+  // Get primary email address if available
+  const userEmail = isLoaded && user && user.emailAddresses && user.emailAddresses.length > 0 
+    ? user.emailAddresses[0].emailAddress 
+    : '';
+
   return (
     <div className={`${styles["navbar"]}`}>
       <div className={`${styles["search-container"]}`}>
@@ -42,17 +52,30 @@ function Navbar() {
           )}
         </div>
         <div className={`${styles["user-profile"]}`}>
-          <img 
+          {/* <img 
             src="https://randomuser.me/api/portraits/men/32.jpg" 
             alt="User" 
             className={`${styles["user-avatar"]}`} 
+          /> */}
+          <UserButton
+            appearance={{
+              elements: {
+                userButtonAvatarBox: {
+                  width: "40px",
+                  height: "40px"
+                },
+                userButtonTrigger: {
+                  padding: "0",
+                  margin: "0"
+                }
+              }
+            }}
           />
           <div className={`${styles["user-info"]}`}>
-            <h4>Thevinu Perera</h4>
-            <p>@thevinu456</p>
+            <h4>{userName}</h4>
+            <p>{userEmail}</p>
           </div>
         </div>
-        
       </div>
     </div>
 
