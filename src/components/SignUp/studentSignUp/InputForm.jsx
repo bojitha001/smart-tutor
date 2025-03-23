@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import styles from "../../.ExternalCss/form.module.css";
+import styles from "../../../.ExternalCss/form.module.css";
 import { useUser } from "@clerk/clerk-react";
 import { useNavigate } from "react-router";
-import contactForm from "../../assets/images/tutorForm.jpg";
+import contactForm from "../../../assets/images/tutorForm.jpg";
 
 const addStudent = async (studentData) => {
   const res = await fetch("http://localhost:8080/student", {
