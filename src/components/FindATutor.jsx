@@ -50,12 +50,12 @@ const FindTutor = () => {
     fetchTutors();
   }, []);
 
-  // Fetch tutors (using sample data for now)
+  
   useEffect(() => {
     const fetchTutors = async () => {
       try {
         setLoading(true);
-        // Simulate API delay
+       
         await new Promise((resolve) => setTimeout(resolve, 500));
         setTutors(SAMPLE_TUTORS);
         setFilteredTutors(SAMPLE_TUTORS);
@@ -69,21 +69,21 @@ const FindTutor = () => {
     fetchTutors();
   }, [SAMPLE_TUTORS]);
 
-  // Apply filters
+ 
   useEffect(() => {
     let filtered = [...tutors];
 
-    // Filter by subject
+   
     if (subject !== "All subjects") {
       filtered = filtered.filter((tutor) => tutor.subject === subject);
     }
 
-    // Filter by level
+    
     if (level !== "All levels") {
       filtered = filtered.filter((tutor) => tutor.level === level);
     }
 
-    // Filter by price
+    
     if (price !== "All prices") {
       const [min, max] = price
         .split("-")
@@ -97,11 +97,11 @@ const FindTutor = () => {
     }
 
     setFilteredTutors(filtered);
-    setPage(1); // Reset to first page when filters change
+    setPage(1); 
     setHasMore(filtered.length > TUTORS_PER_PAGE);
   }, [subject, level, price, tutors]);
 
-  // Get current page tutors
+  
   const displayedTutors = filteredTutors.slice(0, page * TUTORS_PER_PAGE);
 
   const handleShowMore = () => {
@@ -112,9 +112,9 @@ const FindTutor = () => {
 
   const handleBookTutor = async (tutorId) => {
     try {
-      // Simulate API call
+      
       await new Promise((resolve) => setTimeout(resolve, 500));
-      // alert("Booking successful!");
+      
     } catch (error) {
       console.error("Error booking tutor:", error);
       alert("Failed to book tutor. Please try again.");
@@ -200,6 +200,11 @@ const FindTutor = () => {
                   <div className={styles.tutorInfo}>
                     <h3>{tutor.name}</h3>
                     <p className={styles.degree}>{tutor.degree}</p>
+                    <p className={styles.bio}>
+                      {tutor.experience && tutor.experience.length > 150
+                        ? `${tutor.experience.substring(0, 150)}...`
+                        : tutor.experience}
+                    </p>
                     <p className={styles.bio}>
                       {tutor.bio && tutor.bio.length > 150
                         ? `${tutor.bio.substring(0, 150)}...`

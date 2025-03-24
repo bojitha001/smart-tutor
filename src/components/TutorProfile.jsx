@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Star, Mail, Phone, GraduationCap, Clock } from "lucide-react";
 import styles from "../.ExternalCss/tutorProfile.module.css";
-import { useNavigate, useParams } from "react-router";
+import { Navigate, useNavigate, useParams } from "react-router";
 import { Link } from "react-router";
 import { useUser } from "@clerk/clerk-react";
 
 const getATeacherById = async (id) => {
+  const token = await window.Clerk.session.getToken();
+
   const res = await fetch(`http://localhost:8080/teachers/${id}`, {
     method: "GET",
+    headers: {
+      "Content-Type": "application/json", 
+      Authorization: `Bearer ${token}`,
+    },
   });
   const tutor = await res.json();
   return tutor;
@@ -16,9 +22,9 @@ const getATeacherById = async (id) => {
 const TutorProfile = () => {
   const params = useParams();
   console.log(params.id);
-  const { user } = useUser();
   const navigate = useNavigate();
   const [tutor, setTutor] = useState(null);
+  const { isLoaded, isSignedIn, user } = useUser();
 
   useEffect(() => {
     getATeacherById(params.id)
@@ -67,6 +73,14 @@ const TutorProfile = () => {
     }
   };
 
+  if (!isLoaded) {
+    return <div>Loading...</div>;
+  }
+  
+  if (!isSignedIn) {
+    return <Navigate to="/login" replace/>;
+  }
+
   return (
     <div class={`${styles.container}`}>
       <div class={`${styles.coverImage}`}></div>
@@ -101,7 +115,8 @@ const TutorProfile = () => {
         <div class={`${styles.experienceSection}`}>
           <h2 class={`${styles.sectionTitle}`}>Experience</h2>
           <p class={`${styles.experienceText}`}>
-            Specialist in UX/UI design, brand strategy, and product development.
+            {tutor?.experience}
+            {/* Specialist in UX/UI design, brand strategy, and product development. */}
           </p>
 
           <div class={`${styles.grid}`}>

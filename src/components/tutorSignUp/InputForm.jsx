@@ -27,7 +27,8 @@ const InputForm = () => {
         subject:"",
         bio:"",
         contactNo:"",
-        keyWords: []
+        keyWords: [],
+        experience: []
     })
 
     const handleSubmit = (event) => {
@@ -41,7 +42,8 @@ const InputForm = () => {
             subject: formData.subject,
             bio: formData.bio,
             contactNo: formData.contactNo,
-            keyWords: formData.keyWords
+            keyWords: formData.keyWords,
+            experience: formData.experience
         });
         navigate(`/`)
     }
@@ -124,6 +126,23 @@ const InputForm = () => {
               required
               placeholder="Maths, AdvancedLevel"
               onChange={(event) => setFormData({...formData, keyWords:event.target.value.split(',').map(keyword => keyword.trim()).filter(k => k)
+
+              })
+            }
+            />
+          </div>
+          <div class={`${styles.formGroup}`}>
+            <label class={`${styles.label}`} for="experience">
+              Experience
+            </label>
+            <input
+              class={`${styles.input}`}
+              type="text"
+             
+              name="experience"
+              required
+              placeholder="I have experience on ..."
+              onChange={(event) => setFormData({...formData, experience:event.target.value.split(',').map(keyword => keyword.trim()).filter(k => k)
 
               })
             }
