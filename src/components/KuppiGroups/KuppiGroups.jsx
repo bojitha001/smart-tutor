@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import React from "react";
 import styles from "../../.ExternalCss/KuppiGroups.module.css";
 import img from "../../assets/images/KuppiMainImage.png";
-import collab from "../../assets/images/KuppiImg2.png";
+
 import { Link } from "react-router";
 
 import groupLearningImg from "../../assets/images/GroupLearing-1.png";
@@ -98,53 +98,6 @@ const KuppiGroups = () => {
             alt="Students group"
             loading="lazy"
           />
-        </div>
-        
-        {/* Mobile-friendly approach for the body section */}
-        <div className={styles.bodysection}>
-          <h2>Why Collaborate?</h2>
-
-          <div className={styles.bodyImage}>
-            <img 
-              src={collab} 
-              alt="Kuppi-Collab-Image"
-              loading="lazy"
-            />
-          </div>
-
-          {isMobile ? (
-            // Mobile view - regular list items
-            <ul className={styles.whyPoint}>
-              {whyCollab.map((item) => (
-                <li key={item.id}>
-                  <strong>{item.title}</strong> {item.description}
-                </li>
-              ))}
-            </ul>
-          ) : (
-            // Desktop view - positioned list items
-            <ul className={styles.whyPoint}>
-              <li className={styles.l1}>
-                Group Learning – Exchange ideas, ask questions, and solve problems
-                together.
-              </li>
-              <li className={styles.l2}>
-                Live Study Sessions – Join scheduled or on-demand sessions with
-                expert tutors.
-              </li>
-              <li className={styles.l3}>
-                Resource Sharing – Access notes, study guides, and recorded
-                sessions.
-              </li>
-              <li className={styles.l4}>
-                Discussion Forums – Engage in topic-based discussions and
-                knowledge sharing.
-              </li>
-              <li className={styles.l5}>
-                Real-Time Assistance – Get instant help from peers and tutors.
-              </li>
-            </ul>
-          )}
         </div>
       </div>
     </div>
