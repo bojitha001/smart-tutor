@@ -7,8 +7,6 @@ import Questions from "./Questions";
 import { Link } from "react-router";
 
 const getCommunityById = async (id) => {
-  
-
   const res = await fetch(`http://localhost:8080/communities/${id}`, {
     method: "GET",
     headers: {
@@ -21,8 +19,6 @@ const getCommunityById = async (id) => {
 };
 
 export const getCommunityQuestionForm = async (id) => {
-  
-
   const res = await fetch(
     `http://localhost:8080/comunityQuestions?communityId=${id}`,
     {
@@ -91,7 +87,7 @@ const QuestionForm = () => {
   const [communities, setCommunities] = useState(null);
   const [questionForm, setQuestionForm] = useState([]);
   const params = useParams();
-  
+
   const { user } = useUser();
   // const { isLoaded, isSignedIn, user } = useUser();
 
@@ -120,10 +116,9 @@ const QuestionForm = () => {
   };
 
   return (
-    
     <>
       <div className={`${styles["questions-container"]}`}>
-        <div >
+        <div>
           <h1>Disscussion Area</h1>
           <Link to={`/kuppigroups-communities/${params.id}/questionform`}>
             <button className={`${styles["question-button"]}`}>
@@ -145,7 +140,6 @@ const QuestionForm = () => {
                   <div className={styles.questionHeader}>
                     <p className={styles.questionTopic}>{question.topic}</p>
 
-                    
                     <span className={styles.timeAgo}>
                       {timeAgo(question.createdAt)}
                     </span>
