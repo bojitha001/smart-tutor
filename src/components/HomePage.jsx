@@ -101,21 +101,21 @@ const who = [
     image: student,
     title: "Student",
     subtitle:
-      "Studying smart is just as important as studying hard. Use techniques like Pomodoro, active recall, and the Feynman method to boost learning. Stay consistent, set SMART goals, and remember—mistakes are just lessons in disguise! 🚀",
+      "Studying smart is just as important as studying hard. Use techniques like Pomodoro, active recall, and the Feynman method to boost learning. Stay consistent, set SMART goals, and remember—mistakes are just lessons in disguise!",
   },
   {
     id: 2,
     image: tutor,
     title: "Tutor",
     subtitle:
-      "Great tutors don’t just teach—they inspire. Focus on understanding student needs, simplifying complex topics, and encouraging active learning. A tutor’s impact isn’t measured by answers given but by curiosity sparked and confidence built. 🚀",
+      "Great tutors don’t just teach—they inspire. Focus on understanding student needs, simplifying complex topics, and encouraging active learning. A tutor’s impact isn’t measured by answers given but by curiosity sparked and confidence built.",
   },
   {
     id: 3,
     image: parent,
     title: "Parent",
     subtitle:
-      "Education isn’t just about grades—it’s about growth. Support your child by encouraging curiosity, creating a positive learning environment, and celebrating progress. Your belief in them shapes their confidence and success! 🚀",
+      "Education isn’t just about grades—it’s about growth. Support your child by encouraging curiosity, creating a positive learning environment, and celebrating progress. Your belief in them shapes their confidence and success!",
   },
 ];
 
@@ -263,7 +263,7 @@ export const HomePage = () => {
         <h1>Who is SMART TUTOR for?</h1>
         <div className={styles["who-header"]}>
           <h2 className={styles["who-tagline"]}>
-            We Market - We Provide - We Monitor
+            We Provide - We Market - We Monitor
           </h2>
         </div>
         <div className={styles["card-grid"] + " " + styles["who-grid"]}>
@@ -307,7 +307,7 @@ export const HomePage = () => {
       {/* Features Section */}
       <div className={`${styles["container-features"]}`}>
         <div className={`${styles["header"]}`}>
-          <h2 className={`${styles["tagline"]}`}>
+          <h2 className={`${styles["tagline2"]}`}>
             Learn Smarter, Achieve More
           </h2>
           <h1 className={`${styles["title"]}`}>

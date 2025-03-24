@@ -88,6 +88,7 @@ html {
  
   margin: 0 auto;
   padding: 3rem 1.5rem;
+  margin-bottom: 20rem;
   text-align: center;
 }
 
@@ -109,7 +110,7 @@ html {
   font-weight: 500;
   position: relative;
   display: inline-block;
-  padding-bottom: 0.5rem;
+  padding: 0.5rem;
 }
 
 .who-tagline::after {
@@ -217,7 +218,8 @@ html {
   background-color: #5A6DEE;
   display: flex;
   justify-content: center;
-
+  padding: 3rem 1.5rem;
+  margin-bottom: 20rem;
   padding-top: 5rem;
   
 
@@ -256,21 +258,27 @@ html {
 /* Features Section */
 .container-features {
   max-width: 120rem;
+
   margin: 0 auto;
   padding: 6rem 2rem;
+  padding: 3rem 1.5rem;
+  margin-bottom: 20rem;
   text-align: left;
   min-height: 70vh;
 }
 
 .header {
   margin-bottom: 5rem;
+
 }
 
-.tagline {
+.tagline2 {
+  padding-left: 20vw;
   font-size: 2.4rem;
   color: #333;
   margin-bottom: 1.5rem;
   font-weight: 500;
+
 }
 
 .title {
@@ -371,7 +379,8 @@ html {
 /* Testimonials Section */
 .testimonials-container {
   max-width: 120rem;
-  margin: 6rem auto;
+
+  margin: 10rem auto;
   padding: 6rem 2rem;
   text-align: center;
 }

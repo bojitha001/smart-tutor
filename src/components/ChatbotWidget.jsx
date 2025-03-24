@@ -38,11 +38,11 @@ const ChatbotWidget = () => {
   const textareaRef = useRef(null);
   const [minimized, setMinimized] = useState(false);
 
-  // API endpoint (adjust if your backend runs on a different port)
+  
   const API_BASE_URL = "http://localhost:8080";
 
   useEffect(() => {
-    // Generate a unique session ID for this chat
+    
     if (!sessionId) {
       setSessionId(
         `session_${Date.now()}_${Math.random().toString(36).substring(2, 11)}`
@@ -60,7 +60,7 @@ const ChatbotWidget = () => {
     }
   }, [inputMessage]);
 
-  // Fetch suggested questions when chat is opened
+  
   useEffect(() => {
     if (isOpen && !minimized) {
       fetchSuggestions();
@@ -127,11 +127,11 @@ const ChatbotWidget = () => {
     setMessages((prev) => [...prev, newUserMessage]);
     setInputMessage("");
 
-    // Show typing indicator
+    
     setIsTyping(true);
     setShowResources(false);
 
-    // Send message to backend
+    
     sendMessageToBackend(newUserMessage.text);
   };
 
@@ -151,13 +151,11 @@ const ChatbotWidget = () => {
     return `${hours}:${minutes} ${ampm}`;
   }
 
-  // Simulate typing effect for longer responses
+  
   const simulateTypingEffect = (response, callback) => {
-    // For longer responses (like from AI), simulate a realistic typing delay
-    // based on response length
     const typingDelay = Math.min(
-      1200, // minimum delay
-      Math.max(600, response.length / 10) // at least 600ms, at most 1200ms
+      1200, 
+      Math.max(600, response.length / 10) 
     );
 
     setTimeout(() => {
@@ -165,7 +163,7 @@ const ChatbotWidget = () => {
     }, typingDelay);
   };
 
-  // Send message to backend and get response
+  
   const sendMessageToBackend = async (text) => {
     try {
       const response = await fetch(`${API_BASE_URL}/chatbot/message`, {
@@ -185,23 +183,23 @@ const ChatbotWidget = () => {
 
       const data = await response.json();
 
-      // Store any resources that came with the response
+      
       if (data.resources && data.resources.length > 0) {
         setResources(data.resources);
       } else {
         setResources([]);
       }
 
-      // Simulate typing for a more natural feel
+      
       simulateTypingEffect(data.response, () => {
-        // Hide typing indicator and add bot response
+       
         setIsTyping(false);
 
         const newBotMessage = {
           text: data.response,
           sender: "bot",
           time: formatTime(new Date()),
-          source: data.source, // 'faq', 'ai', or 'simple'
+          source: data.source, 
         };
 
         setMessages((prev) => [...prev, newBotMessage]);
@@ -209,7 +207,7 @@ const ChatbotWidget = () => {
     } catch (error) {
       console.error("Error sending message to backend:", error);
 
-      // Hide typing indicator and add error message
+    
       setIsTyping(false);
 
       const errorMessage = {
@@ -223,7 +221,7 @@ const ChatbotWidget = () => {
   };
   return (
     <>
-      {/* Chat Button (Closed State) */}
+      
       {!isOpen && (
         <div className={styles.chatWidgetButton} onClick={toggleChat}>
           <FontAwesomeIcon icon={faCommentDots} />
@@ -231,7 +229,7 @@ const ChatbotWidget = () => {
         </div>
       )}
 
-      {/* Minimized Chat Widget */}
+      
       {isOpen && minimized && (
         <div className={styles.minimizedChat} onClick={toggleChat}>
           <div className={styles.minimizedAvatar}>
@@ -241,10 +239,10 @@ const ChatbotWidget = () => {
         </div>
       )}
 
-      {/* Chat Widget (Open State) */}
+     
       {isOpen && !minimized && (
         <div className={styles.chatWidget}>
-          {/* Header */}
+          
           <div className={styles.chatHeader}>
             <div className={styles.chatHeaderLeft}>
               <div className={styles.headerAvatar}>
@@ -273,7 +271,7 @@ const ChatbotWidget = () => {
             </div>
           </div>
 
-          {/* Messages */}
+          
           <div className={styles.messagesContainer}>
             <div className={styles.welcomeSection}>
               <div className={styles.welcomeAvatar}>
@@ -312,7 +310,7 @@ const ChatbotWidget = () => {
                   </div>
                   <div className={styles.messageTime}>{msg.time}</div>
 
-                  {/* Show resources if available and it's a bot message */}
+                  
                   {msg.sender === "bot" &&
                     resources.length > 0 &&
                     messages[messages.length - 1] === msg && (
@@ -352,7 +350,7 @@ const ChatbotWidget = () => {
               </div>
             ))}
 
-            {/* Typing Indicator */}
+            
             {isTyping && (
               <div className={styles.typingIndicator}>
                 <div className={styles.botAvatar}>
@@ -366,11 +364,11 @@ const ChatbotWidget = () => {
               </div>
             )}
 
-            {/* Invisible element to scroll to */}
+            
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Suggestions */}
+         
           {messages.length < 3 && (
             <div className={styles.suggestionsContainer}>
               <h4 className={styles.suggestionsTitle}>
@@ -390,7 +388,7 @@ const ChatbotWidget = () => {
             </div>
           )}
 
-          {/* Input Area */}
+          
           <div className={styles.inputContainer}>
             <textarea
               ref={textareaRef}
