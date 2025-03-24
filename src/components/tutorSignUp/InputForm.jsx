@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import styles from "../../.ExternalCss/form.module.css";
 import { useUser } from "@clerk/clerk-react";
-import { useNavigate } from "react-router";
+import { Navigate, useNavigate } from "react-router-dom";
 import contactForm from "../../assets/images/tutorForm.jpg";
 
 const addTeacher = async (tutorData) => {
+  const token = await window.Clerk.session.getToken();
+
   const res = await fetch("http://localhost:8080/teachers", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(tutorData),
   });
@@ -16,10 +19,12 @@ const addTeacher = async (tutorData) => {
 
 const InputForm = () => {
   const navigate = useNavigate();
-  const { user } = useUser();
+  const { isLoaded, isSignedIn, user } = useUser();
+  // const { user } = useUser();
   const clerkId = user?.id;
   const userImageUrl = user?.imageUrl;
   console.log(clerkId);
+
 
     const [formData, setFormData] = useState({
         name:"",
@@ -48,6 +53,14 @@ const InputForm = () => {
         navigate(`/`)
     }
     
+  if (!isLoaded) {
+    return <div>Loading...</div>;
+  }
+
+  if (!isSignedIn) {
+    return <Navigate to="/login" replace/>;
+  }
+
   return (
     <div className={`${styles.container}`}>
       <div className={styles.formWrapper}>
