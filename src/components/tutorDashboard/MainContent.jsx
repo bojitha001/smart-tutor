@@ -45,10 +45,22 @@ const getAllAnnouncements = async () => {
   return announcement;
 }
 
+const getAnnouncementById = async (id) => {
+  const res = await fetch(`http://localhost:8080/announcements/${id}`, {
+    method: "GET",
+  });
+  console.log(id)
+  const announcement = await res.json();
+  return announcement;
+  
+  
+}
+
 function MainContent() {
   const [value, onChange] = useState(new Date());
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user, isLoaded } = useUser();
+  const tutorID = user?.id;
 
   const [announcement, setAnnouncement] = useState(false);
   const [newAnnouncement, setNewAnnouncement] = useState([]);
@@ -62,15 +74,22 @@ function MainContent() {
     description: ""
   });
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(formData);
 
     addAnnouncement({
+      tutorID,
       title: formData.title,
       description: formData.description
     })
     console.log(announcement)
+    setAnnouncement(false);
+    setFormData({ title: "", description: "" });
+    
+    // Refresh announcements
+    const updatedAnnouncements = await getAnnouncementById(tutorID);
+    setNewAnnouncement(updatedAnnouncements);
   }
 
   const enrollmentData = [
@@ -101,14 +120,19 @@ function MainContent() {
       ? user.emailAddresses[0].emailAddress
       : "";
 
-  useEffect(() => {
-    getAllAnnouncements()
-    .then((data) => {
-        setNewAnnouncement(data);
-    })
-    .catch((err) => {})
-    .finally(() => {})
-  }, [])
+      useEffect(() => {
+        if (isLoaded && tutorID) {
+          console.log("Fetching announcements for tutorID:", tutorID);
+          getAnnouncementById(tutorID)
+            .then((data) => {
+              console.log("Announcement data received:", data);
+              setNewAnnouncement(data);
+            })
+            .catch((err) => {
+              console.error("Error fetching announcements:", err);
+            });
+        }
+      }, [isLoaded, tutorID]);
 
   return (
     <div className={`${styles["main-content"]}`}>
@@ -324,11 +348,13 @@ function MainContent() {
             <div className={`${styles["announcement-list"]}`}>
               <div className={styles.announcement}>
                 {newAnnouncement.map((announcement) => (
+
                   <>
                   <h5>{announcement.title}</h5>
                   <p>{announcement.description}</p>
                   </>
-                ))}
+                ))
+                }
               </div>
             </div>
           </div>
