@@ -18,7 +18,7 @@ const addAnswer = async (answers) => {
     headers: {
       "Content-Type": "application/json", //saying we are passing a json
     },
-    body: JSON.stringify(answers),
+    body: JSON.stringify(answers)
   });
 };
 
