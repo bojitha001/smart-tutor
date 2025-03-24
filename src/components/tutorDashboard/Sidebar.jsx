@@ -69,7 +69,7 @@ const Sidebar = () => {
         <nav className={styles.sidebarNav}>
           <Link 
             to="/tutor-dashboard" 
-            className={`${styles["nav-item"]} ${location.pathname === "/" ? styles.active : ""}`}
+            className={`${styles["nav-item"]} ${location.pathname === "/tutor-dashboard" ? styles.active : ""}`}
             onClick={closeSidebar}
           >
             <img src={userIcon} alt="Dashboard" className={styles.icon} />
@@ -77,7 +77,7 @@ const Sidebar = () => {
           </Link>
           <Link 
             to="/tutor-dashboard-classes" 
-            className={`${styles["nav-item"]} ${location.pathname === "/classes" ? styles.active : ""}`}
+            className={`${styles["nav-item"]} ${location.pathname === "/tutor-dashboard-classes" ? styles.active : ""}`}
             onClick={closeSidebar}
           >
             <img src={teacherIcon} alt="Classes" className={styles.icon} />
@@ -85,7 +85,7 @@ const Sidebar = () => {
           </Link>
           <Link 
             to="/tutor-dashboard-students" 
-            className={`${styles["nav-item"]} ${location.pathname === "/students" ? styles.active : ""}`}
+            className={`${styles["nav-item"]} ${location.pathname === "/tutor-dashboard-students" ? styles.active : ""}`}
             onClick={closeSidebar}
           >
             <img src={studentIcon} alt="Students" className={styles.icon} />
@@ -93,7 +93,7 @@ const Sidebar = () => {
           </Link>
           <Link 
             to="/tutor-dashboard-payments" 
-            className={`${styles["nav-item"]} ${location.pathname === "/payments" ? styles.active : ""}`}
+            className={`${styles["nav-item"]} ${location.pathname === "/tutor-dashboard-payments" ? styles.active : ""}`}
             onClick={closeSidebar}
           >
             <img src={payIcon} alt="Payments" className={styles.icon} />
@@ -101,7 +101,7 @@ const Sidebar = () => {
           </Link>
           <Link 
             to="/tutor-dashboard-settings" 
-            className={`${styles["nav-item"]} ${location.pathname === "/settings" ? styles.active : ""}`}
+            className={`${styles["nav-item"]} ${location.pathname === "/tutor-dashboard-settings" ? styles.active : ""}`}
             onClick={closeSidebar}
           >
             <img src={settingIcon} alt="Settings" className={styles.icon} />
