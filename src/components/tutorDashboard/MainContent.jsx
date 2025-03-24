@@ -31,10 +31,9 @@ function MainContent() {
       { name: 'Jun', revenue: 25000 },
     ];
   
-    // Get user's first name or full name
+    
     const userName = isLoaded && user ? ( user.fullName || user.firstName || 'User') : 'User';
-    // Get email if available
-    // Get primary email address if available
+    
     const userEmail = isLoaded && user && user.emailAddresses && user.emailAddresses.length > 0 
       ? user.emailAddresses[0].emailAddress 
       : '';

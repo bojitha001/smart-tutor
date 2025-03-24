@@ -196,7 +196,7 @@ a:hover {
 }
 
 .nav-item.active .navText {
-  color: #000; /* Ensure text is visible against yellow */
+  color: #000; 
 }
 
 .nav-item:hover {

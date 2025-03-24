@@ -25,7 +25,7 @@ const Sidebar = () => {
     };
 
     window.addEventListener('resize', handleResize);
-    // Set initial state based on window width
+    
     handleResize();
 
     return () => {
