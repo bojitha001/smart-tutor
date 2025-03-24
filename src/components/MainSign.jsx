@@ -26,13 +26,13 @@ const MainSign = () => {
                         </button>
                     </div>
                 </div>
-                <div className={`${styles["choose-sign-up"]}`}>
+                {/* <div className={`${styles["choose-sign-up"]}`}>
                     <div>
                         <button onClick={() => navigate("/parent-sign-up")}>
                             Parent
                         </button>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     )
