@@ -6,7 +6,7 @@ import collab from "../../assets/images/KuppiImg2.png";
 import { Link } from "react-router";
 
 import groupLearningImg from "../../assets/images/GroupLearing-1.png";
-import liveSessionsImg from "../../assets/images/liveStudy-2.png";
+
 import resourceSharingImg from "../../assets/images/ResourseSharing-3.png";
 import discussionForumsImg from "../../assets/images/DiscussionForum-4.png";
 import realtimeAssistanceImg from "../../assets/images/RealTime-5.png";
@@ -22,7 +22,7 @@ const whyCollab = [
     id: 2,
     title: "Live Study Sessions",
     description: "Join scheduled or on-demand sessions with expert tutors.",
-    image: liveSessionsImg,
+    // image: liveSessionsImg,
   },
   {
     id: 3,

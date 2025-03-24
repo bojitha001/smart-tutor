@@ -12,54 +12,47 @@ import icon5 from "../assets/images/Find and Replace.png";
 import icon6 from "../assets/images/Brake Warning.png";
 import FAQItem from "../components/FAQItem.jsx";
 import ChatbotWidget from "./ChatbotWidget.jsx";
-
-const categories = [
-  { id: 1, name: "Biology", color: "#FFE9B1", icon: "🧬" },
-  { id: 2, name: "Physics", color: "#E4D3FF", icon: "🚀" },
-  { id: 3, name: "Chemistry", color: "#FFD6D6", icon: "🧪" },
-  { id: 4, name: "Mathematics", color: "#D6E4FF", icon: "📐" },
-  { id: 5, name: "ICT", color: "#D6FFF0", icon: "💻" },
-  { id: 6, name: "Econ", color: "#F0E6C8", icon: "📊" },
-  { id: 7, name: "Accounting", color: "#FFD6E8", icon: "📚" },
-  { id: 8, name: "Business Studies", color: "#D6FFF6", icon: "💼" },
-  { id: 9, name: "Agriculture", color: "#E3FFD6", icon: "🌱" },
-];
+import student from "../assets/images/student.png";
+import tutor from "../assets/images/tutor.png";
+import parent from "../assets/images/parent.png";
+import tutorblock from "../assets/images/tutorblock.png";
+import studentblock from "../assets/images/studentblock.png";
 
 const testimonials = [
   {
     id: 1,
-    name: "T. Perera",
-    role: "Student",
+    name: "Ayesha R.",
+    role: "(AL Student)",
     image: "src/assets/images/tPerera.jpg",
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    text: "Smart Tutor made studying so much easier! I found the perfect tutor for ICT, and their teaching style matched exactly what I needed. My grades have improved, and I actually enjoy learning now!",
   },
   {
     id: 2,
-    name: "S. Silva",
-    role: "Student",
+    name: "Kavindu P.",
+    role: "(University Student)",
     image: "src/assets/images/sSilva.jpg",
-    text: "It has been the industry's standard dummy text ever since the 1500s.",
+    text: "The study groups on Smart Tutor’s Discord helped me stay accountable and motivated. Learning with others makes a huge difference!",
   },
   {
     id: 3,
-    name: "A. Fernando",
-    role: "Tutor",
+    name: "Tharindu Fernando",
+    role: "(ICT Tutor)",
     image: "src/assets/images/aFernando.jpg",
-    text: "An unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    text: "Smart Tutor gave me the opportunity to teach passionate students while earning flexibly. The platform is smooth, and I’ve built great relationships with my students!",
   },
   {
     id: 4,
-    name: "S. Mendis",
-    role: "Parent",
+    name: "Isuri M.",
+    role: "(Math Tutor)",
     image: "src/assets/images/sMendis.jpg",
-    text: "Lorem Ipsum is not just random text; it has roots in classical Latin.",
+    text: "Being a tutor on Smart Tutor has been an amazing experience! The student engagement is great, and the support from the platform helps me focus on teaching.",
   },
   {
     id: 5,
-    name: "M. Smith",
-    role: "Tutor",
+    name: "Mrs. Perera ",
+    role: "(Parent of a Grade 10 Student)",
     image: "src/assets/images/mSmith.jpg",
-    text: "The passage has been used in typesetting for centuries.",
+    text: "Finding a reliable tutor for my child was so stressful—until we found Smart Tutor. Now, they have a dedicated tutor who truly understands their needs. Best decision ever!",
   },
 ];
 
@@ -99,6 +92,30 @@ const features = [
     title: "Alerts and Notifications",
     description:
       "Receive reminders about upcoming classes, assignments, fee due dates, and special events so you stay up-to-date with your schedule.",
+  },
+];
+
+const who = [
+  {
+    id: 1,
+    image: student,
+    title: "Student",
+    subtitle:
+      "Studying smart is just as important as studying hard. Use techniques like Pomodoro, active recall, and the Feynman method to boost learning. Stay consistent, set SMART goals, and remember—mistakes are just lessons in disguise! 🚀",
+  },
+  {
+    id: 2,
+    image: tutor,
+    title: "Tutor",
+    subtitle:
+      "Great tutors don’t just teach—they inspire. Focus on understanding student needs, simplifying complex topics, and encouraging active learning. A tutor’s impact isn’t measured by answers given but by curiosity sparked and confidence built. 🚀",
+  },
+  {
+    id: 3,
+    image: parent,
+    title: "Parent",
+    subtitle:
+      "Education isn’t just about grades—it’s about growth. Support your child by encouraging curiosity, creating a positive learning environment, and celebrating progress. Your belief in them shapes their confidence and success! 🚀",
   },
 ];
 
@@ -242,37 +259,49 @@ export const HomePage = () => {
         </div>
       </div>
 
-      {/* Categories Section */}
-      <div className={`${styles["categories-container"]}`}>
-        <h1>Explore Top Categories</h1>
-        <div className={`${styles["categories-grid"]}`}>
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              className={`${styles["category-box"]}`}
-              style={{ backgroundColor: category.color }}
-              aria-label={`${category.name} category`}
+      <div className={styles["who-container"]}>
+        <h1>Who is SMART TUTOR for?</h1>
+        <div className={styles["who-header"]}>
+          <h2 className={styles["who-tagline"]}>
+            We Market - We Provide - We Monitor
+          </h2>
+        </div>
+        <div className={styles["card-grid"] + " " + styles["who-grid"]}>
+          {who.map((post) => (
+            <div
+              className={styles["card"] + " " + styles["who-card"]}
+              key={post.id}
             >
-              <span className={`${styles["category-icon"]}`}>
-                {category.icon}
-              </span>
-              <span className={`${styles["category-name"]}`}>
-                {category.name}
-              </span>
-            </button>
+              <div className={styles["card-image"]}>
+                <img src={post.image} alt={post.title} loading="lazy" />
+              </div>
+              <div className={styles["card-content"]}>
+                <h3 className={styles["card-title"]}>{post.title}</h3>
+                <p className={styles["card-subtitle"]}>{post.subtitle}</p>
+              </div>
+            </div>
           ))}
         </div>
-        <button
-          className={`${styles["see-more-button"]}`}
-          aria-label="See more categories"
-        >
-          See More <span className={`${styles["arrow"]}`}>→</span>
-        </button>
-        <img
-          src={sitting}
-          alt="Student illustration"
-          className={styles["student-illustration"]}
-        />
+      </div>
+
+      {/* tutor block */}
+      <div className={`${styles["container-block"]}`}>
+        <img className={`${styles["block-img"]}`} src={tutorblock}></img>
+        <div className={`${styles["block-container"]}`}>
+          <h2 className={`${styles["block-numbers"]}`}>01. Market</h2>
+          <p className={`${styles["block-desc"]}`}>
+            Connecting with students, parents, and tutors to meet educational
+            needs.
+          </p>
+          <h2 className={`${styles["block-numbers"]}`}>02. Brand</h2>
+          <p className={`${styles["block-desc"]}`}>
+            Building trust and a consistent, positive identity for Smart Tutor.
+          </p>
+          <h2 className={`${styles["block-numbers"]}`}>03. Expand</h2>
+          <p className={`${styles["block-desc"]}`}>
+            Growing through new subjects, more users, and platform improvements.
+          </p>
+        </div>
       </div>
 
       {/* Features Section */}
@@ -299,6 +328,29 @@ export const HomePage = () => {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* student block */}
+      <div className={`${styles["container-block2"]}`}>
+        <div className={`${styles["block2-container"]}`}>
+          <h2 className={`${styles["block2-numbers"]}`}>
+            04. Personalized Learning
+          </h2>
+          <p className={`${styles["block2-desc"]}`}>
+            Find tutors that match your learning style and academic needs.
+          </p>
+          <h2 className={`${styles["block2-numbers"]}`}>
+            05. Collaborative Study{" "}
+          </h2>
+          <p className={`${styles["block2-desc"]}`}>
+            Engage in group learning and share resources to improve together.
+          </p>
+          <h2 className={`${styles["block2-numbers"]}`}>06. Convenience</h2>
+          <p className={`${styles["block2-desc"]}`}>
+            Study at your own pace, on your own time, from anywhere.
+          </p>
+        </div>
+        <img className={`${styles["block2-img"]}`} src={studentblock}></img>
       </div>
 
       {/* Testimonials Section */}
@@ -406,7 +458,7 @@ export const HomePage = () => {
         />
       )} */}
 
-      <ChatbotWidget/>
+      <ChatbotWidget />
     </>
   );
 };

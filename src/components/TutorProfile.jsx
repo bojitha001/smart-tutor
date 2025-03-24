@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Star, Mail, Phone, GraduationCap, Clock } from "lucide-react";
 import styles from "../.ExternalCss/tutorProfile.module.css";
-import { useNavigate, useParams } from "react-router";
+import { Navigate, useNavigate, useParams } from "react-router";
 import { Link } from "react-router";
 import { useUser } from "@clerk/clerk-react";
 
 const getATeacherById = async (id) => {
+  const token = await window.Clerk.session.getToken();
+
   const res = await fetch(`http://localhost:8080/teachers/${id}`, {
     method: "GET",
+    headers: {
+      "Content-Type": "application/json", 
+      Authorization: `Bearer ${token}`,
+    },
   });
   const tutor = await res.json();
   return tutor;
@@ -16,9 +22,9 @@ const getATeacherById = async (id) => {
 const TutorProfile = () => {
   const params = useParams();
   console.log(params.id);
-  const { user } = useUser();
   const navigate = useNavigate();
   const [tutor, setTutor] = useState(null);
+  const { isLoaded, isSignedIn, user } = useUser();
 
   useEffect(() => {
     getATeacherById(params.id)
@@ -43,6 +49,7 @@ const TutorProfile = () => {
         studentName: user
           ? `${user.firstName || ""} ${user.lastName || ""}`.trim()
           : "Anonymous",
+        studentEmail: user.emailAddresses[0]?.emailAddress || "",
       };
       console.log(bookingData);
 
@@ -66,6 +73,14 @@ const TutorProfile = () => {
     }
   };
 
+  if (!isLoaded) {
+    return <div>Loading...</div>;
+  }
+  
+  if (!isSignedIn) {
+    return <Navigate to="/login" replace/>;
+  }
+
   return (
     <div class={`${styles.container}`}>
       <div class={`${styles.coverImage}`}></div>
@@ -81,7 +96,7 @@ const TutorProfile = () => {
             <div class={`${styles.profileInfo}`}>
               <h1 class={`${styles.name}`}>{tutor?.name}</h1>
               <p class={`${styles.title}`}>
-                Senior Product Designer based in San Francisco
+              {tutor?.degree}
               </p>
               <div className={styles.contactItemContainer}>
                 <div className={styles.contactItem}>
@@ -100,22 +115,17 @@ const TutorProfile = () => {
         <div class={`${styles.experienceSection}`}>
           <h2 class={`${styles.sectionTitle}`}>Experience</h2>
           <p class={`${styles.experienceText}`}>
-            Specialist in UX/UI design, brand strategy, and product development.
+            {tutor?.experience}
+            {/* Specialist in UX/UI design, brand strategy, and product development. */}
           </p>
 
           <div class={`${styles.grid}`}>
             <div>
               <h3 class={`${styles.aboutTitle}`}>About me</h3>
               <p class={`${styles.aboutText}`}>
-                I'm a Product Designer with over 5 years of experience. I enjoy
-                working on challenging projects and creating user-centered
-                designs that solve real problems.
+                {tutor?.bio}
               </p>
-              <p class={`${styles.aboutText}`}>
-                I've worked with various startups and established companies,
-                helping them improve their UX and drive business growth through
-                effective design solutions.
-              </p>
+              
             </div>
           </div>
 

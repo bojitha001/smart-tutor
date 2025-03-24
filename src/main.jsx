@@ -37,7 +37,8 @@ import Questions from "./components/KuppiGroups/Questions.jsx";
 import FullQuestion from "./components/KuppiGroups/FullQuestion.jsx";
 import RequestTopic from "./components/KuppiGroups/RequestCommunity.jsx";
 import TutorProfile from "./components/TutorProfile.jsx";
-import InputForm from "./components/tutorSignUp/InputForm.jsx";
+import TutorInputForm from "./components/tutorSignUp/InputForm.jsx";
+import StudentInputForm from "./components/SignUp/studentSignUp/InputForm.jsx"
 import BecomeATutorContac from './components/BecomeATutorContac.jsx'
 import BookingForm from "./components/BookingForm.jsx";
 // Import your Publishable Key
@@ -169,8 +170,12 @@ const router = createBrowserRouter([
         element: <ParentSignUp />,
       },
       {
-        path: "/input",
-        element: <InputForm />,
+        path: "/tutorInput",
+        element: <TutorInputForm />,
+      },
+      {
+        path: "/studentInput",
+        element: <StudentInputForm />,
       },
       {
         path: "/contact-us",

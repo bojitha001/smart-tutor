@@ -201,6 +201,11 @@ const FindTutor = () => {
                     <h3>{tutor.name}</h3>
                     <p className={styles.degree}>{tutor.degree}</p>
                     <p className={styles.bio}>
+                      {tutor.experience && tutor.experience.length > 150
+                        ? `${tutor.experience.substring(0, 150)}...`
+                        : tutor.experience}
+                    </p>
+                    <p className={styles.bio}>
                       {tutor.bio && tutor.bio.length > 150
                         ? `${tutor.bio.substring(0, 150)}...`
                         : tutor.bio}

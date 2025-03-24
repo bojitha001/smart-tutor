@@ -57,7 +57,7 @@ const BecomeATutor = () => {
               </div>
             </div>
 
-            <Link to="/input">
+            <Link to="/tutorInput">
             <button className={`${styles["become-a-tutor-main-button"]}`}>
               Create a Tutor Profile
             </button>

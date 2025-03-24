@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import styles from "../../.ExternalCss/form.module.css";
+import styles from "../../../.ExternalCss/form.module.css";
 import { useUser } from "@clerk/clerk-react";
 import { useNavigate } from "react-router";
-import contactForm from "../../assets/images/tutorForm.jpg";
+import contactForm from "../../../assets/images/tutorForm.jpg";
 
-const addTeacher = async (tutorData) => {
-  const res = await fetch("http://localhost:8080/teachers", {
+const addStudent = async (studentData) => {
+  const res = await fetch("http://localhost:8080/student", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(tutorData),
+    body: JSON.stringify(studentData),
   });
 };
 
@@ -23,27 +23,25 @@ const InputForm = () => {
 
     const [formData, setFormData] = useState({
         name:"",
-        degree:"",
+        grade:"",
         subject:"",
         bio:"",
         contactNo:"",
-        keyWords: [],
-        experience: []
+        keyWords: []
     })
 
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log(formData);
-        addTeacher({
+        addStudent({
             clerkId,
             userImageUrl,
             name: formData.name,
-            degree: formData.degree,
+            grade: formData.grade,
             subject: formData.subject,
             bio: formData.bio,
             contactNo: formData.contactNo,
-            keyWords: formData.keyWords,
-            experience: formData.experience
+            keyWords: formData.keyWords
         });
         navigate(`/`)
     }
@@ -53,7 +51,7 @@ const InputForm = () => {
       <div className={styles.formWrapper}>
         <img className={`${styles.formImage}`} src={contactForm}></img>
         <div class={`${styles.formContainer}`}>
-          <h2 class={`${styles.formTitle}`}>Tutor Information</h2>
+          <h2 class={`${styles.formTitle}`}>Student Information</h2>
           <form onSubmit={handleSubmit}>
             <div class={`${styles.formGroup}`}>
               <label class={`${styles.label}" for="name`}>Name</label>
@@ -70,17 +68,17 @@ const InputForm = () => {
             </div>
 
             <div class={`${styles.formGroup}`}>
-              <label class={`${styles.label}`} for="degree">
-                Degree
+              <label class={`${styles.label}`} for="grade">
+                Grade
               </label>
               <input
                 class={`${styles.input}`}
                 type="text"
-                name="degree"
+                name="grade"
                 required
-                placeholder="Enter your degree"
+                placeholder="Enter your grade"
                 onChange={(event) =>
-                  setFormData({ ...formData, degree: event.target.value })
+                  setFormData({ ...formData, grade: event.target.value })
                 }
               />
             </div>
@@ -100,14 +98,14 @@ const InputForm = () => {
             />
           </div>
           <div class={`${styles.formGroup}`}>
-            <label class={`${styles.label}`} for="contact">
+            <label class={`${styles.label}`} for="contactNo">
               Contact No
             </label>
             <input
               class={`${styles.input}`}
               type="text"
              
-              name="contact"
+              name="contactNo"
               required
               placeholder="Enter your contact No here"
               onChange={(event) => setFormData({...formData, contactNo:event.target.value})}
@@ -115,34 +113,17 @@ const InputForm = () => {
           </div>
 
           <div class={`${styles.formGroup}`}>
-            <label class={`${styles.label}`} for="keyword">
+            <label class={`${styles.label}`} for="keywords">
               KeyWords
             </label>
             <input
               class={`${styles.input}`}
               type="text"
              
-              name="keyword"
+              name="keywords"
               required
               placeholder="Maths, AdvancedLevel"
               onChange={(event) => setFormData({...formData, keyWords:event.target.value.split(',').map(keyword => keyword.trim()).filter(k => k)
-
-              })
-            }
-            />
-          </div>
-          <div class={`${styles.formGroup}`}>
-            <label class={`${styles.label}`} for="experience">
-              Experience
-            </label>
-            <input
-              class={`${styles.input}`}
-              type="text"
-             
-              name="experience"
-              required
-              placeholder="I have experience on ..."
-              onChange={(event) => setFormData({...formData, experience:event.target.value.split(',').map(keyword => keyword.trim()).filter(k => k)
 
               })
             }
