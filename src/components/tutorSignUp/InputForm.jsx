@@ -7,7 +7,7 @@ import contactForm from "../../assets/images/tutorForm.jpg";
 const addTeacher = async (tutorData) => {
   const token = await window.Clerk.session.getToken();
 
-  const res = await fetch("http://localhost:8080/teachers", {
+  const res = await fetch("https://smart-tutor-backend-production.up.railway.app/teachers", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

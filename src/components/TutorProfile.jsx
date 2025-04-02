@@ -8,7 +8,7 @@ import { useUser } from "@clerk/clerk-react";
 const getATeacherById = async (id) => {
   const token = await window.Clerk.session.getToken();
 
-  const res = await fetch(`http://localhost:8080/teachers/${id}`, {
+  const res = await fetch(`https://smart-tutor-backend-production.up.railway.app/teachers/${id}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json", 
@@ -53,7 +53,7 @@ const TutorProfile = () => {
       };
       console.log(bookingData);
 
-      const res = await fetch("http://localhost:8080/bookings", {
+      const res = await fetch("https://smart-tutor-backend-production.up.railway.app/bookings", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

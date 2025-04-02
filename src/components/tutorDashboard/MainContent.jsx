@@ -28,7 +28,7 @@ import { data, Link } from "react-router";
 
 
 const addAnnouncement = async (announcement) => {
-  const res = await fetch("http://localhost:8080/announcements", {
+  const res = await fetch("https://smart-tutor-backend-production.up.railway.app/announcements", {
     method: "POST",
     headers: {
       "Content-Type": "application/json", //saying we are passing a json
@@ -38,7 +38,7 @@ const addAnnouncement = async (announcement) => {
 }
 
 const getAllAnnouncements = async () => {
-  const res = await fetch('http://localhost:8080/announcements', {
+  const res = await fetch('https://smart-tutor-backend-production.up.railway.app/announcements', {
     method: "GET",
   });
   const announcement = await res.json();
@@ -46,7 +46,7 @@ const getAllAnnouncements = async () => {
 }
 
 const getAnnouncementById = async (id) => {
-  const res = await fetch(`http://localhost:8080/announcements/${id}`, {
+  const res = await fetch(`https://smart-tutor-backend-production.up.railway.app/announcements/${id}`, {
     method: "GET",
   });
   console.log(id)

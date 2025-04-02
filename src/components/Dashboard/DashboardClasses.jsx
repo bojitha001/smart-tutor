@@ -19,7 +19,7 @@ function DashboardClasses() {
       if(userClerk) {
         try {
           const response = await fetch(
-            `http://localhost:8080/bookings/${user.id}`
+            `https://smart-tutor-backend-production.up.railway.app/bookings/${user.id}`
           );
           
           if (response.ok) {

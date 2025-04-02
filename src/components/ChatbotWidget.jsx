@@ -39,7 +39,7 @@ const ChatbotWidget = () => {
   const [minimized, setMinimized] = useState(false);
 
   
-  const API_BASE_URL = "http://localhost:8080";
+  const API_BASE_URL = "https://smart-tutor-backend-production.up.railway.app";
 
   useEffect(() => {
     

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 import contactForm from "../../../assets/images/tutorForm.jpg";
 
 const addStudent = async (studentData) => {
-  const res = await fetch("http://localhost:8080/student", {
+  const res = await fetch("https://smart-tutor-backend-production.up.railway.app/student", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

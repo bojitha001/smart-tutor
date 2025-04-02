@@ -13,7 +13,7 @@ export const TutorSignUp = () => {
       const setTutorRole = async () => {
         try {
           const token = await getToken();
-          const response = await fetch('http://localhost:8080/user', {
+          const response = await fetch('https://smart-tutor-backend-production.up.railway.app/user', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

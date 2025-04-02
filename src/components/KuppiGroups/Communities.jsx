@@ -13,7 +13,7 @@ const Communities = () => {
     const fetchCommunities = async () => {
       const token = await window.Clerk.session.getToken();
 
-      const res = await fetch("http://localhost:8080/communities", {
+      const res = await fetch("https://smart-tutor-backend-production.up.railway.app/communities", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
