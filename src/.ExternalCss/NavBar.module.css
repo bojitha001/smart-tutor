@@ -14,8 +14,8 @@ html {
     z-index: 100;
     top: 0;
     left: 0;
-    width: 100vw;
-    
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .smart {
@@ -28,6 +28,7 @@ html {
     font-style: normal;
     font-size: 2.4rem;
     font-weight: 700;
+    margin: 0;
 }
 
 .main-nav-list {
@@ -42,7 +43,8 @@ html {
     font-weight: 100;
     font-size: 1.6rem;
     text-decoration: none;
-    padding-top: 10px;
+    padding: 0;
+    margin: 0;
 }
 
 .main-nav-list a {
@@ -73,7 +75,7 @@ button {
     overflow: hidden;
 }
 
-.dashboardButton a{
+.dashboardButton a {
     background-color: #5A6DEE !important;
     padding: 10px 10px;
     border-radius: 5px;
@@ -83,15 +85,15 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    color: #fff;
+    text-decoration: none;
 }
 
-.dashboardButton:hover a{
+.dashboardButton:hover a {
     color: #fff !important;
-
 }
 
-.buttonAlign{
+.buttonAlign {
     display: flex;
     gap: 1rem;
 }
@@ -104,8 +106,6 @@ button {
     border-radius: 1rem !important;
     text-decoration: none;
     display: flex;
-
-
 }
 
 .lang {
@@ -117,6 +117,7 @@ button {
 
 .signup {
     background-color: #272727;
+    color: #fff;
 }
 
 .login {
@@ -124,7 +125,7 @@ button {
     color: #0e0e0e;
 }
 
-.login:hover{
+.login:hover {
     color: black;
     border: 0.5px solid rgb(114, 114, 114);
 }
@@ -140,6 +141,7 @@ button {
     border: none;
     cursor: pointer;
     padding: 0.5rem;
+    z-index: 1001;
 }
 
 .mobile-menu-icon {
@@ -193,6 +195,25 @@ button {
     left: 50%;
 }
 
+/* Overlay for mobile menu */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+}
+
+.mobile-menu-open .overlay {
+    display: block;
+}
+
+.dashboard{
+    background-color: #0e0e0e;
+}
 
 @media (max-width: 1080px) {
     .header {
@@ -234,7 +255,6 @@ button {
 @media (max-width: 768px) {
     .mobile-menu-btn {
         display: block;
-        z-index: 1000;
     }
     
     .main-nav {
@@ -249,6 +269,7 @@ button {
         z-index: 999;
         transition: right 0.3s ease-in-out;
         padding-top: 8rem;
+        display: block;
     }
     
     .mobile-menu-open .main-nav {
@@ -259,12 +280,24 @@ button {
         flex-direction: column;
         gap: 2rem;
         align-items: flex-start;
-        padding: 0 2rem;
-       
+        padding: 2rem;
+        margin-top: 0;
+    }
+    
+    .main-nav-list li {
+        width: 100%;
+        padding: 1rem 0;
     }
     
     .main-nav-list li:nth-child(even) {
         display: none; 
+    }
+    
+    .main-nav-list a {
+        display: block;
+        width: 100%;
+        font-size: 1.6rem;
+        padding: 0.5rem 0;
     }
     
     .nav-buttons {
@@ -274,6 +307,12 @@ button {
     .login, .signup {
         padding: 0.7rem 1.2rem;
         font-size: 1.2rem;
+    }
+    
+    /* Fix for mobile authentication buttons */
+    .nav-buttons .flex {
+        display: flex;
+        gap: 0.8rem;
     }
 }
 
@@ -298,25 +337,33 @@ button {
     
     .lang {
         font-size: 1rem;
+        display: none;
+    }
+    
+    /* Hide language selector on very small screens */
+    .dashboardButton a {
+        padding: 8px 10px;
+        font-size: 1.1rem;
+    }
+}
+
+/* Fix for very small screens */
+@media (max-width: 360px) {
+    .header {
+        padding: 0 1rem;
+    }
+    
+    .login, .signup {
+        padding: 0.5rem 0.8rem;
+        font-size: 1rem;
+    }
+    
+    .mobile-menu-icon {
+        width: 2rem;
     }
 }
 
 
-.overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 998;
-}
-
-.mobile-menu-open .overlay {
-    display: block;
-}
-
-.dashboard{
-    background-color: #0e0e0e;
+body.mobile-menu-open {
+    overflow: hidden;
 }
