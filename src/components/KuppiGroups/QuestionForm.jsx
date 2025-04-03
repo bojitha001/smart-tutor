@@ -7,12 +7,15 @@ import Questions from "./Questions";
 import { Link } from "react-router";
 
 const getCommunityById = async (id) => {
-  const res = await fetch(`https://smart-tutor-backend-production.up.railway.app/communities/${id}`, {
-    method: "GET",
-    headers: {
-      // Authorization: `Bearer ${token}`,
-    },
-  });
+  const res = await fetch(
+    `https://smart-tutor-backend-production.up.railway.app/communities/${id}`,
+    {
+      method: "GET",
+      headers: {
+        // Authorization: `Bearer ${token}`,
+      },
+    }
+  );
   const communities = await res.json();
   return communities;
   // console.log(jobs);
@@ -118,13 +121,22 @@ const QuestionForm = () => {
   return (
     <>
       <div className={`${styles["questions-container"]}`}>
-        <div>
+        <div className={`${styles["disscussion-area"]}`}>
           <h1>Disscussion Area</h1>
-          <Link to={`/kuppigroups-communities/${params.id}/questionform`}>
-            <button className={`${styles["question-button"]}`}>
-              Add a Question
-            </button>
-          </Link>
+          <div className={`${styles["disscussion-buttons"]}`}>
+            <div>
+              <Link to={`/kuppigroups-communities/${params.id}/questionform`}>
+                <button className={`${styles["question-button"]}`}>
+                  Add a Question
+                </button>
+              </Link>
+            </div>
+            {/* <div>
+              <button className={`${styles["question-button"]}`}>
+                Join our communitiy server
+              </button>
+            </div> */}
+          </div>
         </div>
         <div className={`${styles["questions-box"]}`}>
           {questionForm.length === 0 ? (

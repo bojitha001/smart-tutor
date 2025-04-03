@@ -299,6 +299,16 @@ html {
   width: 100%;
 }
 
+.disscussion-buttons {
+  /* display: flex; */
+  justify-content: center;
+  gap: 5rem;
+}
+
+.disscussion-area {
+  width: 50rem;
+}
+
 .questions-container h1 {
   font-family: 'Sora';
   color: #444;
