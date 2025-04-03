@@ -2,14 +2,10 @@ html {
     font-size: 62.5%;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
-    
 }
 
 .max-width-container {
@@ -35,7 +31,7 @@ body {
 }
 
 .grid-4-cols {
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .btn,
@@ -51,8 +47,6 @@ body {
     cursor: pointer;
 }
 
-
-
 .heading-up {
     display: block;
     font-size: 1.6rem;
@@ -63,31 +57,44 @@ body {
 }
 
 .become-a-tutor-main {
-    height: 75vh;
+    min-height: 75vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    padding: 5rem;
-    /* background-color: #FBBC08; */
+    padding: 5rem 2rem;
+    width: 100%;
 }
 
 .become-a-tutor-container1 {
     display: flex;
-    height: 50vh;
+    min-height: 50vh;
     gap: 10rem;
-    /* background-color: red; */
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
+.become-a-tutor-container1-left {
+    flex: 1;
+    min-width: 320px;
+    max-width: 600px;
+}
 
+.become-a-tutor-container1-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 320px;
+    max-width: 500px;
+}
 
-.become-a-tutor-container1-left h1{
-    font-family: 'Lalezar';
+.become-a-tutor-container1-left h1 {
+    font-family: 'Lalezar', cursive;
     font-size: 7.8rem;
     line-height: 7rem;
     text-align: left;
 }
-
 
 .become-a-tutor-container1-left .heading-primary-main {
     display: block;
@@ -105,44 +112,44 @@ body {
     color: #FBBC08 !important;
 }
 
-.heading-secondary  {
-    font-family: 'Inria Sans';
+.heading-secondary {
+    font-family: 'Inria Sans', sans-serif;
     font-size: 2.4rem;
     font-weight: 300;
     margin-top: -2rem;
     animation-name: moveInLeftDelay-1;
     animation-duration: 1.5s;
-    
 }
 
 .become-a-tutor-main-button {
     background-color: black;
     color: #fff;
-    padding: 1.2rem;
+    padding: 1.2rem 2.4rem;
     font-size: 1.4rem;
     font-weight: 600;
     border-radius: 1rem;
     margin-top: 2rem;
     animation-name: moveInLeftDelay-1;
     animation-duration: 1.5s;
+    cursor: pointer;
 }
 
 .become-a-tutor-timeline {
     margin-top: 2rem;
     display: flex;
     gap: 27%;
-    /* justify-content: space-between; */
+    width: 100%;
+    max-width: 400px;
 }
 
 .become-a-tutor-timeline > .become-a-tutor-timeline-box:nth-of-type(1) {
     margin-left: 1rem;
-  }
+}
 
 .become-a-tutor-timeline-box {
     display: flex;
     justify-content: center;
     align-items: center;
-    
     font-size: 1.8rem;
     height: 4rem;
     width: 4rem;
@@ -150,11 +157,10 @@ body {
 }
 
 .box-1 {
-    background-color: #FBBC08 ;
+    background-color: #FBBC08;
     animation-name: moveInLeftDelay-2;
     animation-duration: 1s;
 }
-
 
 .box-2 {
     background-color: #D9D9D9;
@@ -168,18 +174,28 @@ body {
     animation-duration: 1s;
 }
 
-/* .become-a-tutor-timeline-txt {
-    display: flex;
-    justify-content: space-between;
-} */
-
 .become-a-tutor-container1-right img {
-    height: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+}
+
+.become-a-tutor-third-shadow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 100%;
+}
+
+.timeline-txt-1, .timeline-txt-2, .timeline-txt-3 {
+    flex: 1;
+    min-width: 100px;
 }
 
 .timeline-txt-1-span {
     display: block;
-    font-family: 'Inria Sans';
+    font-family: 'Inria Sans', sans-serif;
 }
 
 .timeline-txt-1-span-1, .timeline-txt-2-span-1, .timeline-txt-3-span-1 {
@@ -196,27 +212,19 @@ body {
     animation-duration: 1s;
 }
 
-
-
 .become-a-tutor-second {
-    height: 70vh;
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
-    
-    padding: 3rem;
-    /* background-color: #747474; */
+    min-height: 70vh;
+    padding: 5rem 2rem;
+    width: 100%;
 }
 
 .become-a-tutor-second-container {
     margin-top: 5rem;
-    /* background-color: rebeccapurple; */
 }
-
 
 .secondary-titles {
     text-align: center;
-    font-family: 'Lalezar';
+    font-family: 'Lalezar', cursive;
     font-size: 6.4rem;
     margin-bottom: 1.2rem;
 }
@@ -227,6 +235,7 @@ body {
     text-align: center;
     box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.1);
     transition: all 0.4s;
+    height: 100%;
 }
 
 .our-benfits:hover {
@@ -240,12 +249,13 @@ body {
 
 .our-benfits-image {
     height: 6.2rem;
+    max-width: 100%;
 }
 
 .our-benfits-title {
     font-size: 2.2rem;
     color: #2B2D42;
-    font-family: 'Inria Sans';
+    font-family: 'Inria Sans', sans-serif;
     font-weight: 600;
     margin-bottom: 3.2rem;
 }
@@ -255,78 +265,66 @@ body {
     line-height: 1.8;
 }
 
-
 .become-a-tutor-third {
-    height: 50vh;
+    min-height: 50vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    /* padding: 5rem; */
-    /* background-color: #FBBC08; */
-    
-} 
-
-.become-a-tutor-third-center {
-    /* display: flex; */
-    /* background-color: #0E0E0E; */
+    padding: 5rem 2rem;
+    width: 100%;
 }
 
+.become-a-tutor-third-center {
+    width: 100%;
+}
 
 .become-a-tutor-third-shadow {
     border-radius: 1rem;
-    /* box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.1); */
-    /* border: 1px solid #989898; */
-
 }
 
 .become-a-tutor-third-main-title {
-    font-family: 'Lalezar';
+    font-family: 'Lalezar', cursive;
     font-size: 6.8rem;
     margin-bottom: 2rem;
+    text-align: center;
 }
-
 
 .solutions-in-numbers {
     border-radius: 1rem;
     padding-top: 2.4rem;
     text-align: center;
-    /* box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.1); */
-    
+    margin-bottom: 3rem;
 }
 
 .solutions-in-numbers-title {
     font-size: 4.2rem;
     color: #2B2D42;
-    font-family: 'Inria Sans';
+    font-family: 'Inria Sans', sans-serif;
     font-weight: 800;
 }
 
 .solutions-in-numbers-des {
     font-size: 1.6rem;
-    
 }
 
 .become-a-tutor-fourth {
-    height: 70vh;
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
-   
-    padding: 3rem;
-    /* background-color: #747474; */
+    min-height: 70vh;
+    padding: 5rem 2rem;
+    width: 100%;
 }
 
 .success-stories-content {
     padding: 3.2rem 4.8rem 4.8rem 4.8rem;
     border: #CCCCCC solid;
     border-radius: 1rem;
+    height: 100%;
+    margin-bottom: 2rem;
 }
 
 .success-stories-title {
     font-size: 1.8rem;
     color: #2B2D42;
-    font-family: 'Inria Sans';
+    font-family: 'Inria Sans', sans-serif;
     font-weight: 600;
     margin-bottom: 2.8rem;
 }
@@ -340,18 +338,13 @@ body {
     height: 7.4rem;
     margin-top: 2.4rem;
     border-radius: 1rem;
+    max-width: 100%;
 }
 
 .become-a-tutor-fifth {
-    height: 50vh;
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
-    
-    padding: 3rem;
-    padding-top: 5%;
-    /* margin-top: 4rem; */
-    /* background-color: #747474; */
+    min-height: 50vh;
+    padding: 5rem 2rem;
+    width: 100%;
 }
 
 .become-a-tutor-fifth-container {
@@ -360,23 +353,22 @@ body {
     text-align: center;
     background-color: #0E0E0E;
     border-radius: 1rem;
-    padding: 3.2rem 4.8rem 4.8rem 4.8rem;
+    padding: 3.2rem 2.4rem;
 }
 
 .connect-title {
     font-size: 3.6rem;
     color: #fff;
-    font-family: 'Inria Sans';
+    font-family: 'Inria Sans', sans-serif;
     font-weight: 600;
-    /* margin-bottom: 2.8rem; */
 }
 
 .connect-des {
     font-size: 1.8rem;
     color: #989898;
-    font-family: 'Inria Sans';
+    font-family: 'Inria Sans', sans-serif;
     font-weight: 400;
-    padding: 0 9.6rem;
+    padding: 2rem 0;
 }
 
 .btn-connect:link,
@@ -384,6 +376,7 @@ body {
     margin-top: 2.6rem;
     background-color: #FCC939;
     color: #303030;
+    display: inline-block;
 }
 
 .btn-connect:hover,
@@ -391,90 +384,254 @@ body {
     background-color: #fdd461;
 }
 
-.become-a-tutor-sixth {
-    height: 70vh;
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
-   
-    padding: 3rem;
-    background-color: #747474;
-}
-
-
-
+/* Animations */
 @keyframes moveInLeft {
     0% {
-      opacity: 0;
-      transform: translateX(-10rem);
-    }
-    80% {
-      /* transform: translateX(1.6rem); */
+        opacity: 0;
+        transform: translateX(-10rem);
     }
     100% {
-      opacity: 1;
-      transform: translateX(0);
+        opacity: 1;
+        transform: translateX(0);
     }
-  }
+}
 
-  @keyframes moveInLeftDelay-1 {
+@keyframes moveInLeftDelay-1 {
     0% {
-      opacity: 0;
-      transform: translateX(-20rem);
-    }
-    80% {
-      /* transform: translateX(1.6rem); */
+        opacity: 0;
+        transform: translateX(-20rem);
     }
     100% {
-      opacity: 1;
-      transform: translateX(0);
+        opacity: 1;
+        transform: translateX(0);
     }
-  }
+}
 
-  @keyframes moveInLeftDelay-2 {
+@keyframes moveInLeftDelay-2 {
     0% {
-      opacity: 0;
-      transform: translateX(-20rem);
-    }
-    80% {
-      /* transform: translateX(1.6rem); */
+        opacity: 0;
+        transform: translateX(-20rem);
     }
     100% {
-      opacity: 1;
-      transform: translateX(0);
+        opacity: 1;
+        transform: translateX(0);
     }
-  }
+}
 
-
-  @keyframes moveInButton {
+@keyframes moveInButton {
     0% {
-      opacity: 0;
-      transform: translateY(4rem);
+        opacity: 0;
+        transform: translateY(4rem);
     }
     100% {
-      opacity: 1;
-      transform: translateX(0);
+        opacity: 1;
+        transform: translateX(0);
     }
-  }
+}
 
-  @keyframes moveInButtonDelay-1 {
+@keyframes moveInButtonDelay-1 {
     0% {
-      opacity: 0;
-      transform: translateY(8rem);
+        opacity: 0;
+        transform: translateY(8rem);
     }
     100% {
-      opacity: 1;
-      transform: translateX(0);
+        opacity: 1;
+        transform: translateX(0);
     }
-  }
+}
 
-  @keyframes moveInButtonDelay-2 {
+@keyframes moveInButtonDelay-2 {
     0% {
-      opacity: 0;
-      transform: translateY(12rem);
+        opacity: 0;
+        transform: translateY(12rem);
     }
     100% {
-      opacity: 1;
-      transform: translateX(0);
+        opacity: 1;
+        transform: translateX(0);
     }
-  }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .secondary-titles {
+        font-size: 5.5rem;
+    }
+    
+    .become-a-tutor-third-main-title {
+        font-size: 5.8rem;
+    }
+    
+    .become-a-tutor-container1 {
+        gap: 6rem;
+    }
+    
+    .grid {
+        row-gap: 7.2rem;
+        column-gap: 4.8rem;
+    }
+}
+
+@media (max-width: 992px) {
+    html {
+        font-size: 56.25%; /* 9px */
+    }
+    
+    .become-a-tutor-container1-left h1 {
+        font-size: 6.8rem;
+        line-height: 6.2rem;
+    }
+    
+    .secondary-titles {
+        font-size: 4.8rem;
+    }
+    
+    .become-a-tutor-third-main-title {
+        font-size: 4.8rem;
+    }
+    
+    .grid-3-cols {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .our-benfits-content {
+        padding: 2.4rem 3.2rem 3.2rem 3.2rem;
+    }
+    
+    .grid-4-cols {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .connect-des {
+        padding: 1.6rem 0;
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 50%; /* 8px */
+    }
+    
+    .become-a-tutor-container1 {
+        flex-direction: column;
+        align-items: center;
+        gap: 4rem;
+    }
+    
+    .become-a-tutor-container1-left {
+        text-align: center;
+    }
+    
+    .become-a-tutor-container1-left h1 {
+        font-size: 6rem;
+        line-height: 5.6rem;
+        text-align: center;
+    }
+    
+    .become-a-tutor-timeline {
+        margin: 2rem auto;
+    }
+    
+    .grid-2-cols {
+        grid-template-columns: 1fr;
+    }
+    
+    .success-stories-content {
+        padding: 2.4rem;
+    }
+    
+    .btn, .btn:link, .btn:visited {
+        padding: 1rem 3.6rem;
+        font-size: 1.8rem;
+    }
+    
+    .become-a-tutor-fifth-container {
+        padding: 2.4rem 1.6rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .become-a-tutor-main {
+        padding: 3rem 1.5rem;
+    }
+    
+    .become-a-tutor-container1-left h1 {
+        font-size: 5.2rem;
+        line-height: 5rem;
+    }
+    
+    .heading-secondary {
+        font-size: 2rem;
+    }
+    
+    .secondary-titles {
+        font-size: 4rem;
+    }
+    
+    .become-a-tutor-third-main-title {
+        font-size: 4rem;
+    }
+    
+    .grid-3-cols {
+        grid-template-columns: 1fr;
+    }
+    
+    .grid-4-cols {
+        grid-template-columns: 1fr;
+    }
+    
+    .become-a-tutor-third-shadow {
+        margin-bottom: 0;
+    }
+    
+    .connect-title {
+        font-size: 3rem;
+    }
+    
+    .connect-des {
+        font-size: 1.4rem;
+    }
+    
+    .btn-connect:link, .btn-connect:visited {
+        padding: 1rem 2.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .become-a-tutor-container1-left h1 {
+        font-size: 4.4rem;
+        line-height: 4.2rem;
+    }
+    
+    .secondary-titles {
+        font-size: 3.4rem;
+    }
+    
+    .become-a-tutor-third-main-title {
+        font-size: 3.4rem;
+    }
+    
+    .solutions-in-numbers-title {
+        font-size: 3.6rem;
+    }
+    
+    .success-stories-content {
+        padding: 1.6rem;
+    }
+    
+    .our-benfits-content {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .become-a-tutor-container1-left h1 {
+        font-size: 3.8rem;
+        line-height: 3.6rem;
+    }
+    
+    .become-a-tutor-main-button {
+        font-size: 1.2rem;
+        padding: 1rem 1.8rem;
+    }
+}
