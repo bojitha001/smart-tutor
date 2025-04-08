@@ -6,8 +6,8 @@ const CommunityCard = ({ id, name, members, imageUrl, discordLink }) => {
 
   const handleDiscordClick = (e) => {
     e.preventDefault(); 
-    e.stopPropagation(); // Stop event bubbling
-    window.open(discordLink, "_blank"); // Open Discord link in new tab
+    e.stopPropagation(); 
+    window.open(discordLink, "_blank"); 
   };
 
   return (

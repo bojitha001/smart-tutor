@@ -13,7 +13,7 @@ function DashboardClasses() {
   const {user} = useUser();
   const userClerk = user?.id;
   // console.log(userClerk);
-
+  
   useEffect(() => {
     const fetchClasses = async() => {
       if(userClerk) {
@@ -38,6 +38,11 @@ function DashboardClasses() {
 
   console.log(upcomingClasses)
 
+  const handleMoodleClick = (e) => {
+    e.preventDefault(); 
+    window.open("http://34.93.21.206", "_blank"); 
+  };
+
   return (
     <div className={styles.dashboard}>
       {/* Removed the header section with search bar and profile */}
@@ -60,6 +65,9 @@ function DashboardClasses() {
               </div>
             ))}
           </div>
+          
+          <button onClick={handleMoodleClick} className={styles.moddleButton}>join</button>
+          
         </section>
 
         
