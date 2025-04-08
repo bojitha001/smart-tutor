@@ -100,7 +100,7 @@ const TutorProfile = () => {
               </p>
               <div className={styles.contactItemContainer}>
                 <div className={styles.contactItem}>
-                  <Mail className={styles.contactIcon} />
+                  {/* <Mail className={styles.contactIcon} /> */}
                   {/* <span>sarah.anderson@smarttutor.lk</span> */}
                 </div>
                 <div className={styles.contactItem}>
