@@ -2,8 +2,14 @@ import React from "react";
 import styles from "../../.ExternalCss/KuppiGroups.module.css";
 import { Link } from "react-router";
 
+const CommunityCard = ({ id, name, members, imageUrl, discordLink }) => {
 
-const CommunityCard = ({ id, name, members, imageUrl }) => {
+  const handleDiscordClick = (e) => {
+    e.preventDefault(); 
+    e.stopPropagation(); // Stop event bubbling
+    window.open(discordLink, "_blank"); // Open Discord link in new tab
+  };
+
   return (
     <Link to={`/kuppigroups-communities/${id}`}>
       <div key={id} className={styles.communityCard}>
@@ -15,7 +21,10 @@ const CommunityCard = ({ id, name, members, imageUrl }) => {
             <h3>{name}</h3>
             <p>{members} members</p>
           </div>
-          <button className={styles.joinButton}>Join</button>
+          <div className={styles.communityButtons}>
+            <button className={styles.disJoinButton} onClick={handleDiscordClick}>Join Discord</button>
+            <button className={styles.joinButton}>Join</button>
+          </div>
         </div>
       </div>
     </Link>

@@ -50,6 +50,7 @@ const Communities = () => {
             name={community.name}
             members={community.members}
             imageUrl={community.imageUrl}
+            discordLink={community.discordLink}
           />
         ))}
       </div>

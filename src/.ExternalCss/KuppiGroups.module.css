@@ -155,6 +155,7 @@ html {
 }
 
 .communitiesTitle {
+  padding-top: 3rem;
   font-size: 2.5rem;
   font-weight: 700;
   text-align: center;
@@ -199,7 +200,8 @@ html {
 }
 
 .joinButton {
-  padding: 0.4rem 1rem;
+  padding: 1.7rem 2rem;
+  margin-right: 10px;
   background-color: #000;
   color: white;
   border: none;
@@ -210,6 +212,21 @@ html {
 }
 
 .joinButton:disabled {
+  background-color: #555;
+}
+
+.disJoinButton {
+  padding: 1.7rem 2rem;
+  background-color: #fff;
+  color: #5A6DEE;
+  border: 2px solid #5A6DEE;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  font-weight: 500;
+}
+
+.disJoinButton:disabled {
   background-color: #555;
 }
 
